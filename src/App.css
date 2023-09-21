@@ -64,7 +64,7 @@ word-wrap: break-word;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90;
   background-color: #f4f4f4;
 }
 
@@ -122,6 +122,8 @@ select {
   height: 100px; /* Adjust the height as needed */
   resize: vertical;
 }
+
+
 
 /* Style for the submit button */
 button[type="submit"] {

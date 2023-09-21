@@ -15,6 +15,8 @@ function MyForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [listOfStudents, setListOfStudents] = useState({});
 
+
+
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
   const tardyDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
@@ -28,6 +30,18 @@ function MyForm() {
   const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
   const behaviorShoutTitle = "Shout Comment"
 
+  
+  const resetForm = () => {
+    setTeacherEmail("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setInfraction("");
+    setOffenseDescription("");
+    setInfractionPeriod("");
+  };
+  
+  
   const descriptions = {
     "Failure to Complete Work": "Description for Failure to Complete Work option",
     "Positive Behavior Shout Out!": "Description for Positive Behavior Shout Out! option",
@@ -96,7 +110,8 @@ useEffect(()=>{
              setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
              setTimeout(()=>{
                  setSuccessDisplay(false)
-             },2000)
+             },3000)
+             resetForm();
              console.log(res)
          })
             .catch(function (error){
@@ -108,12 +123,15 @@ useEffect(()=>{
                  setErrorDisplay(false)
              },2000)
          });
+    }else{
+        setErrorDisplay(true)
+        setErrorMessage("Student Not Found in System")
+        setTimeout(()=>{
+            setErrorDisplay(false)
+        },2000)
+
     }
-    setErrorDisplay(true)
-    setErrorMessage("Student Not Found in System")
-    setTimeout(()=>{
-        setErrorDisplay(false)
-    },2000)
+
 
    
   };
