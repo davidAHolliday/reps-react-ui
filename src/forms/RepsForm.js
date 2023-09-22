@@ -46,6 +46,7 @@ function MyForm() {
     setInfraction("");
     setOffenseDescription("");
     setInfractionPeriod("");
+    setSelectedOptions("")
   };
   
   
