@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import Select from "react-select";
+
 
 function MyForm() {
     const[teacherEmail,setTeacherEmail]= useState("");
@@ -13,7 +15,7 @@ function MyForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successDisplay, setSuccessDisplay] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [listOfStudents, setListOfStudents] = useState({});
+  const [listOfStudents, setListOfStudents] = useState([]);
 
 
 
@@ -29,8 +31,13 @@ function MyForm() {
   const failureToCompleteWorkTitle = "Failure to complete Work"
   const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
   const behaviorShoutTitle = "Shout Comment"
+  const [selectedOptions, setSelectedOptions] = useState();
 
   
+
+
+
+
   const resetForm = () => {
     setTeacherEmail("");
     setFirstName("");
@@ -67,20 +74,34 @@ useEffect(()=>{
         axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
         .then(function(response){
             setListOfStudents(response.data)
-
         }).catch(function (error){
             console.log(error)
         })
 
-    },[email])
+    },[]);
 
-    console.log("array")
-    console.log(listOfStudents)
+    const selectOptions = listOfStudents.map(student => ({
+        value: student.studentEmail, // Use a unique value for each option
+        label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
+        firstName: student.firstName,
+        lastName: student.lastName
+        
+      }));
+    
+      // Handle the selection change
 
     function findStudentByEmail(email) {
         const foundStudent = listOfStudents.find(student => student.studentEmail === email);
         return foundStudent || null; // Returns the found student or null if not found
       }
+
+    function handleSelect(data) {
+    setSelectedOptions(data);
+    setFirstName(data.firstName);
+    setLastName(data.lastName)
+    setEmail(data.value)
+      }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -92,6 +113,7 @@ useEffect(()=>{
       }
 
     const foundStudent = findStudentByEmail(email);
+
     if(foundStudent){
         var payload = {
             "firstName" :firstName ,
@@ -104,6 +126,8 @@ useEffect(()=>{
             }
 
             axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload
+            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+
             )
             .then(function (res){
              setSuccessDisplay(true)
@@ -131,9 +155,7 @@ useEffect(()=>{
         },2000)
 
     }
-
-
-   
+ 
   };
 
   return (
@@ -150,6 +172,18 @@ useEffect(()=>{
             </div>
             {successDisplay && <span style={{background:"green"}}> {successMessage}</span>}
             {errorDisplay && <span style={{background:"pink"}}> {errorMessage}</span>}
+            
+            <div className='question-container'>
+            <label htmlFor="selectStudent">Select Student *</label>
+                <Select
+                name="selectStudent"
+                options={selectOptions}
+                placeholder="Select Student"
+                value={selectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}/>
+            </div>
+            
             <div className='question-container'>
               <label htmlFor="teacherEmail">Teacher's Email *</label>
               <input
@@ -161,7 +195,8 @@ useEffect(()=>{
                 required
               />
             </div>
-            <div className='question-container'>
+           
+            {/* <div className='question-container'>
               <label htmlFor="firstName">Student's First Name *</label>
               <input
                 type="text"
@@ -171,8 +206,8 @@ useEffect(()=>{
                 onChange={(e) => setFirstName(e.target.value)}
                 required
               />
-            </div>
-            <div className='question-container'>
+            </div> */}
+            {/* <div className='question-container'>
               <label htmlFor="lastName">Student's Last Name *</label>
               <input
                 type="text"
@@ -182,8 +217,8 @@ useEffect(()=>{
                 onChange={(e) => setLastName(e.target.value)}
                 required
               />
-            </div>
-            <div className='question-container'>
+            </div> */}
+            {/* <div className='question-container'>
               <label htmlFor="email">Student's Email *</label>
               <input
                 type="email"
@@ -194,7 +229,7 @@ useEffect(()=>{
                     setEmail(e.target.value)}}
                 required
               />
-            </div>
+            </div> */}
             <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
               <input
