@@ -74,6 +74,9 @@ function Register() {
           />
         </div>
         <button type="submit">Register</button>
+        <div>
+        <a href='/login'><span>Already Registered? Login Here! </span></a>
+        </div>
       </form>
     </div>
   );

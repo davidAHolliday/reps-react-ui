@@ -1,8 +1,20 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { redirect, useNavigate } from 'react-router-dom';
 
 function Login() {
+
+  
+    const navigate = useNavigate();
+
+    const routeChange =()=>{
+        let path = "/create-punishment";
+        navigate(path)
+    }
+
+
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -20,9 +32,30 @@ function Login() {
     console.log('Login Data:', formData);
     // Reset form fields after submission if needed
     setFormData({
-      email: '',
+        username: '',
       password: '',
     });
+/////////////////
+axios.post("http://localhost:8080/auth",formData
+
+)
+.then(function (res){
+    console.log(res)
+    const token = res.data.response
+    console.log(token)
+    sessionStorage.setItem("Authorization",token)
+    routeChange();
+   
+
+})
+.catch(function (error){
+
+});
+
+
+/////////////////
+
+ 
   };
 
   return (
@@ -30,14 +63,13 @@ function Login() {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email</label>
+          <label>User Name</label>
           <input
-            type="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             required
-            style={{ width: 200,height:30 }} // Set the width to 100%
 
           />
         </div>
@@ -50,11 +82,13 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
             required
-            style={{ width: 200,height:30 }} // Set the width to 100%
 
           />
         </div>
         <button type="submit">Login</button>
+        <div>
+        <a href='/register'><span>New User? Register Here </span></a>
+        </div>
       </form>
     </div>
   );

@@ -33,7 +33,7 @@ function MyForm() {
   const behaviorShoutTitle = "Shout Comment"
   const [selectedOptions, setSelectedOptions] = useState();
 
-  
+
 
 
 
@@ -70,16 +70,22 @@ function MyForm() {
     return titles[selectedOption] ||  "For all offenses other than positive behavior shout out and failure to complete work."
   }
 
-
-useEffect(()=>{
-        axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-        .then(function(response){
-            setListOfStudents(response.data)
-        }).catch(function (error){
-            console.log(error)
-        })
-
-    },[]);
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
+  const url = "http://localhost:8080/student/v1/allStudents"; // Replace with your actual API endpoint
+  
+  useEffect(() => {
+    axios
+      .get(url, { headers }) // Pass the headers option with the JWT token
+      .then(function (response) {
+        setListOfStudents(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
     const selectOptions = listOfStudents.map(student => ({
         value: student.studentEmail, // Use a unique value for each option
@@ -126,8 +132,9 @@ useEffect(()=>{
             "teacherEmail": teacherEmail
             }
 
-            axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload
-            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+            axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload,
+            //  axios.post("http://localhost:8080/punish/v1/startPunish/form",
+             {headers: headers}
 
             )
             .then(function (res){
