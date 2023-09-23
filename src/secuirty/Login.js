@@ -37,8 +37,11 @@ function Login() {
             value={formData.email}
             onChange={handleChange}
             required
+            style={{ width: 200,height:30 }} // Set the width to 100%
+
           />
         </div>
+     
         <div className="form-group">
           <label>Password</label>
           <input
@@ -47,6 +50,8 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
             required
+            style={{ width: 200,height:30 }} // Set the width to 100%
+
           />
         </div>
         <button type="submit">Login</button>
