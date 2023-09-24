@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 
 
-  function RetryQuestionFormat({essay, saveAnswerAndProgress,sectionName}) {
+  function RetryQuestionFormat({essay, saveAnswerAndProgress, sectionName}) {
       const [copyText, setCopyText] = useState("")
     
     
