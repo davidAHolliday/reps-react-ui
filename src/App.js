@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MyForm from './forms/RepsForm';
+import ViolationPage from './forms/ViolationPage';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
         HEADERS
       </header>
       <body>
-        <MyForm/>
+        {/* <MyForm/> */}
+        <ViolationPage/>
       </body>
     </div>
   );
