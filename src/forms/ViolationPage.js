@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import Select from "react-select";
-import Essay1 from './ViolationContents/essay1';
-import MyForm from './RepsForm';
-import Copy1 from './ViolationContents/copy';
-import Essay2 from './ViolationContents/essay2';
-import Copy2 from './ViolationContents/copy2';
-import Essay3 from './ViolationContents/essay3';
-import Copy3 from './ViolationContents/copy3';
 import EssayFactory from './ViolationContents/EssayFormat';
+import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
 
 const essay = 
 
@@ -28,6 +21,11 @@ const essay =
         4: {"value": "incorrect","label":"McDonald, J. and Smith, A."}
   
   
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/03wsLfk6KbiDxMFk-iJ6c7nzbdO64C8za5Ti72LPyHIytEKTDT5rJJWmKygopxyl7T_q4kzjE4Sj2XbsQrQt6BOobRTtKj8P6WOafQH-Aj5gB4R-XuAGe9mynvsVuIqWSg=w740",
+      "textToCompare":"A study by Hirschfield and Gasper (2011) found a significant negative relationship between tardiness and academic performance. Persistent tardiness often translates into missed quizzes, tests, or class participation points, ultimately affecting students' final grades. Additionally, the stress and anxiety resulting from trying to catch up on missed content and assignments can further impede students' academic progress, creating a vicious cycle of poor performance."
+
     }
   },
 
@@ -45,6 +43,11 @@ const essay =
       3: {"value": "correct","label":"Rumberger and Losen"},
       4: {"value": "incorrect","label":"Gasper"}
 
+
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh5.googleusercontent.com/qQXLs297z776WQ_K7IGHSBQ--EbLRU4T6sINDGRtoOPPfmpyNbSAWZj3OR0RKmL2la_4r8GaFSjr2kGnhtXA4sckOQQEiMaTwSDxmY9t27imqIqAhlaStm6aInP3y8N9fg=w740",
+    "textToCompare":"Tardiness disrupts the learning environment, affecting both the late student and their peers. When students arrive late to class, it interrupts the flow of instruction and disturbs the concentration of their fellow classmates. As stated by Rumberger and Losen (2017), latecomers not only miss crucial information and announcements but also create a distraction that hampers the overall learning experience. Consistently missing instructional time due to tardiness can impede students' comprehension of the curriculum, leading to gaps in knowledge and understanding."
 
   }
 },
@@ -64,7 +67,10 @@ const essay =
       2: {"value": "incorrect","label":"Roberts"},
       3: {"value": "incorrect","label":"Lee"},
       4: {"value": "incorrect","label":"Davis"}
-
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh4.googleusercontent.com/8BzHp4Z8sKRegGxX4NogSMbGYiXeV8U17GRlHzd0Ir4uC1rFBtcW_H2Vdk6Q4NJkKqUU8ybTlMd1tnniFuU2Bl9YeqZlEU-7bvUmCRD0KzqICLUj8ZvWggk6tK43-F21yQ=w740",
+    "textToCompare":"The impact of punctuality on mental well-being should not be underestimated. Research by Johnson et al. (2020) highlights that individuals who adhere to punctuality experience reduced stress levels compared to those who are consistently late or fail to meet deadlines. Punctuality allows individuals to manage their time effectively, preventing the accumulation of unnecessary stress caused by rushing, missed deadlines, or unfinished tasks. This reduced stress not only enhances overall well-being but also enables individuals to perform better in various aspects of life."
 
   }
 },
@@ -87,6 +93,11 @@ const essay =
       4: {"value": "correct","label":"Davis"}
 
 
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh3.googleusercontent.com/6hYLUzCoKspxcjD7qzn2CUtogvso0aS6VX6ShJxA7kS77HfO3HS3oq-vGF_xgCjoMTavNxE73LXYLZD4004f7Jz-EM-Bt7aUbFG_-dO-khfuamd46G4cIZwb0F1U9XdZ9Q=w740",
+    "textToCompare":"Punctuality plays a pivotal role in shaping an individual's professional reputation. According to a study by Davis and Stark (2018), professionals who consistently demonstrate punctuality are viewed as reliable, trustworthy, and competent by their peers, superiors, and clients. Being punctual showcases a commitment to honoring obligations and demonstrates respect for others' time, leading to increased opportunities for career advancement and building strong professional relationships."
+
   }
 },
 }
@@ -97,6 +108,7 @@ function ViolationPage() {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [sectionNumber, setSectionNumber] = useState(1); //what section fo form are we on
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [email, setEmail] = useState();
 
 
 const saveAnswerAndProgress = () =>{
@@ -124,27 +136,50 @@ const textCorrectlyCopied = (selectedAnswer) =>{
 
   const handleRadioChange = (e) =>{
     setSelectedAnswer(e.target.value);
-
-
-
   }
-  
-  function handleSelect(data) {
 
-      }
-
-  
-      const handleNext = (e) => {
-       setSectionNumber(sectionNumber+1)
-        
-    
-        }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    
+        var payload = {
+            "studentEmail" :email ,
+            "infractionName": "Tardy",
+            }
+        
+      window.alert("Payload sent:{" + payload.studentEmail + " " + payload.infractionName+" }")
 
+    //         axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload
+    //         // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
 
-    }
+    //         )
+    //         .then(function (res){
+    //          setSuccessDisplay(true)
+    //          setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
+    //          setTimeout(()=>{
+    //              setSuccessDisplay(false)
+    //          },3000)
+    //          resetForm();
+    //          console.log(res)
+    //      })
+    //         .catch(function (error){
+    //          console.log(error)
+    //          const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
+    //          setErrorDisplay(true)
+    //          setErrorMessage(errorMessage)
+    //          setTimeout(()=>{
+    //              setErrorDisplay(false)
+    //          },2000)
+    //      });
+    // }else{
+    //     setErrorDisplay(true)
+    //     setErrorMessage("Student Not Found in System")
+    //     setTimeout(()=>{
+    //         setErrorDisplay(false)
+    //     },2000)
+
+    // }
+ 
+  };
 
 
 
@@ -154,33 +189,36 @@ const textCorrectlyCopied = (selectedAnswer) =>{
       <div className="lrKTG">
         <div className="form-container" style={{width:"100%"}}>
           <form onSubmit={handleSubmit}>
-          {/* <div className='question-container'>
-              <label htmlFor="email">Student's Email *</label>
+            <h1 className="instructions">Tardy Violation Level 1</h1>
+                {sectionNumber == 1 &&<div className='question-container'>
+              <label htmlFor="email">Enter Your Email *</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={"email"}
-                onChange={""}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </div> */}
-            <h2 className="instructions">Tardy Violation Level 1</h2>
+            </div>}
+            <hr></hr>
    
 {sectionNumber ===1 && <EssayFactory essay={essay['Question 1']} handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
-{sectionNumber ===2 && <Copy1 saveAnswerAndProgress={textCorrectlyCopied}/>}
+{sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
 {sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
-{sectionNumber ===4 && <Copy2 saveAnswerAndProgress={textCorrectlyCopied}/>}
+{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 2"}/>}
 {sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
-{sectionNumber ===6 && <Copy3 saveAnswerAndProgress={textCorrectlyCopied}/>}
+{sectionNumber ===6 && <RetryQuestionFormat essay={essay['Question 3']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 3"}/>}
 {sectionNumber ===7 && <EssayFactory essay={essay['Question 4']} handleRadioChange={handleRadioChange} sectionName={"Question 4"}/>}
-{sectionNumber ===8 && <Copy3 saveAnswerAndProgress={textCorrectlyCopied}/>}
+{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 4']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
+{sectionNumber ===9 ?  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
+<h3>Hit Submit to Record Your Response for {email} </h3>
 
+<button  onClick={()=> handleSubmit()} type="submit">Submit</button>
+</div> :
+<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>}
 
-<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>
-
-{ sectionNumber === 7   && <button disabled={isAnswerCorrect} type="submit">Next</button>
-}          </form>
+         </form>
         </div>
       </div>
     </div>
