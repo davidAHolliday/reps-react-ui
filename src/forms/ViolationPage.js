@@ -12,21 +12,55 @@ function ViolationPage(props) {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [sectionNumber, setSectionNumber] = useState(1); //what section fo form are we on
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [listOfStudents, setListOfStudents] = useState({});
   const [email, setEmail] = useState();
+  const [userValidated, setUserValidated] = useState(false);
 
   const { param1 } = useParams();
   const essay = essayData[param1]
 
+
+
+  
+  useEffect(() => {
+    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
+      .then(function (response) {
+        setListOfStudents(response.data);
+  
+        const foundStudent = response.data.find(student => student.studentEmail === email);
+  
+        if (foundStudent) {
+          setUserValidated(true);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [email]);
+  
+
+
+
+
+
+
+
 const saveAnswerAndProgress = () =>{
-  if(selectedAnswer === "correct"){
-    window.alert("this message is correct")
-    console.log(sectionNumber)
-    setSectionNumber((prev) => prev + 2);
-    console.log(sectionNumber)
+  if(userValidated){
+    if(selectedAnswer === "correct"){
+      window.alert("this message is correct")
+      console.log(sectionNumber)
+      setSectionNumber((prev) => prev + 2);
+      console.log(sectionNumber)
+  
+    }else{
+      window.alert("this message is wrong")
+      setSectionNumber((prev) => prev + 1);
+    }
+  
 
   }else{
-    window.alert("this message is wrong")
-    setSectionNumber((prev) => prev + 1);
+    window.alert("Email Not Registered in Reps DMS System")
   }
 
 }
