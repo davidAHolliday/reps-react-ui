@@ -99,9 +99,186 @@ export const essayData = {
 },
 },
 "tardy-2":{
-    "Question 1":{
     "infractionName":"Tardy",
     "level": 2,
+    "Question 1":{
+      "question":"Use the following passage to determine who cites the need to minimize distractions, specifically those related to electronic devices?",
+      "title": "Strategies to Improve Punctuality Among High School Students",
+      "body": `Punctuality is a valuable attribute that high school students should strive to cultivate. Being punctual not only fosters a sense of responsibility but also equips students with essential time management skills that will benefit them throughout their lives. This informative essay explores effective strategies to enhance punctuality among high school students, drawing on recent scholarly sources published since 2018. By implementing these strategies, students can develop a habit of punctuality and optimize their academic success.
+
+      Developing a structured routine is crucial for improving punctuality. According to Johnson et al. (2019), establishing a consistent daily schedule helps students manage their time effectively and ensures they arrive promptly at school. Students can create a detailed timetable that includes time for waking up, getting ready, completing homework assignments, and preparing for school. By adhering to a routine, students can establish a sense of discipline and reduce the likelihood of tardiness.
+      
+      Effective time-management techniques are invaluable for enhancing punctuality. A study by Roberts and Lee (2018) suggests that high school students can benefit from using techniques such as setting priorities, creating to-do lists, and utilizing digital tools like calendars and task management apps. By organizing their tasks and allocating specific time slots for each activity, students can better manage their workload and ensure they complete tasks on time, reducing the risk of tardiness.
+      
+      Distractions often contribute to students' tardiness. Recent research by Thompson and Harris (2021) highlights the importance of minimizing distractions, particularly those related to electronic devices and social media. High school students should practice self-discipline by limiting the time spent on social media platforms, video games, or other non-academic activities. Creating designated study areas free from distractions can also help students stay focused, complete tasks efficiently, and arrive at school on time.
+      
+      Developing accountability and utilizing support systems can significantly improve punctuality. A study by Clark and Baker (2019) emphasizes the role of peer support and mentorship programs in promoting punctuality among high school students. Peer support groups can hold each other accountable for punctuality, offer reminders, and provide encouragement. Additionally, involving parents, teachers, or mentors in monitoring and guiding students' punctuality efforts can be highly beneficial. These individuals can provide guidance, set expectations, and reinforce the importance of punctuality.
+      
+      Improving punctuality among high school students is crucial for their academic success and personal growth. By implementing strategies such as establishing a structured routine, utilizing time-management techniques, minimizing distractions, and cultivating accountability and support systems, students can develop a habit of punctuality that will serve them well in their future endeavors. The evidence-based research from scholarly sources published since 2018 validates the effectiveness of these strategies. By embracing punctuality, high school students can enhance their overall productivity, reduce stress levels, and maximize their potential for success.`,
+      "references": {
+          "reference1": "Clark, S., & Baker, M. (2019). Mentoring and punctuality: The influence of mentors on high school students' arrival times. Journal of Youth Studies, 22(4), 524-539.",
+          "reference2": "Johnson, L., Smith, A., & Garcia, R. (2019). Developing a structured routine: Impact on punctuality among high school students. Journal of Adolescent Research, 34(1), 35-54.",
+          "reference3": "Roberts, K., & Lee, H. (2018). Time-management techniques and their impact on punctuality in high school students. Journal of Educational Psychology, 110(4), 489-501.",
+          "reference4": "Thompson, J., & Harris, M. (2021). Minimizing distractions for improved punctuality: The role of electronic devices and social media. Journal of Applied School Psychology, 37",
+
+      },
+      "radioAnswers": {
+          1: {"value": "incorrect","label":"Roberts and Lee"},
+          2: {"value": "correct","label":"Thompson and Harris"},
+          3: {"value": "incorrect","label":"Johnson, Smith and Garcia"},
+          4: {"value": "incorrect","label":"Clark and Baker"}
+    
+    
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh6.googleusercontent.com/A40Yrx8fSa0ny8lYWN7FvojBpreK3WMt29kxcOh1dZPDLDgl6g6VYrsDneE0HFe-etCdLdBINn8kAMESy9Bz5vsEvNUhdLchf1GoHZBIH1AZa1IUuCPlTzJknoHKd_8eBToc56STnCVxLow3dZCDvXWut6cMLg",
+        "textToCompare":"Distractions often contribute to students' tardiness. Recent research by Thompson and Harris (2021) highlights the importance of minimizing distractions, particularly those related to electronic devices and social media. High school students should practice self-discipline by limiting the time spent on social media platforms, video games, or other non-academic activities. Creating designated study areas free from distractions can also help students stay focused, complete tasks efficiently, and arrive at school on time."
+  
+      }
+    },
+  
+    "Question 2":{
+    "question":"Use the following passage to determine who cites the benefits of a peer support system?",
+    "title": "Strategies to Improve Punctuality Among High School Students",
+    "body": `Punctuality is a valuable attribute that high school students should strive to cultivate. Being punctual not only fosters a sense of responsibility but also equips students with essential time management skills that will benefit them throughout their lives. This informative essay explores effective strategies to enhance punctuality among high school students, drawing on recent scholarly sources published since 2018. By implementing these strategies, students can develop a habit of punctuality and optimize their academic success.
+
+    Developing a structured routine is crucial for improving punctuality. According to Johnson et al. (2019), establishing a consistent daily schedule helps students manage their time effectively and ensures they arrive promptly at school. Students can create a detailed timetable that includes time for waking up, getting ready, completing homework assignments, and preparing for school. By adhering to a routine, students can establish a sense of discipline and reduce the likelihood of tardiness.
+    
+    Effective time-management techniques are invaluable for enhancing punctuality. A study by Roberts and Lee (2018) suggests that high school students can benefit from using techniques such as setting priorities, creating to-do lists, and utilizing digital tools like calendars and task management apps. By organizing their tasks and allocating specific time slots for each activity, students can better manage their workload and ensure they complete tasks on time, reducing the risk of tardiness.
+    
+    Distractions often contribute to students' tardiness. Recent research by Thompson and Harris (2021) highlights the importance of minimizing distractions, particularly those related to electronic devices and social media. High school students should practice self-discipline by limiting the time spent on social media platforms, video games, or other non-academic activities. Creating designated study areas free from distractions can also help students stay focused, complete tasks efficiently, and arrive at school on time.
+    
+    Developing accountability and utilizing support systems can significantly improve punctuality. A study by Clark and Baker (2019) emphasizes the role of peer support and mentorship programs in promoting punctuality among high school students. Peer support groups can hold each other accountable for punctuality, offer reminders, and provide encouragement. Additionally, involving parents, teachers, or mentors in monitoring and guiding students' punctuality efforts can be highly beneficial. These individuals can provide guidance, set expectations, and reinforce the importance of punctuality.
+    
+    Improving punctuality among high school students is crucial for their academic success and personal growth. By implementing strategies such as establishing a structured routine, utilizing time-management techniques, minimizing distractions, and cultivating accountability and support systems, students can develop a habit of punctuality that will serve them well in their future endeavors. The evidence-based research from scholarly sources published since 2018 validates the effectiveness of these strategies. By embracing punctuality, high school students can enhance their overall productivity, reduce stress levels, and maximize their potential for success.`,
+    "references": {
+        "reference1": "Clark, S., & Baker, M. (2019). Mentoring and punctuality: The influence of mentors on high school students' arrival times. Journal of Youth Studies, 22(4), 524-539.",
+        "reference2": "Johnson, L., Smith, A., & Garcia, R. (2019). Developing a structured routine: Impact on punctuality among high school students. Journal of Adolescent Research, 34(1), 35-54.",
+        "reference3": "Roberts, K., & Lee, H. (2018). Time-management techniques and their impact on punctuality in high school students. Journal of Educational Psychology, 110(4), 489-501.",
+        "reference4": "Thompson, J., & Harris, M. (2021). Minimizing distractions for improved punctuality: The role of electronic devices and social media. Journal of Applied School Psychology, 37",
+
+
+
+   
+   
+    },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Thompson and Harris"},
+        2: {"value": "incorrect","label":"Roberts and Lee"},
+        3: {"value": "correct","label":"Clark and Baker"},
+        4: {"value": "incorrect","label":"Johnson"}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh4.googleusercontent.com/V9Sbz400yQ2NSRHmzHarbSYaBlVh_MBinASk9-6v-v_5c_xz7eiU7W8YCIepISmNdrs3YAobw_LCA2MNceFvfRjDCe_1504Gu8NNdSNvqyiWNoMbsHAwq1mmiELQ-0XS_rRWJUBkc5K8Qjdy7ATrtbzaZ_X-9A",
+      "textToCompare":"Developing accountability and utilizing support systems can significantly improve punctuality. A study by Clark and Baker (2019) emphasizes the role of peer support and mentorship programs in promoting punctuality among high school students. Peer support groups can hold each other accountable for punctuality, offer reminders, and provide encouragement. Additionally, involving parents, teachers, or mentors in monitoring and guiding students' punctuality efforts can be highly beneficial. These individuals can provide guidance, set expectations, and reinforce the importance of punctuality."
+  
+    }
+  },
+  
+  "Question 3":{
+    "question":"Use the passage below to determine which of the following tips is being used:",
+    "title": "Reading the syllabus, listening to expectations or asking the teacher 'what on time looks like in this class?'",
+    "body": `How to be on time
+
+    Do you seem to be late for school a lot? Do people tease you about it? Do your grades suffer because of it? Does your tardiness annoy your teacher?
+    
+    Being on time is so important for academic success! Learn to improve your reputation and your chances for academic success with these tips for being right on time — all the time!
+    
+    Tips for Punctuality
+    
+    Rethink the meaning of "on time." People who are always on time are really people who arrive early every day--and acknowledge that things can go wrong to set them back several minutes. When things do "go wrong" these students arrive on time!
+    
+    Understand the importance of being on time. Students who are always on time are the people who earn the best grades, win scholarships, and get into great colleges. In the working world, the people who are always on time are the people who get promotions.
+    
+    Get enough sleep. If you have trouble getting out of bed in the morning, then make a serious effort to get to bed earlier. Sufficient sleep is essential for maximum brain function anyway, so you really don't want to ignore this aspect of your scholastic habits.
+    
+    Give yourself a realistic amount of time to dress and groom. You can do this with a simple exercise: Get up early one morning and time yourself (moving at a normal pace) to see how long it takes you to get ready. You may be surprised at the time it takes, especially if you find you have been trying to squeeze forty minutes worth of grooming into fifteen minutes each morning. You can try creating a time management clock.
+    
+    Know exactly when you need to be at your destination and subtract ten or fifteen minutes to establish your arrival time. This will give you time to go to the restroom or chat with friends. What time are you expected to be seated in your homeroom or your first class? If your class begins at 7:45, you should arrive at the school by 7:30 and be in your seat at 7:40.
+    
+    Be open to your teacher's preferences. Does your teacher want you to be seated early? If your teacher wants you to be in class before the bell rings, then do so if it's possible — even if you don't agree. Don't get angry and blame others if you aren't meeting the teacher's expectations. Why cause trouble for yourself?
+    
+    Communicate any problems. If your bus is always late or you have to take your little brother to school and it always makes you late, just explain this to your teacher.
+    
+    Listen to traffic news. If you depend on public transportation to get to school, always keep an eye on schedule interruptions.
+    
+    Have a backup plan for your transportation. If you normally ride to school with a friend, think ahead and plan what to do if your friend gets sick.
+    
+    Set your clocks forward by ten minutes. This is a dirty little psychological trick that many people play on themselves. The funny thing is, it really works!
+    `,
+    "references": {
+      "reference1": "Fleming, Grace. (2023, April 5). How to Be on Time. Retrieved from https://www.thoughtco.com/be-on-time-1857587",
+    },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Listen to traffic news"},
+        2: {"value": "incorrect","label":"Get enough sleep"},
+        3: {"value": "incorrect","label":"Set your clocks forward ten minutes"},
+        4: {"value": "correct","label":"Be Open to your teacher's preference"}
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh5.googleusercontent.com/_axL302n9757tqrBDDxc7figH5fqrS-Tf8sWi8wTZpISIwHNTWtwXLcEukDk7cBKYihRnWxyXB2Ql1IPI_rlHjxXfWAt8q7A32i69VlHDG78B4M4MSBntsLM1Y1iGQfizFV3hjVRH9mVzgHpjebFA-wawOg_qg",
+      "textToCompare":"Be open to your teacher's preferences. Does your teacher want you to be seated early? If your teacher wants you to be in class before the bell rings, then do so if it's possible — even if you don't agree. Don't get angry and blame others if you aren't meeting the teacher's expectations. Why cause trouble for yourself?"
+  
+    }
+  },
+  "Question 4":{
+    "question": "Use the following passage to determine who was cited for identifying the benefits of punctuality for building a reputation of trustworthiness, reliability and competence.",
+    "title": "Reaching out to your teacher prior to being late or talking with your teach at an appropriate time after being late to explain the reasoning for being tardy.",
+    "body": `How to be on time
+
+    Do you seem to be late for school a lot? Do people tease you about it? Do your grades suffer because of it? Does your tardiness annoy your teacher?
+    
+    Being on time is so important for academic success! Learn to improve your reputation and your chances for academic success with these tips for being right on time — all the time!
+    
+    Tips for Punctuality
+    
+    Rethink the meaning of "on time." People who are always on time are really people who arrive early every day--and acknowledge that things can go wrong to set them back several minutes. When things do "go wrong" these students arrive on time!
+    
+    Understand the importance of being on time. Students who are always on time are the people who earn the best grades, win scholarships, and get into great colleges. In the working world, the people who are always on time are the people who get promotions.
+    
+    Get enough sleep. If you have trouble getting out of bed in the morning, then make a serious effort to get to bed earlier. Sufficient sleep is essential for maximum brain function anyway, so you really don't want to ignore this aspect of your scholastic habits.
+    
+    Give yourself a realistic amount of time to dress and groom. You can do this with a simple exercise: Get up early one morning and time yourself (moving at a normal pace) to see how long it takes you to get ready. You may be surprised at the time it takes, especially if you find you have been trying to squeeze forty minutes worth of grooming into fifteen minutes each morning. You can try creating a time management clock.
+    
+    Know exactly when you need to be at your destination and subtract ten or fifteen minutes to establish your arrival time. This will give you time to go to the restroom or chat with friends. What time are you expected to be seated in your homeroom or your first class? If your class begins at 7:45, you should arrive at the school by 7:30 and be in your seat at 7:40.
+    
+    Be open to your teacher's preferences. Does your teacher want you to be seated early? If your teacher wants you to be in class before the bell rings, then do so if it's possible — even if you don't agree. Don't get angry and blame others if you aren't meeting the teacher's expectations. Why cause trouble for yourself?
+    
+    Communicate any problems. If your bus is always late or you have to take your little brother to school and it always makes you late, just explain this to your teacher.
+    
+    Listen to traffic news. If you depend on public transportation to get to school, always keep an eye on schedule interruptions.
+    
+    Have a backup plan for your transportation. If you normally ride to school with a friend, think ahead and plan what to do if your friend gets sick.
+    
+    Set your clocks forward by ten minutes. This is a dirty little psychological trick that many people play on themselves. The funny thing is, it really works!`,
+    "references": {
+        "reference1": "Fleming, Grace. (2023, April 5). How to Be on Time. Retrieved from https://www.thoughtco.com/be-on-time-1857587",
+  
+    
+      },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Understand the importance of being on time"},
+        2: {"value": "incorrect","label":"Have a backup plan for your transportation"},
+        3: {"value": "incorrect","label":"Set your clocks forward by ten minutes"},
+        4: {"value": "correct","label":"Communicate any problems"}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh5.googleusercontent.com/N0V1nmTr3vuDidRoF7G_5PPYKzW5oLo23eHftMlNNh0jVJW9SDEepf_02WUjMqcwVq7ETV-oXilMj72x8LeVk8H7TNa4yChxWKCpm6NWX0W6F0i2Vu9H3X6xfxVnnRrdFwu23Jm1wpF8z3gPpQ30QQoiHSWUKA",
+      "textToCompare":"Communicate any problems. If your bus is always late or you have to take your little brother to school and it always makes you late, just explain this to your teacher."
+  
+    }
+  },
+  },
+
+  ////////////////////////TARDY 3/////////////////////////////////
+  "tardy-3":{
+    "infractionName":"Tardy",
+    "level": 3,
+    "Question 1":{
       "question":"Use the following passage to determine who cites the need to minimize distractions, specifically those related to electronic devices?",
       "title": "Strategies to Improve Punctuality Among High School Students",
       "body": `Punctuality is a valuable attribute that high school students should strive to cultivate. Being punctual not only fosters a sense of responsibility but also equips students with essential time management skills that will benefit them throughout their lives. This informative essay explores effective strategies to enhance punctuality among high school students, drawing on recent scholarly sources published since 2018. By implementing these strategies, students can develop a habit of punctuality and optimize their academic success.
