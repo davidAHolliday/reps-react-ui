@@ -449,7 +449,328 @@ export const essayData = {
   
     }
   },
-  }
+  },
+   ////////////////////////HorsePlay 1/////////////////////////////////
+   "horseplay-1":{
+    "infractionName":"Horseplay",
+    "level": 1,
+    "Question 1":{
+      "question":"Use the following passage to determine which of the following was not identified as a detrimental effect of horseplay.",
+      "title": "The Detrimental Effects of Horseplay on the Learning Environment",
+      "body": `Maintaining a focused and conducive learning environment is essential for the academic progress and personal development of students. However, one common disruptive behavior that poses a significant challenge to the learning process is horseplay. Horseplay refers to rough and playful physical behavior that distracts students from their studies and undermines the learning atmosphere. This essay explores the negative impacts of horseplay on the learning environment with evidence from reputable studies.
+
+      Horseplay in educational settings increases the risk of accidents and injuries, jeopardizing the safety of students and staff alike. A study conducted by Smith and Jones (2018) reported that the majority of classroom injuries were directly linked to horseplay among students. The consequences of such injuries not only interrupt the learning process for the affected individuals but also disrupt the overall classroom dynamic, making it challenging for both teachers and students to concentrate.
+      
+      Another detrimental effect of horseplay in the learning environment is the negative impact on academic performance. A study by Anderson et al. (2017) revealed a strong correlation between classroom disruptions caused by horseplay and decreased academic achievement. Students who engage in horseplay are more likely to miss crucial information, fail to complete assignments, and experience a decline in their overall academic performance.
+      
+      Horseplay can have negative psychological effects on both the perpetrators and the victims. Research by Brown and Williams (2019) demonstrated that students who engage in horseplay may develop a lack of respect for rules and authority figures, leading to disciplinary issues in the long run. On the other hand, students who become victims of horseplay often experience feelings of anxiety, fear, and a reduced sense of belonging in the classroom. This emotional distress can hinder their ability to focus and engage in the learning process effectively.
+      
+      The disruptive nature of horseplay severely impacts the classroom's overall order and focus. A study conducted by Johnson et al. (2016) found that classrooms with a higher incidence of horseplay experienced reduced productivity and increased instances of off-task behaviors. As a result, teachers are forced to spend valuable instructional time addressing the disruptions, diverting attention away from the primary learning objectives and hindering the academic progress of the entire class.
+      
+      In conclusion, horseplay in the learning environment has serious detrimental effects that compromise the safety, academic performance, and emotional well-being of students. The increased risk of accidents and injuries, impaired academic performance, negative psychological effects, and disruption of classroom order all contribute to an unsuitable learning atmosphere. To ensure a conducive and productive learning environment, it is crucial for educators, parents, and school administrators to work together to address and prevent horseplay effectively. Implementing clear rules and consequences, fostering positive behavior, and promoting mutual respect among students can all contribute to a more focused and beneficial learning experience for everyone involved.`,
+      "references": {
+          "reference1": "Anderson, R., Turner, L., & Smith, P. (2017). The impact of disruptive behavior on academic performance: A meta-analysis. Journal of Educational Psychology, 109(2), 193-208.",
+          "reference2": "Brown, C., & Williams, G. (2019). Behavioral consequences of horseplay in the classroom. Journal of School Psychology, 87, 45-53.",
+          "reference3": "Johnson, M., Clark, E., & Miller, S. (2016). Effects of horseplay on classroom productivity. Educational Leadership, 73(4), 58-63.          ",
+          "reference4": "Smith, J., & Jones, R. (2018). Classroom injuries and their relation to horseplay among students. Journal of School Health, 85(7), 486-491.",
+
+      },
+      "radioAnswers": {
+          1: {"value": "incorrect","label":"Increased risk for accidents and injuries"},
+          2: {"value": "correct","label":"Increased rates of productive behavior"},
+          3: {"value": "incorrect","label":"Decreased Academic Performance"},
+          4: {"value": "incorrect","label":"Anxiety, fear and a reduced sense of belonging"}
+    
+    
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh3.googleusercontent.com/N5MmsC144RvqV3W4hFGuAdV-hSudjrqQbA8746WVdbcBI55lWTYdzfr6KdKOpz0U7ElKyIiSGhWhVViVKgn1r81B8Nm2kNQXdTl0X23aJaDodx7YKlezqm2Mdp-b1CnZjK0-00nNqMIl_lBsGVLnNaVfYojOqw",
+        "textToCompare":"The disruptive nature of horseplay severely impacts the classroom's overall order and focus. A study conducted by Johnson et al. (2016) found that classrooms with a higher incidence of horseplay experienced reduced productivity and increased instances of off-task behaviors. As a result, teachers are forced to spend valuable instructional time addressing the disruptions, diverting attention away from the primary learning objectives and hindering the academic progress of the entire class."
+  
+      }
+    },
+  
+    "Question 2":{
+    "question":"Use the following passage to determine who was cited for finding that the majority of classroom injuries were directly linked to horseplay. ",
+    "title": "Strategies to Improve Punctuality Among High School Students",
+    "body": `The Detrimental Effects of Horseplay on the Learning Environment
+
+    Maintaining a focused and conducive learning environment is essential for the academic progress and personal development of students. However, one common disruptive behavior that poses a significant challenge to the learning process is horseplay. Horseplay refers to rough and playful physical behavior that distracts students from their studies and undermines the learning atmosphere. This essay explores the negative impacts of horseplay on the learning environment with evidence from reputable studies.
+    
+    Horseplay in educational settings increases the risk of accidents and injuries, jeopardizing the safety of students and staff alike. A study conducted by Smith and Jones (2018) reported that the majority of classroom injuries were directly linked to horseplay among students. The consequences of such injuries not only interrupt the learning process for the affected individuals but also disrupt the overall classroom dynamic, making it challenging for both teachers and students to concentrate.
+    
+    Another detrimental effect of horseplay in the learning environment is the negative impact on academic performance. A study by Anderson et al. (2017) revealed a strong correlation between classroom disruptions caused by horseplay and decreased academic achievement. Students who engage in horseplay are more likely to miss crucial information, fail to complete assignments, and experience a decline in their overall academic performance.
+    
+    Horseplay can have negative psychological effects on both the perpetrators and the victims. Research by Brown and Williams (2019) demonstrated that students who engage in horseplay may develop a lack of respect for rules and authority figures, leading to disciplinary issues in the long run. On the other hand, students who become victims of horseplay often experience feelings of anxiety, fear, and a reduced sense of belonging in the classroom. This emotional distress can hinder their ability to focus and engage in the learning process effectively.
+    
+    The disruptive nature of horseplay severely impacts the classroom's overall order and focus. A study conducted by Johnson et al. (2016) found that classrooms with a higher incidence of horseplay experienced reduced productivity and increased instances of off-task behaviors. As a result, teachers are forced to spend valuable instructional time addressing the disruptions, diverting attention away from the primary learning objectives and hindering the academic progress of the entire class.
+    
+    In conclusion, horseplay in the learning environment has serious detrimental effects that compromise the safety, academic performance, and emotional well-being of students. The increased risk of accidents and injuries, impaired academic performance, negative psychological effects, and disruption of classroom order all contribute to an unsuitable learning atmosphere. To ensure a conducive and productive learning environment, it is crucial for educators, parents, and school administrators to work together to address and prevent horseplay effectively. Implementing clear rules and consequences, fostering positive behavior, and promoting mutual respect among students can all contribute to a more focused and beneficial learning experience for everyone involved.`,
+    "references": {
+        "reference1": "Anderson, R., Turner, L., & Smith, P. (2017). The impact of disruptive behavior on academic performance: A meta-analysis. Journal of Educational Psychology, 109(2), 193-208.",
+        "reference2": "Brown, C., & Williams, G. (2019). Behavioral consequences of horseplay in the classroom. Journal of School Psychology, 87, 45-53.",
+        "reference3": "Johnson, M., Clark, E., & Miller, S. (2016). Effects of horseplay on classroom productivity. Educational Leadership, 73(4), 58-63.          ",
+        "reference4": "Smith, J., & Jones, R. (2018). Classroom injuries and their relation to horseplay among students. Journal of School Health, 85(7), 486-491.",
+
+
+
+   
+   
+    },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Johnson"},
+        2: {"value": "incorrect","label":"Brown and Williams"},
+        3: {"value": "correct","label":"Smith and Jones"},
+        4: {"value": "incorrect","label":"Anderson"}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh5.googleusercontent.com/BS0LpYfoVWCnnbblW2A3_KwyVNus8Joi3ZUCOZAEbeJb80Pa7Mnmnm40J2vnrXVSIaZHsdqeSuwM426f9MwqL8OR8K7JgXMoWIqErgQcEb__DmgGDHZKppJUi4QAQ3vvHFN71hVL-f2tY7YEVrpaWdlSJQQptA",
+      "textToCompare":"Horseplay in educational settings increases the risk of accidents and injuries, jeopardizing the safety of students and staff alike. A study conducted by Smith and Jones (2018) reported that the majority of classroom injuries were directly linked to horseplay among students. The consequences of such injuries not only interrupt the learning process for the affected individuals but also disrupt the overall classroom dynamic, making it challenging for both teachers and students to concentrate."
+  
+    }
+  },
+  
+  "Question 3":{
+    "question":"Use the following passage to determine who was cited for identifying the negative psychological effects of horseplay on both the perpetrators and victims.",
+    "title": "The Detrimental Effects of Horseplay on the Learning Environment",
+    "body": `Maintaining a focused and conducive learning environment is essential for the academic progress and personal development of students. However, one common disruptive behavior that poses a significant challenge to the learning process is horseplay. Horseplay refers to rough and playful physical behavior that distracts students from their studies and undermines the learning atmosphere. This essay explores the negative impacts of horseplay on the learning environment with evidence from reputable studies.
+
+    Horseplay in educational settings increases the risk of accidents and injuries, jeopardizing the safety of students and staff alike. A study conducted by Smith and Jones (2018) reported that the majority of classroom injuries were directly linked to horseplay among students. The consequences of such injuries not only interrupt the learning process for the affected individuals but also disrupt the overall classroom dynamic, making it challenging for both teachers and students to concentrate.
+    
+    Another detrimental effect of horseplay in the learning environment is the negative impact on academic performance. A study by Anderson et al. (2017) revealed a strong correlation between classroom disruptions caused by horseplay and decreased academic achievement. Students who engage in horseplay are more likely to miss crucial information, fail to complete assignments, and experience a decline in their overall academic performance.
+    
+    Horseplay can have negative psychological effects on both the perpetrators and the victims. Research by Brown and Williams (2019) demonstrated that students who engage in horseplay may develop a lack of respect for rules and authority figures, leading to disciplinary issues in the long run. On the other hand, students who become victims of horseplay often experience feelings of anxiety, fear, and a reduced sense of belonging in the classroom. This emotional distress can hinder their ability to focus and engage in the learning process effectively.
+    
+    The disruptive nature of horseplay severely impacts the classroom's overall order and focus. A study conducted by Johnson et al. (2016) found that classrooms with a higher incidence of horseplay experienced reduced productivity and increased instances of off-task behaviors. As a result, teachers are forced to spend valuable instructional time addressing the disruptions, diverting attention away from the primary learning objectives and hindering the academic progress of the entire class.
+    
+    In conclusion, horseplay in the learning environment has serious detrimental effects that compromise the safety, academic performance, and emotional well-being of students. The increased risk of accidents and injuries, impaired academic performance, negative psychological effects, and disruption of classroom order all contribute to an unsuitable learning atmosphere. To ensure a conducive and productive learning environment, it is crucial for educators, parents, and school administrators to work together to address and prevent horseplay effectively. Implementing clear rules and consequences, fostering positive behavior, and promoting mutual respect among students can all contribute to a more focused and beneficial learning experience for everyone involved.`,
+    "references": {
+        "reference1": "Anderson, R., Turner, L., & Smith, P. (2017). The impact of disruptive behavior on academic performance: A meta-analysis. Journal of Educational Psychology, 109(2), 193-208.",
+        "reference2": "Brown, C., & Williams, G. (2019). Behavioral consequences of horseplay in the classroom. Journal of School Psychology, 87, 45-53.",
+        "reference3": "Johnson, M., Clark, E., & Miller, S. (2016). Effects of horseplay on classroom productivity. Educational Leadership, 73(4), 58-63.          ",
+        "reference4": "Smith, J., & Jones, R. (2018). Classroom injuries and their relation to horseplay among students. Journal of School Health, 85(7), 486-491.",
+    },
+    "radioAnswers": {
+        1: {"value": "correct","label":"Brown and Williams"},
+        2: {"value": "incorrect","label":"Smith and Jones"},
+        3: {"value": "incorrect","label":"Johnson"},
+        4: {"value": "incorrect","label":"Anderson"}
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/qS5UE5LQshLlM3lsc3aO06gHou_y75hZYA076UJM-pjshuV3J59Z0QajEiolv8rG4Io5itOg0PuwwMpPeyZzuiJ3nnEjm92dQKzr5Da9QX0ll1fUekLkM_M8gL6EF_WYTAOnC5ppLty8v3gNsiJLwfkpYeQYrg",
+      "textToCompare":"Horseplay can have negative psychological effects on both the perpetrators and the victims. Research by Brown and Williams (2019) demonstrated that students who engage in horseplay may develop a lack of respect for rules and authority figures, leading to disciplinary issues in the long run. On the other hand, students who become victims of horseplay often experience feelings of anxiety, fear, and a reduced sense of belonging in the classroom. This emotional distress can hinder their ability to focus and engage in the learning process effectively."
+  
+    }
+  },
+  "Question 4":{
+    "question": "Use the following passage to determine whether the correlation between classroom disruptions caused by horseplay and decreased academic achievement was strong, weak, moderate or inconclusive.",
+    "title": "The Detrimental Effects of Horseplay on the Learning Environment",
+    "body": `Maintaining a focused and conducive learning environment is essential for the academic progress and personal development of students. However, one common disruptive behavior that poses a significant challenge to the learning process is horseplay. Horseplay refers to rough and playful physical behavior that distracts students from their studies and undermines the learning atmosphere. This essay explores the negative impacts of horseplay on the learning environment with evidence from reputable studies.
+
+    Horseplay in educational settings increases the risk of accidents and injuries, jeopardizing the safety of students and staff alike. A study conducted by Smith and Jones (2018) reported that the majority of classroom injuries were directly linked to horseplay among students. The consequences of such injuries not only interrupt the learning process for the affected individuals but also disrupt the overall classroom dynamic, making it challenging for both teachers and students to concentrate.
+    
+    Another detrimental effect of horseplay in the learning environment is the negative impact on academic performance. A study by Anderson et al. (2017) revealed a strong correlation between classroom disruptions caused by horseplay and decreased academic achievement. Students who engage in horseplay are more likely to miss crucial information, fail to complete assignments, and experience a decline in their overall academic performance.
+    
+    Horseplay can have negative psychological effects on both the perpetrators and the victims. Research by Brown and Williams (2019) demonstrated that students who engage in horseplay may develop a lack of respect for rules and authority figures, leading to disciplinary issues in the long run. On the other hand, students who become victims of horseplay often experience feelings of anxiety, fear, and a reduced sense of belonging in the classroom. This emotional distress can hinder their ability to focus and engage in the learning process effectively.
+    
+    The disruptive nature of horseplay severely impacts the classroom's overall order and focus. A study conducted by Johnson et al. (2016) found that classrooms with a higher incidence of horseplay experienced reduced productivity and increased instances of off-task behaviors. As a result, teachers are forced to spend valuable instructional time addressing the disruptions, diverting attention away from the primary learning objectives and hindering the academic progress of the entire class.
+    
+    In conclusion, horseplay in the learning environment has serious detrimental effects that compromise the safety, academic performance, and emotional well-being of students. The increased risk of accidents and injuries, impaired academic performance, negative psychological effects, and disruption of classroom order all contribute to an unsuitable learning atmosphere. To ensure a conducive and productive learning environment, it is crucial for educators, parents, and school administrators to work together to address and prevent horseplay effectively. Implementing clear rules and consequences, fostering positive behavior, and promoting mutual respect among students can all contribute to a more focused and beneficial learning experience for everyone involved.
+    
+    `,
+    "references": {
+        "reference1": "Anderson, R., Turner, L., & Smith, P. (2017). The impact of disruptive behavior on academic performance: A meta-analysis. Journal of Educational Psychology, 109(2), 193-208.",
+        "reference2": "Brown, C., & Williams, G. (2019). Behavioral consequences of horseplay in the classroom. Journal of School Psychology, 87, 45-53.",
+        "reference3": "Johnson, M., Clark, E., & Miller, S. (2016). Effects of horseplay on classroom productivity. Educational Leadership, 73(4), 58-63.",
+        "reference4": "Smith, J., & Jones, R. (2018). Classroom injuries and their relation to horseplay among students. Journal of School Health, 85(7), 486-491.",
+  
+    
+      },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Inconclusive"},
+        2: {"value": "incorrect","label":"Moderate"},
+        3: {"value": "incorrect","label":"Weak"},
+        4: {"value": "correct","label":"Strong"}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/ZOM0jVuJVNmHjlUo9gTDWlETqH3VEdSUceTnWQUkonkDoS9qcDFJtNBs6z5nSm2a5VpfmGs0cs4PxzEsbFp18JQp2DwgRyz3JADBoiNRp-Ak3IGyDys3H6toOYePKxJitkh65r-8jl1vYkEa7AqY-uQGLC8d3A",
+      "textToCompare":"Another detrimental effect of horseplay in the learning environment is the negative impact on academic performance. A study by Anderson et al. (2017) revealed a strong correlation between classroom disruptions caused by horseplay and decreased academic achievement. Students who engage in horseplay are more likely to miss crucial information, fail to complete assignments, and experience a decline in their overall academic performance."
+  
+    }
+  },
+  },
+   ////////////////////////HorsePlay 2/////////////////////////////////
+   "horseplay-2":{
+    "infractionName":"Horseplay",
+    "level": 2,
+    "Question 1":{
+      "question":"Use the following passage to determine which of the following was NOT an accident that was cited in the article.",
+      "title": "Horse play and roughhousing at school has already gone too far",
+      "body": `A hard punch in the arm, an unexpected piggy back ride from behind, a ‘friendly’ shove into a locker; we see this behavior all the time at school. It’s quite common to see roughhousing and horse play between good friends. However, these kinds of behaviors can be threatening to students’ safety, regardless if nobody gets hurt in the end. Where must students learn to draw the line?
+
+      Amy Schwartz, a Home Office Assistant Principal at NPHS, explains, “Being socially conscious about boundaries is a life skill, and if students can respect each other’s boundaries, roughhousing wouldn’t be a problem. My only fear is that roughhousing can turn into anger very quickly if one student accidentally hurts the other or it can turn into injury without anyone having any negative intentions.”
+      
+      It seems like the horse playing at NPHS has already gone too far. A few weeks ago a sophomore was injured by a pencil at lunch. Thinking that it would be a funny joke, his friend held a pencil on his seat right before he sat down. That was one move to regret. The sophomore was brought to the hospital that very day.
+      
+      This is just a one example of horse play at school that went beyond the limit. Normally, interactions can happen so quickly that people get away with what they do.
+      
+      A NPHS security guard, Bernie Jones, shares the everyday situations he sees, “If it gets out of hand we try to stop it as quickly as possible. I understand that kids are kids, but they have to understand there’s a time and place for everything. Food get’s thrown around in the cafeteria. Ultimately, one kids throws it at another and [he or she] gets mad and it all causes a fight.”
+      
+      Jones explains a situation that happened at NPHS five years ago.
+      
+      “A student came up behind his friend and put him in a chokehold. It wasn’t too long before his friend passed out, fell to the ground, and broke his jaw. He thought [the friend] could breathe, when he couldn’t.”
+      
+      These situations that have happened in our school can be looked upon as alarming. What may seem like a friendly physical interaction between friends can turn into a horrible mistake. With 3,500 students walking through the halls, it’s best not to take chances with what could happen. Although students may mean no harm, choosing to break the cycle of boisterous behavior can eliminate hazardous actions and primarily unwanted trouble.
+      Fortunately, North Penn’s majority of students and faculty follow those rules and regulations to ensure a safe learning environment.
+      
+      “I think adults in our high school try to judge the different levels of roughhousing all the time. They don’t want to interfere with students having normal interactions, but they want to prevent a situation from escalating into a fight. It’s a delicate balance, but we are lucky to be surrounded with experienced individuals who help students to make good decisions all the time,” says Schwartz.`,
+      "references": {
+          "reference1": "Thomas, Susan. “Horse Play and Roughhousing at School Has Already Gone Too Far.” The Knight Crier, www.knightcrier.org/opinion/2015/01/02/horse-play-and-roughhousing-at-school-has-already-gone-too-far/. Accessed 24 July 2023.",
+
+      },
+      "radioAnswers": {
+          1: {"value": "incorrect","label":"Injury from sitting on a Pencil"},
+          2: {"value": "correct","label":"Broken tailbone after seat was pulled away"},
+          3: {"value": "incorrect","label":"Broken jaw after choke hold"},
+          4: {"value": "incorrect","label":"Fight ensuing after food was thrown"}
+    
+    
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh3.googleusercontent.com/hOjMpyA8GOvjsf3H3qc65YY2hTiBH0G9xlf7bdma9EwMxrzjWMT5C-l1kjG3L3ZP1KPfDTf4sAttCehPYiIAQXr1ow5NRkBGx6xSPw2UfLYV5mGuYqeJD4t32sMYE50MSAmCpsIVgWDAZiJOjXow6MyjmJfMYQ",
+        "textToCompare":"A few weeks ago a sophomore was injured by a pencil at lunch. Thinking that it would be a funny joke, his friend held a pencil on his seat right before he sat down. Food get’s thrown around in the cafeteria. Ultimately, one kids throws it at another and [he or she] gets mad and it all causes a fight. A student came up behind his friend and put him in a chokehold. It wasn’t too long before his friend passed out, fell to the ground, and broke his jaw."
+  
+      }
+    },
+  
+    "Question 2":{
+    "question":"Use the following reading to determine which of the following are true.",
+    "title": "Family Sues School After Teen Suffers Horseplay",
+    "body": `A South Florida teen suffered a spinal injury at school while horsing around. Now, his parents think that the school should be held liable for the injury. The teen, who suffered severe damage to his spine, now has a limited range of motion. It is unclear whether or not he will ever regain his full range of motion. The parents believe that the school is at fault because the teachers should have been supervising them better.
+
+    What Happened? 
+    
+    According to the family’s attorney, the kids were left alone to do as they pleased. The students videotaped a play-fight between the victim and his friend. While this was happening, the PE instructor turned around to look at the commotion, but even as the student was on the ground, he turned back to the conversation he was having.
+    
+    After the teen was on the ground, apparently injured, someone attempted to shake him, apparently trying to wake him back up.
+    
+    Elements of Negligence 
+    
+    The parents blame the school for allowing the horseplay to turn potentially deadly. They also blame the school for allowing an injured student with a potential head or neck injury to be shaken by someone else who apparently lacked even rudimentary medical training or basic common sense.
+    
+    In cases like this, a plaintiff’s attorney will point out all the ways in which the school failed its duty of care to protect its students. In this case, you have a PE instructor who hears a commotion not responding to it. Then you have another individual shaking an injured student.
+    
+    While it might be difficult to prove that the school was responsible if the PE instructor did not have time to intervene, in this case, there were two opportunities to intervene before injury occurred. The plaintiff’s attorney will focus on these two opportunities and argue that had the school been more proactive in its supervision and response to a student injury, then the student may not have been so severely injured.
+    
+    Injuries and Damages 
+    
+    The student suffered a severe injury to his spine, but it looks like he’ll recover. His life as a student-athlete, however, may be over. In addition, his quality of life may be severely reduced by his physical limitations. His parents have also accrued as much as a million dollars in medical bills. The injury may reduce his professional options or make it more difficult for him to sustain gainful employment. So all of those injuries will be brought before the court when litigating on behalf of the injured teenager.`,
+    "references": {
+        "reference1": "Payer Law. “Family Sues School after Teen Suffers Horseplay Injury.” Payer Law, www.payerandassociates.com/family-sues-school-after-teen-suffers-horseplay-injury/. Accessed 26 July 2023.",
+
+
+
+   
+   
+    },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Schools are always liable for roughhousing injuries"},
+        2: {"value": "incorrect","label":"Schools are never liable for roughhousing"},
+        3: {"value": "correct","label":"Schools may be liable if they are negligent to intervene"},
+        4: {"value": "incorrect","label":"Schools are not liable if they have rules against roughhousing"}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/59trTYvgayHTuXnhHAwn4lq6sAAQ3kGrjzdoSgV8IVpF_A8fLfcE0-GW0RkALjy0QYGZKXbsIL9kxt2dh0P2xzrsFGjrWkY9zr-Pt-zYimegA3vwItdAJlhhPyeV_EmlzJIUPIbR-qGzSgwXVo4YWniXmPb6hQ",
+      "textToCompare":"While it might be difficult to prove that the school was responsible if the PE instructor did not have time to intervene, in this case, there were two opportunities to intervene before injury occurred. The plaintiff’s attorney will focus on these two opportunities and argue that had the school been more proactive in its supervision and response to a student injury, then the student may not have been so severely injured."
+  
+    }
+  },
+  
+  "Question 3":{
+    "question":"According to the reading below the student has accrued as much as ________________ in medical bills.",
+    "title": "Family Sues School After Teen Suffers Horseplay",
+    "body": `A South Florida teen suffered a spinal injury at school while horsing around. Now, his parents think that the school should be held liable for the injury. The teen, who suffered severe damage to his spine, now has a limited range of motion. It is unclear whether or not he will ever regain his full range of motion. The parents believe that the school is at fault because the teachers should have been supervising them better.
+
+    What Happened? 
+    
+    According to the family’s attorney, the kids were left alone to do as they pleased. The students videotaped a play-fight between the victim and his friend. While this was happening, the PE instructor turned around to look at the commotion, but even as the student was on the ground, he turned back to the conversation he was having.
+    
+    After the teen was on the ground, apparently injured, someone attempted to shake him, apparently trying to wake him back up.
+    
+    Elements of Negligence 
+    
+    The parents blame the school for allowing the horseplay to turn potentially deadly. They also blame the school for allowing an injured student with a potential head or neck injury to be shaken by someone else who apparently lacked even rudimentary medical training or basic common sense.
+    
+    In cases like this, a plaintiff’s attorney will point out all the ways in which the school failed its duty of care to protect its students. In this case, you have a PE instructor who hears a commotion not responding to it. Then you have another individual shaking an injured student.
+    
+    While it might be difficult to prove that the school was responsible if the PE instructor did not have time to intervene, in this case, there were two opportunities to intervene before injury occurred. The plaintiff’s attorney will focus on these two opportunities and argue that had the school been more proactive in its supervision and response to a student injury, then the student may not have been so severely injured.
+    
+    Injuries and Damages 
+    
+    The student suffered a severe injury to his spine, but it looks like he’ll recover. His life as a student-athlete, however, may be over. In addition, his quality of life may be severely reduced by his physical limitations. His parents have also accrued as much as a million dollars in medical bills. The injury may reduce his professional options or make it more difficult for him to sustain gainful employment. So all of those injuries will be brought before the court when litigating on behalf of the injured teenager.`,
+    "references": {
+        "reference1": "Payer Law. “Family Sues School after Teen Suffers Horseplay Injury.” Payer Law, www.payerandassociates.com/family-sues-school-after-teen-suffers-horseplay-injury/. Accessed 26 July 2023.",
+    },
+    "radioAnswers": {
+        1: {"value": "correct","label":"Fifty thousand dollars"},
+        2: {"value": "incorrect","label":"One hundred thousand dollars"},
+        3: {"value": "incorrect","label":"Half a million dollars"},
+        4: {"value": "incorrect","label":"One million dollars"}
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh4.googleusercontent.com/cnENoYay1kaxc3UoyoWX4aSgurUmncGI8ZQYKlEsLAnvbS7MwJBToJUOJ45396leYQW31p-3Y-6dwmV6miVcJojCd8BCiG6DCwKncDRrSbavpmEsmopzFBeIuuAulkn9xhXqiU7RFHfNIQTU1coTKW895eZbyQ",
+      "textToCompare":"The student suffered a severe injury to his spine, but it looks like he’ll recover. His life as a student-athlete, however, may be over. In addition, his quality of life may be severely reduced by his physical limitations. His parents have also accrued as much as a million dollars in medical bills. The injury may reduce his professional options or make it more difficult for him to sustain gainful employment. So all of those injuries will be brought before the court when litigating on behalf of the injured teenager."
+  
+    }
+  },
+  "Question 4":{
+    "question": "Read the following passage to determine which of the following multiple choice answers is true.",
+    "title": "Family Sues School After Teen Suffers Horseplay ",
+    "body": `A South Florida teen suffered a spinal injury at school while horsing around. Now, his parents think that the school should be held liable for the injury. The teen, who suffered severe damage to his spine, now has a limited range of motion. It is unclear whether or not he will ever regain his full range of motion. The parents believe that the school is at fault because the teachers should have been supervising them better.
+
+    What Happened? 
+    
+    According to the family’s attorney, the kids were left alone to do as they pleased. The students videotaped a play-fight between the victim and his friend. While this was happening, the PE instructor turned around to look at the commotion, but even as the student was on the ground, he turned back to the conversation he was having.
+    
+    After the teen was on the ground, apparently injured, someone attempted to shake him, apparently trying to wake him back up.
+    
+    Elements of Negligence 
+    
+    The parents blame the school for allowing the horseplay to turn potentially deadly. They also blame the school for allowing an injured student with a potential head or neck injury to be shaken by someone else who apparently lacked even rudimentary medical training or basic common sense.
+    
+    In cases like this, a plaintiff’s attorney will point out all the ways in which the school failed its duty of care to protect its students. In this case, you have a PE instructor who hears a commotion not responding to it. Then you have another individual shaking an injured student.
+    
+    While it might be difficult to prove that the school was responsible if the PE instructor did not have time to intervene, in this case, there were two opportunities to intervene before injury occurred. The plaintiff’s attorney will focus on these two opportunities and argue that had the school been more proactive in its supervision and response to a student injury, then the student may not have been so severely injured.
+    
+    Injuries and Damages 
+    
+    The student suffered a severe injury to his spine, but it looks like he’ll recover. His life as a student-athlete, however, may be over. In addition, his quality of life may be severely reduced by his physical limitations. His parents have also accrued as much as a million dollars in medical bills. The injury may reduce his professional options or make it more difficult for him to sustain gainful employment. So all of those injuries will be brought before the court when litigating on behalf of the injured teenager.`,
+    "references": {
+        "reference1": "Payer Law. “Family Sues School after Teen Suffers Horseplay Injury.” Payer Law, www.payerandassociates.com/family-sues-school-after-teen-suffers-horseplay-injury/. Accessed 26 July 2023.",
+    
+      },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Student has recovered and is back to sports"},
+        2: {"value": "incorrect","label":"Student suffered a broken leg"},
+        3: {"value": "incorrect","label":"School was forced to pay 1 million dollars in damages"},
+        4: {"value": "correct","label":"Schools have a duty of care to protect its students from horseplay."}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"",
+      "imageTextAlt":"In cases like this, a plaintiff’s attorney will point out all the ways in which the school failed its duty of care to protect its students.",
+      "textToCompare":"In cases like this, a plaintiff’s attorney will point out all the ways in which the school failed its duty of care to protect its students."
+  
+    }
+  },
+  },
 
 }
 

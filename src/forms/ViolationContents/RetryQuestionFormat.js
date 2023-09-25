@@ -28,11 +28,11 @@ import {React, useState} from "react";
                <div>
           
             <div >
-               <img
+              {essay.retryQuestion["imageUrl"] !=="" ? <img
             src={essay.retryQuestion["imageUrl"]}
             alt="Academic Impact"
             style={{ maxWidth: '100%', height: 'auto' }}
-          />
+          />: <p>{essay.retryQuestion["imageTextAlt"]}</p>}
           </div>
             
                </div>

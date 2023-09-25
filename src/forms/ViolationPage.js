@@ -128,7 +128,7 @@ const textCorrectlyCopied = (selectedAnswer) =>{
       <div className="lrKTG">
         <div className="form-container" style={{width:"100%"}}>
           <form onSubmit={handleSubmit}>
-            <h1 className="instructions">{essay.infractionName} violation Level:{essay.level}</h1>
+            <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
                 {sectionNumber == 1 &&<div className='question-container'>
               <label htmlFor="email">Enter Your Email *</label>
               <input
