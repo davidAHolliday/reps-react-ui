@@ -51,8 +51,8 @@ function MyForm() {
   
   
   const descriptions = {
-    "Failure to Complete Work": "Description for Failure to Complete Work option",
-    "Positive Behavior Shout Out!": "Description for Positive Behavior Shout Out! option",
+    "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
+    "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
   };
 
   const titles = {
@@ -256,11 +256,15 @@ useEffect(()=>{
                 <option value="Block 2">Block 2</option>
                 <option value="Block 3">Block 3</option>
                 <option value="Block 4">Block 4</option>
-                <option value="Block 5">Block 5</option>
-                <option value="Block 6">Block 6</option>
-                <option value="Block 7">Block 7</option>
-                <option value="Block 8">Block 8</option>
-                <option value="Block 9">Block 9</option>
+                <option value="Period 1">Period 1</option>
+                <option value="Period 2">Period 2</option>
+                <option value="Period 3">Period 3</option>
+                <option value="Period 4">Period 4</option>
+                <option value="Period 5">Period 5</option>
+                <option value="Period 6">Period 6</option>
+                <option value="Period 7">Period 7</option>
+                <option value="Period 8">Period 8</option>
+                <option value="Period 9">Period 9</option>
               </select>
             </div>
             <div className='question-container'>
