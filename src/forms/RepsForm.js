@@ -243,12 +243,12 @@ useEffect(()=>{
               />
             </div> */}
                    <div className='question-container'>
-              <label htmlFor="infraction">Infraction Period *</label>
+              <label htmlFor="infractionPeriod">Infraction Period *</label>
               <select
-                id="infraction"
-                name="infraction"
-                value={infraction}
-                onChange={(e) => setInfraction(e.target.value)}
+                id="infractionPeriod"
+                name="infractionPeriod"
+                value={infractionPeriod}
+                onChange={(e) => setInfractionPeriod(e.target.value)}
                 required
               >
                 <option value="">Choose</option>
@@ -264,10 +264,10 @@ useEffect(()=>{
               </select>
             </div>
             <div className='question-container'>
-              <label htmlFor="infractionPeriod">Name of the Infraction or Positive Behavior Shout Out *</label>
+              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
               <select
-                id="infractionPeriod"
-                name="infractionPeriod"
+                id="infraction"
+                name="infraction"
                 value={infraction}
                 onChange={(e) => setInfraction(e.target.value)}
                 required
