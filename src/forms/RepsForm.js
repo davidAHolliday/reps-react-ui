@@ -196,59 +196,13 @@ useEffect(()=>{
                 required
               />
             </div>
-           
-            {/* <div className='question-container'>
-              <label htmlFor="firstName">Student's First Name *</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="lastName">Student's Last Name *</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="email">Student's Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => {
-                    setEmail(e.target.value)}}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
+                   <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
-              <input
-                type="text"
+              <select
                 id="infractionPeriod"
                 name="infractionPeriod"
                 value={infractionPeriod}
                 onChange={(e) => setInfractionPeriod(e.target.value)}
-                required
-              />
-            </div> */}
-                   <div className='question-container'>
-              <label htmlFor="infraction">Infraction Period *</label>
-              <select
-                id="infraction"
-                name="infraction"
-                value={infraction}
-                onChange={(e) => setInfraction(e.target.value)}
                 required
               >
                 <option value="">Choose</option>
@@ -268,10 +222,10 @@ useEffect(()=>{
               </select>
             </div>
             <div className='question-container'>
-              <label htmlFor="infractionPeriod">Name of the Infraction or Positive Behavior Shout Out *</label>
+              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
               <select
-                id="infractionPeriod"
-                name="infractionPeriod"
+                id="infraction"
+                name="infraction"
                 value={infraction}
                 onChange={(e) => setInfraction(e.target.value)}
                 required
