@@ -51,8 +51,8 @@ function MyForm() {
   
   
   const descriptions = {
-    "Failure to Complete Work": "Description for Failure to Complete Work option",
-    "Positive Behavior Shout Out!": "Description for Positive Behavior Shout Out! option",
+    "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
+    "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
   };
 
   const titles = {
@@ -231,7 +231,7 @@ useEffect(()=>{
                 required
               />
             </div> */}
-            <div className='question-container'>
+            {/* <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
               <input
                 type="text"
@@ -241,12 +241,37 @@ useEffect(()=>{
                 onChange={(e) => setInfractionPeriod(e.target.value)}
                 required
               />
-            </div>
-            <div className='question-container'>
-              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
+            </div> */}
+                   <div className='question-container'>
+              <label htmlFor="infraction">Infraction Period *</label>
               <select
                 id="infraction"
                 name="infraction"
+                value={infraction}
+                onChange={(e) => setInfraction(e.target.value)}
+                required
+              >
+                <option value="">Choose</option>
+                <option value="Block 1">Block 1</option>
+                <option value="Block 2">Block 2</option>
+                <option value="Block 3">Block 3</option>
+                <option value="Block 4">Block 4</option>
+                <option value="Period 1">Period 1</option>
+                <option value="Period 2">Period 2</option>
+                <option value="Period 3">Period 3</option>
+                <option value="Period 4">Period 4</option>
+                <option value="Period 5">Period 5</option>
+                <option value="Period 6">Period 6</option>
+                <option value="Period 7">Period 7</option>
+                <option value="Period 8">Period 8</option>
+                <option value="Period 9">Period 9</option>
+              </select>
+            </div>
+            <div className='question-container'>
+              <label htmlFor="infractionPeriod">Name of the Infraction or Positive Behavior Shout Out *</label>
+              <select
+                id="infractionPeriod"
+                name="infractionPeriod"
                 value={infraction}
                 onChange={(e) => setInfraction(e.target.value)}
                 required
@@ -261,6 +286,7 @@ useEffect(()=>{
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
               </select>
             </div>
+     
 
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
