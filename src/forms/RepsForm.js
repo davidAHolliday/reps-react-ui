@@ -231,7 +231,7 @@ useEffect(()=>{
                 required
               />
             </div> */}
-            <div className='question-container'>
+            {/* <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
               <input
                 type="text"
@@ -241,12 +241,33 @@ useEffect(()=>{
                 onChange={(e) => setInfractionPeriod(e.target.value)}
                 required
               />
-            </div>
-            <div className='question-container'>
-              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
+            </div> */}
+                   <div className='question-container'>
+              <label htmlFor="infraction">Infraction Period *</label>
               <select
                 id="infraction"
                 name="infraction"
+                value={infraction}
+                onChange={(e) => setInfraction(e.target.value)}
+                required
+              >
+                <option value="">Choose</option>
+                <option value="Block 1">Block 1</option>
+                <option value="Block 2">Block 2</option>
+                <option value="Block 3">Block 3</option>
+                <option value="Block 4">Block 4</option>
+                <option value="Block 5">Block 5</option>
+                <option value="Block 6">Block 6</option>
+                <option value="Block 7">Block 7</option>
+                <option value="Block 8">Block 8</option>
+                <option value="Block 9">Block 9</option>
+              </select>
+            </div>
+            <div className='question-container'>
+              <label htmlFor="infractionPeriod">Name of the Infraction or Positive Behavior Shout Out *</label>
+              <select
+                id="infractionPeriod"
+                name="infractionPeriod"
                 value={infraction}
                 onChange={(e) => setInfraction(e.target.value)}
                 required
@@ -261,6 +282,7 @@ useEffect(()=>{
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
               </select>
             </div>
+     
 
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
