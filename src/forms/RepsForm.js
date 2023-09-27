@@ -132,7 +132,7 @@ useEffect(()=>{
             )
             .then(function (res){
              setSuccessDisplay(true)
-             setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
+             setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
              setTimeout(()=>{
                  setSuccessDisplay(false)
              },3000)
