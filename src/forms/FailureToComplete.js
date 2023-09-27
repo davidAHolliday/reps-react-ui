@@ -20,6 +20,7 @@ function FailureToComplete() {
   const [lastName, setLastName] = useState('');
   const [errorDisplay, setErrorDisplay] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [listOfInfractions, setListOfInfractions] = useState([])
 
 
 
@@ -34,6 +35,18 @@ function FailureToComplete() {
 
 },[]);
 
+  
+useEffect(()=>{
+  axios.get("http://localhost:8080/punish/v1/student/"+ email)
+  .then(function(response){
+      setListOfInfractions(response.data)
+  }).catch(function (error){
+      console.log(error)
+  })
+
+},[email]);
+
+
 const selectOptions = listOfStudents.map(student => ({
     value: student.studentEmail, // Use a unique value for each option
     label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
@@ -42,12 +55,16 @@ const selectOptions = listOfStudents.map(student => ({
     
   }));
 
+
   // Handle the selection change
 
 function findStudentByEmail(email) {
     const foundStudent = listOfStudents.find(student => student.studentEmail === email);
     return foundStudent || null; // Returns the found student or null if not found
   }
+
+
+
 
 function handleSelect(data) {
 setSelectedOptions(data);
@@ -112,6 +129,30 @@ if(foundStudent){
    
   };
 
+  const handleClose = (infractionName,studentEmail) =>{
+    var payload = {
+      "infractionName" :infractionName,
+      "studentEmail":studentEmail
+      }
+  
+
+      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
+      // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload, repsdms.ue.r.appspot.com
+
+      )
+      .then(function (res){
+        console.log(res)
+        window.alert(`You Assigment Has been Closed for  ${payload.studentEmail}`)
+
+  
+   })
+      .catch(function (error){
+        console.log(error)
+
+   });
+    
+  }
+
 
 
 
@@ -150,13 +191,40 @@ if(foundStudent){
               />
             </div> */}
             <hr></hr>
-
 <button type="submit">Submit</button>
-
          </form>
-        </div>
-      </div>
-    </div>
+         List of Infrations
+         <table className="my-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date Created</th>
+      <th>Teacher</th>
+      <th>Infraction Description</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {listOfInfractions.map((x, key) => (
+      <tr key={key}>
+        <td>{x.student.firstName} {x.student.lastName}</td>
+        <td>{x.timeCreated}</td>
+        <td>{x.teacherEmail}</td>
+        <td>{x.infraction.infractionDescription}</td>
+        <td>{x.status}</td>
+        <td><button onClick={()=>{handleClose(x.infractionName,x.studentEmail)}}>Mark Closed</button></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+          </div>
+          </div>
+          </div>
+
+          
+   
   );
 }
 
