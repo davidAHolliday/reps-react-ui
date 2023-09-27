@@ -160,7 +160,7 @@ if(foundStudent){
             <h1 className="instructions">Failure To Complete Work Closure</h1>
             <div className="M7eMe">Student Work Completion Form</div>
              <h5> This form will be used to close out the "Failure to Complete Work" punishment for the specified student.{' '}
- After completing this form, the student, their guardian, and the teacher will be informed of the closure via email. </h5>
+ After clicking the "Mark as Closed" button there is no further action that needs to be taken. </h5>
    
             <div className="md0UAd" aria-hidden="true" dir="auto">
               * Indicates required question
@@ -189,7 +189,7 @@ if(foundStudent){
             <hr></hr>
 <button type="submit">Submit</button>
          </form>
-         List of Infrations
+         List of Infractions
          <table className="my-table">
   <thead>
     <tr>
