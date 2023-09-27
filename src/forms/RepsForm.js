@@ -235,7 +235,7 @@ useEffect(()=>{
                 <option value="Unauthorized Device/Cell Phone">Unauthorized Device/Cell Phone</option>
                 <option value="Disruptive Behavior">Disruptive Behavior</option>
                 <option value="Horseplay">Horseplay</option>
-                <option value="Failure to Complete Work">Failure to Complete Work</option>
+                {/* <option value="Failure to Complete Work">Failure to Complete Work</option> */}
                 <option value="Dress Code">Dress Code</option>
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
               </select>
