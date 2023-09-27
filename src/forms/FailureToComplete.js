@@ -37,10 +37,12 @@ function FailureToComplete() {
 
   
 useEffect(()=>{
-  axios.get("http://localhost:8080/punish/v1/student/"+ email)
+  axios.get("https://repsdms.ue.r.appspot.com/punish/v1/student/"+ email)
   .then(function(response){
       setListOfInfractions(response.data)
   }).catch(function (error){
+    setListOfInfractions([])
+
       console.log(error)
   })
 
@@ -129,20 +131,14 @@ if(foundStudent){
    
   };
 
-  const handleClose = (infractionName,studentEmail) =>{
-    var payload = {
-      "infractionName" :infractionName,
-      "studentEmail":studentEmail
-      }
-  
-
-      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
+  const handleClose = (punishmentId) =>{
+      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/close/"+punishmentId,{}
       // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload, repsdms.ue.r.appspot.com
 
       )
       .then(function (res){
         console.log(res)
-        window.alert(`You Assigment Has been Closed for  ${payload.studentEmail}`)
+        window.alert(`You Assigment Has been Closed for  ${email}`)
 
   
    })
@@ -213,7 +209,7 @@ if(foundStudent){
         <td>{x.teacherEmail}</td>
         <td>{x.infraction.infractionDescription}</td>
         <td>{x.status}</td>
-        <td><button onClick={()=>{handleClose(x.infractionName,x.studentEmail)}}>Mark Closed</button></td>
+        <td><button onClick={()=>{handleClose(x.punishmentId)}}>Mark Closed</button></td>
       </tr>
     ))}
   </tbody>
