@@ -253,7 +253,8 @@ useEffect(()=>{
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
                 {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getDescription(infraction)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
