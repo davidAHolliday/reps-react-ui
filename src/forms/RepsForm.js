@@ -31,6 +31,7 @@ function MyForm() {
   const failureToCompleteWorkTitle = "Failure to complete Work"
   const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
   const behaviorShoutTitle = "Shout Comment"
+  const concernTitle = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
   const [selectedOptions, setSelectedOptions] = useState();
 
   
@@ -53,11 +54,13 @@ function MyForm() {
   const descriptions = {
     "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
     "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
+    "Behavioral Concern": "Please write a description of the behavior that concerns you and any actions you have suggested to remedy the situation."
   };
 
   const titles = {
     "Failure to Complete Work": "Failure to Complete Work",
     "Positive Behavior Shout Out!": "Positive Behavior Shout Out! ",
+    "Behavioral Concern": "Behavioral Concern"
   };
 
 
@@ -238,6 +241,7 @@ useEffect(()=>{
                 {/* <option value="Failure to Complete Work">Failure to Complete Work</option> */}
                 <option value="Dress Code">Dress Code</option>
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
+                <option value="Behavioral Concern">Behavioral Concern</option>
               </select>
             </div>
      
@@ -245,12 +249,14 @@ useEffect(()=>{
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
               {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getTitle(infraction)
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
                 {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" || 
+                infraction === "Behavioral Concern"
                   ? getDescription(infraction)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
