@@ -138,7 +138,7 @@ if(foundStudent){
       )
       .then(function (res){
         console.log(res)
-        window.alert(`You Assigment Has been Closed for  ${email}`)
+        window.alert(`You Assigment Has been marked Completed for  ${email}`)
 
   
    })
@@ -160,7 +160,7 @@ if(foundStudent){
             <h1 className="instructions">Failure To Complete Work Closure</h1>
             <div className="M7eMe">Student Work Completion Form</div>
              <h5> This form will be used to close out the "Failure to Complete Work" punishment for the specified student.{' '}
- After clicking the "Mark as Closed" button there is no further action that needs to be taken. </h5>
+ After clicking the "Mark as Completed" button there is no further action that needs to be taken. </h5>
    
             <div className="md0UAd" aria-hidden="true" dir="auto">
               * Indicates required question
@@ -209,7 +209,7 @@ if(foundStudent){
         <td>{x.teacherEmail}</td>
         <td>{x.infraction.infractionDescription}</td>
         <td>{x.status}</td>
-        <td><button onClick={()=>{handleClose(x.punishmentId)}}>Mark Closed</button></td>
+        <td><button onClick={()=>{handleClose(x.punishmentId)}}>Mark Completed</button></td>
       </tr>
     ))}
   </tbody>
