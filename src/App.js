@@ -1,26 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MyForm from './forms/RepsForm';
+import ViolationPage from './forms/ViolationPage';
+import FailureToComplete from './forms/FailureToComplete';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './secuirty/Login';
 import Register from './secuirty/Register';
 
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        HEADERS
-      </header>
-      <Router>
+    <Router>
       <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/create-punishment" element={<MyForm/>} />
-        {/* Add more routes for other pages */}
+      <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/infractionAssignments/:param1" element={<ViolationPage />} />
+      <Route path="/" element={<MyForm />} />
+      <Route path="/forms/start-punishment" element={<MyForm />} />
+      <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
       </Routes>
     </Router>
-    </div>
   );
+
+
 }
 
 export default App;

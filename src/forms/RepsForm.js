@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Select from "react-select";
+import { baseUrl } from '../utils/jsonData';
 
 
 function MyForm() {
@@ -51,8 +52,8 @@ function MyForm() {
   
   
   const descriptions = {
-    "Failure to Complete Work": "Description for Failure to Complete Work option",
-    "Positive Behavior Shout Out!": "Description for Positive Behavior Shout Out! option",
+    "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
+    "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
   };
 
   const titles = {
@@ -74,7 +75,7 @@ function MyForm() {
     Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
   };
   
-  const url = "http://localhost:8080/student/v1/allStudents"; // Replace with your actual API endpoint
+  const url = `${baseUrl}/student/v1/allStudents`; // Replace with your actual API endpoint
   
   useEffect(() => {
     axios
@@ -132,14 +133,13 @@ function MyForm() {
             "teacherEmail": teacherEmail
             }
 
-            axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload,
-            //  axios.post("http://localhost:8080/punish/v1/startPunish/form",
+            axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
              {headers: headers}
 
             )
             .then(function (res){
              setSuccessDisplay(true)
-             setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
+             setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
              setTimeout(()=>{
                  setSuccessDisplay(false)
              },3000)
@@ -203,51 +203,30 @@ function MyForm() {
                 required
               />
             </div>
-           
-            {/* <div className='question-container'>
-              <label htmlFor="firstName">Student's First Name *</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="lastName">Student's Last Name *</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="email">Student's Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => {
-                    setEmail(e.target.value)}}
-                required
-              />
-            </div> */}
-            <div className='question-container'>
+                   <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
-              <input
-                type="text"
+              <select
                 id="infractionPeriod"
                 name="infractionPeriod"
                 value={infractionPeriod}
                 onChange={(e) => setInfractionPeriod(e.target.value)}
                 required
-              />
+              >
+                <option value="">Choose</option>
+                <option value="Block 1">Block 1</option>
+                <option value="Block 2">Block 2</option>
+                <option value="Block 3">Block 3</option>
+                <option value="Block 4">Block 4</option>
+                <option value="Period 1">Period 1</option>
+                <option value="Period 2">Period 2</option>
+                <option value="Period 3">Period 3</option>
+                <option value="Period 4">Period 4</option>
+                <option value="Period 5">Period 5</option>
+                <option value="Period 6">Period 6</option>
+                <option value="Period 7">Period 7</option>
+                <option value="Period 8">Period 8</option>
+                <option value="Period 9">Period 9</option>
+              </select>
             </div>
             <div className='question-container'>
               <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
@@ -268,6 +247,7 @@ function MyForm() {
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
               </select>
             </div>
+     
 
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">

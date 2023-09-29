@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
+import { baseUrl } from '../utils/jsonData';
 
 function Login() {
 
@@ -8,7 +9,7 @@ function Login() {
     const navigate = useNavigate();
 
     const routeChange =()=>{
-        let path = "/create-punishment";
+        let path = "/";
         navigate(path)
     }
 
@@ -36,7 +37,7 @@ function Login() {
       password: '',
     });
 /////////////////
-axios.post("http://localhost:8080/auth",formData
+axios.post(`${baseUrl}/auth`,formData
 
 )
 .then(function (res){
