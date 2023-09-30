@@ -1,9 +1,15 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { baseUrl } from '../utils/jsonData';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    firstName: '',
+    lastName: ' ',
+    schoolName: ' ',
+    username: '',
     password: '',
     confirmPassword: '',
   });
@@ -20,25 +26,52 @@ function Register() {
     e.preventDefault();
     // Perform registration logic here using formData
     console.log('Registration Data:', formData);
-    // Reset form fields after submission if needed
-    setFormData({
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    });
+    axios.post(`${baseUrl}/register`,formData)
+    .then(function (res){
+      console.log(res)
+      window.alert(`You Have Been Registered`)
+      navigate("/login")
+    
+ })
+    .catch(function (error){
+      console.log(error)
+
+ });
+    
+
   };
 
   return (
     <div className="register-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Name</label>
+      <div className="form-group">
+        <label>School Name</label>
+        <input
+          type="text"
+          name="schoolName"
+          value={formData.schoolName}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        
+          <label>First Name</label>
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
             onChange={handleChange}
             required
           />
@@ -47,7 +80,7 @@ function Register() {
           <label>Email</label>
           <input
             type="email"
-            name="email"
+            name="username"
             value={formData.email}
             onChange={handleChange}
             required

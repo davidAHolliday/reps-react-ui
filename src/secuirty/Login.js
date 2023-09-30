@@ -9,7 +9,7 @@ function Login() {
     const navigate = useNavigate();
 
     const routeChange =()=>{
-        let path = "/";
+        let path = "/dashboard";
         navigate(path)
     }
 
@@ -43,8 +43,15 @@ axios.post(`${baseUrl}/auth`,formData
 .then(function (res){
     console.log(res)
     const token = res.data.response
+    const userName = res.data.userModel.firstName
+    const schoolName = res.data.userModel.schoolName
+    const email = res.data.userModel.username
     console.log(token)
     sessionStorage.setItem("Authorization",token)
+    sessionStorage.setItem("userName",userName)
+    sessionStorage.setItem("schoolName",schoolName)
+    sessionStorage.setItem("email",email)
+
     routeChange();
    
 

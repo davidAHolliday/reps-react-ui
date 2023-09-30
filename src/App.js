@@ -6,6 +6,7 @@ import FailureToComplete from './forms/FailureToComplete';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './secuirty/Login';
 import Register from './secuirty/Register';
+import Dashboard from './components/Dashboard';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>}/>
       <Route path="/infractionAssignments/:param1" element={<ViolationPage />} />
-      <Route path="/" element={<MyForm />} />
+      <Route path="/" element={<Login/>} />
+      <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/forms/start-punishment" element={<MyForm />} />
       <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
       </Routes>
