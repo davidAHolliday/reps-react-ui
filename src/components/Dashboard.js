@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
+  const [loggedIn,setLoggedIn] = useState();
   const handleLogout = () => {
     // Clear the session authorization (JWT token) here
     sessionStorage.removeItem('Authorization');
+    sessionStorage.removeItem("userName");
+    sessionStorage.removeItem("schoolName")
+    sessionStorage.removeItem("email")
     
     // You can also redirect the user to the login page or any other page after logout
     window.location.href = '/login';
   };
 
 
+  useEffect(()=>{
+    if(sessionStorage.getItem("Authorization")=== null){
+      window.location.href = '/login';
+  
+    }else{
+      setLoggedIn(true);
+    }
+  })
+
+
   return (
+    loggedIn &&
     <div className="dashboard">
           <button onClick={handleLogout}>Logout</button>
       <h1>Greetings, {sessionStorage.getItem("userName")}!</h1>
