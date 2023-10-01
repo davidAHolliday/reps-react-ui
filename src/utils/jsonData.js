@@ -1072,5 +1072,216 @@ export const essayData = {
         "textToCompare":"Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues."
       }
     },
-  },
+        ////////////////////////Dress Code 3/////////////////////////////////
+        "dresscode-3":{
+          "infractionName":"Dress Code",
+          "level": 3,
+          "Question 1":{
+            "question":"Use the following reading to determine who was cited for identifying the challenges financial circumstances may play in adhering to dress code.",
+            "title": "Understanding the Factors behind Dress Code Violations among Students",
+            "body": `Dress code violations among students have been a recurring issue in educational institutions. Understanding the reasons behind these violations is crucial for effectively addressing the problem and promoting a conducive learning environment. This informative essay aims to explore the factors that contribute to dress code violations among students. This essay will provide insights into the underlying causes and shed light on potential strategies to minimize dress code infractions.
+
+            One of the key reasons students commit dress code violations is the desire for self-expression and individuality. According to Smith and Mann (2019), students often see dress codes as stifling their ability to showcase their personal style. Dressing in a way that deviates from the prescribed dress code can be an attempt by students to assert their identity and express themselves. Schools that utilize a dress code should provide students an avenue to express themselves in other ways that are productive to the student and the school community.
+            
+            Peer influence and social norms significantly contribute to dress code violations among students. Research by Johnson (2020) suggests that students may feel compelled to conform to the fashion choices of their peers, even if they are in violation of the dress code. The pressure to fit in and gain acceptance within their social circles can override their understanding of the rules. Addressing this issue requires creating an inclusive and supportive environment where students feel comfortable adhering to the dress code without fear of social exclusion or ridicule.
+            
+            Socioeconomic factors can also contribute to dress code violations among students. Davis et al. (2018) highlight that students from low-income backgrounds may face challenges in acquiring the appropriate attire outlined in the dress code. Financial constraints can limit their access to clothing that complies with the rules, leading to unintentional violations. Schools can address this issue by providing resources or establishing partnerships to assist economically disadvantaged students in obtaining clothing that aligns with the dress code.
+            
+            Understanding the reasons behind dress code violations among students is essential for developing effective strategies to address the issue. Factors such as the need for self-expression, peer influence, lack of understanding or awareness, and socioeconomic factors all play a role in students' non-compliance with dress code policies. By recognizing these factors, educational institutions can implement proactive measures such as promoting individuality within dress code boundaries, fostering a supportive social environment, improving communication and awareness of dress code guidelines, and addressing socioeconomic barriers. By addressing these underlying causes, schools can foster a culture of compliance and create an inclusive learning environment that balances the need for self-expression and adherence to dress code policies.`,
+            "references": {
+            },
+            "radioAnswers": {
+                1: {"value": "correct","label":"Davis"},
+                2: {"value": "incorrect","label":"Smith and Mann"},
+                3: {"value": "incorrect","label":"Johnson"},
+                4: {"value": "incorrect","label":"Holland"}
+            },
+            "retryQuestion": "https://lh5.googleusercontent.com/jcltVzpVxvRR1S2zhYphOxOgn6R6YHyiA-uyXzREUTYy9_WehJU0gUaa0Do9UuaooORE-uSidLZD-VGAj2Pz2z70uxy7GDBZrFUfcIhqLzt4hLxjTJQnBM9g6we5Eqv149GP2SI5iUr1aGygXijJiSrR2qz4IQ",
+              "textToCompare":"Socioeconomic factors can also contribute to dress code violations among students. Davis et al. (2018) highlight that students from low-income backgrounds may face challenges in acquiring the appropriate attire outlined in the dress code. Financial constraints can limit their access to clothing that complies with the rules, leading to unintentional violations. Schools can address this issue by providing resources or establishing partnerships to assist economically disadvantaged students in obtaining clothing that aligns with the dress code."
+            }
+          },
+        
+          "Question 2":{
+          "question":"Use the following reading to determine who cited self expression as a cause for dress code violation.",
+          "title": "Understanding the Factors behind Dress Code Violations among Students",
+          "body": `Dress code violations among students have been a recurring issue in educational institutions. Understanding the reasons behind these violations is crucial for effectively addressing the problem and promoting a conducive learning environment. This informative essay aims to explore the factors that contribute to dress code violations among students. This essay will provide insights into the underlying causes and shed light on potential strategies to minimize dress code infractions.
+
+          One of the key reasons students commit dress code violations is the desire for self-expression and individuality. According to Smith and Mann (2019), students often see dress codes as stifling their ability to showcase their personal style. Dressing in a way that deviates from the prescribed dress code can be an attempt by students to assert their identity and express themselves. Schools that utilize a dress code should provide students an avenue to express themselves in other ways that are productive to the student and the school community.
+          
+          Peer influence and social norms significantly contribute to dress code violations among students. Research by Johnson (2020) suggests that students may feel compelled to conform to the fashion choices of their peers, even if they are in violation of the dress code. The pressure to fit in and gain acceptance within their social circles can override their understanding of the rules. Addressing this issue requires creating an inclusive and supportive environment where students feel comfortable adhering to the dress code without fear of social exclusion or ridicule.
+          
+          Socioeconomic factors can also contribute to dress code violations among students. Davis et al. (2018) highlight that students from low-income backgrounds may face challenges in acquiring the appropriate attire outlined in the dress code. Financial constraints can limit their access to clothing that complies with the rules, leading to unintentional violations. Schools can address this issue by providing resources or establishing partnerships to assist economically disadvantaged students in obtaining clothing that aligns with the dress code.
+          
+          Understanding the reasons behind dress code violations among students is essential for developing effective strategies to address the issue. Factors such as the need for self-expression, peer influence, lack of understanding or awareness, and socioeconomic factors all play a role in students' non-compliance with dress code policies. By recognizing these factors, educational institutions can implement proactive measures such as promoting individuality within dress code boundaries, fostering a supportive social environment, improving communication and awareness of dress code guidelines, and addressing socioeconomic barriers. By addressing these underlying causes, schools can foster a culture of compliance and create an inclusive learning environment that balances the need for self-expression and adherence to dress code policies.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "incorrect","label":"Rodriguez"},
+            2: {"value": "incorrect","label":"Johnson"},
+            3: {"value": "incorrect","label":"Davis"},
+            4: {"value": "correct","label":"Smith and Mann"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh6.googleusercontent.com/_17ShaLgmurOcX9DP5wViJjdwrIAb-i363fALxiZDWB-nr2rRcZFUMCuB6iOwCt_ewsil9ppy9OblF1pr3iwvJE6NW6V24r9RFdFlfJqhSVA0ikuy_QFrGOGtiIzRgIc_pFAar8SzeW-9zsqLgN40x1VfhwtFw",
+            "textToCompare":"One of the key reasons students commit dress code violations is the desire for self-expression and individuality. According to Smith and Mann (2019), students often see dress codes as stifling their ability to showcase their personal style. Dressing in a way that deviates from the prescribed dress code can be an attempt by students to assert their identity and express themselves. Schools that utilize a dress code should provide students an avenue to express themselves in other ways that are productive to the student and the school community."
+          }
+        },
+    
+        "Question 3":{
+          "question":"Using the reading below, determine who was cited for identifying the impact peers can have on dress code violations. ",
+          "title": "Understanding the Factors behind Dress Code Violations among Students",
+          "body": `Dress code violations among students have been a recurring issue in educational institutions. Understanding the reasons behind these violations is crucial for effectively addressing the problem and promoting a conducive learning environment. This informative essay aims to explore the factors that contribute to dress code violations among students. This essay will provide insights into the underlying causes and shed light on potential strategies to minimize dress code infractions.
+
+          One of the key reasons students commit dress code violations is the desire for self-expression and individuality. According to Smith and Mann (2019), students often see dress codes as stifling their ability to showcase their personal style. Dressing in a way that deviates from the prescribed dress code can be an attempt by students to assert their identity and express themselves. Schools that utilize a dress code should provide students an avenue to express themselves in other ways that are productive to the student and the school community.
+          
+          Peer influence and social norms significantly contribute to dress code violations among students. Research by Johnson (2020) suggests that students may feel compelled to conform to the fashion choices of their peers, even if they are in violation of the dress code. The pressure to fit in and gain acceptance within their social circles can override their understanding of the rules. Addressing this issue requires creating an inclusive and supportive environment where students feel comfortable adhering to the dress code without fear of social exclusion or ridicule.
+          
+          Socioeconomic factors can also contribute to dress code violations among students. Davis et al. (2018) highlight that students from low-income backgrounds may face challenges in acquiring the appropriate attire outlined in the dress code. Financial constraints can limit their access to clothing that complies with the rules, leading to unintentional violations. Schools can address this issue by providing resources or establishing partnerships to assist economically disadvantaged students in obtaining clothing that aligns with the dress code.
+          
+          Understanding the reasons behind dress code violations among students is essential for developing effective strategies to address the issue. Factors such as the need for self-expression, peer influence, lack of understanding or awareness, and socioeconomic factors all play a role in students' non-compliance with dress code policies. By recognizing these factors, educational institutions can implement proactive measures such as promoting individuality within dress code boundaries, fostering a supportive social environment, improving communication and awareness of dress code guidelines, and addressing socioeconomic barriers. By addressing these underlying causes, schools can foster a culture of compliance and create an inclusive learning environment that balances the need for self-expression and adherence to dress code policies.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "incorrect","label":"Rodriguez"},
+            2: {"value": "incorrect","label":"Smith and Mann"},
+            3: {"value": "correct","label":"Johnson"},
+            4: {"value": "incorrect","label":"Davis"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh4.googleusercontent.com/zd-ncH1iENRDstQJPOjzfVQrhnQesnJszrKA6PR3h4z1ZkA4-STHmQgen9EVQifTk9_6UyAU0-GHdBQXjbAz5Qt28crDDnw4nJLnZYwgH2EnB5XdtEAn9zmc3Od_IBMG0_CYkhgtzhWIJkANrS7ASibGv40Xsw",
+            "textToCompare":"Peer influence and social norms significantly contribute to dress code violations among students. Research by Johnson (2020) suggests that students may feel compelled to conform to the fashion choices of their peers, even if they are in violation of the dress code. The pressure to fit in and gain acceptance within their social circles can override their understanding of the rules. Addressing this issue requires creating an inclusive and supportive environment where students feel comfortable adhering to the dress code without fear of social exclusion or ridicule."
+          }
+        },
+    
+        "Question 4":{
+          "question": "After reading the passage, were you able to identify any underlying causes for your participation in horseplay?",
+          "title": "",
+          "body": ``,
+          "references": {
+            },
+          "radioAnswers": {
+          },
+          "retryQuestion": {
+            "imageUrl":"",
+            "imageTextAlt":"",
+            "textToCompare":""
+        
+          }
+        },
+
+        ////////////////////////Disruptive Behavior 1/////////////////////////////////
+        "disruptivebehavior-1":{
+          "infractionName":"Disruptive Behavior",
+          "level": 1,
+          "Question 1":{
+            "question":"Use the following passage to determine who was cited for identifying the compounding effect of disruptive behavior when more students partake in off task behavior.",
+            "title": "Disruptive Behavior and its Impact on the Learning Environment",
+            "body": `The learning environment is a crucial factor in determining the success of education. A positive and conducive setting promotes engagement, learning, and academic achievement. However, disruptive behavior among students can significantly hinder the learning process for both the disruptive students and their peers. This essay examines the various ways in which disruptive behavior affects the learning environment, drawing on research and studies from educational experts.
+
+            Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class.
+            
+            Disruptive behavior not only affects the student engaging in it but also takes an emotional toll on their peers and teachers. In a study published by the Journal of School Psychology in 2013, it was found that peers of disruptive students reported higher levels of stress, anxiety, and frustration in the classroom. Teachers, too, experienced increased stress and burnout due to the constant challenge of managing disruptive behaviors. This emotional burden impacts the overall classroom atmosphere and can lead to a less supportive and nurturing learning environment for all students.
+          
+            Effective learning is dependent on a positive and harmonious classroom environment. Disruptive behavior disrupts this dynamic, creating an atmosphere of tension and distraction. A study by Rimm-Kaufman, Fan, and Chiu,  in 2007 found that classrooms with higher levels of disruptive behavior had lower levels of cooperation, engagement, and prosocial behavior. This disruption can hinder effective communication and collaboration among students, preventing them from fully participating in group activities and discussions, which are essential components of a well-rounded education.
+          
+            Disruptive behavior can create a disruptive classroom culture, influencing other students to engage in similar behaviors. This phenomenon is known as the "contagion effect," where disruptive actions spread among peers due to negative social influence (Anderson et al., 2020). As more students adopt disruptive behavior, the learning environment becomes increasingly challenging for both teachers and well-behaved students, leading to a cycle of disruptive conduct.
+      
+            Disruptive behavior in the learning environment has far-reaching consequences on students, teachers, and the overall educational experience. It negatively impacts academic performance, emotional well-being, and classroom dynamics. Understanding the impact of disruptive behavior on the learning environment is essential for implementing effective strategies to address and prevent such behaviors. By addressing disruptive behavior proactively, we can create classrooms that inspire a love for learning and facilitate the growth and development of every student.`,
+            "references": {
+            },
+            "radioAnswers": {
+                1: {"value": "incorrect","label":"Gottfried, M. A."},
+                2: {"value": "correct","label":"Anderson"},
+                3: {"value": "incorrect","label":"Rimm-Kaufman, Fan, and Chiu"},
+                4: {"value": "incorrect","label":"Sprick, Knight, Reinke, and McKale"}
+            },
+            "retryQuestion":{
+              "imageUrl": "https://lh4.googleusercontent.com/Gk_XsmgJepP0oDTK5pcLry_-fZ79u6oi9d4KrhOhcYoCQYDb1Jb7yln8XHPUYctC9UI7xD9Z5VRGx2LI2PnS48wwFVXLS91d9ETs5cjI8FZH1Xf8ZzfUr2yulc2KB-5nDmV0qVFIrU7YTNEiLWJSQ9I42hhpmQ",
+              "textToCompare":"Disruptive behavior can create a disruptive classroom culture, influencing other students to engage in similar behaviors. This phenomenon is known as the \"contagion effect,\" where disruptive actions spread among peers due to negative social influence (Anderson et al., 2020). As more students adopt disruptive behavior, the learning environment becomes increasingly challenging for both teachers and well-behaved students, leading to a cycle of disruptive conduct."
+            },
+          },
+        
+          "Question 2":{
+          "question":"In what year did the Journal of School Psychology publish a study that found that disruptive students create an environment that causes higher levels of stress for other students in the class.",
+          "title": "Disruptive Behavior and its Impact on the Learning Environment",
+          "body": `The learning environment is a crucial factor in determining the success of education. A positive and conducive setting promotes engagement, learning, and academic achievement. However, disruptive behavior among students can significantly hinder the learning process for both the disruptive students and their peers. This essay examines the various ways in which disruptive behavior affects the learning environment, drawing on research and studies from educational experts.
+
+          Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class.
+          
+          Disruptive behavior not only affects the student engaging in it but also takes an emotional toll on their peers and teachers. In a study published by the Journal of School Psychology in 2013, it was found that peers of disruptive students reported higher levels of stress, anxiety, and frustration in the classroom. Teachers, too, experienced increased stress and burnout due to the constant challenge of managing disruptive behaviors. This emotional burden impacts the overall classroom atmosphere and can lead to a less supportive and nurturing learning environment for all students.
+          
+          Effective learning is dependent on a positive and harmonious classroom environment. Disruptive behavior disrupts this dynamic, creating an atmosphere of tension and distraction. A study by Rimm-Kaufman, Fan, Chiu, and You in 2007 found that classrooms with higher levels of disruptive behavior had lower levels of cooperation, engagement, and prosocial behavior. This disruption can hinder effective communication and collaboration among students, preventing them from fully participating in group activities and discussions, which are essential components of a well-rounded education.
+          
+          Disruptive behavior can create a disruptive classroom culture, influencing other students to engage in similar behaviors. This phenomenon is known as the "contagion effect," where disruptive actions spread among peers due to negative social influence (Anderson et al., 2020). As more students adopt disruptive behavior, the learning environment becomes increasingly challenging for both teachers and well-behaved students, leading to a cycle of disruptive conduct.
+          
+          Disruptive behavior in the learning environment has far-reaching consequences on students, teachers, and the overall educational experience. It negatively impacts academic performance, emotional well-being, and classroom dynamics. Understanding the impact of disruptive behavior on the learning environment is essential for implementing effective strategies to address and prevent such behaviors. By addressing disruptive behavior proactively, we can create classrooms that inspire a love for learning and facilitate the growth and development of every student.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "incorrect","label":"2020"},
+            2: {"value": "incorrect","label":"2007"},
+            3: {"value": "correct","label":"2013"},
+            4: {"value": "incorrect","label":"2006"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh3.googleusercontent.com/tIHGKAcEYlzievjOp7uIPPo_r5auUQd5UMCI1aex4Dv-HeKJexC_dunMTHqQWPaUd6-rHGQZ-QrHS86sfbqxS49QuL5c1BE9xXTukv7das3rcy-HNKzTlV8incmYim6C2md-hU6kuRjvYTQm-nOWqAsnuhLvTQ",
+            "textToCompare":"Disruptive behavior not only affects the student engaging in it but also takes an emotional toll on their peers and teachers. In a study published by the Journal of School Psychology in 2013, it was found that peers of disruptive students reported higher levels of stress, anxiety, and frustration in the classroom. Teachers, too, experienced increased stress and burnout due to the constant challenge of managing disruptive behaviors. This emotional burden impacts the overall classroom atmosphere and can lead to a less supportive and nurturing learning environment for all students."
+          }
+        },
+    
+        "Question 3":{
+          "question":"Use the following passage to determine who was cited for finding that higher rates of disruptive behavior correlated to lower academic achievement and test scores. ",
+          "title": "Disruptive Behavior and its Impact on the Learning Environment",
+          "body": `The learning environment is a crucial factor in determining the success of education. A positive and conducive setting promotes engagement, learning, and academic achievement. However, disruptive behavior among students can significantly hinder the learning process for both the disruptive students and their peers. This essay examines the various ways in which disruptive behavior affects the learning environment, drawing on research and studies from educational experts.
+
+          Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class.
+          
+          Disruptive behavior not only affects the student engaging in it but also takes an emotional toll on their peers and teachers. In a study published by the Journal of School Psychology in 2013, it was found that peers of disruptive students reported higher levels of stress, anxiety, and frustration in the classroom. Teachers, too, experienced increased stress and burnout due to the constant challenge of managing disruptive behaviors. This emotional burden impacts the overall classroom atmosphere and can lead to a less supportive and nurturing learning environment for all students.
+          
+          Effective learning is dependent on a positive and harmonious classroom environment. Disruptive behavior disrupts this dynamic, creating an atmosphere of tension and distraction. A study by Rimm-Kaufman, Fan, and Chiu in 2007 found that classrooms with higher levels of disruptive behavior had lower levels of cooperation, engagement, and prosocial behavior. This disruption can hinder effective communication and collaboration among students, preventing them from fully participating in group activities and discussions, which are essential components of a well-rounded education.
+          
+          Disruptive behavior can create a disruptive classroom culture, influencing other students to engage in similar behaviors. This phenomenon is known as the "contagion effect," where disruptive actions spread among peers due to negative social influence (Anderson et al., 2020). As more students adopt disruptive behavior, the learning environment becomes increasingly challenging for both teachers and well-behaved students, leading to a cycle of disruptive conduct.
+          
+          Disruptive behavior in the learning environment has far-reaching consequences on students, teachers, and the overall educational experience. It negatively impacts academic performance, emotional well-being, and classroom dynamics. Understanding the impact of disruptive behavior on the learning environment is essential for implementing effective strategies to address and prevent such behaviors. By addressing disruptive behavior proactively, we can create classrooms that inspire a love for learning and facilitate the growth and development of every student.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "correct","label":"RodrSprick, Knight, Reinke, and McKaleiguez"},
+            2: {"value": "incorrect","label":"Rimm-Kaufman, Fan, Chiu"},
+            3: {"value": "incorrect","label":"Anderson"},
+            4: {"value": "incorrect","label":"Davis"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh5.googleusercontent.com/QVtcJrn8LW8Din3oni-fCpWFCl9VoiSRALWz42QWC4TZrdTvVh-vgoWjVMNG4qhusRaV3AZ8-c6LOPna7yC5_ZW5XvLD_9uCOcSYvWkaDJCku1vMk0GhwUQwKYecOt-V01H1FA16y5anX9SxkkmJqZUTp7Gp8Q",
+            "textToCompare":"Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class."
+          }
+        },
+    
+        "Question 4":{
+          "question": "Use the following passage to determine who was cited for finding that students in disruptive environments are less likely to cooperate, communicate and engage with the class and their peers.",
+          "title": "Disruptive Behavior and its Impact on the Learning Environment",
+          "body": `The learning environment is a crucial factor in determining the success of education. A positive and conducive setting promotes engagement, learning, and academic achievement. However, disruptive behavior among students can significantly hinder the learning process for both the disruptive students and their peers. This essay examines the various ways in which disruptive behavior affects the learning environment, drawing on research and studies from educational experts.
+
+          Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class.
+          
+          Disruptive behavior not only affects the student engaging in it but also takes an emotional toll on their peers and teachers. In a study published by the Journal of School Psychology in 2013, it was found that peers of disruptive students reported higher levels of stress, anxiety, and frustration in the classroom. Teachers, too, experienced increased stress and burnout due to the constant challenge of managing disruptive behaviors. This emotional burden impacts the overall classroom atmosphere and can lead to a less supportive and nurturing learning environment for all students.
+          
+          Effective learning is dependent on a positive and harmonious classroom environment. Disruptive behavior disrupts this dynamic, creating an atmosphere of tension and distraction. A study by Rimm-Kaufman, Fan, Chiu, and You in 2007 found that classrooms with higher levels of disruptive behavior had lower levels of cooperation, engagement, and prosocial behavior. This disruption can hinder effective communication and collaboration among students, preventing them from fully participating in group activities and discussions, which are essential components of a well-rounded education.
+          
+          Disruptive behavior can create a disruptive classroom culture, influencing other students to engage in similar behaviors. This phenomenon is known as the "contagion effect," where disruptive actions spread among peers due to negative social influence (Anderson et al., 2020). As more students adopt disruptive behavior, the learning environment becomes increasingly challenging for both teachers and well-behaved students, leading to a cycle of disruptive conduct.
+          
+          Disruptive behavior in the learning environment has far-reaching consequences on students, teachers, and the overall educational experience. It negatively impacts academic performance, emotional well-being, and classroom dynamics. Understanding the impact of disruptive behavior on the learning environment is essential for implementing effective strategies to address and prevent such behaviors. By addressing disruptive behavior proactively, we can create classrooms that inspire a love for learning and facilitate the growth and development of every student.`,
+          "references": {
+            },
+          "radioAnswers": {
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh4.googleusercontent.com/Gql9o-3MYQVs4JhvU5eqRfDeEIBZBGu5n93amhQg4nI1ARH0O12XgkEwipf9HM38_fZC5tifMEOvwHdZx5cNSZW320NmzRFbZjRN_V5m-FkKW6UMQmrER_CGa2IUCHS4Mj0uIE41EuQ0yQAjH11Knua7zyvFLw",
+            "imageTextAlt":"",
+            "textToCompare":"Effective learning is dependent on a positive and harmonious classroom environment. Disruptive behavior disrupts this dynamic, creating an atmosphere of tension and distraction. A study by Rimm-Kaufman, Fan, Chiu, and You in 2007 found that classrooms with higher levels of disruptive behavior had lower levels of cooperation, engagement, and prosocial behavior. This disruption can hinder effective communication and collaboration among students, preventing them from fully participating in group activities and discussions, which are essential components of a well-rounded education."
+        
+          }
+        },
+      },
+      }
 }
