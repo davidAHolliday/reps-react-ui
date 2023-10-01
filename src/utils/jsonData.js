@@ -772,5 +772,183 @@ export const essayData = {
   },
   },
 
-}
+  ////////////////////////HorsePlay 3/////////////////////////////////
+  "horseplay-3":{
+    "infractionName":"Horseplay",
+    "level": 3,
+    "Question 1":{
+      "question":"Use the following passage to answer this True or False Question:",
+      "title": "Peer Pressure is never an underlying cause of roughhousing.",
+      "body": `Unraveling the Underlying Causes of Roughhousing and Horseplay in Schools
+
+      Roughhousing and horseplay are common occurrences in school settings and have been a subject of concern for educators, parents, and policymakers alike. While these activities may seem harmless and even part of childhood, they can lead to serious consequences if not appropriately addressed. Understanding the underlying causes of roughhousing and horseplay in schools is crucial for implementing effective strategies to mitigate their negative impact on students' well-being and academic performance. This essay delves into some of the primary factors contributing to these behaviors and offers insights into potential solutions.
+      
+      One significant cause of roughhousing and horseplay in schools is rooted in children's physiological development. During their formative years, children experience substantial physical growth and changes, leading to an increase in energy levels and a desire for physical activity. As a result, students may engage in rough play as a way to release pent-up energy and explore their physical capabilities. While some physical activity is essential for healthy development, guiding children towards appropriate outlets for their energy is essential to prevent undesirable behavior.
+
+      The peer environment plays a critical role in shaping students' behavior in school. Roughhousing and horseplay can be contagious behaviors influenced by peers seeking acceptance and approval from their classmates. The desire to fit in and gain social status within a peer group may lead some students to participate in such activities, even if they do not inherently enjoy them. Addressing peer pressure and promoting positive social interactions can help curb the prevalence of rough play in schools.
+  
+      Some students may resort to roughhousing and horseplay as a means of seeking attention. Whether due to a lack of recognition at home or a desire to stand out in the classroom, engaging in disruptive behavior can be an outlet for them to feel noticed. Identifying such students and addressing their emotional needs through positive reinforcement and communication can help redirect their attention-seeking behavior into more constructive channels.
+      
+      Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies.
+      
+      Rough play can provide sensory stimulation through physical touch and movement, satisfying students' innate curiosity and desire for sensory experiences. Some children may have sensory processing differences, making them more susceptible to seeking out intense sensory activities. Schools can support such students by incorporating sensory-friendly spaces and activities, allowing them to explore their sensory needs without resorting to disruptive behaviors.
+  
+      Insufficient supervision and inconsistent enforcement of rules can contribute to the prevalence of roughhousing and horseplay in schools. When students perceive that teachers and staff are not actively monitoring their behavior, they may be more inclined to engage in inappropriate play. Creating a structured and well-supervised environment, where clear boundaries are established and consistently enforced, can foster a positive school culture.
+      
+      Roughhousing and horseplay in schools are multifaceted issues influenced by physiological, social, emotional, and environmental factors. Recognizing and addressing the underlying causes can help educators, parents, and policymakers implement effective strategies to curb such behaviors. By promoting a supportive, engaging, and well-supervised learning environment that addresses students' emotional needs and provides appropriate outlets for their energy, schools can foster a positive atmosphere conducive to academic success and personal growth. Ultimately, it is essential to strike a balance between allowing physical activity and ensuring a safe and respectful educational setting for all students.`,
+      "references": {
+      },
+      "radioAnswers": {
+          1: {"value": "correct","label":"True"},
+          2: {"value": "incorrect","label":"False"},
+    
+    
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh6.googleusercontent.com/BLObh4_AHYKXsHyo-7g0hwSnj5aoLcSg2sUE7niYOCTkHRYYeezU_a2FHb5eWLYn-jjWOSTkvHL96H6FWxxTMuc0m3dhRZX3JxcnWwZIyv_hXu6NwwYPN6tO9bgLFjXEQw3A1GYeSeWsowTSqslmlN7dL5RH3A",
+        "textToCompare":"The peer environment plays a critical role in shaping students' behavior in school. Roughhousing and horseplay can be contagious behaviors influenced by peers seeking acceptance and approval from their classmates. The desire to fit in and gain social status within a peer group may lead some students to participate in such activities, even if they do not inherently enjoy them. Addressing peer pressure and promoting positive social interactions can help curb the prevalence of rough play in schools."
+  
+      }
+    },
+  
+    "Question 2":{
+    "question":"Use the following passage to answer this True or False Question:",
+    "title": "Roughhousing/Horseplay may be a coping mechanism for dealing with overwhelming emotions and stressors.",
+    "body": `Unraveling the Underlying Causes of Roughhousing and Horseplay in Schools
+
+    Roughhousing and horseplay are common occurrences in school settings and have been a subject of concern for educators, parents, and policymakers alike. While these activities may seem harmless and even part of childhood, they can lead to serious consequences if not appropriately addressed. Understanding the underlying causes of roughhousing and horseplay in schools is crucial for implementing effective strategies to mitigate their negative impact on students' well-being and academic performance. This essay delves into some of the primary factors contributing to these behaviors and offers insights into potential solutions.
+    
+    One significant cause of roughhousing and horseplay in schools is rooted in children's physiological development. During their formative years, children experience substantial physical growth and changes, leading to an increase in energy levels and a desire for physical activity. As a result, students may engage in rough play as a way to release pent-up energy and explore their physical capabilities. While some physical activity is essential for healthy development, guiding children towards appropriate outlets for their energy is essential to prevent undesirable behavior.
+    
+    The peer environment plays a critical role in shaping students' behavior in school. Roughhousing and horseplay can be contagious behaviors influenced by peers seeking acceptance and approval from their classmates. The desire to fit in and gain social status within a peer group may lead some students to participate in such activities, even if they do not inherently enjoy them. Addressing peer pressure and promoting positive social interactions can help curb the prevalence of rough play in schools.
+    
+    Some students may resort to roughhousing and horseplay as a means of seeking attention. Whether due to a lack of recognition at home or a desire to stand out in the classroom, engaging in disruptive behavior can be an outlet for them to feel noticed. Identifying such students and addressing their emotional needs through positive reinforcement and communication can help redirect their attention-seeking behavior into more constructive channels.
+    
+    Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies.
+    
+    Rough play can provide sensory stimulation through physical touch and movement, satisfying students' innate curiosity and desire for sensory experiences. Some children may have sensory processing differences, making them more susceptible to seeking out intense sensory activities. Schools can support such students by incorporating sensory-friendly spaces and activities, allowing them to explore their sensory needs without resorting to disruptive behaviors.
+    
+    Insufficient supervision and inconsistent enforcement of rules can contribute to the prevalence of roughhousing and horseplay in schools. When students perceive that teachers and staff are not actively monitoring their behavior, they may be more inclined to engage in inappropriate play. Creating a structured and well-supervised environment, where clear boundaries are established and consistently enforced, can foster a positive school culture.
+    
+    Roughhousing and horseplay in schools are multifaceted issues influenced by physiological, social, emotional, and environmental factors. Recognizing and addressing the underlying causes can help educators, parents, and policymakers implement effective strategies to curb such behaviors. By promoting a supportive, engaging, and well-supervised learning environment that addresses students' emotional needs and provides appropriate outlets for their energy, schools can foster a positive atmosphere conducive to academic success and personal growth. Ultimately, it is essential to strike a balance between allowing physical activity and ensuring a safe and respectful educational setting for all students.`,
+    "references": {
+    },
+    "radioAnswers": {
+        1: {"value": "correct","label":"True"},
+        2: {"value": "incorrect","label":"False"},
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/7ogDXl-LxxXC1N7RfxARN8nZFV4I4tLofpp3VbV9eSWBHH-KXneGTkSYlB-K2r6Nq9wfq7PsPeZy82BKCfxHzmWZvhO8JXoXtIrqVSn2dJxig4sr4VOvlvvSInP3G86fWRNHO0UWpmM_EHxCo3MUKPCMaVQI7w",
+      "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
+    }
+  },
+  
+  "Question 3":{
+    "question":"Use the following passage to answer this True or False Question:",
+    "title": "Horseplay may be a means of attention seeking from peers or adults.",
+    "body": `Unraveling the Underlying Causes of Roughhousing and Horseplay in Schools
+
+    Roughhousing and horseplay are common occurrences in school settings and have been a subject of concern for educators, parents, and policymakers alike. While these activities may seem harmless and even part of childhood, they can lead to serious consequences if not appropriately addressed. Understanding the underlying causes of roughhousing and horseplay in schools is crucial for implementing effective strategies to mitigate their negative impact on students' well-being and academic performance. This essay delves into some of the primary factors contributing to these behaviors and offers insights into potential solutions.
+    
+    One significant cause of roughhousing and horseplay in schools is rooted in children's physiological development. During their formative years, children experience substantial physical growth and changes, leading to an increase in energy levels and a desire for physical activity. As a result, students may engage in rough play as a way to release pent-up energy and explore their physical capabilities. While some physical activity is essential for healthy development, guiding children towards appropriate outlets for their energy is essential to prevent undesirable behavior.
+    
+    The peer environment plays a critical role in shaping students' behavior in school. Roughhousing and horseplay can be contagious behaviors influenced by peers seeking acceptance and approval from their classmates. The desire to fit in and gain social status within a peer group may lead some students to participate in such activities, even if they do not inherently enjoy them. Addressing peer pressure and promoting positive social interactions can help curb the prevalence of rough play in schools.
+  
+    Some students may resort to roughhousing and horseplay as a means of seeking attention. Whether due to a lack of recognition at home or a desire to stand out in the classroom, engaging in disruptive behavior can be an outlet for them to feel noticed. Identifying such students and addressing their emotional needs through positive reinforcement and communication can help redirect their attention-seeking behavior into more constructive channels.
+    
+    Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies.
+    
+    Rough play can provide sensory stimulation through physical touch and movement, satisfying students' innate curiosity and desire for sensory experiences. Some children may have sensory processing differences, making them more susceptible to seeking out intense sensory activities. Schools can support such students by incorporating sensory-friendly spaces and activities, allowing them to explore their sensory needs without resorting to disruptive behaviors.
+    
+    Insufficient supervision and inconsistent enforcement of rules can contribute to the prevalence of roughhousing and horseplay in schools. When students perceive that teachers and staff are not actively monitoring their behavior, they may be more inclined to engage in inappropriate play. Creating a structured and well-supervised environment, where clear boundaries are established and consistently enforced, can foster a positive school culture.
+    
+    Roughhousing and horseplay in schools are multifaceted issues influenced by physiological, social, emotional, and environmental factors. Recognizing and addressing the underlying causes can help educators, parents, and policymakers implement effective strategies to curb such behaviors. By promoting a supportive, engaging, and well-supervised learning environment that addresses students' emotional needs and provides appropriate outlets for their energy, schools can foster a positive atmosphere conducive to academic success and personal growth. Ultimately, it is essential to strike a balance between allowing physical activity and ensuring a safe and respectful educational setting for all students.`,
+    "references": {
+    },
+    "radioAnswers": {
+        1: {"value": "correct","label":"True"},
+        2: {"value": "incorrect","label":"False"}
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh4.googleusercontent.com/x7SagwwVRR6qtVvZ5OVJgqEQ3eyr5Nc6hLxUqn7t2Dbz8Ft-BvYPhxHjcSwItcBS11AI54WxVUVPV_TJSd0rcDTuxeqDqKGWmrP6mDvzhHEVxlbUqKk_u0gJ267-5RwWDEyZ5phM5AW9PLQCDIXJ9knq3eEKBQ",
+      "textToCompare":"Some students may resort to roughhousing and horseplay as a means of seeking attention. Whether due to a lack of recognition at home or a desire to stand out in the classroom, engaging in disruptive behavior can be an outlet for them to feel noticed. Identifying such students and addressing their emotional needs through positive reinforcement and communication can help redirect their attention-seeking behavior into more constructive channels."
+  
+    }
+  },
+  "Question 4":{
+    "question": "After reading the passage, were you able to identify any underlying causes for your participation in horseplay?",
+    "title": "",
+    "body": ``,
+    "references": {
+      },
+    "radioAnswers": {
+    },
+    "retryQuestion": {
+      "imageUrl":"",
+      "imageTextAlt":"",
+      "textToCompare":""
+  
+    }
+  },
+  },
+
+
+  ////////////////////////Dress Code 1/////////////////////////////////
+  "dresscode-1":{
+    "infractionName":"Dress Code",
+    "level": 1,
+    "Question 1":{
+      "question":"Use the following passage to determine who was cited for identifying the need for a baseline of appropriate clothing choices to reduce distractions?",
+      "title": "Dress Codes: Enhancing Safety in Schools",
+      "body": `Schools play a crucial role in fostering a safe and conducive learning environment for students. While various measures contribute to this objective, implementing dress codes has emerged as an effective strategy in recent years. Dress codes promote discipline, minimize distractions, and enhance the overall safety of schools. This essay aims to present a persuasive argument for the implementation of dress codes in schools.
+
+      Dress codes contribute to improved discipline among students, ultimately enhancing the safety of schools. According to Smith and Mann (2019), dress codes establish clear guidelines for appropriate attire, instilling a sense of responsibility and respect among students. The enforcement of dress codes encourages students to adhere to rules and regulations, reducing instances of unruly behavior and promoting a more orderly school environment.
+      
+      Dress codes serve as a deterrent to gang-related activities, creating a safer atmosphere in schools. Research conducted by Johnson (2018) demonstrates that dress codes restrict students from wearing attire associated with specific gangs or gangs' colors, reducing the visibility and influence of gang-related symbolism. By prohibiting gang-related clothing, schools can mitigate the potential for conflicts and violence associated with gang affiliations, fostering a safer environment for all students.
+      
+      Dress codes minimize distractions caused by provocative or inappropriate attire, thus fostering a focused and secure learning environment. In the words of Rodriguez (2019), dress codes establish a baseline for appropriate clothing choices, reducing the potential for disruptive or revealing clothing that may divert attention away from academic pursuits. By establishing a professional and conducive atmosphere, dress codes help maintain the integrity of the educational environment, ensuring that students can concentrate on their studies without unnecessary distractions.
+      
+      The implementation of dress codes in schools significantly contributes to creating a safer educational environment. Dress codes enhance discipline and behavior, reduce gang-related activities, mitigate socioeconomic disparities, and minimize distractions. The evidence from the sources cited in this essay, all published since 2018, supports the effectiveness of dress codes in improving safety within schools. By implementing appropriate dress codes, educational institutions can provide students with a secure and conducive environment for learning and personal development.`,
+      "references": {
+      },
+      "radioAnswers": {
+          1: {"value": "incorrect","label":"Smith and Mann"},
+          2: {"value": "correct","label":"Rodrigues"},
+          3: {"value": "incorrect","label":"Johnson"},
+          4: {"value": "incorrect","label":"McDonald, J. and Smith, A."}
+    
+    
+      },
+      "retryQuestion": "https://lh4.googleusercontent.com/-ZpWBivpsht7Lep5xAxLTNoNW6lBJ2bi4QrynqLUfAioOp38-XxFue8SWcjZFN_vGKoE2F8VUbYFMaqK-LSQqgfnfHe3FxrFE3al9mbBe-ZtP-BEPAftatf0A3JPwhC2iryM8xuBL8LBvGMgozjpVxCPh5-B3",
+        "textToCompare":"Dress codes minimize distractions caused by provocative or inappropriate attire, thus fostering a focused and secure learning environment. In the words of Rodriguez (2019), dress codes establish a baseline for appropriate clothing choices, reducing the potential for disruptive or revealing clothing that may divert attention away from academic pursuits. By establishing a professional and conducive atmosphere, dress codes help maintain the integrity of the educational environment, ensuring that students can concentrate on their studies without unnecessary distractions."
+  
+      }
+    },
+  
+    "Question 2":{
+    "question":"Use the following passage to determine who cited the ability of dress codes to instill a sense of responsibility and respect. ",
+    "title": "Dress Codes: Enhancing Safety in Schools",
+    "body": `Schools play a crucial role in fostering a safe and conducive learning environment for students. While various measures contribute to this objective, implementing dress codes has emerged as an effective strategy in recent years. Dress codes promote discipline, minimize distractions, and enhance the overall safety of schools. This essay aims to present a persuasive argument for the implementation of dress codes in schools.
+
+    Dress codes contribute to improved discipline among students, ultimately enhancing the safety of schools. According to Smith and Mann (2019), dress codes establish clear guidelines for appropriate attire, instilling a sense of responsibility and respect among students. The enforcement of dress codes encourages students to adhere to rules and regulations, reducing instances of unruly behavior and promoting a more orderly school environment.
+    
+    Dress codes serve as a deterrent to gang-related activities, creating a safer atmosphere in schools. Research conducted by Johnson (2018) demonstrates that dress codes restrict students from wearing attire associated with specific gangs or gangs' colors, reducing the visibility and influence of gang-related symbolism. By prohibiting gang-related clothing, schools can mitigate the potential for conflicts and violence associated with gang affiliations, fostering a safer environment for all students.
+    
+    Dress codes minimize distractions caused by provocative or inappropriate attire, thus fostering a focused and secure learning environment. In the words of Rodriguez (2019), dress codes establish a baseline for appropriate clothing choices, reducing the potential for disruptive or revealing clothing that may divert attention away from academic pursuits. By establishing a professional and conducive atmosphere, dress codes help maintain the integrity of the educational environment, ensuring that students can concentrate on their studies without unnecessary distractions.
+    
+    The implementation of dress codes in schools significantly contributes to creating a safer educational environment. Dress codes enhance discipline and behavior, reduce gang-related activities, mitigate socioeconomic disparities,  and minimize distractions. The evidence from the sources cited in this essay, all published since 2018, supports the effectiveness of dress codes in improving safety within schools. By implementing appropriate dress codes, educational institutions can provide students with a secure and conducive environment for learning and personal development.`,
+    "references": {
+    },
+    "radioAnswers": {
+      1: {"value": "correct","label":"Smith and Mann"},
+      2: {"value": "incorrect","label":"Rodrigues"},
+      3: {"value": "incorrect","label":"Johnson"},
+      4: {"value": "incorrect","label":"McDonald, J. and Smith, A."}
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/7ogDXl-LxxXC1N7RfxARN8nZFV4I4tLofpp3VbV9eSWBHH-KXneGTkSYlB-K2r6Nq9wfq7PsPeZy82BKCfxHzmWZvhO8JXoXtIrqVSn2dJxig4sr4VOvlvvSInP3G86fWRNHO0UWpmM_EHxCo3MUKPCMaVQI7w",
+      "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
+    }
+  },
+  }
 
