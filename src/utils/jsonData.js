@@ -1432,4 +1432,113 @@ export const essayData = {
         }
       },
     },
+
+    ////////////////////////Disruptive Behavior 3/////////////////////////////////
+    "disruptivebehavior-3":{
+      "infractionName":"Disruptive Behavior",
+      "level": 3,
+      "Question 1":{
+        "question":"Read the following passage to determine who describes disruptive behavior as maladaptive coping mechanisms.",
+        "title": "The Underlying Causes of Disruptive Behavior in School",
+        "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+
+        One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+
+        The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+
+        Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+        
+        The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+        
+        Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+        
+        Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+        "references": {
+        },
+        "radioAnswers": {
+            1: {"value": "correct","label":"Bradshaw, Waasdorp, and Leaf"},
+            2: {"value": "incorrect","label":"Cornell and Mayer"},
+            3: {"value": "incorrect","label":"Rumberger and Palardy"},
+            4: {"value": "incorrect","label":"Reyes, Brackett, Rivers, White, and Salovey"}
+        },
+        "retryQuestion":{
+          "imageUrl": "https://lh6.googleusercontent.com/nHJWjWvRPhQdkTzBGas_psLP62eaednyX6s1JpEjup3Xo5J_TWQ36HZW8I2cmhf4pVFXNd2KHpHovAhpj-Eq6C5iRxDm0--RWZsOm4ckjZQzmkGsXPEdckBRycFIh6GcqirKwFMn3zdCIVkYeR2uD6Y2V-HWvw",
+          "textToCompare":"One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012)."
+        },
+      },
+    
+      "Question 2":{
+      "question":"Read the following passage to determine who was cited for identifying a negative correlation between academic performance and disruptive behavior and found that students who struggled academically were more likely to be disruptive in class.",
+      "title": "The Underlying Causes of Disruptive Behavior in School",
+      "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+
+      One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+
+      The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+
+      Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+
+      The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+
+      Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+
+      Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+      "references": {
+      },
+      "radioAnswers": {
+        1: {"value": "incorrect","label":"Reyes, Brackett, Rivers, White, and Salovey"},
+        2: {"value": "correct","label":"Rumberger and Palardy"},
+        3: {"value": "incorrect","label":"Cornell and Mayer"},
+        4: {"value": "incorrect","label":"Bradshaw, Waasdorp, and Leaf"}
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh6.googleusercontent.com/iI9C-zOAU_ADvrrEZDxWa0KWW4WcyA3_lahDyceDimXMGAmUxuVD2VwW0FwhxkQyBuNz5t9wGOPI5M_f8jut8pfLUCDffb5n-NNzDBFLSbicLPR1KNwZ3L9BZrY_3iXSeMeh1Nj0RUyVazLNpldtHBJ217v6jg",
+        "textToCompare":"Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior."
+      }
+    },
+
+    "Question 3":{
+      "question":"Read the following passage to determine who was cited for identifying the correlation between home environment stressors and disruptive behavior.",
+      "title": "The Underlying Causes of Disruptive Behavior in School",
+      "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+
+      One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+
+      The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+
+      Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+
+      The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+
+      Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+
+      Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+      "references": {
+      },
+      "radioAnswers": {
+        1: {"value": "incorrect","label":"Cornell and Mayer"},
+        2: {"value": "correct","label":"Reyes, Brackett, Rivers, White, and Salovey"},
+        3: {"value": "incorrect","label":"Bradshaw, Waasdorp, and Leaf"},
+        4: {"value": "incorrect","label":"Proctor, Linley and Maltby"}
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh5.googleusercontent.com/6ZHbgVh9_QCia_B4x2_hv1Dnkfjehv0hqj8LPf8miykhkp6RA-xKudvdwBgmWX8pgnBP3M6yglq0IJg1jy7pwymvEz5Qkqk0A1AwaJFc_6qjjpoPM9fy0n8jBh9YCc7V8f0MuwdSkOnw62o33iV8qFJvD7Gkjw",
+        "textToCompare":"The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012)."
+      }
+    },
+
+    "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+    "title": "",
+    "body": ``,
+    "references": {
+      },
+    "radioAnswers": {
+    },
+    "retryQuestion": {
+      "imageUrl":"",
+      "imageTextAlt":"",
+      "textToCompare":""
+  
+    }
+    },
 }
