@@ -1283,5 +1283,153 @@ export const essayData = {
           }
         },
       },
-      }
+      },
+      ////////////////////////Disruptive Behavior 2/////////////////////////////////
+      "disruptivebehavior-2":{
+        "infractionName":"Disruptive Behavior",
+        "level": 2,
+        "Question 1":{
+          "question":"Use the passage below to determine which of the following techniques is being used:",
+          "title": "Making an effort to understand how your behavior may affect those around you. Trying to walk in the shoes of others in your class.",
+          "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
+
+          High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+          
+          The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+        
+          Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+          
+          Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+          
+          Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+          
+          The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+          
+          Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+        
+          It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+          
+          Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+          "references": {
+          },
+          "radioAnswers": {
+              1: {"value": "incorrect","label":"Practicing Sympathy"},
+              2: {"value": "correct","label":"Practicing Empathy"},
+              3: {"value": "incorrect","label":"Self Awareness"},
+              4: {"value": "incorrect","label":"Goal Setting"}
+          },
+          "retryQuestion":{
+            "imageUrl": "https://lh5.googleusercontent.com/ARGXc8WFC-JzcvI5LSzjXxuZoC2VIIWJjdynlTWqqzMkFxOszvx5GKwgDxhhNr0Zlmth7VejTuGpSeUO_5mcCrEkcf36HDiB6mOEaztvURqgGAkxQlX_9Dppa0v_WSjaz3l0-U8lV3_xqX4E1m0vNmCYo-NePA",
+            "textToCompare":"Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment."
+          },
+        },
+      
+        "Question 2":{
+        "question":"Use the passage below to determine which of the following techniques is being used: Paying attention and reflecting on your emotions and how you react to them.",
+        "title": "Avoiding Disruptive Behavior in High School: Strategies for Success",
+        "body": `High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+
+        The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+      
+        Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+        
+        Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+        
+        Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+      
+        The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+      
+        Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+        
+        It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+        
+        Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+        "references": {
+        },
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Practicing Sympathy"},
+          2: {"value": "incorrect","label":"Goal Setting"},
+          3: {"value": "correct","label":"Self Awareness"},
+          4: {"value": "incorrect","label":"Practicing Empathy"}
+        },
+        "retryQuestion": {
+          "imageUrl":"https://lh3.googleusercontent.com/T4Q9wp6lMQIjKs1Qw70TaEcaPnrpye3u-KYSYgQjy463_yVurU0vlwj2lR-hAMX0YUO2HoV_aOPK4DQhFjgY-xcfX9isE_SZT-ULxNdV2MTCNVZa2w5xZuS7AW5JoPUTY0gjgjfCP7OJpK62cVwl3QGl5FeYrQ",
+          "textToCompare":"The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively."
+        }
+      },
+  
+      "Question 3":{
+        "question":"Use the passage below to determine which of the following techniques is being used:",
+        "title": "Reaching out to a teacher or guidance counselor for support when struggling with academics, personal challenges, or emotional stress.",
+        "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
+
+        High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+        
+        The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+        
+        Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+        
+        Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+        
+        Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+        
+        The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+        
+        Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+        
+        It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+        
+        Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+        "references": {
+        },
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Practicing Empathy"},
+          2: {"value": "incorrect","label":"Engaging in extracurricular Activities"},
+          3: {"value": "incorrect","label":"Goal Setting"},
+          4: {"value": "correct","label":"Seeking Help"}
+        },
+        "retryQuestion": {
+          "imageUrl":"https://lh5.googleusercontent.com/eU7HAw8tWXKML5vVM5P1BxuU0MP-y_w_AicGMEGyOu683jkHV_IHP7dmkI8khajv_CmFRfqS-QblehaS4iRtG9jTdmt_126TTheI1XDQcOJyJe0pqWx6LrZ4uf2ifGfEkO-cq0a2wXJ70vOq-aDaDFS_R7lZJA",
+          "textToCompare":"It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior."
+        }
+      },
+  
+      "Question 4":{
+        "question": "Use the following passage to determine which technique is being used?",
+        "title": "Creating realistic expectations for academic and personal growth.",
+        "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
+
+        High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+        
+        The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+        
+        Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+        
+        Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+        
+        Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+        
+        The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+        
+        Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+        
+        It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+        
+        Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+        "references": {
+          },
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Practicing Self Awareness"},
+          2: {"value": "incorrect","label":"Participation in Extracurricular activities"},
+          3: {"value": "incorrect","label":"Improving Communication"},
+          4: {"value": "correct","label":"Goal Setting"}
+        },
+        "retryQuestion": {
+          "imageUrl":"https://lh6.googleusercontent.com/MJl7yNiENOGD9Wkd1Vm40qHY5MbcA-zFGXz7HaGINdCljdoI96QNvL-Rtjd445QCxUxtUeVDOvhIi_WwQu83MYUDuhzRuzHl6tyqpXGrInTgOTd7tK7wVgYd5Ihy0kz-o_HXNJPPvEPnvIte1UdBHTlbLNW0Mg",
+          "imageTextAlt":"",
+          "textToCompare":"Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies."
+      
+        }
+      },
+    },
 }
