@@ -1541,4 +1541,368 @@ export const essayData = {
   
     }
     },
+
+            ////////////////////////Unauthorized Device 1/////////////////////////////////
+            "unauthorizeddevice-1":{
+              "infractionName":"Unauthorized Device/Cell Phone Violation",
+              "level": 1,
+              "Question 1":{
+                "question":"True or false students who were not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
+                "title": "Read the following Abstract for the article: The Impact of Mobile Phone Usage on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
+                "body": `In this study, we examined the impact of mobile phone usage, during class lecture, on student learning. Participants in three different study groups (control, low-distraction, and high-distraction) watched a video lecture, took notes on that lecture, and took two learning assessments after watching the lecture. Students who were not using their mobile phones wrote down 62% more information in their notes, took more detailed notes, were able to recall more detailed information from the lecture, and scored a full letter grade and a half higher on a multiple choice test than those students who were actively using their mobile phones. Theoretical and pedagogical implications are discussed.`,
+                "references": {
+                },
+                "radioAnswers": {
+                    1: {"value": "correct","label":"True"},
+                    2: {"value": "incorrect","label":"False"}
+                },
+                "retryQuestion":{
+                  "imageUrl": "https://lh3.googleusercontent.com/oZeoJeWMiopKsrTjVICv7TeNVGigKRJ36FTY4RIermrUuP473f_dOYdpLqE0LSeNIio95r8Y8mCvQLPBZzgmAxCQc8xfo0AoF-OlTWnbRunDZwMRUApwbHBTKoeQ5cNNdUWUgzzwFjlj7iIFKcfhDmA3IFqUgg",
+                  "textToCompare":"Students who were not using their mobile phones wrote down 62% more information in their notes, took more detailed notes, were able to recall more detailed information from the lecture, and scored a full letter grade and a half higher on a multiple choice test than those students who were actively using their mobile phones."
+                },
+              },
+            
+              "Question 2":{
+              "question":"Which of the following is true?",
+              "title": "Read the following Abstract for the article Mobile Phones in the Classroom: Examining the Effects of Texting, Twitter, and Message Content on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
+              "body": `This study examined mobile phone use in the classroom by using an experimental design to study how message content (related or unrelated to class lecture) and message creation (responding to or creating a message) impact student learning. Participants in eight experimental groups and a control group watched a video lecture, took notes, and completed tests of student learning. The control and relevant message groups earned a 10–17% higher letter grade, scored 70% higher on recalling information, and scored 50% higher on note-taking than students who composed tweets or responded to irrelevant messages. Sending/receiving messages unrelated to class content negatively impacted learning and note-taking, while related messages did not appear to have a significant negative impact.`,
+              "references": {
+              },
+              "radioAnswers": {
+                1: {"value": "incorrect","label":"The control and relevant message groups earned a 10-17%lower letter grade"},
+                2: {"value": "incorrect","label":"Sending and receiving related messages (messages related to the content in the lecture) has a significant negative impact on student learning."},
+                3: {"value": "correct","label":"Students in the control and relevant message groups scored 70% higher on recall information"},
+                4: {"value": "incorrect","label":"There was no difference in note taking between the control and experimental groups"}
+              },
+              "retryQuestion": {
+                "imageUrl":"https://lh5.googleusercontent.com/BKKTlRy1GKFbNSCVMK0BF5S-1Ji6A2xtpW-cuGfbQP69M7BVbdKi4aZBGY8L42FY8CxrP1iMkvT5PsPm1Eya3W9i_4s5K2OpIxlTtsbQtyEmAIm16ofL5p4YAFs-0yfxxBSdKa9dqRgT5Y0q-YyKAYuVQ_yFYA",
+                "textToCompare":"The control and relevant message groups earned a 10–17% higher letter grade, scored 70% higher on recalling information, and scored 50% higher on note-taking than students who composed tweets or responded to irrelevant messages. Sending/receiving messages unrelated to class content negatively impacted learning and note-taking, while related messages did not appear to have a significant negative impact."
+              }
+            },
+        
+            "Question 3":{
+              "question":"Use the following passage to determine who was cited for identifying the perception of disrespect by a student's peers and teachers when a student uses their phone during class.",
+              "title": "The Negative Impact of Phone Use on the Classroom Environment: A Persuasive Argument",
+              "body": `In today's technologically driven society, the widespread use of smartphones has permeated various aspects of our lives, including educational settings. However, the presence and use of phones in the classroom have been shown to have detrimental effects on the learning environment. This essay aims to present a persuasive argument highlighting how phone use negatively impacts the classroom environment. By citing recent scholarly articles, we will examine four key reasons why phones should be discouraged in educational settings.
+
+              Phone use in the classroom leads to distraction and disrupted focus among students. Studies have consistently shown that the mere presence of phones can impair concentration and academic performance (Rosen et al., 2020). Furthermore, research conducted by Duncan and Hoekstra (2021) revealed that actively using phones during class is associated with reduced attention to lectures and decreased engagement with course material. The constant temptation of notifications, messages, and social media updates diverts students' attention away from the educational content, hindering their ability to absorb information effectively.
+
+              The use of phones in the classroom disrupts the crucial teacher-student interaction necessary for effective learning. According to a study by McBride et al. (2022), phone use can lead to decreased student participation and limited opportunities for meaningful discussion. When students are engrossed in their phones, they are less likely to actively engage in class discussions, ask questions, or seek clarification. This hampers the collaborative learning process and impedes the development of critical thinking skills and deeper understanding of the subject matter.
+
+              Phones in the classroom also contribute to a decline in classroom etiquette and respect for the learning environment. A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them.
+
+              Phone use in the classroom raises health and well-being concerns for students. Prolonged phone use, particularly in poor ergonomic positions, can lead to musculoskeletal issues, eye strain, and posture problems (Lee et al., 2020). Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life.
+              
+              The detrimental effects of phone use in the classroom on the learning environment are evident from recent scholarly articles. The distractions, disrupted teacher-student interaction, decline in classroom etiquette, and health concerns associated with phone use all contribute to an argument against the presence and use of phones in educational settings. By minimizing or eliminating phone use during class time, educators can foster a focused, respectful, and conducive learning environment that enhances student engagement, interaction, and overall academic success.`,
+              "references": {
+              },
+              "radioAnswers": {
+                1: {"value": "correct","label":"RodrSprick, Knight, Reinke, and McKaleiguez"},
+                2: {"value": "incorrect","label":"Rimm-Kaufman, Fan, Chiu"},
+                3: {"value": "incorrect","label":"Anderson"},
+                4: {"value": "incorrect","label":"Davis"}
+              },
+              "retryQuestion": {
+                "imageUrl":"https://lh6.googleusercontent.com/EzaRI3-WRKm5J4TPL2EFNdiSWa5XBHYsZdU-XAxJBkmAoHAbYc20ndXJ-rFGxx9K63Y5qachwOU900goAFvg8BO0dQS6cUy5os7KO3uY63lUXcXDNhw84_bIBZ_x2p-_K09z6DLdvRQ1uiDFvM7L1590-eduKg",
+                "textToCompare":"Disruptive behavior, such as talking out of turn, making excessive noise, or being consistently off-task, can disrupt the flow of lessons and divert attention away from the subject matter. According to a study conducted by Sprick, Knight, Reinke, and McKale in 2006, disruptive behavior in classrooms resulted in lowered academic achievement and a decline in test scores. When teachers must repeatedly address disruptive behavior, valuable instructional time is lost, leading to gaps in learning and an overall decrease in academic performance for the entire class."
+              }
+            },
+        
+            "Question 4":{
+              "question": "Use the following passage to determine who was cited for identifying the link between excessive phone use and  increased stress levels, sleep disturbances, and decreased well-being",
+              "title": "The Negative Impact of Phone Use on the Classroom Environment: A Persuasive Argument",
+              "body": `In today's technologically driven society, the widespread use of smartphones has permeated various aspects of our lives, including educational settings. However, the presence and use of phones in the classroom have been shown to have detrimental effects on the learning environment. This essay aims to present a persuasive argument highlighting how phone use negatively impacts the classroom environment. By citing recent scholarly articles, we will examine four key reasons why phones should be discouraged in educational settings.
+  
+              Phone use in the classroom leads to distraction and disrupted focus among students. Studies have consistently shown that the mere presence of phones can impair concentration and academic performance (Rosen et al., 2020). Furthermore, research conducted by Duncan and Hoekstra (2021) revealed that actively using phones during class is associated with reduced attention to lectures and decreased engagement with course material. The constant temptation of notifications, messages, and social media updates diverts students' attention away from the educational content, hindering their ability to absorb information effectively.
+  
+              The use of phones in the classroom disrupts the crucial teacher-student interaction necessary for effective learning. According to a study by McBride et al. (2022), phone use can lead to decreased student participation and limited opportunities for meaningful discussion. When students are engrossed in their phones, they are less likely to actively engage in class discussions, ask questions, or seek clarification. This hampers the collaborative learning process and impedes the development of critical thinking skills and deeper understanding of the subject matter.
+  
+              Phones in the classroom also contribute to a decline in classroom etiquette and respect for the learning environment. A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them.
+    
+              Phone use in the classroom raises health and well-being concerns for students. Prolonged phone use, particularly in poor ergonomic positions, can lead to musculoskeletal issues, eye strain, and posture problems (Lee et al., 2020). Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life.
+  
+              The detrimental effects of phone use in the classroom on the learning environment are evident from recent scholarly articles. The distractions, disrupted teacher-student interaction, decline in classroom etiquette, and health concerns associated with phone use all contribute to an argument against the presence and use of phones in educational settings. By minimizing or eliminating phone use during class time, educators can foster a focused, respectful, and conducive learning environment that enhances student engagement, interaction, and overall academic success.`,
+              "references": {
+                "reference1": "Rosen, L. D., Whaling, K., Carrier, L. M., Cheever, N. A., & Rokkum, J. (2020). The media and technology usage and attitudes scale: An empirical investigation. Computers in Human Behavior, 103, 49-59.",
+              "reference2": "Duncan, B. C., & Hoekstra, A. R. (2021). What are they doing on their phones? Mobile phone use in large lectures. Journal of Behavioral and Experimental Economics, 93, 101663.",
+              "reference3": "McBride, C., Brewer, E. W., & Phillips, M. (2022). The effects of mobile phone use in the classroom on student participation and performance. Journal of Education for Business, 97(1), 47-54.",
+              "reference4": "Clark, C. D., Baym, N. K., Gladstone, J. J., & Walpert, S. C. (2019). It's a mixed blessing: Perceptions of mobile phone impact on social bonding, rituals, and loneliness. Mobile Media & Communication, 7(1), 134-151.",
+              "referebce5": "Lee, H., Lim, J., & Park, H. (2020). The association between smartphone use and musculoskeletal discomfort in young adults: A systematic review. Journal of Korean Academy of Nursing, 50(4), 445-459.",
+              "reference6": "Elhai, J. D., Rozgonjuk, D., Alghraibeh, A. M., Yang, H., Hoogland, A. I., Panova, T., & Montag, C. (2021). Examining the association between smartphone use and sleep disturbances among young adults: A multinational study. International Journal of Environmental Research and Public Health, 18(4), 1711."
+            },
+              "radioAnswers": {
+                1: {"value": "incorrect","label":"McBride, C"},
+                2: {"value": "incorrect","label":"Lee, H"},
+                3: {"value": "incorrect","label":"Clark, C.D."},
+                4: {"value": "correct","label":"Elhai, J.D."}
+              },
+              "retryQuestion": {
+                "imageUrl":"https://lh3.googleusercontent.com/dmfoJZv-O1T0PIVDK3IKNV0AB0J6_-rftAFo1Zkqkw5xwRknmB29maAwTVK3mAYOB906nKsbYKHGZxh8TkZOO61n94PyDw6pAuBYPq-7MOsvkQjeOvBsU3SEXUmnI9LZ3TluinaMw3GFW63VX0HEAPWSPJDCwg",
+                "imageTextAlt":"",
+                "textToCompare":"Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life."
+            
+              }
+            },
+          },
+          
+          ////////////////////////Disruptive Behavior 2/////////////////////////////////
+          "disruptivebehavior-2":{
+            "infractionName":"Disruptive Behavior",
+            "level": 2,
+            "Question 1":{
+              "question":"Use the passage below to determine which of the following techniques is being used:",
+              "title": "Making an effort to understand how your behavior may affect those around you. Trying to walk in the shoes of others in your class.",
+              "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
+    
+              High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+              
+              The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+            
+              Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+              
+              Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+              
+              Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+              
+              The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+              
+              Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+            
+              It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+              
+              Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+              "references": {
+              },
+              "radioAnswers": {
+                  1: {"value": "incorrect","label":"Practicing Sympathy"},
+                  2: {"value": "correct","label":"Practicing Empathy"},
+                  3: {"value": "incorrect","label":"Self Awareness"},
+                  4: {"value": "incorrect","label":"Goal Setting"}
+              },
+              "retryQuestion":{
+                "imageUrl": "https://lh5.googleusercontent.com/ARGXc8WFC-JzcvI5LSzjXxuZoC2VIIWJjdynlTWqqzMkFxOszvx5GKwgDxhhNr0Zlmth7VejTuGpSeUO_5mcCrEkcf36HDiB6mOEaztvURqgGAkxQlX_9Dppa0v_WSjaz3l0-U8lV3_xqX4E1m0vNmCYo-NePA",
+                "textToCompare":"Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment."
+              },
+            },
+          
+            "Question 2":{
+            "question":"Use the passage below to determine which of the following techniques is being used: Paying attention and reflecting on your emotions and how you react to them.",
+            "title": "Avoiding Disruptive Behavior in High School: Strategies for Success",
+            "body": `High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+    
+            The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+          
+            Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+            
+            Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+            
+            Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+          
+            The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+          
+            Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+            
+            It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+            
+            Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+            "references": {
+            },
+            "radioAnswers": {
+              1: {"value": "incorrect","label":"Practicing Sympathy"},
+              2: {"value": "incorrect","label":"Goal Setting"},
+              3: {"value": "correct","label":"Self Awareness"},
+              4: {"value": "incorrect","label":"Practicing Empathy"}
+            },
+            "retryQuestion": {
+              "imageUrl":"https://lh3.googleusercontent.com/T4Q9wp6lMQIjKs1Qw70TaEcaPnrpye3u-KYSYgQjy463_yVurU0vlwj2lR-hAMX0YUO2HoV_aOPK4DQhFjgY-xcfX9isE_SZT-ULxNdV2MTCNVZa2w5xZuS7AW5JoPUTY0gjgjfCP7OJpK62cVwl3QGl5FeYrQ",
+              "textToCompare":"The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively."
+            }
+          },
+      
+          "Question 3":{
+            "question":"Use the passage below to determine which of the following techniques is being used:",
+            "title": "Reaching out to a teacher or guidance counselor for support when struggling with academics, personal challenges, or emotional stress.",
+            "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
+    
+            High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+            
+            The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
+            
+            Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+            
+            Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
+            
+            Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
+            
+            The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
+            
+            Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
+            
+            It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
+            
+            Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+            "references": {
+              "reference1": "Rosen, L. D., Whaling, K., Carrier, L. M., Cheever, N. A., & Rokkum, J. (2020). The media and technology usage and attitudes scale: An empirical investigation. Computers in Human Behavior, 103, 49-59.",
+              "reference2": "Duncan, B. C., & Hoekstra, A. R. (2021). What are they doing on their phones? Mobile phone use in large lectures. Journal of Behavioral and Experimental Economics, 93, 101663.",
+              "reference3": "McBride, C., Brewer, E. W., & Phillips, M. (2022). The effects of mobile phone use in the classroom on student participation and performance. Journal of Education for Business, 97(1), 47-54.",
+              "reference4": "Clark, C. D., Baym, N. K., Gladstone, J. J., & Walpert, S. C. (2019). It's a mixed blessing: Perceptions of mobile phone impact on social bonding, rituals, and loneliness. Mobile Media & Communication, 7(1), 134-151.",
+              "referebce5": "Lee, H., Lim, J., & Park, H. (2020). The association between smartphone use and musculoskeletal discomfort in young adults: A systematic review. Journal of Korean Academy of Nursing, 50(4), 445-459.",
+              "reference6": "Elhai, J. D., Rozgonjuk, D., Alghraibeh, A. M., Yang, H., Hoogland, A. I., Panova, T., & Montag, C. (2021). Examining the association between smartphone use and sleep disturbances among young adults: A multinational study. International Journal of Environmental Research and Public Health, 18(4), 1711."
+            },
+            "radioAnswers": {
+              1: {"value": "correct","label":"Clark, C. D"},
+              2: {"value": "incorrect","label":"Lee, H"},
+              3: {"value": "incorrect","label":"McBride, C."},
+              4: {"value": "incorrect","label":"Duncan, B. C."}
+            },
+            "retryQuestion": {
+              "imageUrl":"https://lh6.googleusercontent.com/EzaRI3-WRKm5J4TPL2EFNdiSWa5XBHYsZdU-XAxJBkmAoHAbYc20ndXJ-rFGxx9K63Y5qachwOU900goAFvg8BO0dQS6cUy5os7KO3uY63lUXcXDNhw84_bIBZ_x2p-_K09z6DLdvRQ1uiDFvM7L1590-eduKg",
+              "textToCompare":"A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them."
+            }
+          },
+      
+          "Question 4":{
+            "question": "Use the following passage to determine who was cited for identifying the link between excessive phone use and  increased stress levels, sleep disturbances, and decreased well-being",
+            "title": "The Negative Impact of Phone Use on the Classroom Environment: A Persuasive Argument",
+            "body": `In today's technologically driven society, the widespread use of smartphones has permeated various aspects of our lives, including educational settings. However, the presence and use of phones in the classroom have been shown to have detrimental effects on the learning environment. This essay aims to present a persuasive argument highlighting how phone use negatively impacts the classroom environment. By citing recent scholarly articles, we will examine four key reasons why phones should be discouraged in educational settings.
+
+            Phone use in the classroom leads to distraction and disrupted focus among students. Studies have consistently shown that the mere presence of phones can impair concentration and academic performance (Rosen et al., 2020). Furthermore, research conducted by Duncan and Hoekstra (2021) revealed that actively using phones during class is associated with reduced attention to lectures and decreased engagement with course material. The constant temptation of notifications, messages, and social media updates diverts students' attention away from the educational content, hindering their ability to absorb information effectively.
+
+            The use of phones in the classroom disrupts the crucial teacher-student interaction necessary for effective learning. According to a study by McBride et al. (2022), phone use can lead to decreased student participation and limited opportunities for meaningful discussion. When students are engrossed in their phones, they are less likely to actively engage in class discussions, ask questions, or seek clarification. This hampers the collaborative learning process and impedes the development of critical thinking skills and deeper understanding of the subject matter.
+
+            Phones in the classroom also contribute to a decline in classroom etiquette and respect for the learning environment. A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them.
+  
+            Phone use in the classroom raises health and well-being concerns for students. Prolonged phone use, particularly in poor ergonomic positions, can lead to musculoskeletal issues, eye strain, and posture problems (Lee et al., 2020). Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life.
+
+            The detrimental effects of phone use in the classroom on the learning environment are evident from recent scholarly articles. The distractions, disrupted teacher-student interaction, decline in classroom etiquette, and health concerns associated with phone use all contribute to an argument against the presence and use of phones in educational settings. By minimizing or eliminating phone use during class time, educators can foster a focused, respectful, and conducive learning environment that enhances student engagement, interaction, and overall academic success.`,
+            "references": {
+              "reference1": "Rosen, L. D., Whaling, K., Carrier, L. M., Cheever, N. A., & Rokkum, J. (2020). The media and technology usage and attitudes scale: An empirical investigation. Computers in Human Behavior, 103, 49-59.",
+            "reference2": "Duncan, B. C., & Hoekstra, A. R. (2021). What are they doing on their phones? Mobile phone use in large lectures. Journal of Behavioral and Experimental Economics, 93, 101663.",
+            "reference3": "McBride, C., Brewer, E. W., & Phillips, M. (2022). The effects of mobile phone use in the classroom on student participation and performance. Journal of Education for Business, 97(1), 47-54.",
+            "reference4": "Clark, C. D., Baym, N. K., Gladstone, J. J., & Walpert, S. C. (2019). It's a mixed blessing: Perceptions of mobile phone impact on social bonding, rituals, and loneliness. Mobile Media & Communication, 7(1), 134-151.",
+            "referebce5": "Lee, H., Lim, J., & Park, H. (2020). The association between smartphone use and musculoskeletal discomfort in young adults: A systematic review. Journal of Korean Academy of Nursing, 50(4), 445-459.",
+            "reference6": "Elhai, J. D., Rozgonjuk, D., Alghraibeh, A. M., Yang, H., Hoogland, A. I., Panova, T., & Montag, C. (2021). Examining the association between smartphone use and sleep disturbances among young adults: A multinational study. International Journal of Environmental Research and Public Health, 18(4), 1711."
+          },
+            "radioAnswers": {
+              1: {"value": "incorrect","label":"McBride, C"},
+              2: {"value": "incorrect","label":"Lee, H"},
+              3: {"value": "incorrect","label":"Clark, C.D."},
+              4: {"value": "correct","label":"Elhai, J.D."}
+            },
+            "retryQuestion": {
+              "imageUrl":"https://lh3.googleusercontent.com/dmfoJZv-O1T0PIVDK3IKNV0AB0J6_-rftAFo1Zkqkw5xwRknmB29maAwTVK3mAYOB906nKsbYKHGZxh8TkZOO61n94PyDw6pAuBYPq-7MOsvkQjeOvBsU3SEXUmnI9LZ3TluinaMw3GFW63VX0HEAPWSPJDCwg",
+              "imageTextAlt":"",
+              "textToCompare":"Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life."
+            }
+          },
+        },
+    
+        ////////////////////////Disruptive Behavior 3/////////////////////////////////
+        "disruptivebehavior-3":{
+          "infractionName":"Disruptive Behavior",
+          "level": 3,
+          "Question 1":{
+            "question":"Read the following passage to determine who describes disruptive behavior as maladaptive coping mechanisms.",
+            "title": "The Underlying Causes of Disruptive Behavior in School",
+            "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+    
+            One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+    
+            The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+    
+            Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+            
+            The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+            
+            Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+            
+            Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+            "references": {
+            },
+            "radioAnswers": {
+                1: {"value": "correct","label":"Bradshaw, Waasdorp, and Leaf"},
+                2: {"value": "incorrect","label":"Cornell and Mayer"},
+                3: {"value": "incorrect","label":"Rumberger and Palardy"},
+                4: {"value": "incorrect","label":"Reyes, Brackett, Rivers, White, and Salovey"}
+            },
+            "retryQuestion":{
+              "imageUrl": "https://lh6.googleusercontent.com/nHJWjWvRPhQdkTzBGas_psLP62eaednyX6s1JpEjup3Xo5J_TWQ36HZW8I2cmhf4pVFXNd2KHpHovAhpj-Eq6C5iRxDm0--RWZsOm4ckjZQzmkGsXPEdckBRycFIh6GcqirKwFMn3zdCIVkYeR2uD6Y2V-HWvw",
+              "textToCompare":"One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012)."
+            },
+          },
+        
+          "Question 2":{
+          "question":"Read the following passage to determine who was cited for identifying a negative correlation between academic performance and disruptive behavior and found that students who struggled academically were more likely to be disruptive in class.",
+          "title": "The Underlying Causes of Disruptive Behavior in School",
+          "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+    
+          One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+    
+          The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+    
+          Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+    
+          The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+    
+          Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+    
+          Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "incorrect","label":"Reyes, Brackett, Rivers, White, and Salovey"},
+            2: {"value": "correct","label":"Rumberger and Palardy"},
+            3: {"value": "incorrect","label":"Cornell and Mayer"},
+            4: {"value": "incorrect","label":"Bradshaw, Waasdorp, and Leaf"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh6.googleusercontent.com/iI9C-zOAU_ADvrrEZDxWa0KWW4WcyA3_lahDyceDimXMGAmUxuVD2VwW0FwhxkQyBuNz5t9wGOPI5M_f8jut8pfLUCDffb5n-NNzDBFLSbicLPR1KNwZ3L9BZrY_3iXSeMeh1Nj0RUyVazLNpldtHBJ217v6jg",
+            "textToCompare":"Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior."
+          }
+        },
+    
+        "Question 3":{
+          "question":"Read the following passage to determine who was cited for identifying the correlation between home environment stressors and disruptive behavior.",
+          "title": "The Underlying Causes of Disruptive Behavior in School",
+          "body": `Disruptive behavior in schools is a complex and multifaceted issue that poses significant challenges to educators and administrators. It negatively impacts the learning environment, academic performance, and overall well-being of students. Understanding the underlying causes of disruptive behavior is crucial for implementing effective interventions and creating a positive and conducive school environment. This essay will delve into five primary factors contributing to disruptive behavior in schools, drawing upon research and studies from educational experts.
+    
+          One of the main underlying causes of disruptive behavior in school is emotional and psychological factors affecting students. According to a study by Bradshaw, Waasdorp, and Leaf (2012), emotional challenges such as anxiety, depression, and trauma can lead to maladaptive coping mechanisms, including disruptive behavior. Students experiencing emotional distress may act out in the classroom as a way to express their feelings or alleviate stress. Identifying and addressing these emotional needs through counseling and support is essential to reduce disruptive behaviors (Bradshaw et al., 2012).
+    
+          The social dynamics within schools can significantly impact students' behavior. Peer pressure and the desire for social acceptance can drive some students to engage in disruptive behavior to gain recognition or maintain their social status. A study by Cornell and Mayer (2010) found that students who sought social dominance were more likely to exhibit disruptive behavior in classrooms. Promoting a positive and inclusive school culture that values cooperation and empathy can counteract negative peer influences and foster a supportive learning environment (Cornell & Mayer, 2010).
+    
+          Academic difficulties and learning differences can be underlying causes of disruptive behavior. Students who struggle with academic tasks may become frustrated and disengaged, leading to disruptive actions in the classroom. According to a study by Rumberger and Palardy (2005), academic performance is negatively associated with disruptive behavior. Additionally, students with learning disabilities or attention deficits may find it challenging to keep up with class expectations, leading to disruptive behaviors (Rumberger & Palardy, 2005). Providing appropriate academic support and personalized learning strategies can help reduce these challenges and decrease disruptive behavior.
+    
+          The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012).
+    
+          Attention-seeking behavior is another underlying cause of disruptive behavior in school. Students may act out disruptively to gain attention from their peers or teachers. A study by Proctor, Linley, and Maltby (2009) highlighted that individuals with a strong need for attention were more likely to engage in disruptive behavior to fulfill their attention-seeking desires. Addressing this behavior involves reinforcing positive behavior and providing opportunities for students to receive praise and recognition for their achievements in non-disruptive ways (Proctor et al., 2009).
+    
+          Disruptive behavior in schools arises from a combination of emotional, social, academic, and environmental factors. Understanding these underlying causes is essential for educators to develop targeted interventions and create a positive and conducive learning environment. By addressing emotional needs, promoting a supportive school culture, providing academic support, supporting families, and reinforcing positive behavior, schools can work towards reducing disruptive behavior and fostering a safe and productive educational experience for all students. Collaborative efforts between schools, families, and the community are crucial to addressing disruptive behavior effectively.`,
+          "references": {
+          },
+          "radioAnswers": {
+            1: {"value": "incorrect","label":"Cornell and Mayer"},
+            2: {"value": "correct","label":"Reyes, Brackett, Rivers, White, and Salovey"},
+            3: {"value": "incorrect","label":"Bradshaw, Waasdorp, and Leaf"},
+            4: {"value": "incorrect","label":"Proctor, Linley and Maltby"}
+          },
+          "retryQuestion": {
+            "imageUrl":"https://lh5.googleusercontent.com/6ZHbgVh9_QCia_B4x2_hv1Dnkfjehv0hqj8LPf8miykhkp6RA-xKudvdwBgmWX8pgnBP3M6yglq0IJg1jy7pwymvEz5Qkqk0A1AwaJFc_6qjjpoPM9fy0n8jBh9YCc7V8f0MuwdSkOnw62o33iV8qFJvD7Gkjw",
+            "textToCompare":"The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012)."
+          }
+        },
+    
+        "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+        "title": "",
+        "body": ``,
+        "references": {
+          },
+        "radioAnswers": {
+        },
+        "retryQuestion": {
+          "imageUrl":"",
+          "imageTextAlt":"",
+          "textToCompare":""
+      
+        }
+        },
 }
