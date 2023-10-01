@@ -919,11 +919,10 @@ export const essayData = {
     
     
       },
-      "retryQuestion": "https://lh4.googleusercontent.com/-ZpWBivpsht7Lep5xAxLTNoNW6lBJ2bi4QrynqLUfAioOp38-XxFue8SWcjZFN_vGKoE2F8VUbYFMaqK-LSQqgfnfHe3FxrFE3al9mbBe-ZtP-BEPAftatf0A3JPwhC2iryM8xuBL8LBvGMgozjpVxCPh5-B3",
+      "retryQuestion": {"https://lh4.googleusercontent.com/-ZpWBivpsht7Lep5xAxLTNoNW6lBJ2bi4QrynqLUfAioOp38-XxFue8SWcjZFN_vGKoE2F8VUbYFMaqK-LSQqgfnfHe3FxrFE3al9mbBe-ZtP-BEPAftatf0A3JPwhC2iryM8xuBL8LBvGMgozjpVxCPh5-B3",
         "textToCompare":"Dress codes minimize distractions caused by provocative or inappropriate attire, thus fostering a focused and secure learning environment. In the words of Rodriguez (2019), dress codes establish a baseline for appropriate clothing choices, reducing the potential for disruptive or revealing clothing that may divert attention away from academic pursuits. By establishing a professional and conducive atmosphere, dress codes help maintain the integrity of the educational environment, ensuring that students can concentrate on their studies without unnecessary distractions."
-  
-      }
-    },
+        }
+      },
   
     "Question 2":{
     "question":"Use the following passage to determine who cited the ability of dress codes to instill a sense of responsibility and respect. ",
@@ -950,5 +949,128 @@ export const essayData = {
       "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
     }
   },
-  }
+    ////////////////////////Dress Code 2/////////////////////////////////
+    "dresscode-2":{
+      "infractionName":"Dress Code",
+      "level": 2,
+      "Question 1":{
+        "question":"Use the following passage to determine which of the following answers is NOT a benefit of dress codes as described in the passage.",
+        "title": "The Power of Dress: Promoting Professionalism in Various Settings",
+        "body": `The way individuals dress has a significant impact on their professional image and the perception of their competence. Dress codes play a crucial role in promoting professionalism across various settings, including workplaces, educational institutions, and public events. This persuasive essay aims to highlight the importance of dress in fostering professionalism and its positive effects on individuals and organizations.
 
+        Dress codes are instrumental in establishing a positive first impression, contributing to professionalism in various settings. As noted by Smith (2021), the way individuals present themselves through their attire influences how they are perceived by colleagues, clients, and the public. Dressing professionally creates an image of competence, reliability, and attention to detail. A well-groomed and appropriately dressed individual is more likely to leave a favorable and lasting impression, setting the tone for professional interactions.
+        
+        According to Davis (2020), dressing appropriately can boost an individual's self-confidence and self-esteem. When individuals feel comfortable and confident in their attire, they are more likely to project professionalism in their demeanor and actions. Additionally, dress codes can still accommodate self-expression within professional boundaries, enabling individuals to showcase their personality and unique style while maintaining a polished and professional appearance.
+        
+        Dress codes contribute to professionalism by enhancing team cohesion and fostering a strong company culture. Research by Johnson and Williams (2019) demonstrates that a standardized dress code helps create a sense of unity and belonging among employees. By dressing in a similar manner, employees feel connected to their organization's values and objectives, promoting a cohesive work environment. Dress codes also reinforce a company's identity and brand, projecting a consistent image to clients and stakeholders.
+        
+        The implementation of dress codes has been linked to increased productivity and focus in professional settings. Thompson et al. (2018) found that employees who adhere to a dress code reported higher levels of focus and commitment. Dress codes set clear expectations and remind individuals of their professional responsibilities. When employees dress appropriately, they are more likely to approach their work with a sense of professionalism and dedication, leading to improved productivity and overall success.
+        
+        Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues.
+        
+        The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings.`,
+        "references": {
+        },
+        "radioAnswers": {
+            1: {"value": "incorrect","label":"Positive first impression"},
+            2: {"value": "correct","label":"Healthier Eating Habits"},
+            3: {"value": "incorrect","label":"Confidence and Self expression"},
+            4: {"value": "incorrect","label":"Inspires Productivity"}
+        },
+        "retryQuestion": "https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
+          "textToCompare":"The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings."
+    
+        }
+      },
+    
+      "Question 2":{
+      "question":"Use the following passage to determine who cited the benefits of appropriate clothing choices on self esteem.",
+      "title": "The Power of Dress: Promoting Professionalism in Various Settings",
+      "body": `The way individuals dress has a significant impact on their professional image and the perception of their competence. Dress codes play a crucial role in promoting professionalism across various settings, including workplaces, educational institutions, and public events. This persuasive essay aims to highlight the importance of dress in fostering professionalism and its positive effects on individuals and organizations.
+
+      Dress codes are instrumental in establishing a positive first impression, contributing to professionalism in various settings. As noted by Smith (2021), the way individuals present themselves through their attire influences how they are perceived by colleagues, clients, and the public. Dressing professionally creates an image of competence, reliability, and attention to detail. A well-groomed and appropriately dressed individual is more likely to leave a favorable and lasting impression, setting the tone for professional interactions.
+      
+      According to Davis (2020), dressing appropriately can boost an individual's self-confidence and self-esteem. When individuals feel comfortable and confident in their attire, they are more likely to project professionalism in their demeanor and actions. Additionally, dress codes can still accommodate self-expression within professional boundaries, enabling individuals to showcase their personality and unique style while maintaining a polished and professional appearance.
+      
+      Dress codes contribute to professionalism by enhancing team cohesion and fostering a strong company culture. Research by Johnson and Williams (2019) demonstrates that a standardized dress code helps create a sense of unity and belonging among employees. By dressing in a similar manner, employees feel connected to their organization's values and objectives, promoting a cohesive work environment. Dress codes also reinforce a company's identity and brand, projecting a consistent image to clients and stakeholders.
+      
+      The implementation of dress codes has been linked to increased productivity and focus in professional settings. Thompson et al. (2018) found that employees who adhere to a dress code reported higher levels of focus and commitment. Dress codes set clear expectations and remind individuals of their professional responsibilities. When employees dress appropriately, they are more likely to approach their work with a sense of professionalism and dedication, leading to improved productivity and overall success.
+      
+      Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues.
+      
+      The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings.`,
+      "references": {
+      },
+      "radioAnswers": {
+        1: {"value": "incorrect","label":"Rodriguez"},
+        2: {"value": "incorrect","label":"Thompson"},
+        3: {"value": "correct","label":"Davis"},
+        4: {"value": "incorrect","label":"Johnson and Williams"}
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh5.googleusercontent.com/XTxdMJE82K0FSX23VS6EFo12pao_wvCEroIEswlGba9PZWmh-Erw6lYGg91T7FMTRH5F3q0_8egallOxtFdC4W9vq_Usg7ZWFdAstP2NfYymr1omJK9Rban7iwCS7W3hsNeTWWtIsojzPGSp9JBQ8IufTtQpcQ",
+        "textToCompare":"According to Davis (2020), dressing appropriately can boost an individual's self-confidence and self-esteem. When individuals feel comfortable and confident in their attire, they are more likely to project professionalism in their demeanor and actions. Additionally, dress codes can still accommodate self-expression within professional boundaries, enabling individuals to showcase their personality and unique style while maintaining a polished and professional appearance."
+      }
+    },
+
+    "Question 3":{
+      "question":"Use the following passage to determine who cited the power of dress codes to increase productivity and focus.",
+      "title": "The Power of Dress: Promoting Professionalism in Various Settings",
+      "body": `The way individuals dress has a significant impact on their professional image and the perception of their competence. Dress codes play a crucial role in promoting professionalism across various settings, including workplaces, educational institutions, and public events. This persuasive essay aims to highlight the importance of dress in fostering professionalism and its positive effects on individuals and organizations.
+
+      Dress codes are instrumental in establishing a positive first impression, contributing to professionalism in various settings. As noted by Smith (2021), the way individuals present themselves through their attire influences how they are perceived by colleagues, clients, and the public. Dressing professionally creates an image of competence, reliability, and attention to detail. A well-groomed and appropriately dressed individual is more likely to leave a favorable and lasting impression, setting the tone for professional interactions.
+      
+      According to Davis (2020), dressing appropriately can boost an individual's self-confidence and self-esteem. When individuals feel comfortable and confident in their attire, they are more likely to project professionalism in their demeanor and actions. Additionally, dress codes can still accommodate self-expression within professional boundaries, enabling individuals to showcase their personality and unique style while maintaining a polished and professional appearance.
+      
+      Dress codes contribute to professionalism by enhancing team cohesion and fostering a strong company culture. Research by Johnson and Williams (2019) demonstrates that a standardized dress code helps create a sense of unity and belonging among employees. By dressing in a similar manner, employees feel connected to their organization's values and objectives, promoting a cohesive work environment. Dress codes also reinforce a company's identity and brand, projecting a consistent image to clients and stakeholders.
+      
+      The implementation of dress codes has been linked to increased productivity and focus in professional settings. Thompson et al. (2018) found that employees who adhere to a dress code reported higher levels of focus and commitment. Dress codes set clear expectations and remind individuals of their professional responsibilities. When employees dress appropriately, they are more likely to approach their work with a sense of professionalism and dedication, leading to improved productivity and overall success.
+      
+      Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues.
+      
+      The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings.`,
+      "references": {
+      },
+      "radioAnswers": {
+        1: {"value": "incorrect","label":"Rodriguez"},
+        2: {"value": "incorrect","label":"Smith"},
+        3: {"value": "incorrect","label":"Johnson"},
+        4: {"value": "correct","label":"Thompson"}
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh3.googleusercontent.com/KkwT9IHlCeI3L7xhzeZic8w4anmTxqA6DS9V2iTfMdRxVs5RGjKMUjew7z8ZGSYvrj3LehhvOGYPaOVjAXpv5oab_oHPpwGijhW0uQgH_YuUxJ4nruLQMH9IU_XlAn6D1A-OGtYMtk43mFTh4W0460SzoWhKQA",
+        "textToCompare":"The implementation of dress codes has been linked to increased productivity and focus in professional settings. Thompson et al. (2018) found that employees who adhere to a dress code reported higher levels of focus and commitment. Dress codes set clear expectations and remind individuals of their professional responsibilities. When employees dress appropriately, they are more likely to approach their work with a sense of professionalism and dedication, leading to improved productivity and overall success."
+      }
+    },
+
+    "Question 4":{
+      "question":"Use the following passage to determine who cited the use of dress codes to create a respectful environment for others and the organization.",
+      "title": "The Power of Dress: Promoting Professionalism in Various Settings",
+      "body": `The way individuals dress has a significant impact on their professional image and the perception of their competence. Dress codes play a crucial role in promoting professionalism across various settings, including workplaces, educational institutions, and public events. This persuasive essay aims to highlight the importance of dress in fostering professionalism and its positive effects on individuals and organizations.
+
+      Dress codes are instrumental in establishing a positive first impression, contributing to professionalism in various settings. As noted by Smith (2021), the way individuals present themselves through their attire influences how they are perceived by colleagues, clients, and the public. Dressing professionally creates an image of competence, reliability, and attention to detail. A well-groomed and appropriately dressed individual is more likely to leave a favorable and lasting impression, setting the tone for professional interactions.
+      
+      According to Davis (2020), dressing appropriately can boost an individual's self-confidence and self-esteem. When individuals feel comfortable and confident in their attire, they are more likely to project professionalism in their demeanor and actions. Additionally, dress codes can still accommodate self-expression within professional boundaries, enabling individuals to showcase their personality and unique style while maintaining a polished and professional appearance.
+      
+      Dress codes contribute to professionalism by enhancing team cohesion and fostering a strong company culture. Research by Johnson and Williams (2019) demonstrates that a standardized dress code helps create a sense of unity and belonging among employees. By dressing in a similar manner, employees feel connected to their organization's values and objectives, promoting a cohesive work environment. Dress codes also reinforce a company's identity and brand, projecting a consistent image to clients and stakeholders.
+      
+      The implementation of dress codes has been linked to increased productivity and focus in professional settings. Thompson et al. (2018) found that employees who adhere to a dress code reported higher levels of focus and commitment. Dress codes set clear expectations and remind individuals of their professional responsibilities. When employees dress appropriately, they are more likely to approach their work with a sense of professionalism and dedication, leading to improved productivity and overall success.
+      
+      Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues.
+      
+      The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings.`,
+      "references": {
+      },
+      "radioAnswers": {
+        1: {"value": "incorrect","label":"Davis"},
+        2: {"value": "incorrect","label":"Johnson"},
+        3: {"value": "incorrect","label":"Thompson"},
+        4: {"value": "correct","label":"Rodriguez"}
+      },
+      "retryQuestion": {
+        "imageUrl":"https://lh3.googleusercontent.com/NAsZclgFura1tDmv_mwPsjQ-8P2v0oA2HxbCrBjInKU7RpzOJCOqRdpEaPcrzEWvIT-pt3Ji9WLTfnooc7ZK8SVxDopyMIY6hHw6_QHSUO1QSMPsMzjaAJB8IteqDy2-R4QgEORRJXPDh9yoBeoPGzeUIOcRyg",
+        "textToCompare":"Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues."
+      }
+    },
+  },
+}
