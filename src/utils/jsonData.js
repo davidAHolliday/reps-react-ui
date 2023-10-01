@@ -1645,161 +1645,124 @@ export const essayData = {
             },
           },
           
-          ////////////////////////Disruptive Behavior 2/////////////////////////////////
-          "disruptivebehavior-2":{
-            "infractionName":"Disruptive Behavior",
+          ////////////////////////Unauthorized Device 2/////////////////////////////////
+          "unauthorizeddevice-2":{
+            "infractionName":"Unauthorized Device/Cell Phone Violation",
             "level": 2,
             "Question 1":{
-              "question":"Use the passage below to determine which of the following techniques is being used:",
-              "title": "Making an effort to understand how your behavior may affect those around you. Trying to walk in the shoes of others in your class.",
-              "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
-    
-              High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
+              "question":"Which of the following was NOT associated with excessive overuse of mobile phones?",
+              "title": "Read the following Abstract for the article Mobile Phone Addiction Among Children and Adolescents A Systematic Review by Sahu, Maya RN, RM, BSN, MSN; Gandhi, Sailaxmi RN, RM, BSN, MSN, PhD; Sharma, Manoj Kumar MPhil, PhD",
+              "body": `Mobile phone addiction among children and adolescents has become a concern for all. To date, focuses have been given to Internet addiction, but comprehensive overview of mobile phone addiction is lacking. The review aimed to provide a comprehensive overview of mobile phone addiction among children and adolescents.
+
+              Electronic databases search included Medline, Proquest, Pubmed, EBSCO host, EMBASE, CINAHL, PsycINFO, OVID, Springer, Wiley online library, and Science Direct. Inclusion criteria were studies including children and adolescents, studies published in peer-reviewed journals, and studies focusing on mobile phone addiction or problematic use of mobile phone. A systematic search identified 12 descriptive studies, which met inclusion criteria, but no interventional study met the criteria. 
               
-              The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
-            
-              Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
+              The prevalence of problematic mobile phone use was found to be 6.3% in the overall population (6.1% among boys and 6.5% among girls), whereas another study found 16% among the adolescents. The review finds that excessive or overuse of mobile phone was associated with feeling insecurity; staying up late at night; impaired parent–child relationship; impaired school relationships; psychological problems such as behavioral addiction like compulsive buying and pathological gambling, low mood, tension and anxiety, leisure boredom, and behavioral problems, among which most pronounced association was observed for hyperactivity followed by conduct problems and emotional symptoms.
               
-              Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
-              
-              Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
-              
-              The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
-              
-              Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
-            
-              It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
-              
-              Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+              Though mobile phone use helps in maintaining social relationship, mobile phone addiction among children and adolescents needs urgent attention. Interventional studies are needed to address these emerging issues.`,
               "references": {
               },
               "radioAnswers": {
-                  1: {"value": "incorrect","label":"Practicing Sympathy"},
-                  2: {"value": "correct","label":"Practicing Empathy"},
-                  3: {"value": "incorrect","label":"Self Awareness"},
-                  4: {"value": "incorrect","label":"Goal Setting"}
+                  1: {"value": "incorrect","label":"Staying up late at night"},
+                  2: {"value": "correct","label":"Leisure Excitement"},
+                  3: {"value": "incorrect","label":"Low Mood"},
+                  4: {"value": "incorrect","label":"Tension and Anxiety"},
+                  5: {"value": "incorrect","label":"Conduct Problems"},
+                  6: {"value": "incorrect","label":"Emotional symptoms"}
               },
               "retryQuestion":{
-                "imageUrl": "https://lh5.googleusercontent.com/ARGXc8WFC-JzcvI5LSzjXxuZoC2VIIWJjdynlTWqqzMkFxOszvx5GKwgDxhhNr0Zlmth7VejTuGpSeUO_5mcCrEkcf36HDiB6mOEaztvURqgGAkxQlX_9Dppa0v_WSjaz3l0-U8lV3_xqX4E1m0vNmCYo-NePA",
-                "textToCompare":"Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment."
+                "imageUrl": "https://lh3.googleusercontent.com/5GIMWoiSoHF0__CPVpHPiUWq2r8Zk578BqOi7vIyEGgnTAMs3vL_eESsYLiRhqYptJ-yU9LPhbNJkffaZP_75Rmuqgb51KqW4zXDp-vhLxade7GkVhGNVfch05zYYxue4HMe73xNvu6a7D8Df3bxmERn_PYWNQ",
+                "textToCompare":"The review finds that excessive or overuse of mobile phone was associated with feeling insecurity; staying up late at night; impaired parent–child relationship; impaired school relationships; psychological problems such as behavioral addiction like compulsive buying and pathological gambling, low mood, tension and anxiety, leisure boredom, and behavioral problems, among which most pronounced association was observed for hyperactivity followed by conduct problems and emotional symptoms."
               },
             },
           
             "Question 2":{
-            "question":"Use the passage below to determine which of the following techniques is being used: Paying attention and reflecting on your emotions and how you react to them.",
-            "title": "Avoiding Disruptive Behavior in High School: Strategies for Success",
-            "body": `High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
-    
-            The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
-          
-            Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
-            
-            Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
-            
-            Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
-          
-            The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
-          
-            Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
-            
-            It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
-            
-            Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
-            "references": {
-            },
-            "radioAnswers": {
-              1: {"value": "incorrect","label":"Practicing Sympathy"},
-              2: {"value": "incorrect","label":"Goal Setting"},
-              3: {"value": "correct","label":"Self Awareness"},
-              4: {"value": "incorrect","label":"Practicing Empathy"}
-            },
-            "retryQuestion": {
-              "imageUrl":"https://lh3.googleusercontent.com/T4Q9wp6lMQIjKs1Qw70TaEcaPnrpye3u-KYSYgQjy463_yVurU0vlwj2lR-hAMX0YUO2HoV_aOPK4DQhFjgY-xcfX9isE_SZT-ULxNdV2MTCNVZa2w5xZuS7AW5JoPUTY0gjgjfCP7OJpK62cVwl3QGl5FeYrQ",
-              "textToCompare":"The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively."
-            }
+              "question":"Which of the following is true?",
+              "title": "Read the following Abstract for the article Mobile Phones in the Classroom: Examining the Effects of Texting, Twitter, and Message Content on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
+              "body": `This study examined mobile phone use in the classroom by using an experimental design to study how message content (related or unrelated to class lecture) and message creation (responding to or creating a message) impact student learning. Participants in eight experimental groups and a control group watched a video lecture, took notes, and completed tests of student learning. The control and relevant message groups earned a 10–17% higher letter grade, scored 70% higher on recalling information, and scored 50% higher on note-taking than students who composed tweets or responded to irrelevant messages. Sending/receiving messages unrelated to class content negatively impacted learning and note-taking, while related messages did not appear to have a significant negative impact.`,
+              "references": {
+              },
+              "radioAnswers": {
+                1: {"value": "incorrect","label":"The control and relevant message groups earned a 10-17%lower letter grade"},
+                2: {"value": "incorrect","label":"Sending and receiving related messages (messages related to the content in the lecture) has a significant negative impact on student learning."},
+                3: {"value": "correct","label":"Students in the control and relevant message groups scored 70% higher on recall information"},
+                4: {"value": "incorrect","label":"There was no difference in note taking between the control and experimental groups"}
+              },
+              "retryQuestion": {
+                "imageUrl":"https://lh5.googleusercontent.com/AGyHGcDMLi0witY20hJXK2XLt_2tLUZc_tOQj1V5e3SUYLCJ56B_qcBhqAGfEF7y4LjJ4K-7YzyjTpAj1c-gC4VCtjJaC7g8K5vAr4lqtvdHRpr3q-I0ItwPHfUl5SxIah0m_n8JDEvqRGTvwMQmGKVHV6rsvA",
+                "textToCompare":"The current meta-analysis provided solid evidence that MPA was positively correlated with anxiety, depression, impulsivity, and sleep quality. This indicated that college students with MPA were more likely to develop high levels of anxiety, depression, and impulsivity and suffer from poor sleep quality."
+              }
           },
       
           "Question 3":{
-            "question":"Use the passage below to determine which of the following techniques is being used:",
-            "title": "Reaching out to a teacher or guidance counselor for support when struggling with academics, personal challenges, or emotional stress.",
-            "body": `Avoiding Disruptive Behavior in High School: Strategies for Success
-    
-            High school is a critical phase in a student's life, where academic growth and personal development take center stage. However, disruptive behavior can hinder not only a student's learning but also their overall well-being and success in school. In this essay, we will explore essential strategies that high school students can adopt to avoid participating in disruptive behavior, fostering a positive and productive learning environment for themselves and their peers.
-            
-            The first step in avoiding disruptive behavior is self-awareness. High school students should take the time to reflect on their emotions, triggers, and responses in various situations. Understanding what prompts them to act disruptively can empower them to find healthier alternatives to cope with challenges and frustrations. Self-awareness helps students recognize when they are feeling stressed, angry, or bored, allowing them to take proactive steps to manage their emotions and reactions positively.
-            
-            Empathy is a powerful tool in reducing disruptive behavior. High school students should make an effort to understand the feelings and perspectives of their classmates and teachers. By putting themselves in others' shoes, they can develop a sense of compassion and consideration. Empathetic students are less likely to engage in disruptive behavior that could hurt or disturb others. Moreover, fostering a culture of empathy in the classroom leads to improved communication and a more supportive learning environment.
-            
-            Effective communication is key to avoiding disruptive behavior. High school students should learn to express their thoughts, concerns, and frustrations in a respectful and constructive manner. When they feel the urge to act disruptively, they can instead communicate their needs to their teachers or peers. Clear communication helps to address potential issues before they escalate, fostering a sense of trust and understanding among all members of the classroom.
-            
-            Setting realistic academic and personal goals helps high school students maintain focus and motivation. When students have a clear vision of what they want to achieve, they are less likely to be distracted by disruptive behavior. Additionally, prioritizing tasks and managing time effectively allows students to stay organized and reduce feelings of overwhelm, which can lead to disruptive tendencies.
-            
-            The company a student keeps can significantly influence their behavior. High school students should surround themselves with positive and supportive peers who share similar values and goals. Positive peer interactions encourage students to uplift and encourage one another, promoting a healthy and respectful classroom environment.
-            
-            Engaging in extracurricular activities provides an excellent outlet for high school students to channel their energy and interests positively. Joining clubs, sports teams, or volunteering opportunities allows students to develop new skills, find a sense of belonging, and form meaningful connections with others outside the classroom. Active involvement in such activities reduces the likelihood of seeking attention or excitement through disruptive behavior.
-            
-            It is essential for high school students to recognize that seeking help and support is a sign of strength, not weakness. If students find themselves struggling with academics, personal challenges, or emotional stress, they should reach out to teachers, counselors, or trusted adults for guidance. Support systems can provide valuable resources and strategies to help students overcome difficulties, reducing the chances of resorting to disruptive behavior.
-            
-            Avoiding disruptive behavior in high school is crucial for students to create a positive and nurturing learning environment for themselves and their peers. By practicing self-awareness, empathy, effective communication, and time management, setting realistic goals, engaging in positive peer interactions, participating in extracurricular activities, and seeking help when needed, high school students can develop the necessary skills and mindset to navigate challenges and succeed academically and personally. A collaborative effort between students, educators, and the school community is essential in fostering a respectful and conducive learning environment that promotes the well-being and success of all students.`,
+            "question":"Use the following passage to determine who was cited for identifying the benefits of managing and removing unnecessary apps.",
+            "title": "Techniques to Overcome Phone Addiction: Strategies for Regaining Control",
+            "body": `In today's digital era, phone addiction has become a prevalent issue, adversely impacting individuals' well-being and productivity. However, there are effective techniques available to help individuals overcome phone addiction and regain control over their digital habits. This essay explores techniques and strategies supported by scholarly articles that can aid in overcoming phone addiction.
+
+            The first step in overcoming phone addiction is acknowledging its existence and understanding its negative effects. Research by Billieux et al. (2015) suggests that self-awareness plays a crucial role in initiating behavioral change. Setting clear goals to reduce phone usage, such as designating specific phone-free hours or limiting social media browsing time, provides a framework for individuals to work towards healthier phone habits.
+
+            Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction.
+
+            Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions.
+
+            Incorporating mindfulness and self-reflection techniques can foster a deeper understanding of one's phone usage patterns and emotional triggers. Research by Lee et al. (2019) highlights the effectiveness of mindfulness-based interventions in reducing problematic smartphone use. By practicing mindfulness, individuals can cultivate present-moment awareness and consciously choose how they engage with their phones. Regular self-reflection exercises, such as journaling or tracking phone usage, enable individuals to identify patterns, emotions, and triggers associated with excessive phone use.
+
+            Overcoming phone addiction requires conscious effort and the adoption of effective strategies. By recognizing the problem, setting goals, practicing digital minimalism, managing apps and notifications, and incorporating mindfulness and self-reflection techniques, individuals can regain control over their phone usage and mitigate the negative impact of addiction. These strategies, supported by scholarly articles, offer practical approaches to break free from excessive phone use, promoting healthier relationships with technology and improved overall well-being.`,
             "references": {
-              "reference1": "Rosen, L. D., Whaling, K., Carrier, L. M., Cheever, N. A., & Rokkum, J. (2020). The media and technology usage and attitudes scale: An empirical investigation. Computers in Human Behavior, 103, 49-59.",
-              "reference2": "Duncan, B. C., & Hoekstra, A. R. (2021). What are they doing on their phones? Mobile phone use in large lectures. Journal of Behavioral and Experimental Economics, 93, 101663.",
-              "reference3": "McBride, C., Brewer, E. W., & Phillips, M. (2022). The effects of mobile phone use in the classroom on student participation and performance. Journal of Education for Business, 97(1), 47-54.",
-              "reference4": "Clark, C. D., Baym, N. K., Gladstone, J. J., & Walpert, S. C. (2019). It's a mixed blessing: Perceptions of mobile phone impact on social bonding, rituals, and loneliness. Mobile Media & Communication, 7(1), 134-151.",
-              "referebce5": "Lee, H., Lim, J., & Park, H. (2020). The association between smartphone use and musculoskeletal discomfort in young adults: A systematic review. Journal of Korean Academy of Nursing, 50(4), 445-459.",
-              "reference6": "Elhai, J. D., Rozgonjuk, D., Alghraibeh, A. M., Yang, H., Hoogland, A. I., Panova, T., & Montag, C. (2021). Examining the association between smartphone use and sleep disturbances among young adults: A multinational study. International Journal of Environmental Research and Public Health, 18(4), 1711."
+              "reference1": "Billieux, J., Maurage, P., Lopez-Fernandez, O., Kuss, D. J., & Griffiths, M. D. (2015). Can disordered mobile phone use be considered a behavioral addiction? An update on current evidence and a comprehensive model for future research. Current Addiction Reports, 2(2), 156-162.",
+              "reference2": "Newport, C. (2019). Digital minimalism: Choosing a focused life in a noisy world. Penguin.",
+              "reference3": "Lin, Y. H., Lin, Y. C., Lee, Y. H., Lin, P. H., Lin, S. H., Chang, L. R., & Kuo, T. B. (2020). Time distortion associated with smartphone addiction: Identifying smartphone addiction via a mobile application (App). Journal of Psychiatric Research, 124, 33-39.",
+              "reference4": "Lee, R. M., Chang, J. H., Lin, P. L., & Sung, S. M. (2019). Effectiveness of a mindfulness-based intervention on smartphone addiction in college students. Journal of Psychiatric Research, 113, 220-226."
             },
             "radioAnswers": {
-              1: {"value": "correct","label":"Clark, C. D"},
-              2: {"value": "incorrect","label":"Lee, H"},
-              3: {"value": "incorrect","label":"McBride, C."},
-              4: {"value": "incorrect","label":"Duncan, B. C."}
+              1: {"value": "incorrect","label":"Newport, C."},
+              2: {"value": "incorrect","label":"Lee, R.M."},
+              3: {"value": "incorrect","label":"Billieux, J"},
+              4: {"value": "correct","label":"Lin, Y.H."}
             },
             "retryQuestion": {
-              "imageUrl":"https://lh6.googleusercontent.com/EzaRI3-WRKm5J4TPL2EFNdiSWa5XBHYsZdU-XAxJBkmAoHAbYc20ndXJ-rFGxx9K63Y5qachwOU900goAFvg8BO0dQS6cUy5os7KO3uY63lUXcXDNhw84_bIBZ_x2p-_K09z6DLdvRQ1uiDFvM7L1590-eduKg",
-              "textToCompare":"A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them."
+              "imageUrl":"https://lh6.googleusercontent.com/1UN5H25kqI-pskVA7NIDZB54dM0ji-IljKr6uGyASs5Bq71qJF1ZOp-Zhja5UcnB4-ajQsl65TeB6Xc8MCaD6SVnlvEolRK4YNDNIV_MAaFdE4r6dWe5Hjp-9kPs0sTfzbHl8azabuHX2T6ChKmtdLRCcL-ddg",
+              "textToCompare":"Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions."
             }
           },
       
           "Question 4":{
-            "question": "Use the following passage to determine who was cited for identifying the link between excessive phone use and  increased stress levels, sleep disturbances, and decreased well-being",
-            "title": "The Negative Impact of Phone Use on the Classroom Environment: A Persuasive Argument",
-            "body": `In today's technologically driven society, the widespread use of smartphones has permeated various aspects of our lives, including educational settings. However, the presence and use of phones in the classroom have been shown to have detrimental effects on the learning environment. This essay aims to present a persuasive argument highlighting how phone use negatively impacts the classroom environment. By citing recent scholarly articles, we will examine four key reasons why phones should be discouraged in educational settings.
+            "question": "Use the following passage to determine who was cited for identifying the need to align phone usage to personal values and goals.",
+            "title": "Techniques to Overcome Phone Addiction: Strategies for Regaining Control",
+            "body": `In today's digital era, phone addiction has become a prevalent issue, adversely impacting individuals' well-being and productivity. However, there are effective techniques available to help individuals overcome phone addiction and regain control over their digital habits. This essay explores techniques and strategies supported by scholarly articles that can aid in overcoming phone addiction.
 
-            Phone use in the classroom leads to distraction and disrupted focus among students. Studies have consistently shown that the mere presence of phones can impair concentration and academic performance (Rosen et al., 2020). Furthermore, research conducted by Duncan and Hoekstra (2021) revealed that actively using phones during class is associated with reduced attention to lectures and decreased engagement with course material. The constant temptation of notifications, messages, and social media updates diverts students' attention away from the educational content, hindering their ability to absorb information effectively.
+            The first step in overcoming phone addiction is acknowledging its existence and understanding its negative effects. Research by Billieux et al. (2015) suggests that self-awareness plays a crucial role in initiating behavioral change. Setting clear goals to reduce phone usage, such as designating specific phone-free hours or limiting social media browsing time, provides a framework for individuals to work towards healthier phone habits.
 
-            The use of phones in the classroom disrupts the crucial teacher-student interaction necessary for effective learning. According to a study by McBride et al. (2022), phone use can lead to decreased student participation and limited opportunities for meaningful discussion. When students are engrossed in their phones, they are less likely to actively engage in class discussions, ask questions, or seek clarification. This hampers the collaborative learning process and impedes the development of critical thinking skills and deeper understanding of the subject matter.
+            Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction.
 
-            Phones in the classroom also contribute to a decline in classroom etiquette and respect for the learning environment. A study by Clark et al. (2019) found that students' use of phones during class can be perceived as disrespectful by both peers and instructors. It creates a sense of detachment and disengagement, disrupting the classroom's positive and cohesive atmosphere. Moreover, the visual and auditory distractions caused by phone activities, such as texting or gaming, not only distract the user but also disrupt the learning experience of those around them.
-  
-            Phone use in the classroom raises health and well-being concerns for students. Prolonged phone use, particularly in poor ergonomic positions, can lead to musculoskeletal issues, eye strain, and posture problems (Lee et al., 2020). Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life.
+            Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions.
 
-            The detrimental effects of phone use in the classroom on the learning environment are evident from recent scholarly articles. The distractions, disrupted teacher-student interaction, decline in classroom etiquette, and health concerns associated with phone use all contribute to an argument against the presence and use of phones in educational settings. By minimizing or eliminating phone use during class time, educators can foster a focused, respectful, and conducive learning environment that enhances student engagement, interaction, and overall academic success.`,
+            Incorporating mindfulness and self-reflection techniques can foster a deeper understanding of one's phone usage patterns and emotional triggers. Research by Lee et al. (2019) highlights the effectiveness of mindfulness-based interventions in reducing problematic smartphone use. By practicing mindfulness, individuals can cultivate present-moment awareness and consciously choose how they engage with their phones. Regular self-reflection exercises, such as journaling or tracking phone usage, enable individuals to identify patterns, emotions, and triggers associated with excessive phone use.
+
+            Overcoming phone addiction requires conscious effort and the adoption of effective strategies. By recognizing the problem, setting goals, practicing digital minimalism, managing apps and notifications, and incorporating mindfulness and self-reflection techniques, individuals can regain control over their phone usage and mitigate the negative impact of addiction. These strategies, supported by scholarly articles, offer practical approaches to break free from excessive phone use, promoting healthier relationships with technology and improved overall well-being.`,
             "references": {
-              "reference1": "Rosen, L. D., Whaling, K., Carrier, L. M., Cheever, N. A., & Rokkum, J. (2020). The media and technology usage and attitudes scale: An empirical investigation. Computers in Human Behavior, 103, 49-59.",
-            "reference2": "Duncan, B. C., & Hoekstra, A. R. (2021). What are they doing on their phones? Mobile phone use in large lectures. Journal of Behavioral and Experimental Economics, 93, 101663.",
-            "reference3": "McBride, C., Brewer, E. W., & Phillips, M. (2022). The effects of mobile phone use in the classroom on student participation and performance. Journal of Education for Business, 97(1), 47-54.",
-            "reference4": "Clark, C. D., Baym, N. K., Gladstone, J. J., & Walpert, S. C. (2019). It's a mixed blessing: Perceptions of mobile phone impact on social bonding, rituals, and loneliness. Mobile Media & Communication, 7(1), 134-151.",
-            "referebce5": "Lee, H., Lim, J., & Park, H. (2020). The association between smartphone use and musculoskeletal discomfort in young adults: A systematic review. Journal of Korean Academy of Nursing, 50(4), 445-459.",
-            "reference6": "Elhai, J. D., Rozgonjuk, D., Alghraibeh, A. M., Yang, H., Hoogland, A. I., Panova, T., & Montag, C. (2021). Examining the association between smartphone use and sleep disturbances among young adults: A multinational study. International Journal of Environmental Research and Public Health, 18(4), 1711."
+            "reference1": "Billieux, J., Maurage, P., Lopez-Fernandez, O., Kuss, D. J., & Griffiths, M. D. (2015). Can disordered mobile phone use be considered a behavioral addiction? An update on current evidence and a comprehensive model for future research. Current Addiction Reports, 2(2), 156-162.",
+            "reference2": "Newport, C. (2019). Digital minimalism: Choosing a focused life in a noisy world. Penguin.",
+            "reference3": "Lin, Y. H., Lin, Y. C., Lee, Y. H., Lin, P. H., Lin, S. H., Chang, L. R., & Kuo, T. B. (2020). Time distortion associated with smartphone addiction: Identifying smartphone addiction via a mobile application (App). Journal of Psychiatric Research, 124, 33-39.",
+            "reference4": "Lee, R. M., Chang, J. H., Lin, P. L., & Sung, S. M. (2019). Effectiveness of a mindfulness-based intervention on smartphone addiction in college students. Journal of Psychiatric Research, 113, 220-226."
           },
             "radioAnswers": {
-              1: {"value": "incorrect","label":"McBride, C"},
+              1: {"value": "incorrect","label":"Lee, R.M"},
               2: {"value": "incorrect","label":"Lee, H"},
               3: {"value": "incorrect","label":"Clark, C.D."},
-              4: {"value": "correct","label":"Elhai, J.D."}
+              4: {"value": "correct","label":"Newport"}
             },
             "retryQuestion": {
-              "imageUrl":"https://lh3.googleusercontent.com/dmfoJZv-O1T0PIVDK3IKNV0AB0J6_-rftAFo1Zkqkw5xwRknmB29maAwTVK3mAYOB906nKsbYKHGZxh8TkZOO61n94PyDw6pAuBYPq-7MOsvkQjeOvBsU3SEXUmnI9LZ3TluinaMw3GFW63VX0HEAPWSPJDCwg",
+              "imageUrl":"https://lh4.googleusercontent.com/JZ5psVP6FeImAWIDwit3xpyYfOAUV8zbAV66-a1vZmr9fuPgMgBmpboDFty2OeXgBLw0xw6QzKgzOdXPB6oCUEkZcSYgC33f28IWNdVgO36m_4O0djrD_3ipxvvkV5-LF7JBBhuHWon8b40Wx37MvFsmGTfDYw",
               "imageTextAlt":"",
-              "textToCompare":"Additionally, excessive phone use has been linked to increased stress levels, sleep disturbances, and decreased well-being (Elhai et al., 2021). These physical and mental health issues can have a direct impact on students' overall academic performance and overall quality of life."
+              "textToCompare":"Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction."
+          
             }
           },
         },
     
-        ////////////////////////Disruptive Behavior 3/////////////////////////////////
-        "disruptivebehavior-3":{
-          "infractionName":"Disruptive Behavior",
+        ////////////////////////Unauthorized Device 3/////////////////////////////////
+        "unauthorizeddevice-3":{
+          "infractionName":"Unauthorized Device/Cell Phone Violation",
           "level": 3,
           "Question 1":{
             "question":"Read the following passage to determine who describes disruptive behavior as maladaptive coping mechanisms.",
