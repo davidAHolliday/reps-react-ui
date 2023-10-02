@@ -919,7 +919,8 @@ export const essayData = {
     
     
       },
-      "retryQuestion": {"https://lh4.googleusercontent.com/-ZpWBivpsht7Lep5xAxLTNoNW6lBJ2bi4QrynqLUfAioOp38-XxFue8SWcjZFN_vGKoE2F8VUbYFMaqK-LSQqgfnfHe3FxrFE3al9mbBe-ZtP-BEPAftatf0A3JPwhC2iryM8xuBL8LBvGMgozjpVxCPh5-B3",
+      "retryQuestion": {
+        "imageUrl": "https://lh4.googleusercontent.com/-ZpWBivpsht7Lep5xAxLTNoNW6lBJ2bi4QrynqLUfAioOp38-XxFue8SWcjZFN_vGKoE2F8VUbYFMaqK-LSQqgfnfHe3FxrFE3al9mbBe-ZtP-BEPAftatf0A3JPwhC2iryM8xuBL8LBvGMgozjpVxCPh5-B3",
         "textToCompare":"Dress codes minimize distractions caused by provocative or inappropriate attire, thus fostering a focused and secure learning environment. In the words of Rodriguez (2019), dress codes establish a baseline for appropriate clothing choices, reducing the potential for disruptive or revealing clothing that may divert attention away from academic pursuits. By establishing a professional and conducive atmosphere, dress codes help maintain the integrity of the educational environment, ensuring that students can concentrate on their studies without unnecessary distractions."
         }
       },
