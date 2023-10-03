@@ -31,6 +31,7 @@ function MyForm() {
   const failureToCompleteWorkTitle = "Failure to complete Work"
   const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
   const behaviorShoutTitle = "Shout Comment"
+  const concernTitle = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
   const [selectedOptions, setSelectedOptions] = useState();
 
   
@@ -132,7 +133,7 @@ useEffect(()=>{
             )
             .then(function (res){
              setSuccessDisplay(true)
-             setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
+             setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
              setTimeout(()=>{
                  setSuccessDisplay(false)
              },3000)
@@ -196,59 +197,13 @@ useEffect(()=>{
                 required
               />
             </div>
-           
-            {/* <div className='question-container'>
-              <label htmlFor="firstName">Student's First Name *</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="lastName">Student's Last Name *</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
-              <label htmlFor="email">Student's Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => {
-                    setEmail(e.target.value)}}
-                required
-              />
-            </div> */}
-            {/* <div className='question-container'>
+                   <div className='question-container'>
               <label htmlFor="infractionPeriod">Infraction Period *</label>
-              <input
-                type="text"
+              <select
                 id="infractionPeriod"
                 name="infractionPeriod"
                 value={infractionPeriod}
                 onChange={(e) => setInfractionPeriod(e.target.value)}
-                required
-              />
-            </div> */}
-                   <div className='question-container'>
-              <label htmlFor="infraction">Infraction Period *</label>
-              <select
-                id="infraction"
-                name="infraction"
-                value={infraction}
-                onChange={(e) => setInfraction(e.target.value)}
                 required
               >
                 <option value="">Choose</option>
@@ -268,10 +223,10 @@ useEffect(()=>{
               </select>
             </div>
             <div className='question-container'>
-              <label htmlFor="infractionPeriod">Name of the Infraction or Positive Behavior Shout Out *</label>
+              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
               <select
-                id="infractionPeriod"
-                name="infractionPeriod"
+                id="infraction"
+                name="infraction"
                 value={infraction}
                 onChange={(e) => setInfraction(e.target.value)}
                 required
@@ -284,6 +239,7 @@ useEffect(()=>{
                 <option value="Failure to Complete Work">Failure to Complete Work</option>
                 <option value="Dress Code">Dress Code</option>
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
+                <option value="Behavioral Concern">Behavioral Concern</option>
               </select>
             </div>
      
@@ -291,12 +247,14 @@ useEffect(()=>{
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
               {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getTitle(infraction)
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
                 {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getDescription(infraction)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
