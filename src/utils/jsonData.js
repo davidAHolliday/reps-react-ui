@@ -760,8 +760,6 @@ export const essayData = {
         2: {"value": "incorrect","label":"Student suffered a broken leg"},
         3: {"value": "incorrect","label":"School was forced to pay 1 million dollars in damages"},
         4: {"value": "correct","label":"Schools have a duty of care to protect its students from horseplay."}
-  
-  
     },
     "retryQuestion": {
       "imageUrl":"",
