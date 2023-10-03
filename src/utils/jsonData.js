@@ -1543,7 +1543,7 @@ export const essayData = {
 
             ////////////////////////Unauthorized Device 1/////////////////////////////////
             "unauthorizeddevice-1":{
-              "infractionName":"Unauthorized Device/Cell Phone Violation",
+              "infractionName":"Unauthorized Device/Cell Phone",
               "level": 1,
               "Question 1":{
                 "question":"True or false students who were not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
@@ -1646,7 +1646,7 @@ export const essayData = {
           
           ////////////////////////Unauthorized Device 2/////////////////////////////////
           "unauthorizeddevice-2":{
-            "infractionName":"Unauthorized Device/Cell Phone Violation",
+            "infractionName":"Unauthorized Device/Cell Phone",
             "level": 2,
             "Question 1":{
               "question":"Which of the following was NOT associated with excessive overuse of mobile phones?",
@@ -1761,7 +1761,7 @@ export const essayData = {
     
         ////////////////////////Unauthorized Device 3/////////////////////////////////
         "unauthorizeddevice-3":{
-          "infractionName":"Unauthorized Device/Cell Phone Violation",
+          "infractionName":"Unauthorized Device/Cell Phone",
           "level": 3,
           "Question 1":{
             "question":"Read the following passage to determine who was cited for connecting a fear of missing out with problematic phone use.",
