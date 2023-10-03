@@ -1274,6 +1274,10 @@ export const essayData = {
           "references": {
             },
           "radioAnswers": {
+            1: {"value": "correct","label":"RodrSprick, Knight, Reinke, and McKaleiguez"},
+            2: {"value": "incorrect","label":"Rimm-Kaufman, Fan, Chiu"},
+            3: {"value": "incorrect","label":"Anderson"},
+            4: {"value": "incorrect","label":"Davis"}
           },
           "retryQuestion": {
             "imageUrl":"https://lh4.googleusercontent.com/Gql9o-3MYQVs4JhvU5eqRfDeEIBZBGu5n93amhQg4nI1ARH0O12XgkEwipf9HM38_fZC5tifMEOvwHdZx5cNSZW320NmzRFbZjRN_V5m-FkKW6UMQmrER_CGa2IUCHS4Mj0uIE41EuQ0yQAjH11Knua7zyvFLw",
