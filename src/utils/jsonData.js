@@ -98,6 +98,7 @@ export const essayData = {
   }
 },
 },
+//////////////////////TARDY 2////////////////////////////
 "tardy-2":{
     "infractionName":"Tardy",
     "level": 2,
@@ -948,6 +949,7 @@ export const essayData = {
       "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
     }
   },
+},
     ////////////////////////Dress Code 2/////////////////////////////////
     "dresscode-2":{
       "infractionName":"Dress Code",
@@ -979,8 +981,7 @@ export const essayData = {
         "retryQuestion": "https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
           "textToCompare":"The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings."
     
-        }
-      },
+        },
     
       "Question 2":{
       "question":"Use the following passage to determine who cited the benefits of appropriate clothing choices on self esteem.",
@@ -1071,6 +1072,7 @@ export const essayData = {
         "textToCompare":"Dress codes contribute to professionalism by promoting respect and professional etiquette among individuals. As highlighted by Rodriguez (2022), dress codes ensure that individuals present themselves in a manner that is respectful to others and the organization. By establishing guidelines on appropriate attire, dress codes minimize the risk of offensive or inappropriate clothing choices, which could create discomfort or offend others. A respectful and professional environment fosters positive relationships, effective communication, and collaboration among colleagues."
       }
     },
+  },
         ////////////////////////Dress Code 3/////////////////////////////////
         "dresscode-3":{
           "infractionName":"Dress Code",
@@ -1097,8 +1099,7 @@ export const essayData = {
             },
             "retryQuestion": "https://lh5.googleusercontent.com/jcltVzpVxvRR1S2zhYphOxOgn6R6YHyiA-uyXzREUTYy9_WehJU0gUaa0Do9UuaooORE-uSidLZD-VGAj2Pz2z70uxy7GDBZrFUfcIhqLzt4hLxjTJQnBM9g6we5Eqv149GP2SI5iUr1aGygXijJiSrR2qz4IQ",
               "textToCompare":"Socioeconomic factors can also contribute to dress code violations among students. Davis et al. (2018) highlight that students from low-income backgrounds may face challenges in acquiring the appropriate attire outlined in the dress code. Financial constraints can limit their access to clothing that complies with the rules, leading to unintentional violations. Schools can address this issue by providing resources or establishing partnerships to assist economically disadvantaged students in obtaining clothing that aligns with the dress code."
-            }
-          },
+            },
         
           "Question 2":{
           "question":"Use the following reading to determine who cited self expression as a cause for dress code violation.",
@@ -1167,7 +1168,7 @@ export const essayData = {
         
           }
         },
-
+      },
         ////////////////////////Disruptive Behavior 1/////////////////////////////////
         "disruptivebehavior-1":{
           "infractionName":"Disruptive Behavior",
@@ -1281,7 +1282,6 @@ export const essayData = {
         
           }
         },
-      },
       },
       ////////////////////////Disruptive Behavior 2/////////////////////////////////
       "disruptivebehavior-2":{
