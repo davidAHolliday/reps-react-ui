@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import ReportIcon from '@mui/icons-material/Report';
 import { redirect, useNavigate } from 'react-router-dom';
 import { baseUrl } from '../utils/jsonData';
 
 function Login() {
+  const [warningToast,setWarningToast] = useState(false)
 
   
     const navigate = useNavigate();
@@ -30,35 +32,38 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform login logic here using formData
-    console.log('Login Data:', formData);
+    // console.log('Login Data:', formData);
     // Reset form fields after submission if needed
     setFormData({
         username: '',
       password: '',
     });
 /////////////////
-axios.post(`${baseUrl}/auth`,formData
 
-)
-.then(function (res){
-    console.log(res)
-    const token = res.data.response
-    const userName = res.data.userModel.firstName
-    const schoolName = res.data.userModel.schoolName
-    const email = res.data.userModel.username
-    console.log(token)
-    sessionStorage.setItem("Authorization",token)
-    sessionStorage.setItem("userName",userName)
-    sessionStorage.setItem("schoolName",schoolName)
-    sessionStorage.setItem("email",email)
+axios.post(`${baseUrl}/auth`, formData)
+  .then(function (res) {
+    if (res.data && res.data.userModel) {
+      const token = res.data.response;
+      const userName = res.data.userModel.firstName;
+      const schoolName = res.data.userModel.schoolName;
+      const email = res.data.userModel.username;
+      sessionStorage.setItem("Authorization", token);
+      sessionStorage.setItem("userName", userName);
+      sessionStorage.setItem("schoolName", schoolName);
+      sessionStorage.setItem("email", email);
+      routeChange();
+    } else {
+      // Handle the case where the expected data is missing
+      console.error("Data or userModel is null or undefined in the response.");
+      // You can set a warning or error state here if needed
+      setWarningToast(true);
+    }
+  })
+  .catch(function (error) {
+    console.error("Error:", error);
+    // Handle the error as needed
+  });
 
-    routeChange();
-   
-
-})
-.catch(function (error){
-
-});
 
 
 /////////////////
@@ -98,6 +103,11 @@ axios.post(`${baseUrl}/auth`,formData
         <a href='/register'><span>New User? Register Here </span></a>
         </div>
       </form>
+      {warningToast &&
+      <div style={{color:"red",display:"inline-flex"}}> 
+     <ReportIcon fontSize="small"/>Wrong Name or Password
+
+    </div>}
     </div>
   );
 }
