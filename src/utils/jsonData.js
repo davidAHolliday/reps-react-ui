@@ -1556,8 +1556,8 @@ export const essayData = {
                 "references": {
                 },
                 "radioAnswers": {
-                    1: {"value": "correct","label":"True"},
-                    2: {"value": "incorrect","label":"False"}
+                    1: {"value": "incorrect","label":"True"},
+                    2: {"value": "correct","label":"False"}
                 },
                 "retryQuestion":{
                   "imageUrl": "https://lh3.googleusercontent.com/oZeoJeWMiopKsrTjVICv7TeNVGigKRJ36FTY4RIermrUuP473f_dOYdpLqE0LSeNIio95r8Y8mCvQLPBZzgmAxCQc8xfo0AoF-OlTWnbRunDZwMRUApwbHBTKoeQ5cNNdUWUgzzwFjlj7iIFKcfhDmA3IFqUgg",
