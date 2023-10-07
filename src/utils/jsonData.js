@@ -1600,9 +1600,9 @@ export const essayData = {
               "references": {
               },
               "radioAnswers": {
-                1: {"value": "correct","label":"RodrSprick, Knight, Reinke, and McKaleiguez"},
+                1: {"value": "incorrect","label":"RodrSprick, Knight, Reinke, and McKaleiguez"},
                 2: {"value": "incorrect","label":"Rimm-Kaufman, Fan, Chiu"},
-                3: {"value": "incorrect","label":"Anderson"},
+                3: {"value": "correct","label":"Clark"},
                 4: {"value": "incorrect","label":"Davis"}
               },
               "retryQuestion": {
