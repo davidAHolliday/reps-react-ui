@@ -1,22 +1,8 @@
 import {React, useState} from "react";
 
 
-  function RetryQuestionFormat({essay, saveAnswerAndProgress, sectionName}) {
-      const [copyText, setCopyText] = useState("")
-    
-    
-    
-      const checkWork = () =>{
-        const compareText  = essay.retryQuestion["textToCompare"]
-        console.log(compareText)
-        if(compareText.localeCompare(copyText)===0){
-          window.alert("Correct")
-          saveAnswerAndProgress("correct")
-        }else{
-          window.alert("Try Again, Text Must Match Exactly")
-        }
-    
-      }
+  function OpenEndedFormat({essay, saveAnswerAndProgress, sectionName}) {
+    const [answer, setAnswer] = useState();
 
         return(
             
@@ -41,16 +27,16 @@ import {React, useState} from "react";
       style={{ height: 70 }}
       id="copyText"
       name="copyText"
-      value={copyText}
-      onChange={(e) => setCopyText(e.target.value)}
+      value={answer}
+      onChange={(e) => setAnswer(e.target.value)}
       required
     ></textarea>
              </div>
-      <button type="button" onClick={()=>checkWork()}>Check Work</button>
+      <button type="button" onClick={(e)=>(e)}>Check Work</button>
              </div>
   
         )
     }
   
   
-  export default RetryQuestionFormat;
+  export default OpenEndedFormat;
