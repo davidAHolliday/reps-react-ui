@@ -1,3 +1,7 @@
+// export const baseUrl ="https://reps-react-demo.wn.r.appspot.com"
+export const baseUrl = "http://localhost:8080"
+// export const baseUrl = "https://repsdms.ue.r.appspot.com"
+
 export const essayData = {
 
 "tardy-1":{
@@ -780,6 +784,7 @@ export const essayData = {
       "title": "Peer Pressure is never an underlying cause of roughhousing.",
       "body": `Unraveling the Underlying Causes of Roughhousing and Horseplay in Schools
 
+<<<<<<< HEAD
       Roughhousing and horseplay are common occurrences in school settings and have been a subject of concern for educators, parents, and policymakers alike. While these activities may seem harmless and even part of childhood, they can lead to serious consequences if not appropriately addressed. Understanding the underlying causes of roughhousing and horseplay in schools is crucial for implementing effective strategies to mitigate their negative impact on students' well-being and academic performance. This essay delves into some of the primary factors contributing to these behaviors and offers insights into potential solutions.
       
       One significant cause of roughhousing and horseplay in schools is rooted in children's physiological development. During their formative years, children experience substantial physical growth and changes, leading to an increase in energy levels and a desire for physical activity. As a result, students may engage in rough play as a way to release pent-up energy and explore their physical capabilities. While some physical activity is essential for healthy development, guiding children towards appropriate outlets for their energy is essential to prevent undesirable behavior.
@@ -1880,3 +1885,6 @@ export const essayData = {
         }, 
   }
 }
+
+
+//123abc; justin_iverson.c@charleston.k12.sc.us

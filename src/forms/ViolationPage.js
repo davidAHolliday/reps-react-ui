@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { essayData } from '../utils/jsonData';
+import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from "react-select";
 
@@ -25,11 +25,17 @@ function ViolationPage(props) {
   const { param1 } = useParams();
   const essay = essayData[param1]
 
+
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
   
   useEffect(() => {
-    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-    .then(function(response){
-        setListOfStudents(response.data)
+    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
+      .then(function (response) {
+        setListOfStudents(response.data);
+  
         const foundStudent = response.data.find(student => student.studentEmail === email);
   
         if (foundStudent) {
@@ -135,8 +141,8 @@ const handleSubmit = (e) => {
       }
   
 
-      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
-      // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+            axios.post(`${baseUrl}/punish/v1/punishId/close`,payload,{headers:headers}
+            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
 
       )
       .then(function (res){
@@ -195,8 +201,8 @@ return (
                 onChange={handleSelect}
                 isSearchable={true}/>
             </div>}
-          <hr></hr>
-   
+            <hr></hr>
+  
 {sectionNumber ===1 && <EssayFactory essay={essay['Question 1']} handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
 {sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
 {sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
