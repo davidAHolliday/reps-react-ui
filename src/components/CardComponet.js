@@ -1,26 +1,26 @@
-import React from "react";
+import React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import CardActionArea from '@mui/material/CardActionArea';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
-export const CardComponent=(props)=>{
-    return(
-        <Card onClick={()=>{window.location.href = props.url}} sx={{ width: 345}}>
-     
+export const ActionCard = (props) => {
+  const { style ,url, title, descriptions } = props;
+
+  return (
+    <Card sx={{ width: 300, margin: '16px',color:style }} >
+      <CardActionArea href={url}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.title}
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.description}
+            {descriptions}
           </Typography>
         </CardContent>
-        {/* <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions> */}
-      </Card>
-    )
-}
+      </CardActionArea>
+    </Card>
+  );
+};
+
+
