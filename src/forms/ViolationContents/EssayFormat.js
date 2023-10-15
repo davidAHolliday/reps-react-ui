@@ -1,8 +1,5 @@
 import React from "react";
 
-
-
-  
   function EssayFactory({essay, handleRadioChange,sectionName}) {
     const essayStyles = {
         fontFamily: 'Arial, sans-serif',
