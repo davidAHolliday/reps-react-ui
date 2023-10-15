@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { essayData } from '../utils/jsonData';
+import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from "react-select";
 
@@ -25,11 +25,16 @@ function ViolationPage(props) {
   const { param1 } = useParams();
   const essay = essayData[param1]
 
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
   
   useEffect(() => {
-    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-    .then(function(response){
-        setListOfStudents(response.data)
+    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
+      .then(function (response) {
+        setListOfStudents(response.data);
+  
         const foundStudent = response.data.find(student => student.studentEmail === email);
   
         if (foundStudent) {
@@ -143,60 +148,67 @@ const handleSubmit = (e) => {
         console.log(res)
         window.alert(`You Work Has been Recorded for ${payload.studentEmail}`)
     
-        window.opener = null;
-        window.open("", "_self");
-        window.close();
 
-      //  setSuccessDisplay(true)
-      //  setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
-      //  setTimeout(()=>{
-      //      setSuccessDisplay(false)
-      //  },3000)
-      //  resetForm();
-      //  console.log(res)
-    })
-      .catch(function (error){
-        console.log(error)
+        var payload = {
+            "studentEmail" :email ,
+            "infractionName": essay.infractionName,
+            "infractionLevel": essay.level
+            }
+        
 
-      //  console.log(error)
-      //  const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-      //  setErrorDisplay(true)
-      //  setErrorMessage(errorMessage)
-      //  setTimeout(()=>{
-      //      setErrorDisplay(false)
-      //  },2000)
-  });
-}else{
-        setErrorDisplay(true)
-        setErrorMessage("Student Not Found in System")
-        setTimeout(()=>{
-            setErrorDisplay(false)
-        },2000)
+            axios.post(`${baseUrl}/punish/v1/punishId/close`,payload,{headers:headers}
+            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
 
-    };
-}
+            )
+            .then(function (res){
+              console.log(res)
+              window.alert(`You Work Has been Recorded for  ${payload.studentEmail}`)
 
+            //  setSuccessDisplay(true)
+            //  setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
+            //  setTimeout(()=>{
+            //      setSuccessDisplay(false)
+            //  },3000)
+            //  resetForm();
+            //  console.log(res)
+         })
+            .catch(function (error){
+              console.log(error)
 
-// if(essay.level < 3) {
-return (
-  <div className="page-container">
-    <div className="lrKTG">
-      <div className="form-container" style={{width:"100%"}}>
-        <form>
-          <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
-              {sectionNumber === 1 &&<div className='question-container'>
-            <label htmlFor="selectStudent">Select Student *</label>
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}/>
-            </div>}
-          <hr></hr>
+            //  console.log(error)
+            //  const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
+            //  setErrorDisplay(true)
+            //  setErrorMessage(errorMessage)
+            //  setTimeout(()=>{
+            //      setErrorDisplay(false)
+            //  },2000)
+         });
    
+  })}
+};
+
+
+
+
+  return (
+    <div className="page-container">
+      <div className="lrKTG">
+        <div className="form-container" style={{width:"100%"}}>
+          <form onSubmit={handleSubmit}>
+            <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
+                {sectionNumber == 1 &&<div className='question-container'>
+              <label htmlFor="email">Enter Your Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>}
+            <hr></hr>
+  
 {sectionNumber ===1 && <EssayFactory essay={essay['Question 1']} handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
 {sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
 {sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
