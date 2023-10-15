@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Select from "react-select";
-import { baseUrl } from '../utils/jsonData';
+import { useNavigate } from 'react-router-dom';
 
 
 function MyForm() {
@@ -32,10 +32,8 @@ function MyForm() {
   const failureToCompleteWorkTitle = "Failure to complete Work"
   const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
   const behaviorShoutTitle = "Shout Comment"
+  const concernTitle = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
   const [selectedOptions, setSelectedOptions] = useState();
-
-
-
 
 
 
@@ -155,6 +153,7 @@ function MyForm() {
                  setErrorDisplay(false)
              },2000)
          });
+
     }else{
         setErrorDisplay(true)
         setErrorMessage("Student Not Found in System")
@@ -245,6 +244,7 @@ function MyForm() {
                 <option value="Failure to Complete Work">Failure to Complete Work</option>
                 <option value="Dress Code">Dress Code</option>
                 <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
+                <option value="Behavioral Concern">Behavioral Concern</option>
               </select>
             </div>
      
@@ -252,12 +252,14 @@ function MyForm() {
             <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
               {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getTitle(infraction)
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
                 {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
                   ? getDescription(infraction)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
