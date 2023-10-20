@@ -10,7 +10,7 @@ function MyForm() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [infraction, setInfraction] = useState('');
-  const [offenseDescription,setOffenseDescription] = useState("");
+  const [offenseDescription,setOffenseDescription] = useState({});
   const [infractionPeriod, setInfractionPeriod] = useState("");
   const [errorDisplay, setErrorDisplay] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -46,7 +46,7 @@ function MyForm() {
     setLastName("");
     setEmail("");
     setInfraction("");
-    setOffenseDescription("");
+    setOffenseDescription({});
     setInfractionPeriod("");
     setSelectedOptions("")
   };
@@ -162,6 +162,10 @@ useEffect(()=>{
  
   };
 
+  const handleAnswer = (value: String) => {
+    setOffenseDescription((offenseDescription) => [...offenseDescription, value]);
+  }
+
   return (
     <div className="page-container">
       <div className="lrKTG">
@@ -265,7 +269,7 @@ useEffect(()=>{
                 id="offenseDescription"
                 name="offenseDescription"
                 value={offenseDescription}
-                onChange={(e) => setOffenseDescription(e.target.value)}
+                onChange={(e) => handleAnswer(e.target.value)}
                 required
               />
             </div>
