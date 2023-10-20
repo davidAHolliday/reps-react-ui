@@ -14,7 +14,7 @@ import MulipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
-  const [sectionNumber, setSectionNumber] = useState(9); //what section fo form are we on
+  const [sectionNumber, setSectionNumber] = useState(1); //what section fo form are we on
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [listOfStudents, setListOfStudents] = useState([]);
   const [firstName, setFirstName] = useState('');
