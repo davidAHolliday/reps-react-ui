@@ -19,11 +19,7 @@ import React from "react";
         <h1 >{essay.title}</h1>
         <p>{essay.body}</p>
         <h2>References</h2>
-        <ul>
-          {Object.keys(essay.references).map((key) => (
-            <li key={key}>{essay.references[key]}</li>
-          ))}
-        </ul>
+    
       </div>
         <div className="md0UAd" aria-hidden="true" dir="auto">
                         * Indicates required question
