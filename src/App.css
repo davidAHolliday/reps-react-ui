@@ -102,6 +102,7 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: white;
 }
 
 /* Style for input fields and select boxes */
@@ -110,11 +111,13 @@ input[type="email"],
 select {
   width: 100%;
   /* padding: 10px; */
-  border: 1px solid #ddd;
+  border: 1px solid blue;
+  background-color: white;
   border-radius: 5px;
   font-size: 16px;
   /* margin-top: 5px; */
   outline: none;
+  
 }
 
 /* Style for the description input field */
@@ -255,8 +258,9 @@ h5 {
 input[type="password"], input[type="password"], select {
   width: 100%;
   /* padding: 10px; */
-  border: 1px solid #ddd;
   border-radius: 5px;
+  border: 1px solid blue;
+  background-color: white;
   font-size: 16px;
   /* margin-top: 5px; */
   /* margin-bottom: 15px; */
@@ -305,3 +309,28 @@ input[type="password"], input[type="password"], select {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+
+body {
+  background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+  background-size: 600% 600%;
+  animation: GradientBackground 8s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+
+

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../utils/jsonData';
@@ -15,13 +15,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {TableComponent} from "./TableComponent"
 import {ActionCard} from "./CardComponet"
-import Avatar from '@mui/material/Avatar'; // Import Avatar component
+import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from './notification-bar/NotificationBar';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const Dashboard = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -38,6 +40,7 @@ const Dashboard = () => {
       setLoggedIn(true);
     }
   }, []);
+
 
   const headers = {
     Authorization: 'Bearer ' + sessionStorage.getItem('Authorization'),
@@ -59,6 +62,10 @@ const Dashboard = () => {
     setOpenDrawer(open);
   };
 
+  const toggleNotificationDrawer = (open) => {
+    setOpenNotificationDrawer(open);
+  };
+
   return (
     loggedIn && (
       <div style={{ maxWidth: '90%', margin: '0 auto' }}> {/* Center the app within 90% of the screen */}
@@ -75,12 +82,22 @@ const Dashboard = () => {
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
-            <Avatar alt="User Profile" src="URL_TO_USER_AVATAR" />
-            <IconButton color="inherit" onClick={handleLogout}>
+            <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> toggleNotificationDrawer(true) }/>
+    
+
+            <AccountBoxIcon/>           
+              <IconButton type="button" color="inherit" onClick={handleLogout}>
               Logout
             </IconButton>
+
           </Toolbar>
+          
         </AppBar>
+        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
+        <NotificationBar />
+
+
+        </Drawer>
 
         <Drawer anchor="left" open={openDrawer} onClose={() => toggleDrawer(false)}>
           <List>
@@ -95,15 +112,19 @@ const Dashboard = () => {
             </ListItem>
           </List>
         </Drawer>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
           <ActionCard url="/forms/start-punishment" title="Punishment" descriptions="Log an infraction and initiate a punishment" style={{ backgroundColor: 'blue', color: 'white' }} />
           <ActionCard url="/forms/ftc-closure" title="Review Assignments" descriptions="Review Student Assignment" style={{ backgroundColor: 'green', color: 'white' }} />
           <ActionCard url="/" title="Open Reports" descriptions="See Reports of Infraction Stats" style={{ backgroundColor: 'orange', color: 'white' }} />
           <ActionCard url="/" title="Other Link" descriptions="We can add other things here" style={{ backgroundColor: 'purple', color: 'white' }} />
         </div>
 
+
         {data.length > 0 && <TableComponent title={"OPEN ASSIGNMENTS"} list={data} status={'OPEN'} />}
         {data.length > 0 && <TableComponent title={"CLOSED ASSIGMENTS"}list={data} status={'CLOSED'} />}
+
+
+
 
       </div>
     )
