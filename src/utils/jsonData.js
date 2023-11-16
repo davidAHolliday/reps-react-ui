@@ -1871,8 +1871,7 @@ export const essayData = {
         "retryQuestion": {
           "imageUrl":"",
           "imageTextAlt":"",
-          "textToCompare":""
-      
+          "textToCompare":""     
         }
         }, 
   }

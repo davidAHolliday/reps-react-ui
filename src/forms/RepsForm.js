@@ -162,7 +162,7 @@ useEffect(()=>{
  
   };
 
-  const handleAnswer = (value: String) => {
+  const handleAnswer = (value: string) => {
     setOffenseDescription((offenseDescription) => [...offenseDescription, value]);
   }
 
