@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Select from "react-select";
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../utils/jsonData';
 
 
 function MyForm() {
@@ -34,9 +35,6 @@ function MyForm() {
   const behaviorShoutTitle = "Shout Comment"
   const concernTitle = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
   const [selectedOptions, setSelectedOptions] = useState();
-
-  
-  const navigate = useNavigate();
 
 
 
@@ -72,16 +70,22 @@ function MyForm() {
     return titles[selectedOption] ||  "For all offenses other than positive behavior shout out and failure to complete work."
   }
 
-
-useEffect(()=>{
-        axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-        .then(function(response){
-            setListOfStudents(response.data)
-        }).catch(function (error){
-            console.log(error)
-        })
-
-    },[]);
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
+  const url = `${baseUrl}/student/v1/allStudents`; // Replace with your actual API endpoint
+  
+  useEffect(() => {
+    axios
+      .get(url, { headers }) // Pass the headers option with the JWT token
+      .then(function (response) {
+        setListOfStudents(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
     const selectOptions = listOfStudents.map(student => ({
         value: student.studentEmail, // Use a unique value for each option
@@ -128,8 +132,8 @@ useEffect(()=>{
             "teacherEmail": teacherEmail
             }
 
-            axios.post("https://repsdms.ue.r.appspot.com/punish/v1/startPunish/form",payload
-            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+            axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+             {headers: headers}
 
             )
             .then(function (res){

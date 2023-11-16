@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { essayData } from '../utils/jsonData';
+import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from "react-select";
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
@@ -32,11 +32,16 @@ import MulipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   console.log(essay)
   //Points to the json file to pull
 
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
   
   useEffect(() => {
-    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-    .then(function(response){
-        setListOfStudents(response.data)
+    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
+      .then(function (response) {
+        setListOfStudents(response.data);
+  
         const foundStudent = response.data.find(student => student.studentEmail === email);
   
         if (foundStudent) {
