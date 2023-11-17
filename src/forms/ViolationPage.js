@@ -202,21 +202,41 @@ return (
             </div>}
           <hr></hr>
     
-{sectionNumber ===1 && <EssayFactory essay={essay['Question 1']} handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
-{sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
-{sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
-{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 2"}/>}
-{sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
-{sectionNumber ===6 && <RetryQuestionFormat essay={essay['Question 3']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 3"}/>}
-{sectionNumber ===7 && <EssayFactory essay={essay['Question 4']} handleRadioChange={handleRadioChange} sectionName={"Question 4"}/>}
-{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 4']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
-{sectionNumber ===9 ?  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
+          {sectionNumber ===1 && <EssayFactory essay={essay['Question 1']}
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
+
+{sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} 
+saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
+
+{sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} 
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
+
+{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} 
+saveAnswerAndProgress={textCorrectlyCopied} 
+sectionName={"Retry Question 2"}/>}
+
+{sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} 
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
+
+{sectionNumber ===6 && <RetryQuestionFormat 
+essay={essay['Question 3']} 
+saveAnswerAndProgress={textCorrectlyCopied} 
+sectionName={"Retry Question 3"}/>}
+
+{sectionNumber ===7 && <EssayFactory essay={essay['Question 4']}
+saveAnswerAndProgress={saveAnswerAndProgress}
+ handleRadioChange={handleRadioChange} sectionName={"Question 4"}/>}
+ 
+{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 4']} 
+saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
+
+{sectionNumber ===9 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
-<button  onClick={(e)=> handleSubmit(e)} type="submit">Submit</button>
-
-</div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>}
-
+<button  onClick={()=> handleSubmit()} type="submit">Submit</button>
+</div>}
         </form>
       </div>
     </div>
@@ -228,18 +248,18 @@ return (
     <div className="lrKTG">
       <div className="form-container" style={{width:"100%"}}>
         <form onSubmit={handleSubmit}>
-          <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
+        <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
               {sectionNumber === 1 &&<div className='question-container'>
-            <label htmlFor="email">Enter Your Email *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>}
+            <label htmlFor="selectStudent">Select Student *</label>
+                <Select
+                name="selectStudent"
+                options={selectOptions}
+                placeholder="Select Student"
+                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
+                value={selectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}/>
+            </div>}
           <hr></hr>
           {console.log(essay)}
  
