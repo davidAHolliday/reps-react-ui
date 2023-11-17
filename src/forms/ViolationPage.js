@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
 import { essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
-import Select from "react-select";
+import Select from 'react-select';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
-import MulipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
+import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
+import {
+  Button,
+  Container,
+  Divider,
+  Paper,
+  Typography,
+  makeStyles,
+} from '@material-ui/core';
 
 
 
@@ -180,11 +188,13 @@ const handleSubmit = (e) => {
     };
   }
   
+
+
   
 
 if(essay.level < 3) {
 return (
-  <div className="page-container">
+  <Container className="">
     <div className="lrKTG">
       <div className="form-container" style={{width:"100%"}}>
         <form>
@@ -236,11 +246,12 @@ saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
 {sectionNumber ===9 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
+
 </div>}
         </form>
       </div>
     </div>
-  </div>
+  </Container>
 );
 } else {
   return( 
@@ -289,11 +300,11 @@ sectionName={"Retry Question 3"}/>}
 
 
 {sectionNumber ===7 && <OpenEndedFormat question={essay['exploratory-questions']['openEndedExplanation']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Open Ended Explaination"}/>}
-{sectionNumber ===8 && <MulipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>}
+{sectionNumber ===8 && <MultipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>}
 {sectionNumber ===9 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalRegulation-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
-{sectionNumber ===10 && <MulipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
+{sectionNumber ===10 && <MultipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
 {sectionNumber ===11 && <OpenEndedFormat question={essay['exploratory-questions']['academic-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic Response - Peer Presure"}/>}
-{sectionNumber ===12 && <MulipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>}
+{sectionNumber ===12 && <MultipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>}
 {sectionNumber ===13 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalCoping']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Coping Free Response"}/>}
 
 

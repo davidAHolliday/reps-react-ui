@@ -15,29 +15,30 @@ import {React, useState} from "react";
        
       }
    
-          return(
-<div>
-        <h4 style={{background:"green",color:"white"}}>{sectionName}</h4>
-        
-             <hr></hr>
-             <div className='question-container'>
-               <h5> {question}*</h5>
-               <div>
-          
-               </div>
-               <textarea
-      style={{ height: 70 }}
-      id="value"
-      name="value"
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      required
-    ></textarea>
-             </div>
-      <button type="button" onClick={()=>submitAnswer()}>Submit Answer</button>
-             </div>
-  
-        )
+      return (
+        <div>
+          <h4 className="section-header">{sectionName}</h4>
+          <hr />
+          <div className="question-container">
+            <h5 className="question-text">{question}*</h5>
+            <div className="image-container">
+              {/* Add any additional content here */}
+            </div>
+            <textarea
+              style={{ height: 70 }}
+              id="value"
+              name="value"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <div className="button-container">
+            <button type="button" onClick={() => submitAnswer()}>Submit Answer</button>
+          </div>
+        </div>
+      );
+      
       } 
     
   

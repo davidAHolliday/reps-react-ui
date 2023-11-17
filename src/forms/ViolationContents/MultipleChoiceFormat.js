@@ -19,47 +19,53 @@ import React from "react";
   
     return (
       <>
-        <div style={essayStyles}>
-          <div style={{ background: "green", color: "white" }}>{sectionName}
-            <h4 style={{ color: "green", background: "#FDFD96" }}>{question}</h4>
+        <div className="essay-container">
+          <div className="section-header" style={{ background: "green", color: "white" }}>
+            {sectionName}
+            <h4 className="question-header" style={{ color: "green", background: "#FDFD96" }}>{question}</h4>
           </div>
-          <h1>{sectionName}</h1>
-          <p>{question}</p>
+          <h1 className="section-name">{sectionName}</h1>
+          <p className="question-text">{question}</p>
         </div>
         <div className="md0UAd" aria-hidden="true" dir="auto">
           * Indicates required question
         </div>
     
-        <div>
+        <div className="radio-container">
+         <div className="radio">
           <input
             type="radio"
             id={1}
             name="radioAnswer"
             value="agree"
-            onChange={() => handleRadioChange("agree")} // Pass the value "agree"
+            onChange={() => handleRadioChange("agree")}
           />
-          Agree
-    
+          <label style={{marginLeft:"10px"}}htmlFor={1}>Agree</label>
+          </div>
+          <div className="radio">
           <input
             type="radio"
             id={2}
             name="radioAnswer"
             value="disagree"
-            onChange={() => handleRadioChange("disagree")} // Pass the value "disagree"
+            onChange={() => handleRadioChange("disagree")}
           />
-          Disagree
-    
+          <label style={{marginLeft:"10px"}} htmlFor={2}>Disagree</label>
+    </div>
+    <div className="radio">
           <input
             type="radio"
             id={3}
             name="radioAnswer"
             value="neutral"
-            onChange={() => handleRadioChange("neutral")} // Pass the value "neutral"
+            onChange={() => handleRadioChange("neutral")}
           />
-          Neutral
+          <label style={{marginLeft:"10px"}} htmlFor={3}>Neutral</label>
+          </div>
         </div>
       </>
     );
+    
   }
   
   

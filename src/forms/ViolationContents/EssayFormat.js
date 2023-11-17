@@ -11,43 +11,38 @@ import React from "react";
     };
   
     return (
-        <>
-        <div style={essayStyles}>
-        <div style={{background:"green",color:"white"}}>{sectionName}
-        <h4 style={{color:"green",background:"#FDFD96"}}>{essay.question}</h4>
+      <>
+        <div className="essay-container">
+          <div className="section-header">{sectionName}
+            <h4 className="question-header">{essay.question}</h4>
+          </div>
+          <h1>{essay.title}</h1>
+          <p>{essay.body}</p>
+          <h2 className="references">References</h2>
         </div>
-        <h1 >{essay.title}</h1>
-        <p>{essay.body}</p>
-        <h2>References</h2>
-    
-      </div>
-        <div className="md0UAd" aria-hidden="true" dir="auto">
-                        * Indicates required question
-                      </div>
-                           
-          <hr></hr>
-          <div className='question-container'style={{textAlign:"left"}}>
-          <h4 style={{color:"green",background:"#FDFD96"}}>{essay.question}</h4>
-            <div>
-          {Object.keys(essay.radioAnswers).map((key) => (
-            <label key={key}>
-              <input
-                type="radio"
-                id={key}
-                name="radioAnswer"
-                value={essay.radioAnswers[key].value}
-                onChange={handleRadioChange}
-              />
-              {essay.radioAnswers[key].label}
-            </label>
-          ))}
+        <div className="required-question" aria-hidden="true" dir="auto">
+          * Indicates required question
         </div>
-      </div>
-      <button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>
-
-          </>
-    
-
+        <hr />
+        <div className="question-container">
+          <h4 className="question-header">{essay.question}</h4>
+          <div>
+            {Object.keys(essay.radioAnswers).map((key) => (
+              <label key={key} className="radio-label">
+                <input
+                  type="radio"
+                  id={key}
+                  name="radioAnswer"
+                  value={essay.radioAnswers[key].value}
+                  onChange={handleRadioChange}
+                />
+                {essay.radioAnswers[key].label}
+              </label>
+            ))}
+          </div>
+        </div>
+        <button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>
+      </>
     );
   }
   
