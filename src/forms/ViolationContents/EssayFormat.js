@@ -1,6 +1,6 @@
 import React from "react";
 
-  function EssayFactory({essay, handleRadioChange,sectionName}) {
+  function EssayFactory({essay, handleRadioChange,sectionName,saveAnswerAndProgress}) {
     const essayStyles = {
         fontFamily: 'Arial, sans-serif',
         fontSize: '18px',
@@ -43,6 +43,8 @@ import React from "react";
           ))}
         </div>
       </div>
+      <button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>
+
           </>
     
 

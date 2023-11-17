@@ -34,7 +34,7 @@ import {React, useState} from "react";
       required
     ></textarea>
              </div>
-      <button type="button" onClick={()=>submitAnswer()}>Check Work</button>
+      <button type="button" onClick={()=>submitAnswer()}>Submit Answer</button>
              </div>
   
         )

@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
       <Route path="/infractionAssignments/:param1" element={<ViolationPage />} />
       <Route path="/" element={<MyForm />} />
       <Route path="/forms/start-punishment" element={<MyForm />} />

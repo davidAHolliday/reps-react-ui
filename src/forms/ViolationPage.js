@@ -134,7 +134,8 @@ const handleSubmit = (e) => {
   var payload = {
       "studentEmail" :email ,
       "infractionName": essay.infractionName,
-      "infractionLevel": essay.level
+      "infractionLevel": essay.level,
+      "studentAnswers": studentAnswers
       }
   
 
@@ -240,45 +241,51 @@ return (
             />
           </div>}
           <hr></hr>
+          {console.log(essay)}
  
-{sectionNumber ===1 && <EssayFactory essay={essay['Question 1']} handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
-{sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
-{sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
-{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 2"}/>}
-{sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
-{sectionNumber ===6 && <RetryQuestionFormat essay={essay['Question 3']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 3"}/>}
-{sectionNumber ===7 && <EssayFactory essay={essay['Question 4']} handleRadioChange={handleRadioChange} sectionName={"Question 4"}/>}
-{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 4']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
-{sectionNumber ===7 && <EssayFactory essay={essay['Question 5']} handleRadioChange={handleRadioChange} sectionName={"Question 5"}/>}
-{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 5']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 5"}/>}
-{sectionNumber ===7 && <EssayFactory essay={essay['Question 6']} handleRadioChange={handleRadioChange} sectionName={"Question 6"}/>}
-{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 6']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 6"}/>}
-{sectionNumber ===7 && <EssayFactory essay={essay['Question 7']} handleRadioChange={handleRadioChange} sectionName={"Question 7"}/>}
-{sectionNumber ===8 && <RetryQuestionFormat essay={essay['Question 7']} saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 7"}/>}
+{sectionNumber ===1 && <EssayFactory essay={essay['Question 1']}
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange} sectionName={"Question 1"} />}
 
-{sectionNumber ===9 && <OpenEndedFormat question={essay['exploratory-questions']['openEndedExplanation']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Open Ended Explaination"}/>}
+{sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} 
+saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
 
-{sectionNumber ===10 && <MulipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>}
+{sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} 
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
 
+{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} 
+saveAnswerAndProgress={textCorrectlyCopied} 
+sectionName={"Retry Question 2"}/>}
 
-{sectionNumber ===11 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalRegulation-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
+{sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} 
+saveAnswerAndProgress={saveAnswerAndProgress}
+handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
 
-{sectionNumber ===12 && <MulipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
-
-
-{sectionNumber ===13 && <OpenEndedFormat question={essay['exploratory-questions']['academic-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic Response - Peer Presure"}/>}
-
-{sectionNumber ===14 && <MulipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>}
+{sectionNumber ===6 && <RetryQuestionFormat 
+essay={essay['Question 3']} 
+saveAnswerAndProgress={textCorrectlyCopied} 
+sectionName={"Retry Question 3"}/>}
 
 
-{sectionNumber ===15 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalCoping']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Coping Free Response"}/>}
+{sectionNumber ===7 && <OpenEndedFormat question={essay['exploratory-questions']['openEndedExplanation']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Open Ended Explaination"}/>}
+{sectionNumber ===8 && <MulipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>}
+{sectionNumber ===9 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalRegulation-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
+{sectionNumber ===10 && <MulipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
+{sectionNumber ===11 && <OpenEndedFormat question={essay['exploratory-questions']['academic-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic Response - Peer Presure"}/>}
+{sectionNumber ===12 && <MulipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>}
+{sectionNumber ===13 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalCoping']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Coping Free Response"}/>}
 
 
-{sectionNumber ===16 ?  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
+{sectionNumber ===14 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
-</div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>}
+</div>}
+
+
+
+
+
 
        </form>
       </div>
