@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { essayData } from '../utils/jsonData';
+import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from 'react-select';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
@@ -33,11 +33,16 @@ import { Container } from '@mui/material';
   console.log(essay)
   //Points to the json file to pull
 
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
   
   useEffect(() => {
-    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
-    .then(function(response){
-        setListOfStudents(response.data)
+    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
+      .then(function (response) {
+        setListOfStudents(response.data);
+  
         const foundStudent = response.data.find(student => student.studentEmail === email);
   
         if (foundStudent) {
@@ -121,7 +126,7 @@ const handleRadioChange = (e) =>{
 
 
 const handleSubmit = (e) => {
-  // e.preventDefault();
+  // // e.preventDefault();
 
   if (!emailPattern.test(email)) {
     setErrorDisplay(true);
@@ -135,13 +140,12 @@ const handleSubmit = (e) => {
   var payload = {
       "studentEmail" :email ,
       "infractionName": essay.infractionName,
-      "infractionLevel": essay.level,
-      "studentAnswers": studentAnswers
+      "studentAnswer": studentAnswers
       }
   
 
       axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
-      // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+      // axios.post("http://localhost:8080/punish/v1/punishId/close",payload
 
       )
       .then(function (res){
@@ -240,7 +244,9 @@ saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
 
-</div>}
+</div> :
+<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
+
         </form>
       </div>
     </div>
@@ -304,12 +310,8 @@ sectionName={"Retry Question 3"}/>}
 {sectionNumber ===14 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
-</div>}
-
-
-
-
-
+</div> :
+<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
 
        </form>
       </div>

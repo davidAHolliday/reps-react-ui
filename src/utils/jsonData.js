@@ -1,3 +1,7 @@
+// export const baseUrl ="https://reps-react-demo.wn.r.appspot.com"
+// export const baseUrl = "http://localhost:8080"
+export const baseUrl = "https://repsdms.ue.r.appspot.com"
+
 export const essayData = {
 
 "tardy-1":{
@@ -1876,3 +1880,5 @@ export const essayData = {
         }, 
   }
 }
+
+//123abc; justin_iverson.c@charleston.k12.sc.us
