@@ -244,8 +244,7 @@ saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
 
-</div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
+</div>}
 
         </form>
       </div>
@@ -310,8 +309,7 @@ sectionName={"Retry Question 3"}/>}
 {sectionNumber ===14 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
-</div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
+</div>}
 
        </form>
       </div>
