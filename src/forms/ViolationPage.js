@@ -125,7 +125,7 @@ const handleRadioChange = (e) =>{
 
 
 const handleSubmit = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
 
   if (!emailPattern.test(email)) {
     setErrorDisplay(true);
@@ -139,12 +139,12 @@ const handleSubmit = (e) => {
   var payload = {
       "studentEmail" :email ,
       "infractionName": essay.infractionName,
-      "infractionLevel": essay.level
+      "studentAnswer": studentAnswers
       }
   
 
       axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
-      // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload
+      // axios.post("http://localhost:8080/punish/v1/punishId/close",payload
 
       )
       .then(function (res){
@@ -219,7 +219,7 @@ return (
 <button  onClick={(e)=> handleSubmit(e)} type="submit">Submit</button>
 
 </div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>}
+<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
 
         </form>
       </div>
@@ -283,7 +283,7 @@ return (
 <h3>Hit Submit to Record Your Response for {email} </h3>
 <button  onClick={()=> handleSubmit()} type="submit">Submit</button>
 </div> :
-<button type='button' onClick={() => saveAnswerAndProgress()}>Submit</button>}
+<button type='button' onClick={() => saveAnswerAndProgress()}>Next</button>}
 
        </form>
       </div>
