@@ -7,14 +7,7 @@ import { useParams } from 'react-router-dom';
 import Select from 'react-select';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
 import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
-import {
-  Button,
-  Container,
-  Divider,
-  Paper,
-  Typography,
-  makeStyles,
-} from '@material-ui/core';
+import { Container } from '@mui/material';
 
 
 
@@ -128,7 +121,7 @@ const handleRadioChange = (e) =>{
 
 
 const handleSubmit = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
 
   if (!emailPattern.test(email)) {
     setErrorDisplay(true);
