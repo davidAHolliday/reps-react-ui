@@ -75,7 +75,7 @@ word-wrap: break-word;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  max-width: 720px;
+  max-width: 780px;
 }
 
 /* Style for the form title */
@@ -102,19 +102,22 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: white;
 }
 
 /* Style for input fields and select boxes */
 input[type="text"],
 input[type="email"],
 select {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  width: 100%;
+  /* padding: 10px; */
+  border: 1px solid blue;
+  background-color: white;
   border-radius: 5px;
   font-size: 16px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   outline: none;
+  
 }
 
 /* Style for the description input field */
@@ -143,4 +146,191 @@ h5 {
   margin-top: 5px;
 }
 
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.my-table th, .my-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.my-table th {
+  background-color: #f2f2f2;
+}
+
+.my-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.my-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+
 /* Add more styles as needed */
+/* Login.css */
+
+/* Style for the login container */
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the login form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for input fields */
+.login-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style for the login button */
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Register.css */
+
+/* Style for the register container */
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the register form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for input fields */
+.register-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style for the register button */
+.register-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for the register button */
+.register-button:hover {
+  background-color: #1e7e34;
+}
+
+input[type="password"], input[type="password"], select {
+  width: 100%;
+  /* padding: 10px; */
+  border-radius: 5px;
+  border: 1px solid blue;
+  background-color: white;
+  font-size: 16px;
+  /* margin-top: 5px; */
+  /* margin-bottom: 15px; */
+  outline: none;
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  width: 100%;
+}
+
+.dashboard h1 {
+  font-size: 24px;
+}
+
+.dashboard-button {
+  display: block;
+  margin: 10px;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.dashboard-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add more CSS styles for logos/images if needed */
+.centered-snackbar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+body {
+  background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+  background-size: 600% 600%;
+  animation: GradientBackground 8s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+
+
