@@ -22,6 +22,7 @@ import { baseUrl } from '../utils/jsonData';
 import { redirect, useNavigate } from 'react-router-dom';
 
 
+
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -39,6 +40,12 @@ function Copyright(props) {
     </Typography>
   );
 }
+
+
+
+
+
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -112,9 +119,12 @@ axios.post(`${baseUrl}/auth`, payload)
 });
   };
 
+
+
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" >
+
         <CssBaseline />
         <Box
           sx={{
@@ -140,6 +150,11 @@ axios.post(`${baseUrl}/auth`, payload)
               name="username"
               autoComplete="email"
               autoFocus
+              InputLabelProps={{
+                sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
+              }}
+   
+              
             />
             <TextField
               margin="normal"
@@ -150,6 +165,10 @@ axios.post(`${baseUrl}/auth`, payload)
               type="password"
               id="password"
               autoComplete="current-password"
+              InputLabelProps={{
+                sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
+              }}
+         
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -171,12 +190,12 @@ axios.post(`${baseUrl}/auth`, payload)
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" style={{color:"white"}}>
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link href="/register" variant="body2" style={{color:"white"}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
