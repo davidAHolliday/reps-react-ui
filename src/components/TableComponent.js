@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 export const TableComponent = (props) => {
   const {title, list, status } = props;
@@ -15,7 +16,12 @@ export const TableComponent = (props) => {
 
   return (
     <>
-    <h1 style={{background:"grey", marginTop:"30px"}}>{title}</h1>
+   <div style={{backgroundColor:"#1976d2",marginTop:"10px", marginBlock:"5px"}}>
+   <Typography color="white" variant="h6" style={{ flexGrow: 1 }}>
+   {title}
+        </Typography>
+        </div>
+   
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
