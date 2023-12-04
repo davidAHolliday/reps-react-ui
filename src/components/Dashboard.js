@@ -19,6 +19,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationB
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import StudentPanel from './dashboard/panel/studentPanel';
 import PunishmentPanel from './dashboard/panel/punishmentPanel';
+import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
 
 
 const Dashboard = () => {
@@ -129,14 +130,16 @@ const Dashboard = () => {
 "5px",textAlign: "center"}}>
    Student
         </Typography>
-        <Typography onClick={()=>setPanelName("other")} backgroundColor={panelName =="other" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Other Form
+  Create Punishement
         </Typography>
         </div>
 
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<PunishmentPanel/>}
+{panelName === "createPunishment" && <CreatePunishmentPanel/>}
+
 
 
 
