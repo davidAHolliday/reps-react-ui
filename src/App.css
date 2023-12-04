@@ -102,19 +102,22 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: white;
 }
 
 /* Style for input fields and select boxes */
 input[type="text"],
 input[type="email"],
 select {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  width: 100%;
+  /* padding: 10px; */
+  border: 1px solid blue;
+  background-color: white;
   border-radius: 5px;
   font-size: 16px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   outline: none;
+  
 }
 
 /* Style for the description input field */
@@ -253,13 +256,14 @@ h5 {
 }
 
 input[type="password"], input[type="password"], select {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  width: 100%;
+  /* padding: 10px; */
   border-radius: 5px;
+  border: 1px solid blue;
+  background-color: white;
   font-size: 16px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  /* margin-top: 5px; */
+  /* margin-bottom: 15px; */
   outline: none;
 }
 
@@ -299,3 +303,113 @@ input[type="password"], input[type="password"], select {
 }
 
 /* Add more CSS styles for logos/images if needed */
+.centered-snackbar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+  background-size: 600% 600%;
+  animation: GradientBackground 8s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+/* Essay Styles */
+.essay-container {
+  font-family: 'Arial, sans-serif';
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  background: #4caf50;
+  color: #fff;
+  padding: 10px;
+}
+
+.question-header {
+  color: #4caf50;
+  background: #fdfd96;
+  padding: 10px;
+}
+
+.references {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Form Styles */
+.required-question {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.question-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.radio-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.radio {
+  display: flex;
+  
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.logo {
+  height: 100px;
+  margin-bottom: 20px;
+}

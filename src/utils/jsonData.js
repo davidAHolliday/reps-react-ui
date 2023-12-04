@@ -785,7 +785,6 @@ export const essayData = {
       "title": "Peer Pressure is never an underlying cause of roughhousing.",
       "body": `Unraveling the Underlying Causes of Roughhousing and Horseplay in Schools
 
-<<<<<<< HEAD
       Roughhousing and horseplay are common occurrences in school settings and have been a subject of concern for educators, parents, and policymakers alike. While these activities may seem harmless and even part of childhood, they can lead to serious consequences if not appropriately addressed. Understanding the underlying causes of roughhousing and horseplay in schools is crucial for implementing effective strategies to mitigate their negative impact on students' well-being and academic performance. This essay delves into some of the primary factors contributing to these behaviors and offers insights into potential solutions.
       
       One significant cause of roughhousing and horseplay in schools is rooted in children's physiological development. During their formative years, children experience substantial physical growth and changes, leading to an increase in energy levels and a desire for physical activity. As a result, students may engage in rough play as a way to release pent-up energy and explore their physical capabilities. While some physical activity is essential for healthy development, guiding children towards appropriate outlets for their energy is essential to prevent undesirable behavior.
@@ -1533,22 +1532,19 @@ export const essayData = {
       "retryQuestion": {
         "imageUrl":"https://lh5.googleusercontent.com/6ZHbgVh9_QCia_B4x2_hv1Dnkfjehv0hqj8LPf8miykhkp6RA-xKudvdwBgmWX8pgnBP3M6yglq0IJg1jy7pwymvEz5Qkqk0A1AwaJFc_6qjjpoPM9fy0n8jBh9YCc7V8f0MuwdSkOnw62o33iV8qFJvD7Gkjw",
         "textToCompare":"The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012)."
-      }
+      },
     },
 
-    "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
-    "title": "",
-    "body": ``,
-    "references": {
-      },
-    "radioAnswers": {
-    },
-    "retryQuestion": {
-      "imageUrl":"",
-      "imageTextAlt":"",
-      "textToCompare":""
-  
+    "exploratory-questions":{
+        "openEndedExplanation" : "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+        "emotionalRegulation-radio" : "Choose whether you agree disagree or feel neutral to the following statement I have difficulty controlling my emotions and can say or do things that I regret when my emotions are overwhelming.",
+        "emotionalRegulation-openEnded" : "Can you explain what it feels like before, during and after your emotions become overwhelming. Please add anything that may be causing these overwhelming emotions. ",
+        "academic-radio": "Choose whether you agree, disagree or feel neutral to the following statement: I find my class work frustrating or difficult and don't feel like I get the help I need with my work.",
+        "academic-openEnded": "Can you explain the struggles you've had academically in the past. Is there anything that helps ease this frustration? When was the last time you felt good about a grade or class?",
+        "activities-radio":"Choose whether you agree, disagree or feel neutral to the following statement:I would like to find more productive outlets for my energy like sports, activities or clubs.",
+        "emotionalCoping":"Please list any of your current interests and/or any activities, clubs or sports you would like to learn more about" 
     }
+
     },
 
             ////////////////////////Unauthorized Device 1/////////////////////////////////
@@ -1562,8 +1558,8 @@ export const essayData = {
                 "references": {
                 },
                 "radioAnswers": {
-                    1: {"value": "correct","label":"True"},
-                    2: {"value": "incorrect","label":"False"}
+                    1: {"value": "incorrect","label":"True"},
+                    2: {"value": "correct","label":"False"}
                 },
                 "retryQuestion":{
                   "imageUrl": "https://lh3.googleusercontent.com/oZeoJeWMiopKsrTjVICv7TeNVGigKRJ36FTY4RIermrUuP473f_dOYdpLqE0LSeNIio95r8Y8mCvQLPBZzgmAxCQc8xfo0AoF-OlTWnbRunDZwMRUApwbHBTKoeQ5cNNdUWUgzzwFjlj7iIFKcfhDmA3IFqUgg",
@@ -1880,12 +1876,10 @@ export const essayData = {
         "retryQuestion": {
           "imageUrl":"",
           "imageTextAlt":"",
-          "textToCompare":""
-      
+          "textToCompare":""     
         }
         }, 
   }
 }
-
 
 //123abc; justin_iverson.c@charleston.k12.sc.us

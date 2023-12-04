@@ -1,42 +1,44 @@
 import {React, useState} from "react";
 
-
-  function OpenEndedFormat({essay, saveAnswerAndProgress, sectionName}) {
-    const [answer, setAnswer] = useState();
-
-        return(
-            
-<div>
-        <h4 style={{background:"green",color:"white"}}>{sectionName}</h4>
-        
-             <hr></hr>
-             <div className='question-container'>
-               <h5>Copy the following passage down exactly, if it is not written down exactly you will need to retry this question: *</h5>
-               <div>
-          
-            <div >
-              {essay.retryQuestion["imageUrl"] !=="" ? <img
-            src={essay.retryQuestion["imageUrl"]}
-            alt="Academic Impact"
-            style={{ maxWidth: '100%', height: 'auto' }}
-          />: <p>{essay.retryQuestion["imageTextAlt"]}</p>}
+  function OpenEndedFormat({question, saveAnswerAndProgress, sectionName}) {
+    console.log(question)
+      
+      const [value, setValue] = useState("")
+    
+    
+    
+      const submitAnswer = () =>{
+        var payload = {question:sectionName, answer:value}
+        saveAnswerAndProgress(payload)
+    
+       
+      }
+   
+      return (
+        <div>
+          <h4 className="section-header">{sectionName}</h4>
+          <hr />
+          <div className="question-container">
+            <h5 className="question-text">{question}*</h5>
+            <div className="image-container">
+              {/* Add any additional content here */}
+            </div>
+            <textarea
+              style={{ height: 70 }}
+              id="value"
+              name="value"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              required
+            ></textarea>
           </div>
-            
-               </div>
-               <textarea
-      style={{ height: 70 }}
-      id="copyText"
-      name="copyText"
-      value={answer}
-      onChange={(e) => setAnswer(e.target.value)}
-      required
-    ></textarea>
-             </div>
-      <button type="button" onClick={(e)=>(e)}>Check Work</button>
-             </div>
-  
-        )
-    }
-  
+          <div className="button-container">
+            <button type="button" onClick={() => submitAnswer()}>Submit Answer</button>
+          </div>
+        </div>
+      );
+      
+      } 
+    
   
   export default OpenEndedFormat;

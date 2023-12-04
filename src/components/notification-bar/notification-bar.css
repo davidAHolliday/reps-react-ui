@@ -1,0 +1,63 @@
+.notification-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding:  10px 10px 10px ;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+    background-size: 600% 600%;
+    animation: GradientBackground 8s ease infinite;
+
+}
+
+  @keyframes GradientBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  };
+  
+
+.popup-container {
+    /* background-color: #fff; */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    
+}
+
+.notification-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: whitesmoke;
+}
+
+.dismiss-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.notification-title {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.notification-description {
+    font-size: 14px;
+    margin: 5px 0;
+}
