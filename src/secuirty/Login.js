@@ -62,7 +62,6 @@ export default function SignIn() {
       navigate(path)
   }
 
-  
   const [formData, setFormData] = useState({
     username: '',
     password: '',

@@ -1,6 +1,5 @@
 import {React, useState} from "react";
 
-
   function OpenEndedFormat({question, saveAnswerAndProgress, sectionName}) {
     console.log(question)
       
@@ -41,6 +40,5 @@ import {React, useState} from "react";
       
       } 
     
-  
   
   export default OpenEndedFormat;

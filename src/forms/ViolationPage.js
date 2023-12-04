@@ -32,7 +32,6 @@ import { Container } from '@mui/material';
   const essay = essayData[param1]
   console.log(essay)
   //Points to the json file to pull
-
   const headers = {
     Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
   };
@@ -144,7 +143,7 @@ const handleSubmit = (e) => {
       }
   
 
-      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
+      axios.post("https://repsdev31.ue.r.appspot.com/punish/v1/punishId/close",payload
       // axios.post("http://localhost:8080/punish/v1/punishId/close",payload
 
       )

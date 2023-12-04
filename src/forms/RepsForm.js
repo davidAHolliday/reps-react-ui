@@ -37,7 +37,6 @@ function MyForm() {
   const [selectedOptions, setSelectedOptions] = useState();
 
 
-
   const resetForm = () => {
     setTeacherEmail("");
     setFirstName("");
