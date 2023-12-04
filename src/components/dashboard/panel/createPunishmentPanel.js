@@ -55,6 +55,36 @@ const defaultTheme = createTheme();
     const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
     const behaviorShoutTitle = "Shout Comment"
     const [selectedOptions, setSelectedOptions] = useState();
+    const [infractionPeriodSelectedOptions, setInfractionPeriodSelectedOptions] = useState();
+    const [infractionSelectedOptions, setInfractionSelectedOptions] = useState();
+
+    
+    
+    const infractionPeriodSelectOptions =[
+      {value:"block1", label:"Block 1"},
+      {value:"block2", label:"Block 2"},
+      {value:"block3", label:"Block 3"},
+      {value:"block4", label:"Block 4"},
+      {value:"period1", label:"Period 1"},
+      {value:"period2", label:"Period 2"},
+      {value:"period3", label:"Period 3"},
+      {value:"period4", label:"Period 4"},
+      {value:"period5", label:"Period 5"},
+      {value:"period6", label:"Period 6"},
+      {value:"period7", label:"Period 7"},
+      {value:"period8", label:"Period 8"},
+      {value:"period9", label:"Period 9"},
+
+
+    ]
+
+    const infractionSelectOptions =[
+      {value:"positiveBehavior", label:"Positive Behavioral Shout Out!"},
+      {value:"behavioralConcern", label:"Behaviral Concern"},
+
+    ]
+  
+  
   
   
   
@@ -157,44 +187,44 @@ const defaultTheme = createTheme();
               "infractionDescription" : offenseDescription,
               "teacherEmail": teacherEmail
               }
+            }
   
-              axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
-               {headers: headers}
+      //         axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+      //          {headers: headers}
   
-              )
-              .then(function (res){
-               setSuccessDisplay(true)
-               setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
-               setTimeout(()=>{
-                   setSuccessDisplay(false)
-               },3000)
-               resetForm();
-               console.log(res)
-           })
-              .catch(function (error){
-               console.log(error)
-               const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-               setErrorDisplay(true)
-               setErrorMessage(errorMessage)
-               setTimeout(()=>{
-                   setErrorDisplay(false)
-               },2000)
-           });
-      }else{
-          setErrorDisplay(true)
-          setErrorMessage("Student Not Found in System")
-          setTimeout(()=>{
-              setErrorDisplay(false)
-          },2000)
+      //         )
+      //         .then(function (res){
+      //          setSuccessDisplay(true)
+      //          setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
+      //          setTimeout(()=>{
+      //              setSuccessDisplay(false)
+      //          },3000)
+      //          resetForm();
+      //          console.log(res)
+      //      })
+      //         .catch(function (error){
+      //          console.log(error)
+      //          const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
+      //          setErrorDisplay(true)
+      //          setErrorMessage(errorMessage)
+      //          setTimeout(()=>{
+      //              setErrorDisplay(false)
+      //          },2000)
+      //      });
+      // }else{
+      //     setErrorDisplay(true)
+      //     setErrorMessage("Student Not Found in System")
+      //     setTimeout(()=>{
+      //         setErrorDisplay(false)
+      //     },2000)
   
-      }
+      // }
     }
 
     return (
         <>
-  
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
+          <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
    Create New Punishement
         </Typography>
@@ -248,40 +278,82 @@ const defaultTheme = createTheme();
   
               />
               
-            <TextField
+              <TextField
               margin="normal"
               required
               fullWidth
-              id="username"
-              label="Email Address"
-              name="username"
+              id="teacherEmail"
+              label="Teachers Email"
+              name="teacherEmail"
               autoComplete="email"
               autoFocus
               InputLabelProps={{
                 sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
               }}
-   
-              
+    
             />
-            <TextField
+
+        
+<Select
+                name="infractionPeriod"
+                options={infractionPeriodSelectOptions}
+                placeholder="Choose Period"
+                value={infractionPeriodSelectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}
+  
+              />
+              
+<div style={{marginTop:"10px"}}>
+<Select
+      
+      name="infraction"
+      options={infractionSelectOptions}
+      placeholder="Choose Infraction Type"
+      value={infractionSelectedOptions}
+      onChange={handleSelect}
+      isSearchable={true}
+  
+              />
+  
+</div>
+
+
+
+<div className='question-container-text-area'>
+              <label htmlFor="offenseDescription">
+              {infraction === "Failure to Complete Work" ||
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
+                  ? getTitle(infraction)
+                  : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
+              <h5>
+                {infraction === "Failure to Complete Work" ||
+                infraction === "Positive Behavior Shout Out!" ||
+                infraction === "Behavioral Concern"
+                  ? getDescription(infraction)
+                  : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
+              </h5>
+              </div>
+                  
+<TextField
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              id="offenseDescription"
+              label="Please Type Short Description of Infraction"
+              name="offenseDescripstion"
+              autoFocus
               InputLabelProps={{
                 sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
               }}
-         
+    
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
+
+      
             <br/>
+
+
 
           <Button
               type="submit"
@@ -291,101 +363,15 @@ const defaultTheme = createTheme();
             >
            Submit
             </Button>
-      
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
-
-
-
-    
-            
-            <div className='question-container'>
-              <label htmlFor="teacherEmail">Teacher's Email *</label>
-              <input
-                type="text"
-                id="teacherEmail"
-                name="teacherEmail"
-                value={teacherEmail}
-                onChange={(e) => setTeacherEmail(e.target.value)}
-                required
-              />
-            </div>
-                   <div className='question-container'>
-              <label htmlFor="infractionPeriod">Infraction Period *</label>
-              <select
-                id="infractionPeriod"
-                name="infractionPeriod"
-                value={infractionPeriod}
-                onChange={(e) => setInfractionPeriod(e.target.value)}
-                required
-              >
-                <option value="">Choose</option>
-                <option value="Block 1">Block 1</option>
-                <option value="Block 2">Block 2</option>
-                <option value="Block 3">Block 3</option>
-                <option value="Block 4">Block 4</option>
-                <option value="Period 1">Period 1</option>
-                <option value="Period 2">Period 2</option>
-                <option value="Period 3">Period 3</option>
-                <option value="Period 4">Period 4</option>
-                <option value="Period 5">Period 5</option>
-                <option value="Period 6">Period 6</option>
-                <option value="Period 7">Period 7</option>
-                <option value="Period 8">Period 8</option>
-                <option value="Period 9">Period 9</option>
-              </select>
-            </div>
-            <div className='question-container'>
-              <label htmlFor="infraction">Name of the Infraction or Positive Behavior Shout Out *</label>
-              <select
-                id="infraction"
-                name="infraction"
-                value={infraction}
-                onChange={(e) => setInfraction(e.target.value)}
-                required
-              >
-                <option value="">Choose</option>
-                <option value="Tardy">Tardy</option>
-                <option value="Unauthorized Device/Cell Phone">Unauthorized Device/Cell Phone</option>
-                <option value="Disruptive Behavior">Disruptive Behavior</option>
-                <option value="Horseplay">Horseplay</option>
-                <option value="Failure to Complete Work">Failure to Complete Work</option>
-                <option value="Dress Code">Dress Code</option>
-                <option value="Positive Behavior Shout Out!">Positive Behavior Shout Out!</option>
-              </select>
-            </div>
-     
-
-            <div className='question-container-text-area'>
-              <label htmlFor="offenseDescription">
-              {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
-                  ? getTitle(infraction)
-                  : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
-              <h5>
-                {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!"
-                  ? getDescription(infraction)
-                  : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
-              </h5>
-              <input
-                type="text"
-                id="offenseDescription"
-                name="offenseDescription"
-                value={offenseDescription}
-                onChange={(e) => setOffenseDescription(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit">Next</button>
-          </form>
-        </div>
-      </div>
+   </form>
+   </div>
     </div>
-   
-   
+    </div>
+  
     </>
     )
     
