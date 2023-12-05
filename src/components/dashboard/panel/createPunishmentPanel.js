@@ -8,57 +8,41 @@ import { baseUrl } from '../../../utils/jsonData';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { redirect, useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
+import Container from '@mui/material/Container';
 
 
-const defaultTheme = createTheme();
+const CreatePunishmentPanel = () => {
+   
 
-
-   const CreatePunishmentPanel = () => {
-    const[teacherEmail,setTeacherEmail]= useState("");
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [infraction, setInfraction] = useState('');
-    const [offenseDescription,setOffenseDescription] = useState("");
-    const [infractionPeriod, setInfractionPeriod] = useState("");
     const [errorDisplay, setErrorDisplay] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [successDisplay, setSuccessDisplay] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [listOfStudents, setListOfStudents] = useState([]);
+    const [studentSelected, setStudentSelect] = useState();
+    const [infractionSelected, setInfractionSelected] = useState();
+    const [infractionPeriodSelected, setInfractionPeriodSelected] = useState();
+    const [teacherEmailSelected, setTeacherEmailSelected] = useState();
+    const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
   
   
   
-    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   
-    const tardyDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    const cellPhoneDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    const disruptiveBehavioralDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    const HorseplayDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    const failureToCompleteWorkDescription = "Provide a brief description of the missing assignment (Name of assignment in Powerschool, link to the assignment if possible, the impact it is having on the students grade and the possible points they can regain upon completion.)"
-    const dressCodeDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    const positiveBehaviorDescription = "Needs Text"
-    const failureToCompleteWorkTitle = "Failure to complete Work"
-    const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
-    const behaviorShoutTitle = "Shout Comment"
-    const [selectedOptions, setSelectedOptions] = useState();
-    const [infractionPeriodSelectedOptions, setInfractionPeriodSelectedOptions] = useState();
-    const [infractionSelectedOptions, setInfractionSelectedOptions] = useState();
+    // const tardyDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
+    // const cellPhoneDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
+    // const disruptiveBehavioralDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
+    // const HorseplayDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
+    // const failureToCompleteWorkDescription = "Provide a brief description of the missing assignment (Name of assignment in Powerschool, link to the assignment if possible, the impact it is having on the students grade and the possible points they can regain upon completion.)"
+    // const dressCodeDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
+    // const positiveBehaviorDescription = "Needs Text"
+    // const failureToCompleteWorkTitle = "Failure to complete Work"
+    // const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
+    // const behaviorShoutTitle = "Shout Comment"
+  
+    const defaultTheme = createTheme();
 
-    
     
     const infractionPeriodSelectOptions =[
       {value:"block1", label:"Block 1"},
@@ -79,30 +63,13 @@ const defaultTheme = createTheme();
     ]
 
     const infractionSelectOptions =[
-      {value:"positiveBehavior", label:"Positive Behavioral Shout Out!"},
-      {value:"behavioralConcern", label:"Behaviral Concern"},
+      {value:"Positive Behavior Shout Out!", label:"Positive Behavior Shout Out!"},
+      {value:"Behavioral Concern", label:"Behavioral Concern"},
 
     ]
   
   
   
-  
-  
-  
-  
-  
-    const resetForm = () => {
-      setTeacherEmail("");
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setInfraction("");
-      setOffenseDescription("");
-      setInfractionPeriod("");
-      setSelectedOptions("")
-    };
-    
-    
     const descriptions = {
       "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
       "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
@@ -113,9 +80,7 @@ const defaultTheme = createTheme();
       "Positive Behavior Shout Out!": "Positive Behavior Shout Out! ",
     };
   
-//Select Dropdown Styles
 
-    
   
     const getDescription = (selectedOption) =>{
       return descriptions[selectedOption] ||  "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
@@ -146,80 +111,63 @@ const defaultTheme = createTheme();
       const selectOptions = listOfStudents.map(student => ({
           value: student.studentEmail, // Use a unique value for each option
           label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
-          firstName: student.firstName,
-          lastName: student.lastName
+    
           
         }));
       
-        // Handle the selection change
+
+
   
-      function findStudentByEmail(email) {
-          const foundStudent = listOfStudents.find(student => student.studentEmail === email);
-          return foundStudent || null; // Returns the found student or null if not found
-        }
+        const resetForm = ()=>{
+          setStudentSelect(null)
+          setTeacherEmailSelected(null)
+          setInfractionPeriodSelected(null)
+          setInfractionSelected(null)
+          setInfractionDescriptionSelected(null)
+      
+      }
+      
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+
+const payload = {
   
-      function handleSelect(data) {
-      setSelectedOptions(data);
-      setFirstName(data.firstName);
-      setLastName(data.lastName)
-      setEmail(data.value)
-        }
+      studentEmail: studentSelected.value,
+      teacherEmail: teacherEmailSelected,
+      infractionPeriod: infractionPeriodSelected.value,
+      infractionName: infractionSelected.value,
+      infractionDescription: infractionDescriptionSelected,
+
+}
+
+             axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+               {headers: headers})
+              .then(function (res){
+               setSuccessDisplay(true)
+               setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
+               setTimeout(()=>{
+                   setSuccessDisplay(false)
+               },3000)
+               resetForm();
+               console.log(res)
+           })
+.catch(function (error){
+               console.log(error)
+               const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
+               setErrorDisplay(true)
+               setErrorMessage(errorMessage)
+               setTimeout(()=>{
+                   setErrorDisplay(false)
+               },2000)
+           });
+    
+      
   
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      if (!emailPattern.test(email)) {
-          setErrorDisplay(true);
-          setErrorMessage('Please enter a valid email address');
-          return; // Do not proceed with submission
-        }
-  
-      const foundStudent = findStudentByEmail(email);
-  
-      if(foundStudent){
-          var payload = {
-              "firstName" :firstName ,
-              "lastName": lastName,
-              "studentEmail": email,
-              "infractionName": infraction,
-              "infractionPeriod":infractionPeriod ,
-              "infractionDescription" : offenseDescription,
-              "teacherEmail": teacherEmail
-              }
-            }
-  
-      //         axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
-      //          {headers: headers}
-  
-      //         )
-      //         .then(function (res){
-      //          setSuccessDisplay(true)
-      //          setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
-      //          setTimeout(()=>{
-      //              setSuccessDisplay(false)
-      //          },3000)
-      //          resetForm();
-      //          console.log(res)
-      //      })
-      //         .catch(function (error){
-      //          console.log(error)
-      //          const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-      //          setErrorDisplay(true)
-      //          setErrorMessage(errorMessage)
-      //          setTimeout(()=>{
-      //              setErrorDisplay(false)
-      //          },2000)
-      //      });
-      // }else{
-      //     setErrorDisplay(true)
-      //     setErrorMessage("Student Not Found in System")
-      //     setTimeout(()=>{
-      //         setErrorDisplay(false)
-      //     },2000)
-  
-      // }
+      
     }
+
+
 
     return (
         <>
@@ -233,7 +181,6 @@ const defaultTheme = createTheme();
         <div className="page-container">
       <div className="lrKTG">
         <div className="form-container">
-          <form onSubmit={handleSubmit}>
             <div className="M7eMe">REPS Teacher Managed Referral</div>
              <h5> This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
  After completing this form, the student and their guardian will be informed of the incident and given a restorative assignment to complete to gain insight on the negative effects of the behavior. REPS Discipline Management System will also send follow-up emails if additional steps are needed. These emails are designed to be copied and pasted directly into Review 360 when necessary. </h5>
@@ -272,9 +219,10 @@ const defaultTheme = createTheme();
                 name="selectStudent"
                 options={selectOptions}
                 placeholder="Select Student"
-                value={selectedOptions}
-                onChange={handleSelect}
+                value={studentSelected}
+                onChange = {(value)=>setStudentSelect(value)}
                 isSearchable={true}
+                isMulti={false}
   
               />
               
@@ -282,6 +230,10 @@ const defaultTheme = createTheme();
               margin="normal"
               required
               fullWidth
+              onChange={(event) => {
+                const enteredValue = event.target.value;
+                setTeacherEmailSelected(enteredValue);
+              }}              
               id="teacherEmail"
               label="Teachers Email"
               name="teacherEmail"
@@ -298,8 +250,8 @@ const defaultTheme = createTheme();
                 name="infractionPeriod"
                 options={infractionPeriodSelectOptions}
                 placeholder="Choose Period"
-                value={infractionPeriodSelectedOptions}
-                onChange={handleSelect}
+                value={infractionPeriodSelected}
+                onChange={(value)=>setInfractionPeriodSelected(value)}
                 isSearchable={true}
   
               />
@@ -310,8 +262,8 @@ const defaultTheme = createTheme();
       name="infraction"
       options={infractionSelectOptions}
       placeholder="Choose Infraction Type"
-      value={infractionSelectedOptions}
-      onChange={handleSelect}
+      value={infractionSelected}
+      onChange={(value)=>setInfractionSelected(value)}
       isSearchable={true}
   
               />
@@ -322,16 +274,16 @@ const defaultTheme = createTheme();
 
 <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
-              {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!" ||
-                infraction === "Behavioral Concern"
-                  ? getTitle(infraction)
+              {infractionSelected === "Failure to Complete Work" ||
+                infractionSelected === "Positive Behavior Shout Out!" ||
+                infractionSelected === "Behavioral Concern"
+                  ? getTitle(infractionSelected)
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
-                {infraction === "Failure to Complete Work" ||
-                infraction === "Positive Behavior Shout Out!" ||
-                infraction === "Behavioral Concern"
-                  ? getDescription(infraction)
+                {infractionSelected === "Failure to Complete Work" ||
+                infractionSelected === "Positive Behavior Shout Out!" ||
+                infractionSelected === "Behavioral Concern"
+                  ? getDescription(infractionSelected)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
               </div>
@@ -340,9 +292,12 @@ const defaultTheme = createTheme();
               margin="normal"
               required
               fullWidth
-              id="offenseDescription"
+              onChange={(event) => {
+                const enteredValue = event.target.value;
+                setInfractionDescriptionSelected(enteredValue);
+              }}               id="offenseDescription"
               label="Please Type Short Description of Infraction"
-              name="offenseDescripstion"
+              name="offenseDescription"
               autoFocus
               InputLabelProps={{
                 sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
@@ -367,7 +322,6 @@ const defaultTheme = createTheme();
         </Box>
       </Container>
     </ThemeProvider>
-   </form>
    </div>
     </div>
     </div>

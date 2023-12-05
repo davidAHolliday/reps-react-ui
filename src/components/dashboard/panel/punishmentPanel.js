@@ -21,7 +21,7 @@ import { baseUrl } from '../../../utils/jsonData'
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
     
-    const url = `${baseUrl}/punish/v1/punishments`; // Replace with your actual API endpoint
+    const url = `${baseUrl}/punish/v1/punishments`;
     
 
     useEffect(() => {
