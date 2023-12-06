@@ -94,6 +94,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
   </TableCell>
 </TableRow>
+
             ))
           ) : (
             <TableRow>
@@ -102,6 +103,9 @@ import { baseUrl } from '../../../utils/jsonData'
           )}
         </TableBody>
       </Table>
+      <TableRow>
+      <TableCell colSpan="5"><button>Add New Student</button></TableCell>
+      </TableRow>
     </TableContainer>
     </>
     )

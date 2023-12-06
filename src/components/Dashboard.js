@@ -20,6 +20,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import StudentPanel from './dashboard/panel/studentPanel';
 import PunishmentPanel from './dashboard/panel/punishmentPanel';
 import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
+import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
 
 
 const Dashboard = () => {
@@ -134,11 +135,17 @@ const Dashboard = () => {
 "5px",textAlign: "center"}}>
   Create Punishement
         </Typography>
+        <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+  Create Student
+        </Typography>
         </div>
 
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<PunishmentPanel/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
+{panelName === "createNewStudent" && <CreateNewStudentPanel/>}
+
 
 
 
