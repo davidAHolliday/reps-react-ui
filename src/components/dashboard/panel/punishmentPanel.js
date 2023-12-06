@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import jsonData from "../../data.json"
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 
@@ -35,7 +34,7 @@ import { baseUrl } from '../../../utils/jsonData'
         });
     }, []);
 
-	  const data = jsonData.punishment
+	  const data = listOfPunishments
 
     const hasScroll = data.length > 10;
     return (
@@ -66,6 +65,9 @@ import { baseUrl } from '../../../utils/jsonData'
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Level
             </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Status
+            </TableCell>
 			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Action
             </TableCell>
@@ -94,7 +96,7 @@ import { baseUrl } from '../../../utils/jsonData'
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
-  <TableCell>{x.infraction.status}</TableCell>
+  <TableCell>{x.status}</TableCell>
   <TableCell>
 
       <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
