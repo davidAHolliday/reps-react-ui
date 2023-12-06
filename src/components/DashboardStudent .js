@@ -126,19 +126,17 @@ const StudentDashboard = () => {
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Punishments
+   Close Assignments
         </Typography>
         <Typography onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Student
+      Pending Assignments
+
         </Typography>
-        <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography onClick={()=>setPanelName("")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Create Punishement
-        </Typography>
-        <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
-"5px",textAlign: "center"}}>
-  Create Student
+       Notifications
+
         </Typography>
         </div>
 
