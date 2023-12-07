@@ -32,7 +32,7 @@ const StudentDashboard = () => {
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("punishment")
+  const [panelName,setPanelName] = useState("openAssignments")
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');

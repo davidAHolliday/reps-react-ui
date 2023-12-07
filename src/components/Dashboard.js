@@ -36,6 +36,7 @@ const Dashboard = () => {
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('schoolName');
     sessionStorage.removeItem('email');
+    sessionStorage.removeItem('role');
     window.location.href = '/login';
   };
 

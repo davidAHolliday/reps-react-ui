@@ -8,13 +8,24 @@ import Login from './secuirty/Login';
 import Register from './secuirty/Register';
 import Dashboard from './components/Dashboard';
 import StudentDashboard from './components/DashboardStudent ';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import LoadingPage from './components/LoadingPage';
 
 function App() {
-  const [isStudent,setIsStudent] = useState(true)
-  const [isInstructor,setIsInstuctor] = useState(false)
 
 
+  const [loggedInRole, setLoggedInRole] = useState(sessionStorage.getItem("role"));
+
+
+  
+  useEffect(() => {
+    const role = sessionStorage.getItem("role");
+    setLoggedInRole(role);
+  }, []); 
+
+
+
+  
   return (
     <Router>
       <Routes>
@@ -22,11 +33,8 @@ function App() {
       <Route path="/register" element={<Register/>}/>
       <Route path="/infractionAssignments/:param1/:param2" element={<ViolationPage />} />
       <Route path="/" element={<Login/>} />
-      {isStudent && <Route path="/dashboard" element={<StudentDashboard />} />
- }
-
-      {isInstructor && <Route path="/dashboard" element={<Dashboard />} />
- }
+      <Route path="/student-dashboard" element={<StudentDashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/forms/start-punishment" element={<MyForm />} />
       <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
       </Routes>
