@@ -66,15 +66,7 @@ const [studentForm, setStudentForm] = useState(	{
     ]
 
   
-  
-  
-   
-  
-   
-  
 
-
-  
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
@@ -103,11 +95,19 @@ const [studentForm, setStudentForm] = useState(	{
 
   
         const resetForm = ()=>{
-          setStudentSelect(null)
-          setTeacherEmailSelected(null)
-          setInfractionPeriodSelected(null)
-          setInfractionSelected(null)
-          setInfractionDescriptionSelected(null)
+          setStudentForm(	{
+            firstName: "",
+            lastName: "",
+            parentEmail: "",
+            studentEmail: "",
+            guidanceEmail: "",
+            adminEmail: "",
+            address: "",
+            grade: "",
+            parentPhoneNumber: "",
+            studentPhoneNumber: ""
+          })
+       
       
       }
       
@@ -120,7 +120,7 @@ const [studentForm, setStudentForm] = useState(	{
                {headers: headers})
               .then(function (res){
                setSuccessDisplay(true)
-               setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
+               setSuccessMessage("Student Add")
                setTimeout(()=>{
                    setSuccessDisplay(false)
                },3000)
@@ -149,7 +149,7 @@ const [studentForm, setStudentForm] = useState(	{
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
           <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Create New Punishement
+   Add Student to Record
         </Typography>
         </div>
 

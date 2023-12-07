@@ -27,46 +27,24 @@ import { Container } from '@mui/material';
   const [errorMessage, setErrorMessage] = useState("");
   const [studentAnswers, setStudentAnswers] = useState([])
 
-  const { param1 } = useParams();
+  const { param1, param2 } = useParams();
+  console.log(param1)
+  console.log(param2)
 
-  const essay = essayData[param1]
+  console.log(essayData)
+
+  const essay =  Object.values(essayData).filter(
+    essay =>
+      essay.infractionName === param1 &&  
+       essay.level === parseInt(param2) 
+  )[0]; // Assuming there is only one matching essay, change this logic if needed
+
   console.log(essay)
-  //Points to the json file to pull
   const headers = {
     Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
   };
   
-  
-  useEffect(() => {
-    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
-      .then(function (response) {
-        setListOfStudents(response.data);
-  
-        const foundStudent = response.data.find(student => student.studentEmail === email);
-  
-        if (foundStudent) {
-          setUserValidated(true);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [email]);
-
-  const selectOptions = listOfStudents.map(student => ({
-    value: student.studentEmail, // Use a unique value for each option
-    label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
-    firstName: student.firstName,
-    lastName: student.lastName
-    
-  }));
-
-        // Handle the selection change
-
-  function findStudentByEmail(email) {
-    const foundStudent = listOfStudents.find(student => student.studentEmail === email);
-    return foundStudent || null; // Returns the found student or null if not found
-  }
+  const loggedInUser = sessionStorage.getItem("email")
 
   function handleSelect(data) {
     setSelectedOptions(data);
@@ -76,7 +54,7 @@ import { Container } from '@mui/material';
       }    
 
 const saveAnswerAndProgress = () =>{
-  if(userValidated){
+  if(loggedInUser){
     if(selectedAnswer === "correct"){
       window.alert("Congratulations! That is correct!")
       console.log(sectionNumber)
@@ -133,11 +111,10 @@ const handleSubmit = (e) => {
     return; // Do not proceed with submission
   }
 
-  const foundStudent = findStudentByEmail(email);
 
-  if(foundStudent){
+  if(loggedInUser){
   var payload = {
-      "studentEmail" :email ,
+      "studentEmail" :loggedInUser ,
       "infractionName": essay.infractionName,
       "studentAnswer": studentAnswers
       }
@@ -191,20 +168,16 @@ const handleSubmit = (e) => {
 if(essay.level < 3) {
 return (
   <Container className="">
+<a href="/dashboard">
+  <button>Go Home</button>
+</a>
     <div className="lrKTG">
       <div className="form-container" style={{width:"100%"}}>
         <form>
           <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
               {sectionNumber === 1 &&<div className='question-container'>
-            <label htmlFor="selectStudent">Select Student *</label>
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}/>
+            <h3>  Student: {sessionStorage.getItem("userName")} - {loggedInUser} </h3>
+
             </div>}
           <hr></hr>
     
@@ -259,14 +232,8 @@ saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
         <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
               {sectionNumber === 1 &&<div className='question-container'>
             <label htmlFor="selectStudent">Select Student *</label>
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}/>
+            <h3>  Student {sessionStorage.getItem("userName")} - {loggedInUser} </h3>
+
             </div>}
           <hr></hr>
           {console.log(essay)}

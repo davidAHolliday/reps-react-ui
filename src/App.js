@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 function App() {
   const [isStudent,setIsStudent] = useState(true)
-  const [isInstructor,setIsInstuctor] = useState(true)
+  const [isInstructor,setIsInstuctor] = useState(false)
 
 
   return (
@@ -20,14 +20,13 @@ function App() {
       <Routes>
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>}/>
-      <Route path="/infractionAssignments/:param1" element={<ViolationPage />} />
+      <Route path="/infractionAssignments/:param1/:param2" element={<ViolationPage />} />
       <Route path="/" element={<Login/>} />
-      {isStudent && <Route path="/dashboard" element={<StudentDashboard/>} />
+      {isStudent && <Route path="/dashboard" element={<StudentDashboard />} />
  }
 
-      {isInstructor && <Route path="/dashboard" element={<StudentDashboard/>} />
+      {isInstructor && <Route path="/dashboard" element={<Dashboard />} />
  }
-      <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/forms/start-punishment" element={<MyForm />} />
       <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
       </Routes>
