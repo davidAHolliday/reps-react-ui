@@ -25,10 +25,10 @@ import React from "react";
         </div>
         <hr />
         <div className="question-container">
-          <h4 className="question-header">{essay.question}</h4>
+          <h4  className="question-header">{essay.question}</h4>
           <div>
             {Object.keys(essay.radioAnswers).map((key) => (
-              <label key={key} className="radio-label">
+              <label style={{color:"black"}}  key={key} className="radio-label">
                 <input
                   type="radio"
                   id={key}
