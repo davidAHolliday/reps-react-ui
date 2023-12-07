@@ -59,11 +59,11 @@ export default function SignIn() {
 
   const routeChange =(role)=>{
     if(role === "TEACHER"){
-      let path = "/dashboard";
+      let path = "/dashboard/teacher";
       navigate(path)
     }
     if(role ==="STUDENT"){
-      let path = "/student-dashboard";
+      let path = "/dashboard/student";
       navigate(path)
     }
     

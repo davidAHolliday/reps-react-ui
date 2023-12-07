@@ -125,7 +125,7 @@ const handleSubmit = () => {
 if(essay.level < 3) {
 return (
   <Container className="">
-<a href="/dashboard">
+<a href="/dashboard/student">
   <button>Go Home</button>
 </a>
     <div className="lrKTG">
