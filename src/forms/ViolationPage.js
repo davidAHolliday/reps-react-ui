@@ -13,70 +13,28 @@ import { Container } from '@mui/material';
 
 
  export default function ViolationPage(props) {
-  const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [sectionNumber, setSectionNumber] = useState(1); //what section fo form are we on
   const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [listOfStudents, setListOfStudents] = useState([]);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [userValidated, setUserValidated] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState();
-  const [errorDisplay, setErrorDisplay] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [studentAnswers, setStudentAnswers] = useState([])
 
-  const { param1 } = useParams();
+  const { param1, param2 } = useParams();
+  console.log(param1)
+  console.log(param2)
 
-  const essay = essayData[param1]
-  console.log(essay)
-  //Points to the json file to pull
-  const headers = {
-    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-  };
-  
-  
-  useEffect(() => {
-    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
-      .then(function (response) {
-        setListOfStudents(response.data);
-  
-        const foundStudent = response.data.find(student => student.studentEmail === email);
-  
-        if (foundStudent) {
-          setUserValidated(true);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [email]);
+  console.log(essayData)
 
-  const selectOptions = listOfStudents.map(student => ({
-    value: student.studentEmail, // Use a unique value for each option
-    label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
-    firstName: student.firstName,
-    lastName: student.lastName
-    
-  }));
+  const essay =  Object.values(essayData).filter(
+    essay =>
+      essay.infractionName === param1 &&  
+       essay.level === parseInt(param2) 
+  )[0]; // Assuming there is only one matching essay, change this logic if needed
 
-        // Handle the selection change
-
-  function findStudentByEmail(email) {
-    const foundStudent = listOfStudents.find(student => student.studentEmail === email);
-    return foundStudent || null; // Returns the found student or null if not found
-  }
-
-  function handleSelect(data) {
-    setSelectedOptions(data);
-    setFirstName(data.firstName);
-    setLastName(data.lastName)
-    setEmail(data.value)
-      }    
+  const loggedInUser = sessionStorage.getItem("email")
+   
 
 const saveAnswerAndProgress = () =>{
-  if(userValidated){
+  if(loggedInUser){
     if(selectedAnswer === "correct"){
       window.alert("Congratulations! That is correct!")
       console.log(sectionNumber)
@@ -124,29 +82,24 @@ const handleRadioChange = (e) =>{
 }
 
 
-const handleSubmit = (e) => {
-  // // e.preventDefault();
+const handleSubmit = () => {
 
-  if (!emailPattern.test(email)) {
-    setErrorDisplay(true);
-    setErrorMessage('Please enter a valid email address');
-    return; // Do not proceed with submission
-  }
-
-  const foundStudent = findStudentByEmail(email);
-
-  if(foundStudent){
   var payload = {
-      "studentEmail" :email ,
+      "studentEmail" :loggedInUser ,
       "infractionName": essay.infractionName,
       "studentAnswer": studentAnswers
       }
   
 
-      axios.post("https://repsdev31.ue.r.appspot.com/punish/v1/punishId/close",payload
-      // axios.post("http://localhost:8080/punish/v1/punishId/close",payload
+      
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+    
+    const url = `${baseUrl}/punish/v1/punishId/close`;
+  
 
-      )
+      axios.post(url,payload, { headers })
       .then(function (res){
         console.log(res)
         window.alert(`You Work Has been Recorded for ${payload.studentEmail}`)
@@ -155,33 +108,14 @@ const handleSubmit = (e) => {
         window.open("", "_self");
         window.close();
 
-      //  setSuccessDisplay(true)
-      //  setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
-      //  setTimeout(()=>{
-      //      setSuccessDisplay(false)
-      //  },3000)
-      //  resetForm();
-      //  console.log(res)
+
     })
       .catch(function (error){
         console.log(error)
 
-      //  console.log(error)
-      //  const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-      //  setErrorDisplay(true)
-      //  setErrorMessage(errorMessage)
-      //  setTimeout(()=>{
-      //      setErrorDisplay(false)
-      //  },2000)
+  
   });
-}else{
-        setErrorDisplay(true)
-        setErrorMessage("Student Not Found in System")
-        setTimeout(()=>{
-            setErrorDisplay(false)
-        },2000)
 
-    };
   }
   
 
@@ -191,20 +125,16 @@ const handleSubmit = (e) => {
 if(essay.level < 3) {
 return (
   <Container className="">
+<a href="/dashboard/student">
+  <button>Go Home</button>
+</a>
     <div className="lrKTG">
       <div className="form-container" style={{width:"100%"}}>
         <form>
           <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
               {sectionNumber === 1 &&<div className='question-container'>
-            <label htmlFor="selectStudent">Select Student *</label>
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}/>
+            <h3>  Student: {sessionStorage.getItem("userName")} - {loggedInUser} </h3>
+
             </div>}
           <hr></hr>
     
@@ -259,14 +189,8 @@ saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 4"}/>}
         <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
               {sectionNumber === 1 &&<div className='question-container'>
             <label htmlFor="selectStudent">Select Student *</label>
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                defaultValue={{ label: "Choose student email", value: "example@email.com" }}
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}/>
+            <h3>  Student {sessionStorage.getItem("userName")} - {loggedInUser} </h3>
+
             </div>}
           <hr></hr>
           {console.log(essay)}
@@ -307,7 +231,7 @@ sectionName={"Retry Question 3"}/>}
 
 {sectionNumber ===14 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
 <h3>Hit Submit to Record Your Response for {email} </h3>
-<button  onClick={()=> handleSubmit()} type="submit">Submit</button>
+<button  onClick={()=> handleSubmit()} type="button">Submit</button>
 </div>}
 
        </form>

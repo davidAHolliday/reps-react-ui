@@ -1,159 +1,36 @@
-import react from 'react'
+import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-
-const data = [
-	{
-		"studentIdNumber": "49349",
-		"firstName": "Asia Yvonne",
-		"lastName": "Adams",
-		"parentEmail": "erickaperez72@gmail.com",
-		"studentEmail": "adaasi9349@ccsdschools.com",
-		"guidanceEmail": "leilani_worrell@charleston.k12.sc.us ",
-		"adminEmail": "alan_smith@charleston.k12.sc.us",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "8562364720@tmomail.net",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "39715",
-		"firstName": "Timothy ",
-		"lastName": "Andrews",
-		"parentEmail": "nestasyeye@gmail.com",
-		"studentEmail": "andtim9715@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18433458079",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "38937",
-		"firstName": "Ge'Vion",
-		"lastName": "Brown",
-		"parentEmail": "ghanna859@gmail.com",
-		"studentEmail": "brogev8937@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18437279376",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "42925",
-		"firstName": "Lamajai",
-		"lastName": "Butler",
-		"parentEmail": "zori123butler@yahoo.com",
-		"studentEmail": "butlam2925@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18434256604",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "26041",
-		"firstName": "Darius",
-		"lastName": "Govan",
-		"parentEmail": "roperlatoya35@gmail.com",
-		"studentEmail": "govdar6041@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18438684583",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "49556",
-		"firstName": "Quen'nairah",
-		"lastName": "Grant",
-		"parentEmail": "traceejackson929@gmail.com",
-		"studentEmail": "graque9556@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18435348266",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "25823",
-		"firstName": "Kamarri",
-		"lastName": "Joe",
-		"parentEmail": "kentricelegare@yahoo.com",
-		"studentEmail": "joekam5823@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18436681090",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "39575",
-		"firstName": "Zh'ri",
-		"lastName": "Major-Evans",
-		"parentEmail": "ishlamiaj@gmail.com",
-		"studentEmail": "majzhr9575@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18438649457",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "33659",
-		"firstName": "Trinity",
-		"lastName": "McGee",
-		"parentEmail": "tynieced123@gmail.com",
-		"studentEmail": "mcgtri3659@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18432982650",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "39992",
-		"firstName": "Johauna",
-		"lastName": "Riley",
-		"parentEmail": "nelson.vonetta@yahoo.com",
-		"studentEmail": "riljoh9992@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18435790933",
-		"studentPhoneNumber": "+9876543210"
-	},
-	{
-		"studentIdNumber": "34958",
-		"firstName": "Treonna",
-		"lastName": "Taylor",
-		"parentEmail": "devannet@yahoo.com",
-		"studentEmail": "TayTre4958@ccsdschools.com",
-		"guidanceEmail": "guidance@example.com",
-		"adminEmail": "admin@example.com",
-		"address": "123 Main St",
-		"grade": "10",
-		"parentPhoneNumber": "+18434423570",
-		"studentPhoneNumber": "+9876543210"
-	}]
-
-
-
+import axios from "axios"
+import { baseUrl } from '../../../utils/jsonData'
 
    const StudentPanel = () => {
+
+
+	const [listOfStudents, setListOfStudents]= useState([])
+
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+    
+    const url = `${baseUrl}/student/v1/allStudents`;
+    
+
+    useEffect(() => {
+      axios
+        .get(url, { headers }) // Pass the headers option with the JWT token
+        .then(function (response) {
+          setListOfStudents(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }, []);
+
+	const data = listOfStudents
 
     const hasScroll = data.length > 10;
     return (
@@ -217,6 +94,7 @@ const data = [
 
   </TableCell>
 </TableRow>
+
             ))
           ) : (
             <TableRow>
@@ -225,6 +103,9 @@ const data = [
           )}
         </TableBody>
       </Table>
+      <TableRow>
+      <TableCell colSpan="5"><button>Add New Student</button></TableCell>
+      </TableRow>
     </TableContainer>
     </>
     )

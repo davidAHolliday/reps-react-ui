@@ -57,9 +57,17 @@ export default function SignIn() {
   
   const navigate = useNavigate();
 
-  const routeChange =()=>{
-      let path = "/dashboard";
+  const routeChange =(role)=>{
+    if(role === "TEACHER"){
+      let path = "/dashboard/teacher";
       navigate(path)
+    }
+    if(role ==="STUDENT"){
+      let path = "/dashboard/student";
+      navigate(path)
+    }
+    
+  
   }
 
   const [formData, setFormData] = useState({
@@ -90,11 +98,16 @@ axios.post(`${baseUrl}/auth`, payload)
     const userName = res.data.userModel.firstName;
     const schoolName = res.data.userModel.schoolName;
     const email = res.data.userModel.username;
+    const role = res.data.userModel.roles[0]["role"]
+    console.log(role)
     sessionStorage.setItem("Authorization", token);
     sessionStorage.setItem("userName", userName);
     sessionStorage.setItem("schoolName", schoolName);
     sessionStorage.setItem("email", email);
-    routeChange();
+    sessionStorage.setItem("role", role);
+
+    
+    routeChange(role);
   } else {
     // Handle the case where the expected data is missing
     console.error("Data or userModel is null or undefined in the response.");

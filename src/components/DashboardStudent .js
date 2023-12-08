@@ -17,26 +17,28 @@ import {TableComponent} from "./TableComponent"
 import {ActionCard} from "./CardComponet"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from './notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StudentPanel from './dashboard/panel/studentPanel';
+import StudentPanel from './dashboard/student/studentClosePunihsmentPanel';
 import PunishmentPanel from './dashboard/panel/punishmentPanel';
 import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
 import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
+import BlankPanelForTest from './dashboard/student/blankPanelForTest';
+import StudentClosedPunishmentPanel from './dashboard/student/studentClosePunihsmentPanel';
+import StudentOpenPunishmentPanel from './dashboard/student/studentOpenPunihsmentPanel';
 
 
-const Dashboard = () => {
+const StudentDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("punishment")
+  const [panelName,setPanelName] = useState("openAssignments")
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('schoolName');
     sessionStorage.removeItem('email');
-    sessionStorage.removeItem('role');
     window.location.href = '/login';
   };
 
@@ -118,34 +120,28 @@ const Dashboard = () => {
           </List>
         </Drawer>
         <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
-          <ActionCard url="/forms/start-punishment" title="Punishment" descriptions="Log an infraction and initiate a punishment" style={{ backgroundColor: 'blue', color: 'white' }} />
-          <ActionCard url="/forms/ftc-closure" title="Review Assignments" descriptions="Review Student Assignment" style={{ backgroundColor: 'green', color: 'white' }} />
-          <ActionCard url="/" title="Open Reports" descriptions="See Reports of Infraction Stats" style={{ backgroundColor: 'orange', color: 'white' }} />
-          <ActionCard url="/" title="Other Link" descriptions="We can add other things here" style={{ backgroundColor: 'purple', color: 'white' }} />
+          <ActionCard url="/" title="School Bulletin" descriptions="Stay Up To Date with all your School Lastest" style={{ backgroundColor: 'blue', color: 'white' }} />
         </div>
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+   <Typography onClick={()=>setPanelName("closedAssignments")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Punishments
+   Close Assignments
         </Typography>
-        <Typography onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography onClick={()=>setPanelName("openAssignments")}backgroundColor={panelName ==="openAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Student
+      Pending Assignments
+
         </Typography>
-        <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        {/* <Typography onClick={()=>setPanelName("notification")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Create Punishment
-        </Typography>
-        <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
-"5px",textAlign: "center"}}>
-  Create Student
-        </Typography>
+       Notifications
+
+        </Typography> */}
         </div>
 
-{panelName === "student" &&<StudentPanel/>}
-{panelName === "punishment" &&<PunishmentPanel/>}
-{panelName === "createPunishment" && <CreatePunishmentPanel/>}
-{panelName === "createNewStudent" && <CreateNewStudentPanel/>}
+{panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
+{panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
+
 
 
 
@@ -163,4 +159,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default StudentDashboard;

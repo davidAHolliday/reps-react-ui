@@ -1,5 +1,5 @@
-import react, {useEffect,useState} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import react, {useState,useEffect} from 'react'
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
@@ -7,12 +7,9 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 
+   const StudentClosedPunishmentPanel = () => {
 
-
-
-
-
-   const PunishmentPanel = () => {
+    const loggedInUser = sessionStorage.getItem("email")
 
     const [listOfPunishments, setListOfPunishments]= useState([])
 
@@ -34,9 +31,13 @@ import { baseUrl } from '../../../utils/jsonData'
         });
     }, []);
 
-	  const data = listOfPunishments
+    //Temp Filter, we should filter in backend base on principal user
 
+
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "CLOSED");
+      
     const hasScroll = data.length > 10;
+
     return (
         <>
                  { console.log(listOfPunishments)}
@@ -44,7 +45,7 @@ import { baseUrl } from '../../../utils/jsonData'
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Punishments
+   Completed Punishments
         </Typography>
         </div>
    
@@ -53,7 +54,7 @@ import { baseUrl } from '../../../utils/jsonData'
         <TableHead>
           <TableRow>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Name
+              Id Number
             </TableCell>
           
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
@@ -83,15 +84,7 @@ import { baseUrl } from '../../../utils/jsonData'
             data.map((x, key) => (
 <TableRow key={key}>
   <TableCell>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <AccountCircleIcon
-        style={{
-          fontSize: '2rem',  // Adjust the size as needed
-          color: 'rgb(25, 118, 210)', // Change the color to blue
-        }}
-      />
-      <span>{x.student.firstName} {x.student.lastName}</span>
-    </div>
+    {x.punishmentId}
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
@@ -108,7 +101,7 @@ import { baseUrl } from '../../../utils/jsonData'
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No open assignments found.</TableCell>
+              <TableCell colSpan="5">No closed assignments found.</TableCell>
             </TableRow>
           )}
         </TableBody>
@@ -118,7 +111,6 @@ import { baseUrl } from '../../../utils/jsonData'
     )
     }
 
-
-    export default PunishmentPanel;
+    export default StudentClosedPunishmentPanel;
 
 
