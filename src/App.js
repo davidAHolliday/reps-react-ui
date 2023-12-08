@@ -11,6 +11,7 @@ import StudentDashboard from './components/DashboardStudent ';
 import { useState,useEffect } from 'react';
 import LoadingPage from './components/LoadingPage';
 import AuthRoute from './secuirty/AuthRoute';
+import CreateAssignmentForm from './components/createAssignmentForm';
 
 function App() {
 
@@ -25,9 +26,9 @@ function App() {
         {/* Use AuthRoute for role-based access control */}
         <Route path="/dashboard/student" element={<StudentDashboard />} allowedRoles={["STUDENT"]} />
         <Route path="/dashboard/teacher" element={<Dashboard />} allowedRoles={["TEACHER"]} />
-
         <Route path="/forms/start-punishment" element={<MyForm />} />
         <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
+        <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} />
       </Routes>
     </Router>
   );
