@@ -134,7 +134,7 @@ const Dashboard = () => {
         </Typography>
         <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Create Punishement
+  Create Punishment
         </Typography>
         <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>

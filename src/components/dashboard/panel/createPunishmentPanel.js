@@ -63,6 +63,11 @@ const CreatePunishmentPanel = () => {
     ]
 
     const infractionSelectOptions =[
+      {value:"Tardy", label:"Tardy"},
+      {value:"Unauthorized Device/Cell Phone", label:"Unauthorized Device/Cell Phone"},
+      {value:"Disruptive Behavior", label:"Disruptive Behavior"},
+      {value:"Horseplay", label:"Horseplay"},
+      {value:"Dress Code", label:"Dress Code"},
       {value:"Positive Behavior Shout Out!", label:"Positive Behavior Shout Out!"},
       {value:"Behavioral Concern", label:"Behavioral Concern"},
 
