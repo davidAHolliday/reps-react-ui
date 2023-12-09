@@ -31,35 +31,64 @@ import { Container } from '@mui/material';
 
 
   const listOfPossibleSections = [
-    "Question 1", "Retry Question 1", 
-    "Question 2", "Retry Question 2", 
-    "Question 3", "Retry Question 3", 
-    "openEndedExplanation",
-    "emotionalRegulation-openEnded",
-    "academic-openEnded",
-    "emotionalCoping",
-    "emotionalRegulation-radio",
-    "academic-radio",
-    "activities-radio",
-    "Submit"
+"Question 1.question" ,
+"Question 1.retryQuestion",
+"Question 2.question",
+"Question 2.retryQuestion", 
+"Question 3.question",
+"Question 3.retryQuestion",
+"Question 4.question",
+"Question 4.retryQuestion",
+"exploratory-questions.openEndedExplanation",
+"exploratory-questions.emotionalRegulation-radio",
+"exploratory-questions.emotionalRegulation-openEnded",
+"exploratory-questions.academic-radio",
+"exploratory-questions.academic-openEnded",
+"exploratory-questions.activities-radio",
+"exploratory-questions.emotionalCoping",
   ]
+
+
+  //Extract Fields and Subfields
+  function extractFieldNames(obj, prefix = "", result = []) {
+    for (const key in obj) {
+      const fieldName = prefix + key;
+      result.push(fieldName);
   
-  const filterSections = (sections, jsonData) => {
-    return sections.filter(section => {
-      if (jsonData[section]) {
-        return true;
+      if (typeof obj[key] === 'object' && obj[key] !== null) {
+        extractFieldNames(obj[key], fieldName + ".", result);
       }
+    }
+  }
   
-      // Check for subsections (assuming they follow a pattern like "Retry", "openEnded", "radio", etc.)
-      const subsections = Object.keys(jsonData).filter(key => key.includes(section));
-      return subsections.length > 0;
-    });
-  };
-  
+  const parsedSections = []
+extractFieldNames(essay, "", parsedSections);
 
-  const sectionMap = filterSections(listOfPossibleSections, essayData['disruptivebehavior-3']);
 
-  console.log(sectionMap)
+const filterSections = (sections, jsonData) => {
+  return sections.filter(section => {
+    const fieldPath = section.split('.');
+    let currentData = jsonData;
+
+    // Check if each part of the path exists in the JSON data
+    for (const field of fieldPath) {
+      if (currentData && currentData.hasOwnProperty(field)) {
+        currentData = currentData[field];
+      } else {
+        return false; // Stop and return false if any part of the path is not found
+      }
+    }
+
+    // If the loop completes, it means the entire path exists in the JSON data
+    return true;
+  });
+};
+
+const sectionMap = filterSections(listOfPossibleSections, essay);
+
+sectionMap.push("Submit")
+
+console.log(sectionMap);
 
 
   const loggedInUser = sessionStorage.getItem("email")
@@ -142,34 +171,15 @@ const handleSubmit = () => {
 }
 
 
-// stadnard 4 questions
-
-// const sectionMap = [
-//   "Question 1", "Retry Question 1", 
-//   "Question 2", "Retry Question 2", 
-//   "Question 3", "Retry Question 3",
-//   "Question 4", "Retry Question 4",
-//   "Submit"
-
-// ]
-
-//Sample for dress code only 2 questions
-
-
-//Sample for level 3
-
-
-
   const conditionalRender = () => {
     const currentSection = sectionMap[mapIndex]
     console.log(currentSection, mapIndex)
 
 //If Retry Question Present Render
-    if (currentSection.includes("Retry Question")){
-      console.log("retry quewstion")
+    if (currentSection.includes(".retryQuestion")){
       return(
         <RetryQuestionFormat
-        essay={essay[currentSection.replace("Retry ", "")]}
+        essay={essay[currentSection.replace(".retryQuestion", "")]}
         saveAnswerAndProgress={textCorrectlyCopied}
         sectionName={sectionMap[mapIndex]}
         />
@@ -179,10 +189,10 @@ const handleSubmit = () => {
     }
     //If Question Present Render
 
-    else if(currentSection.includes("Question")) {
+    else if(currentSection.includes(".question")) {
       return(
       <EssayFactory
-      essay={essay[sectionMap[mapIndex]]}
+      essay={essay[sectionMap[mapIndex].replace(".question","")]}
       saveAnswerAndProgress={saveAnswerAndProgress}
       handleRadioChange={handleRadioChange}
       sectionName={sectionMap[mapIndex]}
@@ -199,43 +209,26 @@ const handleSubmit = () => {
       )
     }
     //check for exploratory questions
-    else if(currentSection.includes("openEndedExplanation")){
+    else if(currentSection.includes(".openEndedExplanation") 
+    ||currentSection.includes(".emotionalRegulation-openEnded") 
+    ||currentSection.includes(".academic-openEnded") 
+    ||currentSection.includes(".emotionalCoping") 
+  
+    ){
       return(
-      <OpenEndedFormat question={essay['exploratory-questions']['openEndedExplanation']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Open Ended Explaination"}/>
-      )
-    }
-    else if (currentSection.includes('emotionalRegulation-openEnded')){
-      return (
- <OpenEndedFormat question={essay['exploratory-questions']['emotionalRegulation-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>
-      )
-    }
-    else if (currentSection.includes("academic-openEnded")){
+      <OpenEndedFormat question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.","")]} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={currentSection.replace("exploratory-questions.","")}/>
+      )}
+    
+ 
+    else if(currentSection.includes(".emotionalRegulation-radio")
+    || currentSection.includes(".academic-radio")
+    || currentSection.includes(".activities-radio")  ){
       return(
-    <OpenEndedFormat question={essay['exploratory-questions']['academic-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic Response - Peer Presure"}/>
+     <MultipleChoiceFormat question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.","")]} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={currentSection.replace("exploratory-questions.","")}/>
       )
-
-    }
-    else if(currentSection.includes("emotionalCoping")){
-      return(
- <OpenEndedFormat question={essay['exploratory-questions']['emotionalCoping']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Coping Free Response"}/>
-      )
-    }
-    else if(currentSection.includes("emotionalRegulation-radio")){
-      return(
-     <MultipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>
-      )
-    }
-    else if(currentSection.includes("academic-radio")){
-      return (
-     <MultipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>
-      )
-    }
-    else if( currentSection.includes("activities-radio")){
-      return(
-
-      <MultipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>
-      )
+    
     }else{
+      return null;
 
     }
   }
@@ -257,41 +250,6 @@ const handleSubmit = () => {
  {conditionalRender()}
  </div>
 
-
-{/* {sectionNumber ===2 && <RetryQuestionFormat essay={essay['Question 1']} 
-saveAnswerAndProgress={textCorrectlyCopied} sectionName={"Retry Question 1"}/>}
-
-{sectionNumber ===3 && <EssayFactory essay={essay['Question 2']} 
-saveAnswerAndProgress={saveAnswerAndProgress}
-handleRadioChange={handleRadioChange} sectionName={"Question 2"} />}
-
-{sectionNumber ===4 && <RetryQuestionFormat essay={essay['Question 2']} 
-saveAnswerAndProgress={textCorrectlyCopied} 
-sectionName={"Retry Question 2"}/>}
-
-{sectionNumber ===5 && <EssayFactory essay={essay['Question 3']} 
-saveAnswerAndProgress={saveAnswerAndProgress}
-handleRadioChange={handleRadioChange}sectionName={"Question 3"} />}
-
-{sectionNumber ===6 && <RetryQuestionFormat 
-essay={essay['Question 3']} 
-saveAnswerAndProgress={textCorrectlyCopied} 
-sectionName={"Retry Question 3"}/>} */}
-
-{/* 
-{sectionNumber ===7 && <OpenEndedFormat question={essay['exploratory-questions']['openEndedExplanation']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Open Ended Explaination"}/>}
-{sectionNumber ===8 && <MultipleChoiceFormat question={essay['exploratory-questions']['emotionalRegulation-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Regulation"}/>}
-{sectionNumber ===9 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalRegulation-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
-{sectionNumber ===10 && <MultipleChoiceFormat question={essay['exploratory-questions']['academic-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic"}/>}
-{sectionNumber ===11 && <OpenEndedFormat question={essay['exploratory-questions']['academic-openEnded']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Academic Response - Peer Presure"}/>}
-{sectionNumber ===12 && <MultipleChoiceFormat question={essay['exploratory-questions']['activities-radio']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Activites"}/>}
-{sectionNumber ===13 && <OpenEndedFormat question={essay['exploratory-questions']['emotionalCoping']} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={"Emotional Coping Free Response"}/>} */}
-
-
-{/* {sectionNumber ===14 &&  <div> <h1>Congratuations! You have Completed the Assignment </h1><br/>
-<h3>Hit Submit to Record Your Response for {email} </h3>
-<button  onClick={()=> handleSubmit()} type="button">Submit</button>
-</div>} */}
 
        </form>
       </div>
