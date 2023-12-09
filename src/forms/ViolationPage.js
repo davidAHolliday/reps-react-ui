@@ -26,6 +26,42 @@ import { Container } from '@mui/material';
        essay.level === parseInt(param2) 
   )[0]; // Assuming there is only one matching essay, change this logic if needed
 
+
+  // I need to mapOut the section each json record
+
+
+  const listOfPossibleSections = [
+    "Question 1", "Retry Question 1", 
+    "Question 2", "Retry Question 2", 
+    "Question 3", "Retry Question 3", 
+    "openEndedExplanation",
+    "emotionalRegulation-openEnded",
+    "academic-openEnded",
+    "emotionalCoping",
+    "emotionalRegulation-radio",
+    "academic-radio",
+    "activities-radio",
+    "Submit"
+  ]
+  
+  const filterSections = (sections, jsonData) => {
+    return sections.filter(section => {
+      if (jsonData[section]) {
+        return true;
+      }
+  
+      // Check for subsections (assuming they follow a pattern like "Retry", "openEnded", "radio", etc.)
+      const subsections = Object.keys(jsonData).filter(key => key.includes(section));
+      return subsections.length > 0;
+    });
+  };
+  
+
+  const sectionMap = filterSections(listOfPossibleSections, essayData['disruptivebehavior-3']);
+
+  console.log(sectionMap)
+
+
   const loggedInUser = sessionStorage.getItem("email")
    
 
@@ -65,19 +101,11 @@ const openEndedQuestionAnswered = (selectedAnswer) =>{
     setMapIndex((prev) => prev + 1);
     setStudentAnswers((prev) => [...prev, selectedAnswer]);
  
-
-
-
 }
-
-console.log(studentAnswers)
-
-
 
 const handleRadioChange = (e) =>{
   setSelectedAnswer(e.target.value);
 }
-
 
 const handleSubmit = () => {
 
@@ -88,7 +116,6 @@ const handleSubmit = () => {
       }
   
 
-      
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
@@ -114,6 +141,7 @@ const handleSubmit = () => {
   });
 }
 
+
 // stadnard 4 questions
 
 // const sectionMap = [
@@ -126,26 +154,9 @@ const handleSubmit = () => {
 // ]
 
 //Sample for dress code only 2 questions
-// const sectionMap = [
-//   "Question 1", "Retry Question 1", 
-//   "Question 2", "Retry Question 2", 
-//   "Submit"
-// ]
+
 
 //Sample for level 3
-const sectionMap = [
-  // "Question 1", "Retry Question 1", 
-  // "Question 2", "Retry Question 2", 
-  // "Question 3", "Retry Question 3", 
-  "openEndedExplanation",
-  "emotionalRegulation-openEnded",
-  "academic-openEnded",
-  "emotionalCoping",
-  "emotionalRegulation-radio",
-  "academic-radio",
-  "activities-radio",
-  "Submit"
-]
 
 
 
