@@ -1,4 +1,21 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
+
+const shuffleArray = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+};
 
   function EssayFactory({essay, handleRadioChange,sectionName,saveAnswerAndProgress}) {
     const essayStyles = {
@@ -9,6 +26,15 @@ import React from "react";
         textAlign: 'left', // Align text to the left',
       /* Add more CSS styles as needed */
     };
+
+
+    const [shuffledKeys, setShuffledKeys] = useState([]);
+
+    // Effect to shuffle keys on component mount
+    useEffect(() => {
+      setShuffledKeys(shuffleArray(Object.keys(essay.radioAnswers)));
+    }, [essay]);
+  
   
     return (
       <>
@@ -27,7 +53,7 @@ import React from "react";
         <div className="question-container">
           <h4  className="question-header">{essay.question}</h4>
           <div>
-            {Object.keys(essay.radioAnswers).map((key) => (
+            {shuffledKeys.map((key) => (
               <label style={{color:"black"}}  key={key} className="radio-label">
                 <input
                   type="radio"
