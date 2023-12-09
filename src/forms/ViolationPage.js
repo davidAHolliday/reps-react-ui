@@ -4,33 +4,29 @@ import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
 import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
-import Select from 'react-select';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
 import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
-import { Container } from '@mui/material';
 
 
 
 
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [email, setEmail] = useState('');
   const [studentAnswers, setStudentAnswers] = useState([])
   const [mapIndex, setMapIndex] = useState(0)
-
+  
+  //Grabs Params to Decide what Json Object to use
   const { param1, param2 } = useParams();
-
   const essay =  Object.values(essayData).filter(
     essay =>
       essay.infractionName === param1 &&  
        essay.level === parseInt(param2) 
-  )[0]; // Assuming there is only one matching essay, change this logic if needed
+  )[0]; 
 
 
-  // I need to mapOut the section each json record
 
-
-  const listOfPossibleSections = [
+// List of all possible components to compare json too
+const listOfPossibleSections = [
 "Question 1.question" ,
 "Question 1.retryQuestion",
 "Question 2.question",
@@ -49,7 +45,8 @@ import { Container } from '@mui/material';
   ]
 
 
-  //Extract Fields and Subfields
+ //Extract all Actual Fields from Json
+ // so if question 3 or 4, or exploratory question are not present, they will not be rendered
   function extractFieldNames(obj, prefix = "", result = []) {
     for (const key in obj) {
       const fieldName = prefix + key;
@@ -86,12 +83,13 @@ const filterSections = (sections, jsonData) => {
 
 const sectionMap = filterSections(listOfPossibleSections, essay);
 
+//since submit is not part of the json we have to add it, in order to render page
 sectionMap.push("Submit")
 
 console.log(sectionMap);
 
 
-  const loggedInUser = sessionStorage.getItem("email")
+const loggedInUser = sessionStorage.getItem("email")
    
 
 const saveAnswerAndProgress = () =>{
@@ -99,6 +97,7 @@ const saveAnswerAndProgress = () =>{
     if(selectedAnswer === "correct"){
       window.alert("Congratulations! That is correct!")
       setMapIndex((prev) => prev + 2);
+      setSelectedAnswer("")
   
     }else{
       window.alert("Sorry, that is incorrect")
@@ -134,6 +133,7 @@ const openEndedQuestionAnswered = (selectedAnswer) =>{
 
 const handleRadioChange = (e) =>{
   setSelectedAnswer(e.target.value);
+  
 }
 
 const handleSubmit = () => {
@@ -203,7 +203,7 @@ const handleSubmit = () => {
       return(
         <div> 
           <h1>Congratuations! You have Completed the Assignment </h1><br/>
-        <h3>Hit Submit to Record Your Response for {email} </h3>
+        <h3>Hit Submit to Record Your Response for {loggedInUser} </h3>
         <button  onClick={()=> handleSubmit()} type="button">Submit</button>
         </div>
       )
