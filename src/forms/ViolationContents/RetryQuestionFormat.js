@@ -45,7 +45,7 @@ import {React, useState} from "react";
                 {essay.retryQuestion["imageUrl"] !== "" ? (
                   <img
                     src={essay.retryQuestion["imageUrl"]}
-                    alt="Academic Impact"
+                    alt="Image"
                     style={{ maxWidth: '100%', height: 'auto' }}
                   />
                 ) : (

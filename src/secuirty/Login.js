@@ -20,6 +20,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { baseUrl } from '../utils/jsonData';
 import { redirect, useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 
@@ -53,6 +54,7 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
   const [warningToast,setWarningToast] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   
   const navigate = useNavigate();
@@ -90,6 +92,9 @@ export default function SignIn() {
       username: data.get('username'),
       password: data.get('password')
     }
+
+  setLoading(true);
+
  
 axios.post(`${baseUrl}/auth`, payload)
 .then(function (res) {
@@ -112,6 +117,7 @@ axios.post(`${baseUrl}/auth`, payload)
     // Handle the case where the expected data is missing
     console.error("Data or userModel is null or undefined in the response.");
     // You can set a warning or error state here if needed
+    setLoading(false);
     setWarningToast(true);
     setTimeout(()=>{
       setWarningToast(false);
@@ -127,6 +133,18 @@ axios.post(`${baseUrl}/auth`, payload)
 })
 .catch(function (error) {
   console.error("Error:", error);
+  setLoading(false);
+  setWarningToast(true);
+  setTimeout(()=>{
+    setWarningToast(false);
+
+  },2000)
+  setFormData((prev) => ({
+    ...prev,
+    password: '',
+    username: ''
+  }));
+
   // Handle the error as needed
 });
   };
@@ -152,6 +170,8 @@ axios.post(`${baseUrl}/auth`, payload)
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          {loading ? <CircularProgress style={{marginTop:"10px"}}  color="secondary" /> :
+
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -210,9 +230,10 @@ axios.post(`${baseUrl}/auth`, payload)
                 <Link href="/register" variant="body2" style={{color:"white"}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
+
               </Grid>
             </Grid>
-          </Box>
+          </Box>}
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
