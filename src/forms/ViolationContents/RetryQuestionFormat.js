@@ -5,18 +5,35 @@ import {React, useState} from "react";
       const [copyText, setCopyText] = useState("")
     
     
-    
-      const checkWork = () =>{
-        const compareText  = essay.retryQuestion["textToCompare"]
-        console.log(compareText)
-        if(compareText.localeCompare(copyText)===0){
-          window.alert("Correct")
-          saveAnswerAndProgress("correct")
-        }else{
-          window.alert("Try Again, Text Must Match Exactly")
+      const checkWork = () => {
+        const minMatchPercent = 80
+        const compareText = essay.retryQuestion["textToCompare"];
+        console.log(compareText);
+      
+        const originalText = prepText(compareText);
+        const typedText = prepText(copyText);
+      
+        const matchingWords = originalText.filter(word => typedText.includes(word));
+        const percentage = (matchingWords.length / originalText.length) * 100;
+        console.log(percentage);
+      
+        // Check if the percentage of matching words is above a certain threshold (e.g., 90%)
+        const threshold = minMatchPercent;
+        if (percentage >= threshold) {
+          window.alert("Correct");
+          saveAnswerAndProgress("correct");
+        } else {
+          window.alert(`Try Again, Text Must Match to at least ${minMatchPercent} % \n you are currently at ${percentage.toFixed(0)} % `);
         }
-    
+      };
+      
+      // Example prepText function (remove punctuation and convert to lowercase)
+      function prepText(text) {
+        return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").toLowerCase().split(/\s+/);
       }
+      
+
+
    
         return (
           <div>
