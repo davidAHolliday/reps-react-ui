@@ -225,60 +225,55 @@ const payload = {
 
        <div style={{height:"10px"}}></div>
              
-                <Select
-                name="selectStudent"
-                options={selectOptions}
-                placeholder="Select Student"
-                value={studentSelected}
-                onChange = {(value)=>setStudentSelect(value)}
-                isSearchable={true}
-                isMulti={false}
-                
-  
-              />
-              
-              {/* <TextField
-              margin="normal"
-              required
-              fullWidth
-              onChange={(event) => {
-                const enteredValue = event.target.value;
-                setTeacherEmailSelected(enteredValue);
-              }}              
-              id="teacherEmail"
-              label="Teachers Email"
-              name="teacherEmail"
-              autoFocus
-              InputLabelProps={{
-                sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
-              }}
-    
-            /> */}
+       <Select
+  name="selectStudent"
+  options={selectOptions}
+  placeholder="Select Student"
+  value={studentSelected}
+  onChange={(value) => setStudentSelect(value)}
+  isSearchable={true}
+  isMulti={false}
+  styles={{
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: 'white', // Set the background color to white
+    }),
+  }}
+/>
 
-<div style={{height:"10px"}}></div>
+<div style={{ height: "10px" }}></div>
 
-        
 <Select
-                name="infractionPeriod"
-                options={infractionPeriodSelectOptions}
-                placeholder="Choose Period"
-                value={infractionPeriodSelected}
-                onChange={(value)=>setInfractionPeriodSelected(value)}
-                isSearchable={true}
-  
-              />
-              
-              <div style={{height:"10px"}}></div>
+  name="infractionPeriod"
+  options={infractionPeriodSelectOptions}
+  placeholder="Choose Period"
+  value={infractionPeriodSelected}
+  onChange={(value) => setInfractionPeriodSelected(value)}
+  isSearchable={true}
+  styles={{
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: 'white', // Set the background color to white
+    }),
+  }}
+/>
+
+<div style={{ height: "10px" }}></div>
+
 <Select
-      
-      name="infraction"
-      options={infractionSelectOptions}
-      placeholder="Choose Infraction Type"
-      value={infractionSelected}
-      onChange={(value)=>setInfractionSelected(value)}
-      isSearchable={true}
-  
-              />
+  name="infraction"
+  options={infractionSelectOptions}
+  placeholder="Choose Infraction Type"
+  value={infractionSelected}
+  onChange={(value) => setInfractionSelected(value)}
+  isSearchable={true}
+  styles={{
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: 'white', // Set the background color to white
+    }),
+  }}
+/>
   
 
 
@@ -300,7 +295,7 @@ const payload = {
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
   </h5>
 </div>
-                  
+   <div>               
 <TextField
               margin="normal"
               required
@@ -309,7 +304,7 @@ const payload = {
                 const enteredValue = event.target.value;
                 setInfractionDescriptionSelected(enteredValue);
               }}               id="offenseDescription"
-              label="Please Type Short Description of Infraction"
+               placeholder="Please Type Short Description of Infraction"
               name="offenseDescription"
               autoFocus
               InputLabelProps={{
@@ -317,6 +312,7 @@ const payload = {
               }}
     
             />
+            </div>
 
       
             <br/>
@@ -345,9 +341,3 @@ const payload = {
   }
   export default CreatePunishmentPanel;
 
-  // styles={{
-  //   control: (provided, state) => ({
-  //     ...provided,
-  //     backgroundColor: 'white', // Set the background color to white
-  //   }),
-  // }}
