@@ -28,7 +28,7 @@ function App() {
         <Route path="/dashboard/teacher" element={<Dashboard />} allowedRoles={["TEACHER"]} />
         <Route path="/forms/start-punishment" element={<MyForm />} />
         <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
-        <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} />
+        {/* <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} /> */}
       </Routes>
     </Router>
   );
