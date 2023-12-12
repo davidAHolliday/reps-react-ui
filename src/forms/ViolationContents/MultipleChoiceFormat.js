@@ -40,7 +40,7 @@ import React from "react";
             value="agree"
             onChange={() => handleRadioChange("agree")}
           />
-          <label style={{marginLeft:"10px"}}htmlFor={1}>Agree</label>
+          <label style={{marginLeft:"10px",color:"black"}}htmlFor={1}>Agree</label>
           </div>
           <div className="radio">
           <input
@@ -50,7 +50,7 @@ import React from "react";
             value="disagree"
             onChange={() => handleRadioChange("disagree")}
           />
-          <label style={{marginLeft:"10px"}} htmlFor={2}>Disagree</label>
+          <label style={{marginLeft:"10px",color:"black"}} htmlFor={2}>Disagree</label>
     </div>
     <div className="radio">
           <input
@@ -60,7 +60,7 @@ import React from "react";
             value="neutral"
             onChange={() => handleRadioChange("neutral")}
           />
-          <label style={{marginLeft:"10px"}} htmlFor={3}>Neutral</label>
+          <label style={{marginLeft:"10px",color:"black"}} htmlFor={3}>Neutral</label>
           </div>
         </div>
       </>
