@@ -27,8 +27,12 @@ const CreatePunishmentPanel = () => {
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
     const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
   
+    useEffect(()=>{
+      setTeacherEmailSelected(sessionStorage.getItem('email'))
+    },[])
   
   
+
   
     // const tardyDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
     // const cellPhoneDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
@@ -125,7 +129,6 @@ const CreatePunishmentPanel = () => {
   
         const resetForm = ()=>{
           setStudentSelect(null)
-          setTeacherEmailSelected(null)
           setInfractionPeriodSelected(null)
           setInfractionSelected(null)
           setInfractionDescriptionSelected(null)
@@ -216,9 +219,11 @@ const payload = {
            Create New Punishment
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          
+            <h4>Submitting Teacher: {teacherEmailSelected}</h4>
+          <hr/>
        
-            <label htmlFor="selectStudent">Select Student *</label>
+
+       <div style={{height:"10px"}}></div>
              
                 <Select
                 name="selectStudent"
@@ -231,7 +236,7 @@ const payload = {
   
               />
               
-              <TextField
+              {/* <TextField
               margin="normal"
               required
               fullWidth
@@ -242,13 +247,14 @@ const payload = {
               id="teacherEmail"
               label="Teachers Email"
               name="teacherEmail"
-              autoComplete="email"
               autoFocus
               InputLabelProps={{
                 sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
               }}
     
-            />
+            /> */}
+
+<div style={{height:"10px"}}></div>
 
         
 <Select
@@ -261,7 +267,7 @@ const payload = {
   
               />
               
-<div style={{marginTop:"10px"}}>
+              <div style={{height:"10px"}}></div>
 <Select
       
       name="infraction"
@@ -273,22 +279,22 @@ const payload = {
   
               />
   
-</div>
 
 
 
+{console.log(infractionSelected)}
 <div className='question-container-text-area'>
               <label htmlFor="offenseDescription">
-              {infractionSelected === "Failure to Complete Work" ||
-                infractionSelected === "Positive Behavior Shout Out!" ||
-                infractionSelected === "Behavioral Concern"
-                  ? getTitle(infractionSelected)
+              {infractionSelected.value === "Failure to Complete Work" ||
+                infractionSelected.value === "Positive Behavior Shout Out!" ||
+                infractionSelected.value === "Behavioral Concern"
+                  ? getTitle(infractionSelected.value)
                   : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
               <h5>
-                {infractionSelected === "Failure to Complete Work" ||
-                infractionSelected === "Positive Behavior Shout Out!" ||
-                infractionSelected === "Behavioral Concern"
-                  ? getDescription(infractionSelected)
+                {infractionSelected.value === "Failure to Complete Work" ||
+                infractionSelected.value === "Positive Behavior Shout Out!" ||
+                infractionSelected.value === "Behavioral Concern"
+                  ? getDescription(infractionSelected.value)
                   : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
               </h5>
               </div>
