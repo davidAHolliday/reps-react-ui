@@ -8,10 +8,8 @@ import {React, useEffect, useState} from "react";
       
       
       useEffect(() => {
-        if (essay.retryQuestion["imageUrl"] !== "") {
           const imageElement = generateImage(compareText);
           setGeneratedImage(imageElement);
-        }
       }, []); // Run this effect only once when the component mounts
     
       const compareText = essay.retryQuestion["textToCompare"];
