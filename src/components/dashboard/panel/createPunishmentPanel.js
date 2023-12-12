@@ -233,6 +233,7 @@ const payload = {
                 onChange = {(value)=>setStudentSelect(value)}
                 isSearchable={true}
                 isMulti={false}
+                
   
               />
               
@@ -282,22 +283,23 @@ const payload = {
 
 
 
-{console.log(infractionSelected)}
+  {console.log(infractionSelected?.value)}
 <div className='question-container-text-area'>
-              <label htmlFor="offenseDescription">
-              {infractionSelected.value === "Failure to Complete Work" ||
-                infractionSelected.value === "Positive Behavior Shout Out!" ||
-                infractionSelected.value === "Behavioral Concern"
-                  ? getTitle(infractionSelected.value)
-                  : "For all offenses other than positive behavior shout out and failure to complete work"} *</label>
-              <h5>
-                {infractionSelected.value === "Failure to Complete Work" ||
-                infractionSelected.value === "Positive Behavior Shout Out!" ||
-                infractionSelected.value === "Behavioral Concern"
-                  ? getDescription(infractionSelected.value)
-                  : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
-              </h5>
-              </div>
+  <label htmlFor="offenseDescription">
+    {(infractionSelected?.value === "Failure to Complete Work" ||
+    infractionSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionSelected?.value === "Behavioral Concern")
+      ? getTitle(infractionSelected?.value)
+      : "For all offenses other than positive behavior shout out and failure to complete work"} *
+  </label>
+  <h5>
+    {(infractionSelected?.value === "Failure to Complete Work" ||
+    infractionSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionSelected?.value === "Behavioral Concern")
+      ? getDescription(infractionSelected?.value)
+      : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
+  </h5>
+</div>
                   
 <TextField
               margin="normal"
@@ -342,3 +344,10 @@ const payload = {
     
   }
   export default CreatePunishmentPanel;
+
+  // styles={{
+  //   control: (provided, state) => ({
+  //     ...provided,
+  //     backgroundColor: 'white', // Set the background color to white
+  //   }),
+  // }}
