@@ -126,7 +126,7 @@ const Dashboard = () => {
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Punishments
+  Punishment
         </Typography>
         <Typography onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>

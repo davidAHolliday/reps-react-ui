@@ -15,6 +15,8 @@ import { baseUrl } from '../../../utils/jsonData'
    const PunishmentPanel = () => {
 
     const [listOfPunishments, setListOfPunishments]= useState([])
+    const [filterData, setFilterData] = useState();
+    const [sort,setSort] = useState("OPEN");
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -27,16 +29,32 @@ import { baseUrl } from '../../../utils/jsonData'
       axios
         .get(url, { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          setListOfPunishments(response.data);
-        })
+          const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
+          setListOfPunishments(sortedData);        })
         .catch(function (error) {
           console.log(error);
         });
     }, []);
 
-	  const data = listOfPunishments
+
+    // if(sort == "ALL"){
+    //   setFilterData(listOfPunishments);
+  
+
+    
+ 
+  const data = sort === "ALL" ? listOfPunishments : listOfPunishments.filter((x)=> x.status == sort);
+
 
     const hasScroll = data.length > 10;
+
+    const calculateDaysSince = (dateCreated) => {
+      const currentDate = new Date();
+      const createdDate = new Date(dateCreated);
+      const timeDifference = currentDate - createdDate;
+      const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+      return daysDifference;
+    };
     return (
         <>
                  { console.log(listOfPunishments)}
@@ -44,81 +62,67 @@ import { baseUrl } from '../../../utils/jsonData'
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Punishments
+  <div style={{display:'flex',alignItems:"center", justifyContent:"space-evenly"}}>
+  <div onClick={() => setSort("OPEN")} style={{ backgroundColor: sort === "OPEN" ? "Blue" : ""}}>Open</div>
+            <div onClick={() => setSort("CFR")} style={{ backgroundColor: sort === "CFR" ? "Blue" : "" }}>CFR</div>
+            <div onClick={() => setSort("CLOSED")} style={{ backgroundColor: sort === "CLOSED" ? "Blue" : "" }}>Close</div>
+            <div onClick={() => setSort("ALL")} style={{ backgroundColor: sort === "ALL" ? "Blue" : "" }}>All</div>
+
+   </div>
+
         </Typography>
         </div>
    
-    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Name
-            </TableCell>
-          
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Infraction Name
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Description 
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Level
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Status
-            </TableCell>
-			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Action
-            </TableCell>
-         
-          </TableRow>
-        </TableHead>
-        <TableBody>
+        <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+        <Table>
+          <TableHead>
+            {/* ... (previous code) */}
+          </TableHead>
+          <TableBody>
+            {data.length > 0 ? (
+              data.map((x, key) => {
+                const days = calculateDaysSince(x.timeCreated);
 
-
-
-
-          {data.length > 0 ? (
-            data.map((x, key) => (
-<TableRow key={key}>
-  <TableCell>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <AccountCircleIcon
-        style={{
-          fontSize: '2rem',  // Adjust the size as needed
-          color: 'rgb(25, 118, 210)', // Change the color to blue
-        }}
-      />
-      <span>{x.student.firstName} {x.student.lastName}</span>
-    </div>
-  </TableCell>
-  <TableCell>{x.infraction.infractionName}</TableCell>
-  <TableCell>{x.infraction.infractionDescription}</TableCell>
-  <TableCell>{x.infraction.infractionLevel}</TableCell>
-  <TableCell>{x.status}</TableCell>
-  <TableCell>
-
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
-
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
-
-  </TableCell>
-</TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan="5">No open assignments found.</TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                return (
+                  <TableRow
+                    style={{
+                      backgroundColor: days > 3 ? "#FF402C" : days > 2 ? "#FFE366" : "",
+                    }}
+                    key={key}
+                  >
+                    <TableCell>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <AccountCircleIcon
+                          style={{
+                            fontSize: '2rem',  // Adjust the size as needed
+                            color: 'rgb(25, 118, 210)', // Change the color to blue
+                          }}
+                        />
+                        <span>{x.student.firstName} {x.student.lastName}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell>{x.infraction.infractionName}</TableCell>
+                    <TableCell>{x.infraction.infractionDescription}</TableCell>
+                    <TableCell>{x.infraction.infractionLevel}</TableCell>
+                    <TableCell>{x.status}</TableCell>
+                    <TableCell>{days}</TableCell>
+                    <TableCell>
+                      <ContactsIcon color="primary" />
+                      <VisibilityIcon color="primary" />
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            ) : (
+              <TableRow>
+                <TableCell colSpan="5">No open assignments found.</TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
-    )
-    }
+  );
+};
 
-
-    export default PunishmentPanel;
-
-
+export default PunishmentPanel;
