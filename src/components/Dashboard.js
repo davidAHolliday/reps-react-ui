@@ -117,12 +117,12 @@ const Dashboard = () => {
             </ListItem>
           </List>
         </Drawer>
-        <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
           <ActionCard url="/forms/start-punishment" title="Punishment" descriptions="Log an infraction and initiate a punishment" style={{ backgroundColor: 'blue', color: 'white' }} />
           <ActionCard url="/forms/ftc-closure" title="Review Assignments" descriptions="Review Student Assignment" style={{ backgroundColor: 'green', color: 'white' }} />
           <ActionCard url="/" title="Open Reports" descriptions="See Reports of Infraction Stats" style={{ backgroundColor: 'orange', color: 'white' }} />
           <ActionCard url="/" title="Other Link" descriptions="We can add other things here" style={{ backgroundColor: 'purple', color: 'white' }} />
-        </div>
+        </div> */}
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
