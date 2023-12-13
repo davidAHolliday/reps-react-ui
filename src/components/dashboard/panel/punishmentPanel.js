@@ -92,7 +92,7 @@ import { baseUrl } from '../../../utils/jsonData'
                 return (
                   <TableRow
                     style={{
-                      backgroundColor: days > 3 ? "#FF402C" : days > 2 ? "#FFE366" : "",
+                      backgroundColor: days >= 4 ? "#A020F0" : days >= 3 ? "#FF402C" : days >= 2 ? "#FFE366" : "#00FF00",
                     }}
                     key={key}
                   >
