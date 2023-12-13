@@ -60,6 +60,7 @@ import { baseUrl } from '../../../utils/jsonData'
       const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
       return daysDifference;
     };
+    
     return (
         <>
                  { console.log(listOfPunishments)}

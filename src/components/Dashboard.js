@@ -136,10 +136,10 @@ const Dashboard = () => {
 "5px",textAlign: "center"}}>
   Create Punishment
         </Typography>
-        <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        {/* <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
   Create Student
-        </Typography>
+        </Typography> */}
         </div>
 
 {panelName === "student" &&<StudentPanel/>}
