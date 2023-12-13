@@ -51,6 +51,11 @@ import { baseUrl } from '../../../utils/jsonData'
     const calculateDaysSince = (dateCreated) => {
       const currentDate = new Date();
       const createdDate = new Date(dateCreated);
+    
+      // Set both dates to UTC
+      currentDate.setUTCHours(0, 0, 0, 0);
+      createdDate.setUTCHours(0, 0, 0, 0);
+    
       const timeDifference = currentDate - createdDate;
       const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
       return daysDifference;
