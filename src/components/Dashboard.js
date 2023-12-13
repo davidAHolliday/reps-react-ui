@@ -21,6 +21,7 @@ import StudentPanel from './dashboard/panel/studentPanel';
 import PunishmentPanel from './dashboard/panel/punishmentPanel';
 import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
 import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
+import StudentProfile from './StudentProfile';
 
 
 const Dashboard = () => {
@@ -141,7 +142,6 @@ const Dashboard = () => {
   Create Student
         </Typography>
         </div>
-
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<PunishmentPanel/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}

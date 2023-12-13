@@ -6,11 +6,15 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
+import StudentProfile from '../../StudentProfile';
 
    const StudentPanel = () => {
 
 
 	const [listOfStudents, setListOfStudents]= useState([])
+  const [studentDisplay, setStudentDisplay] = useState(false);
+  const [studentEmail, setStudentEmail] = useState("");
+  const [studentName, setStudentName] = useState("");
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -71,7 +75,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
           {data.length > 0 ? (
             data.map((x, key) => (
-<TableRow key={key}>
+<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.studentEmail); setStudentName(x.firstName);}}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <AccountCircleIcon
@@ -107,6 +111,7 @@ import { baseUrl } from '../../../utils/jsonData'
       <TableCell colSpan="5"><button>Add New Student</button></TableCell>
       </TableRow>
     </TableContainer>
+    {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>}
     </>
     )
     }

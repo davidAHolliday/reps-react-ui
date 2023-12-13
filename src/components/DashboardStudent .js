@@ -15,7 +15,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {TableComponent} from "./TableComponent"
 import {ActionCard} from "./CardComponet"
-import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from './notification-bar/NotificationBar';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import NotificationBar from './notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import StudentPanel from './dashboard/student/studentClosePunihsmentPanel';
 import PunishmentPanel from './dashboard/panel/punishmentPanel';
