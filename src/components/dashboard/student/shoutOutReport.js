@@ -62,7 +62,7 @@ import { baseUrl } from '../../../utils/jsonData'
           
          
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Description 
+              Notes 
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created By
@@ -89,7 +89,7 @@ import { baseUrl } from '../../../utils/jsonData'
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No closed assignments found.</TableCell>
+              <TableCell colSpan="5">No Shout Out Yet, but im sure its coming!.</TableCell>
             </TableRow>
           )}
         </TableBody>
