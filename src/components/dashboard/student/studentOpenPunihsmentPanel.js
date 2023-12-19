@@ -33,7 +33,12 @@ import { baseUrl } from '../../../utils/jsonData'
 
     //Temp Filter, we should filter in backend base on principal user
 
+  const dateCreateFormat = (inputDate)=>{
+    const date = new Date(inputDate);
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('en-US',options);
 
+  }
 	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "OPEN");
       
     const hasScroll = data.length > 10;
@@ -70,7 +75,10 @@ import { baseUrl } from '../../../utils/jsonData'
              Status
             </TableCell>
 			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Action
+             Created By
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Created On
             </TableCell>
          
           </TableRow>
@@ -81,7 +89,13 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
           {data.length > 0 ? (
-            data.map((x, key) => (
+            data.map((x, key) =>
+          
+            
+             (
+
+            
+            
 <TableRow key={key}>
   <TableCell>
    <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}> click to open assignment </a>
@@ -90,13 +104,8 @@ import { baseUrl } from '../../../utils/jsonData'
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
   <TableCell>{x.status}</TableCell>
-  <TableCell>
-
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
-
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
-
-  </TableCell>
+  <TableCell>{x.teacherEmail}</TableCell>
+  <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 </TableRow>
             ))
           ) : (
