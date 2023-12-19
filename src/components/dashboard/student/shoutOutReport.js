@@ -1,10 +1,13 @@
 import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 
-   const StudentClosedPunishmentPanel = () => {
+   const ShoutOutReport = () => {
 
     const loggedInUser = sessionStorage.getItem("email")
 
@@ -30,8 +33,13 @@ import { baseUrl } from '../../../utils/jsonData'
 
     //Temp Filter, we should filter in backend base on principal user
 
-
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "CLOSED" || punish.status === "CFR"));
+    const dateCreateFormat = (inputDate)=>{
+      const date = new Date(inputDate);
+      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+      return date.toLocaleDateString('en-US',options);
+  
+    }
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "SO");
       
     const hasScroll = data.length > 10;
 
@@ -42,7 +50,7 @@ import { baseUrl } from '../../../utils/jsonData'
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
- History
+   Kudos, Lot of People are Talking About You!
         </Typography>
         </div>
    
@@ -50,21 +58,19 @@ import { baseUrl } from '../../../utils/jsonData'
       <Table>
         <TableHead>
           <TableRow>
+          
+          
+         
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Id Number
+              Notes 
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Infraction Name
+             Created By
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Description 
+			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Created On
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Level
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Status
-            </TableCell>
+         
           </TableRow>
         </TableHead>
         <TableBody>
@@ -75,19 +81,15 @@ import { baseUrl } from '../../../utils/jsonData'
           {data.length > 0 ? (
             data.map((x, key) => (
 <TableRow key={key}>
-  <TableCell>
-    ***-{x.punishmentId.substring(1,5)}
-  </TableCell>
-  <TableCell>{x.infraction.infractionName}</TableCell>
-  <TableCell>{x.infraction.infractionDescription}</TableCell>
-  <TableCell>{x.infraction.infractionLevel}</TableCell>
-  <TableCell>{x.status}</TableCell>
 
+  <TableCell>{x.infraction.infractionDescription}</TableCell>
+  <TableCell>{x.teacherEmail}</TableCell>
+  <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 </TableRow>
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No Records found.</TableCell>
+              <TableCell colSpan="5">No Shout Out Yet, but im sure its coming!.</TableCell>
             </TableRow>
           )}
         </TableBody>
@@ -97,6 +99,6 @@ import { baseUrl } from '../../../utils/jsonData'
     )
     }
 
-    export default StudentClosedPunishmentPanel;
+    export default ShoutOutReport;
 
 

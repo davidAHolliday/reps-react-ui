@@ -25,6 +25,8 @@ import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
 import BlankPanelForTest from './dashboard/student/blankPanelForTest';
 import StudentClosedPunishmentPanel from './dashboard/student/studentClosePunihsmentPanel';
 import StudentOpenPunishmentPanel from './dashboard/student/studentOpenPunihsmentPanel';
+import ShoutOutReport from './dashboard/student/shoutOutReport';
+import WarningIcon from '@mui/icons-material/Warning';
 
 
 const StudentDashboard = () => {
@@ -34,6 +36,7 @@ const StudentDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("openAssignments")
+
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -120,17 +123,26 @@ const StudentDashboard = () => {
             </ListItem>
           </List>
         </Drawer>
-        <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
-          <ActionCard url="/" title="School Bulletin" descriptions="Stay Up To Date with all your School Lastest" style={{ backgroundColor: 'blue', color: 'white' }} />
+        <div style={{ display: 'flex', flexDirection:"column",backgroundColor:"white" }}>
+          <div>
+<WarningIcon color="warning"/> Assignments 3 days late will result in In Lunch Detention 
+</div>
+<div>
+<WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
+</div>
         </div>
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("closedAssignments")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Close Assignments
+   History
+        </Typography>
+        <Typography id="hue" onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+   Shout Out!
         </Typography>
         <Typography onClick={()=>setPanelName("openAssignments")}backgroundColor={panelName ==="openAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-      Pending Assignments
+      To-Do
 
         </Typography>
         {/* <Typography onClick={()=>setPanelName("notification")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
@@ -139,18 +151,10 @@ const StudentDashboard = () => {
 
         </Typography> */}
         </div>
-
-{panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
-{panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
-
-
-
-
-
-
-{/* 
-        {data.length > 0 && <TableComponent title={"OPEN ASSIGNMENTS"} list={data} status={'OPEN'} />}
-        {data.length > 0 && <TableComponent title={"CLOSED ASSIGMENTS"}list={data} status={'CLOSED'} />} */}
+       
+        {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+        {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
+        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
 
 
 

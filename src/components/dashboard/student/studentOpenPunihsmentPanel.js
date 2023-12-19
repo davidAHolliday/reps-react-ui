@@ -1,10 +1,11 @@
 import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
+import Tooltip from '@mui/material/Tooltip';
+import WarningIcon from '@mui/icons-material/Warning';
+
 import { baseUrl } from '../../../utils/jsonData'
 
    const StudentOpenPunishmentPanel = () => {
@@ -24,7 +25,16 @@ import { baseUrl } from '../../../utils/jsonData'
       axios
         .get(url, { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          setListOfPunishments(response.data);
+          const data = response.data.sort((a, b) => {
+            // Convert the timeCreated strings to Date objects for proper comparison
+            const dateA = new Date(a.timeCreated);
+            const dateB = new Date(b.timeCreated);
+    
+            // Compare the dates
+            return   dateA - dateB; // Sort in descending order, change to dateA - dateB for ascending order
+          });
+    
+          setListOfPunishments(data);
         })
         .catch(function (error) {
           console.log(error);
@@ -34,6 +44,49 @@ import { baseUrl } from '../../../utils/jsonData'
     //Temp Filter, we should filter in backend base on principal user
 
 
+
+const handleAssignmentClick=(x)=>{
+  window.location.href = 
+  <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}></a>
+
+
+}
+
+
+  const dateCreateFormat = (inputDate)=>{
+    const date = new Date(inputDate);
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('en-US',options);
+  }
+
+
+  const calculateImportance = (x) => {
+    const currentDate = new Date();
+    const creationDate = new Date(x.timeCreated);
+  
+    // Calculate the difference in milliseconds
+    const timeDifference = currentDate - creationDate;
+  
+    // Calculate the difference in days
+    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+  
+    // Check if the date is more than 3 days old
+    if (daysDifference > 5) {
+      return <WarningIcon color={"error"} />;
+    }
+    else if (daysDifference > 3){
+      return <WarningIcon color={"warning"} />;
+      
+
+    }
+   
+   
+  
+    // Return null if the date is not more than 3 days old
+    return null;
+  };
+  
+  
 	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "OPEN");
       
     const hasScroll = data.length > 10;
@@ -54,7 +107,7 @@ import { baseUrl } from '../../../utils/jsonData'
         <TableHead>
           <TableRow>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Id Number
+             
             </TableCell>
           
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
@@ -66,11 +119,14 @@ import { baseUrl } from '../../../utils/jsonData'
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Level
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Status
-            </TableCell>
+            </TableCell> */}
 			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Action
+             Created By
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Created On
             </TableCell>
          
           </TableRow>
@@ -81,27 +137,35 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
           {data.length > 0 ? (
-            data.map((x, key) => (
+            data.map((x, key) =>
+          
+            
+             (
+
+            
+            
 <TableRow key={key}>
   <TableCell>
-   <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}> click to open assignment </a>
+  <Tooltip title="Click to view assignment">
+    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>
+ </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
-  <TableCell>{x.status}</TableCell>
-  <TableCell>
+  {/* <TableCell>{x.status}</TableCell> */}
+  <TableCell>{x.teacherEmail}</TableCell>
 
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
+  <TableCell >
+<div style={{display:"flex"}}>  {calculateImportance(x)} {dateCreateFormat(x.timeCreated)}</div>
 
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
+    </TableCell>
 
-  </TableCell>
 </TableRow>
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No closed assignments found.</TableCell>
+              <TableCell colSpan="5">Great Job, No Assignments are due.</TableCell>
             </TableRow>
           )}
         </TableBody>
