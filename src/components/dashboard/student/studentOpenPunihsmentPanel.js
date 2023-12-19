@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 
@@ -33,6 +34,14 @@ import { baseUrl } from '../../../utils/jsonData'
 
     //Temp Filter, we should filter in backend base on principal user
 
+const handleAssignmentClick=(x)=>{
+  window.location.href = 
+  <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}></a>
+
+
+}
+
+
   const dateCreateFormat = (inputDate)=>{
     const date = new Date(inputDate);
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -59,7 +68,7 @@ import { baseUrl } from '../../../utils/jsonData'
         <TableHead>
           <TableRow>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Id Number
+             
             </TableCell>
           
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
@@ -71,9 +80,9 @@ import { baseUrl } from '../../../utils/jsonData'
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Level
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Status
-            </TableCell>
+            </TableCell> */}
 			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created By
             </TableCell>
@@ -98,12 +107,12 @@ import { baseUrl } from '../../../utils/jsonData'
             
 <TableRow key={key}>
   <TableCell>
-   <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}> click to open assignment </a>
+    <OpenInNewIcon onClick={()=>handleAssignmentClick(x)}/>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
-  <TableCell>{x.status}</TableCell>
+  {/* <TableCell>{x.status}</TableCell> */}
   <TableCell>{x.teacherEmail}</TableCell>
   <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 </TableRow>
