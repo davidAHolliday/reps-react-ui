@@ -25,6 +25,7 @@ import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
 import BlankPanelForTest from './dashboard/student/blankPanelForTest';
 import StudentClosedPunishmentPanel from './dashboard/student/studentClosePunihsmentPanel';
 import StudentOpenPunishmentPanel from './dashboard/student/studentOpenPunihsmentPanel';
+import ShoutOutReport from './dashboard/student/shoutOutReport';
 
 
 const StudentDashboard = () => {
@@ -34,6 +35,7 @@ const StudentDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("openAssignments")
+
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -128,9 +130,13 @@ const StudentDashboard = () => {
 "5px",textAlign: "center"}}>
    Close Assignments
         </Typography>
+        <Typography onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+   Shout Out!
+        </Typography>
         <Typography onClick={()=>setPanelName("openAssignments")}backgroundColor={panelName ==="openAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-      Pending Assignments
+      To-Do
 
         </Typography>
         {/* <Typography onClick={()=>setPanelName("notification")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
@@ -139,18 +145,10 @@ const StudentDashboard = () => {
 
         </Typography> */}
         </div>
-
-{panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
-{panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
-
-
-
-
-
-
-{/* 
-        {data.length > 0 && <TableComponent title={"OPEN ASSIGNMENTS"} list={data} status={'OPEN'} />}
-        {data.length > 0 && <TableComponent title={"CLOSED ASSIGMENTS"}list={data} status={'CLOSED'} />} */}
+       
+        {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+        {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
+        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
 
 
 

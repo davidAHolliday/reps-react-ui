@@ -1,13 +1,13 @@
 import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
-import Tooltip from '@mui/material/Tooltip';
-
 import { baseUrl } from '../../../utils/jsonData'
 
-   const StudentOpenPunishmentPanel = () => {
+   const ShoutOutReport = () => {
 
     const loggedInUser = sessionStorage.getItem("email")
 
@@ -18,7 +18,7 @@ import { baseUrl } from '../../../utils/jsonData'
     };
     
     const url = `${baseUrl}/punish/v1/punishments`;
-  
+    
 
     useEffect(() => {
       axios
@@ -33,21 +33,13 @@ import { baseUrl } from '../../../utils/jsonData'
 
     //Temp Filter, we should filter in backend base on principal user
 
-const handleAssignmentClick=(x)=>{
-  window.location.href = 
-  <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}></a>
-
-
-}
-
-
-  const dateCreateFormat = (inputDate)=>{
-    const date = new Date(inputDate);
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return date.toLocaleDateString('en-US',options);
-
-  }
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "OPEN");
+    const dateCreateFormat = (inputDate)=>{
+      const date = new Date(inputDate);
+      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+      return date.toLocaleDateString('en-US',options);
+  
+    }
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "SO");
       
     const hasScroll = data.length > 10;
 
@@ -58,7 +50,7 @@ const handleAssignmentClick=(x)=>{
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Assignments To Complete
+   Kudos, Lot of People are Talking About You!
         </Typography>
         </div>
    
@@ -66,26 +58,16 @@ const handleAssignmentClick=(x)=>{
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             
-            </TableCell>
           
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Infraction Name
-            </TableCell>
+          
+         
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Description 
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Level
-            </TableCell>
-            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Status
-            </TableCell> */}
-			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created By
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created On
             </TableCell>
          
@@ -97,23 +79,10 @@ const handleAssignmentClick=(x)=>{
 
 
           {data.length > 0 ? (
-            data.map((x, key) =>
-          
-            
-             (
-
-            
-            
+            data.map((x, key) => (
 <TableRow key={key}>
-  <TableCell>
-  <Tooltip title="Click to view assignment">
-    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>
- </Tooltip>
-  </TableCell>
-  <TableCell>{x.infraction.infractionName}</TableCell>
+
   <TableCell>{x.infraction.infractionDescription}</TableCell>
-  <TableCell>{x.infraction.infractionLevel}</TableCell>
-  {/* <TableCell>{x.status}</TableCell> */}
   <TableCell>{x.teacherEmail}</TableCell>
   <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 </TableRow>
@@ -130,6 +99,6 @@ const handleAssignmentClick=(x)=>{
     )
     }
 
-    export default StudentOpenPunishmentPanel;
+    export default ShoutOutReport;
 
 
