@@ -6,6 +6,8 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
+import Tooltip from '@mui/material/Tooltip';
+
 import { baseUrl } from '../../../utils/jsonData'
 
    const StudentOpenPunishmentPanel = () => {
@@ -107,7 +109,9 @@ const handleAssignmentClick=(x)=>{
             
 <TableRow key={key}>
   <TableCell>
-    <OpenInNewIcon onClick={()=>handleAssignmentClick(x)}/>
+  <Tooltip title="Click to view assignment">
+    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>
+ </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
