@@ -34,7 +34,7 @@ import { baseUrl } from '../../../utils/jsonData'
     //Temp Filter, we should filter in backend base on principal user
 
 
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "CLOSED");
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "CLOSED" || punish.status === "CFR"));
       
     const hasScroll = data.length > 10;
 
@@ -45,7 +45,7 @@ import { baseUrl } from '../../../utils/jsonData'
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Completed Punishments
+ History
         </Typography>
         </div>
    
@@ -56,7 +56,6 @@ import { baseUrl } from '../../../utils/jsonData'
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Id Number
             </TableCell>
-          
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Infraction Name
             </TableCell>
@@ -69,10 +68,6 @@ import { baseUrl } from '../../../utils/jsonData'
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Status
             </TableCell>
-			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Action
-            </TableCell>
-         
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,24 +79,18 @@ import { baseUrl } from '../../../utils/jsonData'
             data.map((x, key) => (
 <TableRow key={key}>
   <TableCell>
-    {x.punishmentId}
+    ***-{x.punishmentId.substring(1,5)}
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
   <TableCell>{x.status}</TableCell>
-  <TableCell>
 
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
-
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
-
-  </TableCell>
 </TableRow>
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No closed assignments found.</TableCell>
+              <TableCell colSpan="5">No Records found.</TableCell>
             </TableRow>
           )}
         </TableBody>

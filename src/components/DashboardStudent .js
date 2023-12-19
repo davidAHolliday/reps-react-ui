@@ -128,9 +128,9 @@ const StudentDashboard = () => {
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("closedAssignments")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Close Assignments
+   History
         </Typography>
-        <Typography onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography id="hue" onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
    Shout Out!
         </Typography>
