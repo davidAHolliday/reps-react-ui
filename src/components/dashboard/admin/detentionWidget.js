@@ -84,8 +84,11 @@ import { baseUrl } from '../../../utils/jsonData'
             {data.length > 0 ? (
               data.map((x, key) => {
                 const days = calculateDaysSince(x.timeCreated);
+                const rowBackgroundColor = key % 2 === 0 ? "#f2f2f2" : "white"; // Alternate colors
+
                 return (
-                  <tr key={key}>
+                  <tr key={key}
+                  style={{ backgroundColor: rowBackgroundColor }}>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <span>{x.student.firstName} {x.student.lastName}</span>

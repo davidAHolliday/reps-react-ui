@@ -493,6 +493,7 @@ button:hover {
 table th tr {
   font-size: small;
   height: fit-content;
+  
 
 }
 
@@ -565,3 +566,9 @@ table th tr {
   background-color: turquoise;
   color:white
 }
+
+.widget-table-body-tr{
+  background-color: lightslategray;
+  color:white
+}
+
