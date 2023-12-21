@@ -29,7 +29,12 @@ const AdminDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("punishment")
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState({
+    referalDropdown:false,
+    teacherDropdown:false,
+    studentDropdown:false,
+    toolsDropdown:false
+  });
 const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -82,6 +87,15 @@ const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
 // | 'fixed'
 // | 'relative'
 // | 'static'
+
+//Close and Open dropdowns by field name
+const openDropdown =(field)=>{
+  setIsDropdownOpen({})
+  setIsDropdownOpen((prev)=>({
+    ...prev, [field]: !isDropdownOpen[field]
+  }))
+}
+
   return (
     loggedIn && (
       <>
@@ -122,29 +136,32 @@ const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
       <div className='main-content'> 
       <div className = "main-content-menu">
       <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+  
+  {/* Punishment Drop Down */}
   <button 
     className='dropbtn' 
-    onClick={() => {setIsDropdownOpen(!isDropdownOpen)
+    onClick={() => {
+      openDropdown("referalDropdown")
        setPanelName("punishment")
   }}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Punishments
+    Referals
   </button>
-  <div className={isDropdownOpen ? 'dropdown-content show' : 'dropdown-content'}>
+  <div className={isDropdownOpen.referalDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
-      setIsDropdownOpen(!isDropdownOpen)
+      setIsDropdownOpen(!isDropdownOpen.referalDropdown)
       setPunishmentFilter("OPEN")
        setPanelName("punishment")}}className='dropdown-item'>Open</div>
        <div onClick={()=>{
-       setIsDropdownOpen(!isDropdownOpen)
+      setIsDropdownOpen(!isDropdownOpen.referalDropdown)
       setPunishmentFilter("CFR")
        setPanelName("punishment")}}className='dropdown-item'>CFR</div><div onClick={()=>{
-        setIsDropdownOpen(!isDropdownOpen)
+        setIsDropdownOpen(!isDropdownOpen.referalDropdown)
 
         setPunishmentFilter("CLOSED")
          setPanelName("punishment")}}className='dropdown-item'>Closed</div><div onClick={()=>{
-          setIsDropdownOpen(!isDropdownOpen)
+          setIsDropdownOpen(!isDropdownOpen.referalDropdown)
 
           setPunishmentFilter("ALL")
            setPanelName("punishment")}}className='dropdown-item'>All</div>
@@ -152,15 +169,76 @@ const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
 
 
   </div>
+    {/* Teacher Drop Down */}
+    <button 
+    className='dropbtn' 
+    onClick={() => {
+      openDropdown("teacherDropDown")
+      // setPanelName("punishment")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    Teachers
+  </button>
+      {/* Margin Left is used to move dropdown under the buttons */}
+  <div style={{marginLeft:"25%"}} className={isDropdownOpen.teacherDropDown ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
+      // setPunishmentFilter("OPEN")
+      //  setPanelName("punishment")
+       }}className='dropdown-item'>Active Teachers</div>
+       <div onClick={()=>{
+      setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
+      // setPunishmentFilter("CFR")
+      //  setPanelName("punishment")
+      }}className='dropdown-item'>Add Teachers</div>
+  </div>
 
-        <button className='dropbtn' onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
-"5px",textAlign: "center"}}>
-   Student
-        </button>
-        <button className='dropbtn' onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
-"5px",textAlign: "center"}}>
-  Create Punishment
-        </button>
+    {/* Student Drop Down */}
+    <button 
+    className='dropbtn' 
+    onClick={() => {
+      openDropdown("studentDropdown")
+      // setPanelName("punishment")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    Student
+  </button>
+      {/* Margin Left is used to move dropdown under the buttons */}
+  <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("student") 
+      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
+ 
+     }}className='dropdown-item'>View Students</div>
+     
+  </div>
+
+    {/* Student Drop Down */}
+    <button 
+    className='dropbtn' 
+    onClick={() => {
+      openDropdown("toolsDropdown")
+      // setPanelName("punishment")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    Tools
+  </button>
+      {/* Margin Left is used to move dropdown under the buttons */}
+  <div style={{marginLeft:"75%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("createPunishment")  
+      setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
+
+     }}className='dropdown-item'>Create Punishment</div>
+     
+  </div>
+
+
+
+
         </div>
       </div>
       <div className = "main-content-panel">

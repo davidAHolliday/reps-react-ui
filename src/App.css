@@ -499,9 +499,8 @@ table th tr {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-
   display: none;
-  width: 33%;
+  width: 25%;
   margin-top: 45px;
   position: absolute;
   background-color: #f1f1f1;
@@ -567,8 +566,5 @@ table th tr {
   color:white
 }
 
-.widget-table-body-tr{
-  background-color: lightslategray;
-  color:white
-}
+
 
