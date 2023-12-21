@@ -17,6 +17,8 @@ import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import StudentPanel from '../panel/studentPanel';
 import NotificationBar from '../../notification-bar/NotificationBar';
+import ISSWidget from './issWidget';
+import DetentionWidget from './detentionWidget';
 
 
 const AdminDashboard = () => {
@@ -69,10 +71,16 @@ const AdminDashboard = () => {
     setOpenNotificationDrawer(open);
   };
 
+
+
+//   'absolute'
+// | 'fixed'
+// | 'relative'
+// | 'static'
   return (
     loggedIn && (
-      <div style={{ maxWidth: '90%', margin: '0 auto' }}> {/* Center the app within 90% of the screen */}
-        <AppBar position="static">
+      <>
+        <div className ="app-bar">
           <Toolbar>
             <IconButton
               edge="start"
@@ -94,16 +102,21 @@ const AdminDashboard = () => {
             </IconButton>
 
           </Toolbar>
-          
-        </AppBar>
-        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        <NotificationBar />
-        </Drawer>
+        </div>
+       <div className='page'>
+         
+      <div className='side-bar'>
+        <div className="side-bar-widget">
+          <DetentionWidget/>
+        </div>
+        <div className="side-bar-widget">
+          <ISSWidget/>
+        </div>
 
-        <Drawer anchor="left" open={openDrawer} onClose={() => toggleDrawer(false)}>
-         <PunishmentPanel/>
-        </Drawer>
-        <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+      </div>
+      <div className='main-content'> 
+      <div className = "main-content-menu">
+   <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
   Punishment
@@ -117,10 +130,38 @@ const AdminDashboard = () => {
   Create Punishment
         </Typography>
         </div>
+      </div>
+      <div className = "main-content-panel">
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<PunishmentPanel/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
+
+      </div>
+
+        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
+        <NotificationBar />
+        </Drawer>
+
+<Drawer 
+  className={openDrawer ? 'drawer-open' : ''} 
+  anchor="left" 
+  open={openDrawer} 
+  onClose={() => toggleDrawer(false)}
+>      <div style={{display:"flex", justifyContent:"space-between", }}>
+      <button  onClick={()=>toggleDrawer(false)}style={{width:"50%"}}>
+          close (x)
+        </button>
+        <button style={{width:"50%"}}>
+          Print (x)
+        </button>
+      </div>
+      <div style={{height:"40px"}}></div>
+      
+
+
+         </Drawer>
+     
 
 
 
@@ -128,6 +169,8 @@ const AdminDashboard = () => {
 
 
       </div>
+      </div>
+      </>
     )
   );
 };

@@ -36,18 +36,6 @@ import { baseUrl } from '../../../utils/jsonData'
         });
     }, []);
 
-
-    // if(sort == "ALL"){
-    //   setFilterData(listOfPunishments);
-  
-
-    
- 
-  const data = sort === "ALL" ? listOfPunishments : listOfPunishments.filter((x)=> x.status == sort);
-
-
-    const hasScroll = data.length > 10;
-
     const calculateDaysSince = (dateCreated) => {
       const currentDate = new Date();
       const createdDate = new Date(dateCreated);
@@ -61,74 +49,62 @@ import { baseUrl } from '../../../utils/jsonData'
       return daysDifference;
     };
     
+
+
+    // if(sort == "ALL"){
+    //   setFilterData(listOfPunishments);
+  
+  const data = listOfPunishments.filter((punishment) => {
+    const days = calculateDaysSince(punishment.timeCreated);
+    return days > 3 && punishment.status === "OPEN"; // This will filter out records that are NOT older than 3 days
+  });
+
+  // Use the olderThanThreeDays list for rendering instead of data
+
+    const hasScroll = data.length > 10;
+
+ 
     return (
-        <>
-                 { console.log(listOfPunishments)}
-
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
-  <div style={{display:'flex',alignItems:"center", justifyContent:"space-evenly"}}>
-  <div onClick={() => setSort("OPEN")} style={{ backgroundColor: sort === "OPEN" ? "Blue" : ""}}>Open</div>
-            <div onClick={() => setSort("CFR")} style={{ backgroundColor: sort === "CFR" ? "Blue" : "" }}>CFR</div>
-            <div onClick={() => setSort("CLOSED")} style={{ backgroundColor: sort === "CLOSED" ? "Blue" : "" }}>Close</div>
-            <div onClick={() => setSort("ALL")} style={{ backgroundColor: sort === "ALL" ? "Blue" : "" }}>All</div>
-
-   </div>
-
-        </Typography>
+      <>
+        <div style={{ backgroundColor: "rgb(25, 118, 210)", marginTop: "10px", marginBlock: "5px" }}>
+          <Typography color="white" variant="h6" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
+           ISS List
+          </Typography>
         </div>
-   
-        <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
-        <Table>
-          <TableHead>
-            {/* ... (previous code) */}
-          </TableHead>
-          <TableBody>
+    
+        <table style={{ width: "100%", borderCollapse: "collapse" }}> {/* Added borderCollapse for proper styling */}
+          <thead>
+            <tr style={{ backgroundColor: "blue", color: "white" }}> {/* Moved the header row to thead */}
+              <th>Name</th>
+              <th>Infraction</th>
+              <th>Past Due</th>
+            </tr>
+          </thead>
+    
+          <tbody>
             {data.length > 0 ? (
               data.map((x, key) => {
                 const days = calculateDaysSince(x.timeCreated);
-
                 return (
-                  <TableRow
-                    style={{
-                      backgroundColor: days >= 4 ? "#A020F0" : days >= 3 ? "#FF402C" : days >= 2 ? "#FFE366" : "#00FF00",
-                    }}
-                    key={key}
-                  >
-                    <TableCell>
+                  <tr key={key}>
+                    <td>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <AccountCircleIcon
-                          style={{
-                            fontSize: '2rem',  // Adjust the size as needed
-                            color: 'rgb(25, 118, 210)', // Change the color to blue
-                          }}
-                        />
                         <span>{x.student.firstName} {x.student.lastName}</span>
                       </div>
-                    </TableCell>
-                    <TableCell>{x.infraction.infractionName}</TableCell>
-                    <TableCell>{x.infraction.infractionDescription}</TableCell>
-                    <TableCell>{x.infraction.infractionLevel}</TableCell>
-                    <TableCell>{x.status}</TableCell>
-                    <TableCell>{days}</TableCell>
-                    <TableCell>
-                      <ContactsIcon color="primary" />
-                      <VisibilityIcon color="primary" />
-                    </TableCell>
-                  </TableRow>
+                    </td>
+                    <td>{x.infraction.infractionName}</td>
+                    <td>{days}</td>
+                  </tr>
                 );
               })
             ) : (
-              <TableRow>
-                <TableCell colSpan="5">No open assignments found.</TableCell>
-              </TableRow>
+              <tr>
+                <td colSpan="4" style={{ textAlign: "center" }}>No student is assigned Detention.</td>
+              </tr>
             )}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
-  );
-};
-
+          </tbody>
+        </table>
+      </>
+    );
+            }
 export default ISSWidget;
