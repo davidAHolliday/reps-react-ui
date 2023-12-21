@@ -71,9 +71,9 @@ import { baseUrl } from '../../../utils/jsonData'
           </Typography>
         </div>
     
-        <table style={{ width: "100%", borderCollapse: "collapse" }}> {/* Added borderCollapse for proper styling */}
+        <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
-            <tr style={{ backgroundColor: "blue", color: "white" }}> {/* Moved the header row to thead */}
+            <tr className="widget-table-tr"> {/* Moved the header row to thead */}
               <th>Name</th>
               <th>Infraction</th>
               <th>Past Due</th>

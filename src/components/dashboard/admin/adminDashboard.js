@@ -19,6 +19,7 @@ import StudentPanel from '../panel/studentPanel';
 import NotificationBar from '../../notification-bar/NotificationBar';
 import ISSWidget from './issWidget';
 import DetentionWidget from './detentionWidget';
+import AdminPunishmentPanel from './adminPunishmentPanel';
 
 
 const AdminDashboard = () => {
@@ -28,7 +29,8 @@ const AdminDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("punishment")
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
     sessionStorage.removeItem('userName');
@@ -71,6 +73,9 @@ const AdminDashboard = () => {
     setOpenNotificationDrawer(open);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prevState => !prevState); // Toggle the state value
+  };
 
 
 //   'absolute'
@@ -116,24 +121,46 @@ const AdminDashboard = () => {
       </div>
       <div className='main-content'> 
       <div className = "main-content-menu">
-   <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
-"5px",textAlign: "center"}}>
-  Punishment
-        </Typography>
-        <Typography onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+      <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+  <button 
+    className='dropbtn' 
+    onClick={() => {setIsDropdownOpen(!isDropdownOpen)
+      setPunishmentFilter("OPEN")
+       setPanelName("punishment")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    Punishments
+  </button>
+  <div className={isDropdownOpen ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPunishmentFilter("OPEN")
+       setPanelName("punishment")}}className='dropdown-item'>Open</div>
+       <div onClick={()=>{
+      setPunishmentFilter("CFR")
+       setPanelName("punishment")}}className='dropdown-item'>CFR</div><div onClick={()=>{
+        setPunishmentFilter("CLOSED")
+         setPanelName("punishment")}}className='dropdown-item'>Closed</div><div onClick={()=>{
+          setPunishmentFilter("ALL")
+           setPanelName("punishment")}}className='dropdown-item'>All</div>
+    
+
+
+  </div>
+
+        <button className='dropbtn' onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
    Student
-        </Typography>
-        <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        </button>
+        <button className='dropbtn' onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
   Create Punishment
-        </Typography>
+        </button>
         </div>
       </div>
       <div className = "main-content-panel">
 {panelName === "student" &&<StudentPanel/>}
-{panelName === "punishment" &&<PunishmentPanel/>}
+{panelName === "punishment" &&<AdminPunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 
