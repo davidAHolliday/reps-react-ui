@@ -125,7 +125,6 @@ const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   <button 
     className='dropbtn' 
     onClick={() => {setIsDropdownOpen(!isDropdownOpen)
-      setPunishmentFilter("OPEN")
        setPanelName("punishment")
   }}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
@@ -134,13 +133,19 @@ const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   </button>
   <div className={isDropdownOpen ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
+      setIsDropdownOpen(!isDropdownOpen)
       setPunishmentFilter("OPEN")
        setPanelName("punishment")}}className='dropdown-item'>Open</div>
        <div onClick={()=>{
+       setIsDropdownOpen(!isDropdownOpen)
       setPunishmentFilter("CFR")
        setPanelName("punishment")}}className='dropdown-item'>CFR</div><div onClick={()=>{
+        setIsDropdownOpen(!isDropdownOpen)
+
         setPunishmentFilter("CLOSED")
          setPanelName("punishment")}}className='dropdown-item'>Closed</div><div onClick={()=>{
+          setIsDropdownOpen(!isDropdownOpen)
+
           setPunishmentFilter("ALL")
            setPanelName("punishment")}}className='dropdown-item'>All</div>
     
