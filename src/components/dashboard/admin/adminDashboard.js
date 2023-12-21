@@ -20,6 +20,7 @@ import NotificationBar from '../../notification-bar/NotificationBar';
 import ISSWidget from './issWidget';
 import DetentionWidget from './detentionWidget';
 import AdminPunishmentPanel from './adminPunishmentPanel';
+import AdminTeacherPanel from './adminTeacherPanel';
 
 
 const AdminDashboard = () => {
@@ -185,7 +186,7 @@ const openDropdown =(field)=>{
     <div onClick={()=>{
       setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
       // setPunishmentFilter("OPEN")
-      //  setPanelName("punishment")
+       setPanelName("viewTeacher")
        }}className='dropdown-item'>Active Teachers</div>
        <div onClick={()=>{
       setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
@@ -242,6 +243,7 @@ const openDropdown =(field)=>{
         </div>
       </div>
       <div className = "main-content-panel">
+{panelName === "viewTeacher" &&<AdminTeacherPanel/>}
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<AdminPunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
