@@ -12,6 +12,7 @@ import { useState,useEffect } from 'react';
 import LoadingPage from './components/LoadingPage';
 import AuthRoute from './secuirty/AuthRoute';
 import CreateAssignmentForm from './components/createAssignmentForm';
+import AdminDashboard from './components/dashboard/admin/adminDashboard';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Login />} />
 
         {/* Use AuthRoute for role-based access control */}
+        <Route path="/dashboard/admin" element={<AdminDashboard/>} allowedRoles={["ADMIN"]} />
         <Route path="/dashboard/student" element={<StudentDashboard />} allowedRoles={["STUDENT"]} />
         <Route path="/dashboard/teacher" element={<Dashboard />} allowedRoles={["TEACHER"]} />
         <Route path="/forms/start-punishment" element={<MyForm />} />
