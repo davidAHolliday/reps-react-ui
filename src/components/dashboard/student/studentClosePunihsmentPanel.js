@@ -28,7 +28,6 @@ import { baseUrl } from '../../../utils/jsonData'
         });
     }, []);
 
-    //Temp Filter, we should filter in backend base on principal user
 
 
 	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "CLOSED" || punish.status === "CFR"));
