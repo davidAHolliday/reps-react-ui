@@ -1,5 +1,5 @@
 import react, {useState,useEffect} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
@@ -68,9 +68,9 @@ import AddTeacherForm from './addTeacherForm';
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Phone Number
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Actions
-            </TableCell>
+            </TableCell> */}
          
           </TableRow>
         </TableHead>
@@ -81,7 +81,7 @@ import AddTeacherForm from './addTeacherForm';
 
           {data.length > 0 ? (
             data.map((x, key) => (
-<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.studentEmail); setStudentName(x.firstName);}}>
+<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.username); setStudentName(x.firstName);}}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <AccountCircleIcon
@@ -100,13 +100,13 @@ import AddTeacherForm from './addTeacherForm';
   )) : 'No roles available'}
 </TableCell>  
 <TableCell>555-555-5555</TableCell>
-  <TableCell>
+  {/* <TableCell>
 
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
+      <ContactsIcon color="primary" /> 
 
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
+      <VisibilityIcon color="primary" /> 
 
-  </TableCell>
+  </TableCell> */}
 </TableRow>
 
             ))
@@ -119,6 +119,8 @@ import AddTeacherForm from './addTeacherForm';
       </Table>
    
     </TableContainer>
+    {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>}
+
 
     </>
     )
