@@ -62,9 +62,9 @@ import StudentProfile from '../../StudentProfile';
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Phone Number
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Actions
-            </TableCell>
+            </TableCell> */}
          
           </TableRow>
         </TableHead>
@@ -90,13 +90,13 @@ import StudentProfile from '../../StudentProfile';
   <TableCell>{x.studentEmail}</TableCell>
   <TableCell>{x.grade}</TableCell>
   <TableCell>{x.studentPhoneNumber}</TableCell>
-  <TableCell>
+  {/* <TableCell>
 
-      <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}
+      <ContactsIcon color="primary" />
 
-      <VisibilityIcon color="primary" /> {/* Use a suitable color for the View icon */}
+      <VisibilityIcon color="primary" /> 
 
-  </TableCell>
+  </TableCell> */}
 </TableRow>
 
             ))
@@ -107,9 +107,9 @@ import StudentProfile from '../../StudentProfile';
           )}
         </TableBody>
       </Table>
-      <TableRow>
+      {/* <TableRow>
       <TableCell colSpan="5"><button>Add New Student</button></TableCell>
-      </TableRow>
+      </TableRow> */}
     </TableContainer>
     {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>}
     </>
