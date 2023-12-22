@@ -52,7 +52,7 @@ import AddTeacherForm from './addTeacherForm';
         </Typography>
         </div>
    
-    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+        <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '720px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -117,13 +117,9 @@ import AddTeacherForm from './addTeacherForm';
           )}
         </TableBody>
       </Table>
-      <TableRow>
-      <TableCell colSpan="5"><button>Add New Teacher</button></TableCell>
-      </TableRow>
+   
     </TableContainer>
-    {/* {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>} */}
-{addTeacherDisplay && <AddTeacherForm/>
-}
+
     </>
     )
     }
