@@ -2,23 +2,15 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { baseUrl } from '../../../utils/jsonData';
 import { useNavigate } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import MuiAlert from '@mui/material/Alert';
 
 
 
@@ -30,14 +22,6 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const defaultTheme = createTheme();
 
-const customTheme = createTheme({
-    palette: {
-      primary: {
-        main: '#ff5722',  // Custom primary color
-      },
-    },
-  });
-
 export default function AddTeacherForm() {
   const [formErrors, setFormErrors] = useState({
     firstName: false,
@@ -47,14 +31,7 @@ export default function AddTeacherForm() {
     password: false,
     confirmPassword: false,
   });
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: ' ',
-    schoolName: ' ',
-    username: '',
-    password: '',
-  });
+
 
   const [passwordMatches , setPasswordMatches] = useState(false)
   const [registrationSuccessMessage, setRegistrationSuccessMessage] = useState(false)
@@ -113,9 +90,6 @@ console.log(payload)
     .then(function (res){
       console.log(res)
       setRegistrationSuccessMessage(true)
-      setTimeout(()=>{
-        navigate("/login")
-      },3000)
     })
     .catch(function (error){
       console.log(error)
@@ -133,6 +107,7 @@ console.log(payload)
 
   return (
     <ThemeProvider theme={defaultTheme}>
+        <h1>Add User</h1>
       <Container component="main" width="lg">
         <CssBaseline />
         <Box

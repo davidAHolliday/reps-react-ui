@@ -20,6 +20,8 @@ import AddTeacherForm from './addTeacherForm';
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
   const [addTeacherDisplay,setAddTeacherDisplay] = useState(true);
+  const [isAddTeacherModalOpen, setAddTeacherModalOpen] = useState(false);
+
 const [approveUpdate, setApproveUpdate] = useState("false");
 
     const headers = {
@@ -99,7 +101,15 @@ const [approveUpdate, setApproveUpdate] = useState("false");
 
     const hasScroll = data.length > 10;
     return (
-        <>
+        <div style={{height:"inherit"}}>
+          {isAddTeacherModalOpen && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <AddTeacherForm />
+      <button onClick={() => setAddTeacherModalOpen(false)}>Close</button>
+    </div>
+  </div>
+)}
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
@@ -107,7 +117,8 @@ const [approveUpdate, setApproveUpdate] = useState("false");
         </Typography>
         </div>
    
-    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+<button onClick={()=> setAddTeacherModalOpen(true)}>Add User</button>
+    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '720px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -198,10 +209,8 @@ const [approveUpdate, setApproveUpdate] = useState("false");
       <TableCell colSpan="5"><button>Add User</button></TableCell>
       </TableRow>
     </TableContainer>
-    {/* {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>} */}
-{/* {addTeacherDisplay && <AddTeacherForm/>
-} */}
-    </>
+
+    </div>
     )
     }
 
