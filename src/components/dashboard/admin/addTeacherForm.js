@@ -30,6 +30,14 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const defaultTheme = createTheme();
 
+const customTheme = createTheme({
+    palette: {
+      primary: {
+        main: '#ff5722',  // Custom primary color
+      },
+    },
+  });
+
 export default function AddTeacherForm() {
   const [formErrors, setFormErrors] = useState({
     firstName: false,
@@ -125,12 +133,12 @@ console.log(payload)
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" width="lg">
         <CssBaseline />
         <Box
           sx={{
            padding:0,
-            width:"500px",
+            width:"700px",
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'left',
@@ -198,7 +206,7 @@ Teacher Added!
 
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -215,7 +223,7 @@ Teacher Added!
                 
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth

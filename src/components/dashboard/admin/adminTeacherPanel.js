@@ -22,7 +22,7 @@ import AddTeacherForm from './addTeacherForm';
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
     
-    const url = `${baseUrl}/student/v1/allStudents`;
+    const url = `${baseUrl}/users/v1/users`;
     
 
     useEffect(() => {
@@ -36,7 +36,11 @@ import AddTeacherForm from './addTeacherForm';
         });
     }, []);
 
-	const data = listOfStudents
+    const data = listOfStudents.filter((student) => 
+    Array.isArray(student.roles) && student.roles.some((role) => role.role === "TEACHER")
+  );
+  
+
 
     const hasScroll = data.length > 10;
     return (
@@ -59,7 +63,7 @@ import AddTeacherForm from './addTeacherForm';
              Email
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Grade
+              Role
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Phone Number
@@ -73,7 +77,7 @@ import AddTeacherForm from './addTeacherForm';
         <TableBody>
 
 
-
+{console.log(data)}
 
           {data.length > 0 ? (
             data.map((x, key) => (
@@ -89,9 +93,13 @@ import AddTeacherForm from './addTeacherForm';
       <span>{x.firstName} {x.lastName}</span>
     </div>
   </TableCell>
-  <TableCell>{x.studentEmail}</TableCell>
-  <TableCell>{x.grade}</TableCell>
-  <TableCell>{x.studentPhoneNumber}</TableCell>
+  <TableCell>{x.username}</TableCell>
+  <TableCell>
+  {Array.isArray(x.roles) ? x.roles.map((roleObj, index) => (
+    <span key={index}>{roleObj.role} {index < x.roles.length - 1 ? ',' : ''} </span>
+  )) : 'No roles available'}
+</TableCell>  
+<TableCell>555-555-5555</TableCell>
   <TableCell>
 
       <ContactsIcon color="primary" /> {/* Use a suitable color for the Contact icon */}

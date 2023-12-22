@@ -21,6 +21,7 @@ import ISSWidget from './issWidget';
 import DetentionWidget from './detentionWidget';
 import AdminPunishmentPanel from './adminPunishmentPanel';
 import AdminTeacherPanel from './adminTeacherPanel';
+import AdminUserRoleManagement from './adminUserRoleManagement';
 
 
 const AdminDashboard = () => {
@@ -234,6 +235,11 @@ const openDropdown =(field)=>{
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
 
      }}className='dropdown-item'>Create Punishment</div>
+      <div onClick={()=>{
+      setPanelName("userManagement")  
+      setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
+
+     }}className='dropdown-item'>User Role Management</div>
      
   </div>
 
@@ -248,6 +254,8 @@ const openDropdown =(field)=>{
 {panelName === "punishment" &&<AdminPunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
+{panelName === "userManagement" && <AdminUserRoleManagement/>}
+
 
       </div>
 
