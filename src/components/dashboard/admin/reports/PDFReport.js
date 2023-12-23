@@ -1,55 +1,12 @@
-import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { baseUrl } from './../../../../utils/jsonData'
 
 
-const data = [
-    {
-      student: {
-        firstName: 'John',
-        lastName: 'Doe',
-      },
-      infraction: {
-        infractionName: 'Late Arrival',
-      },
-      timeCreated: '2023-12-10T10:00:00Z', // This is a sample date in ISO format
-    },
-    {
-      student: {
-        firstName: 'Jane',
-        lastName: 'Smith',
-      },
-      infraction: {
-        infractionName: 'Skipping Class',
-      },
-      timeCreated: '2023-12-09T11:30:00Z', // Another sample date in ISO format
-    },
-    // Add more sample data as needed
-  ];
 
-  
-const data2 = [
-    {
-      student: {
-        firstName: 'David',
-        lastName: 'Doe',
-      },
-      infraction: {
-        infractionName: 'Late Arrival',
-      },
-      timeCreated: '2023-12-10T10:00:00Z', // This is a sample date in ISO format
-    },
-    {
-      student: {
-        firstName: 'Michael',
-        lastName: 'Smith',
-      },
-      infraction: {
-        infractionName: 'Skipping Class',
-      },
-      timeCreated: '2023-12-09T11:30:00Z', // Another sample date in ISO format
-    },
-    // Add more sample data as needed
-  ];
+
+
 
   const styles = StyleSheet.create({
     page: {
@@ -121,8 +78,54 @@ const calculateDaysSince = (dateCreated) => {
   return daysDifference;
 };
 
-const PDFReport = () => (
+
+
+
+const PDFReport = () => {
+    const [data, setData] = useState([]); // State for the first table data
+    const [data2, setData2] = useState([]); // State for the second table data
+  
+    const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
     
+      const url = `${baseUrl}/punish/v1/punishments`;
+
+      const filterISS = (data) => {
+        return data.filter((punishment) => {
+          const days = calculateDaysSince(punishment.timeCreated);
+          return days > 3 && punishment.status === "OPEN"; // Filter out records that are NOT older than 3 days
+        });
+      }
+      
+      const filterDetention = (data) => {
+        return data.filter((punishment) => {
+          const days = calculateDaysSince(punishment.timeCreated);
+          return days > 1 && days < 3 && punishment.status === "OPEN"; // Filter out records that are older than 1 day and less than 3 days
+        });
+      } 
+    useEffect(() => {
+   
+
+      axios
+        .get(url, { headers })
+        .then(function (response) {
+          const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
+          console.log(sortedData)
+          setData(filterISS(sortedData)); // Assuming the first table's data is from this endpoint
+          setData2(filterDetention(sortedData))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  
+      // Similarly, if you have another endpoint for the second table, you can make another Axios call here.
+      // Ensure you handle and set the data in the respective state variable (like setData2).
+    }, []);
+   
+
+ 
+    return(
     <Document>
     <Page style={styles.page}>
       <View style={styles.section}>
@@ -180,8 +183,10 @@ const PDFReport = () => (
       </View>
     </Page>
   </Document>
+    )
+      
 
   
-);
+        };
 
 export default PDFReport;
