@@ -13,6 +13,8 @@ import LoadingPage from './components/LoadingPage';
 import AuthRoute from './secuirty/AuthRoute';
 import CreateAssignmentForm from './components/createAssignmentForm';
 import AdminDashboard from './components/dashboard/admin/adminDashboard';
+import PDFReport from './components/dashboard/admin/reports/PDFReport';
+import { PDFViewer } from '@react-pdf/renderer';
 
 function App() {
 
@@ -30,6 +32,13 @@ function App() {
         <Route path="/dashboard/teacher" element={<Dashboard />} allowedRoles={["TEACHER"]} />
         <Route path="/forms/start-punishment" element={<MyForm />} />
         <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
+        <Route path="/forms/report" element={<> 
+          <PDFViewer width="100%" height="800px">
+
+        <PDFReport />
+        </PDFViewer>
+        </>} />
+
         {/* <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} /> */}
       </Routes>
     </Router>

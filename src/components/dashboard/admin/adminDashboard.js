@@ -22,6 +22,8 @@ import DetentionWidget from './detentionWidget';
 import AdminPunishmentPanel from './adminPunishmentPanel';
 import AdminTeacherPanel from './adminTeacherPanel';
 import AdminUserRoleManagement from './adminUserRoleManagement';
+import { Navigate } from 'react-router-dom';
+
 
 
 const AdminDashboard = () => {
@@ -38,6 +40,12 @@ const AdminDashboard = () => {
     toolsDropdown:false
   });
 const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
+const [showPDF, setShowPDF] = useState(false); // State to toggle the PDF display
+  
+const handleGeneratePDF = () => {
+  window.open('/forms/report', '_blank'); // '_blank' will open the URL in a new tab/window
+};
+
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
     sessionStorage.removeItem('userName');
@@ -133,6 +141,7 @@ const openDropdown =(field)=>{
         <div className="side-bar-widget">
           <ISSWidget/>
         </div>
+     <button onClick={handleGeneratePDF}>Generate PDF Report</button>
 
       </div>
       <div className='main-content'> 
@@ -257,6 +266,8 @@ const openDropdown =(field)=>{
 {panelName === "userManagement" && <AdminUserRoleManagement/>}
 
 
+
+
       </div>
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
@@ -281,7 +292,7 @@ const openDropdown =(field)=>{
 
 
          </Drawer>
-     
+
 
 
 
