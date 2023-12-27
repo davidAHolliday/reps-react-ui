@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseUrl } from '../utils/jsonData';
-import {CardComponent} from './CardComponet';
+import { baseUrl } from '../../../utils/jsonData';
+import {CardComponent} from '../../CardComponet';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,19 +13,19 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import {TableComponent} from "./TableComponent"
-import {ActionCard} from "./CardComponet"
+import {TableComponent} from "../../TableComponent"
+import {ActionCard} from "../../CardComponet"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import NotificationBar from './notification-bar/NotificationBar';
+import NotificationBar from '../../notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StudentPanel from './dashboard/student/studentClosePunihsmentPanel';
-import PunishmentPanel from './dashboard/panel/punishmentPanel';
-import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
-import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
-import BlankPanelForTest from './dashboard/student/blankPanelForTest';
-import StudentClosedPunishmentPanel from './dashboard/student/studentClosePunihsmentPanel';
-import StudentOpenPunishmentPanel from './dashboard/student/studentOpenPunihsmentPanel';
-import ShoutOutReport from './dashboard/student/shoutOutReport';
+import StudentPanel from './studentClosePunihsmentPanel';
+import PunishmentPanel from '../panel/punishmentPanel';
+import CreatePunishmentPanel from '../panel/createPunishmentPanel';
+import CreateNewStudentPanel from '../panel/createNewStudentPanel';
+import BlankPanelForTest from './blankPanelForTest';
+import StudentClosedPunishmentPanel from './studentClosePunihsmentPanel';
+import StudentOpenPunishmentPanel from './studentOpenPunihsmentPanel';
+import ShoutOutReport from './shoutOutReport';
 import WarningIcon from '@mui/icons-material/Warning';
 
 

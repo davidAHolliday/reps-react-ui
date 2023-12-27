@@ -1,18 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import { baseUrl } from '../../../utils/jsonData';
-import AppBar from '@mui/material/AppBar';
+import React, { useEffect, useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import PunishmentPanel from '../panel/punishmentPanel';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import StudentPanel from '../panel/studentPanel';
@@ -22,15 +14,11 @@ import DetentionWidget from './detentionWidget';
 import AdminPunishmentPanel from './adminPunishmentPanel';
 import AdminTeacherPanel from './adminTeacherPanel';
 import AdminUserRoleManagement from './adminUserRoleManagement';
-import { Navigate } from 'react-router-dom';
 
 
 
 const AdminDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
-  const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
-  const [data, setData] = useState([]);
-  const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("punishment")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
@@ -40,20 +28,21 @@ const AdminDashboard = () => {
     toolsDropdown:false
   });
 const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
-const [showPDF, setShowPDF] = useState(false); // State to toggle the PDF display
   
 const handleGeneratePDF = () => {
   window.open('/forms/report', '_blank'); // '_blank' will open the URL in a new tab/window
 };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('Authorization');
-    sessionStorage.removeItem('userName');
-    sessionStorage.removeItem('schoolName');
-    sessionStorage.removeItem('email');
-    sessionStorage.removeItem('role');
-    window.location.href = '/login';
-  };
+const handleLogout = () => {
+  clearSessionStorage();
+  window.location.href = '/login';
+};
+
+const clearSessionStorage = () => {
+  ['Authorization', 'userName', 'schoolName', 'email', 'role'].forEach(key => {
+    sessionStorage.removeItem(key);
+  });
+};
 
   useEffect(() => {
     if (sessionStorage.getItem('Authorization') === null) {
@@ -64,41 +53,11 @@ const handleGeneratePDF = () => {
   }, []);
 
 
-  const headers = {
-    Authorization: 'Bearer ' + sessionStorage.getItem('Authorization'),
-  };
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}/punish/v1/punishments`, { headers })
-      .then(function (response) {
-        setData(response.data);
-      })
-      .catch(function (error) {
-        setListOfInfractionsAssociatedByTeacher([]);
-        console.log(error);
-      });
-  }, []);
-
-  const toggleDrawer = (open) => {
-    setOpenDrawer(open);
-  };
 
   const toggleNotificationDrawer = (open) => {
     setOpenNotificationDrawer(open);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(prevState => !prevState); // Toggle the state value
-  };
-
-
-//   'absolute'
-// | 'fixed'
-// | 'relative'
-// | 'static'
-
-//Close and Open dropdowns by field name
 const openDropdown =(field)=>{
   setIsDropdownOpen({})
   setIsDropdownOpen((prev)=>({
@@ -106,19 +65,31 @@ const openDropdown =(field)=>{
   }))
 }
 
+
+const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
+  return(
+    <div onClick={()=>{
+      setIsDropdownOpen(dropdownState)
+      setPunishmentFilter(filterValue)
+      setPanelName(panelName)}}
+      className='dropdown-item'>{label}
+      </div>
+  )
+}
+
   return (
     loggedIn && (
       <>
         <div className ="app-bar">
           <Toolbar>
-            <IconButton
+            {/* <IconButton
               edge="start"
               color="inherit"
               aria-label="menu"
               onClick={() => toggleDrawer(true)}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -153,39 +124,26 @@ const openDropdown =(field)=>{
     className='dropbtn' 
     onClick={() => {
       openDropdown("referalDropdown")
-       setPanelName("punishment")
-  }}
+       setPanelName("punishment")}}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     Referals
   </button>
   <div className={isDropdownOpen.referalDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setIsDropdownOpen(!isDropdownOpen.referalDropdown)
-      setPunishmentFilter("OPEN")
-       setPanelName("punishment")}}className='dropdown-item'>Open</div>
-       <div onClick={()=>{
-      setIsDropdownOpen(!isDropdownOpen.referalDropdown)
-      setPunishmentFilter("CFR")
-       setPanelName("punishment")}}className='dropdown-item'>CFR</div><div onClick={()=>{
-        setIsDropdownOpen(!isDropdownOpen.referalDropdown)
-
-        setPunishmentFilter("CLOSED")
-         setPanelName("punishment")}}className='dropdown-item'>Closed</div><div onClick={()=>{
-          setIsDropdownOpen(!isDropdownOpen.referalDropdown)
-
-          setPunishmentFilter("ALL")
-           setPanelName("punishment")}}className='dropdown-item'>All</div>
     
 
-
+{renderDropdownContent(!isDropdownOpen.referalDropdown,"OPEN","Open","punishment")}
+{renderDropdownContent(!isDropdownOpen.referalDropdown,"CFR","CFR","punishment")}
+{renderDropdownContent(!isDropdownOpen.referalDropdown,"CLOSED","Closed","punishment")}
+{renderDropdownContent(!isDropdownOpen.referalDropdown,"ALL","All","punishment")}
   </div>
+
+
     {/* Teacher Drop Down */}
     <button 
     className='dropbtn' 
     onClick={() => {
       openDropdown("teacherDropDown")
-      // setPanelName("punishment")
   }}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
@@ -198,11 +156,6 @@ const openDropdown =(field)=>{
       // setPunishmentFilter("OPEN")
        setPanelName("viewTeacher")
        }}className='dropdown-item'>Active Teachers</div>
-       <div onClick={()=>{
-      setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
-      // setPunishmentFilter("CFR")
-      //  setPanelName("punishment")
-      }}className='dropdown-item'>Add Teachers</div>
   </div>
 
     {/* Student Drop Down */}
@@ -251,10 +204,6 @@ const openDropdown =(field)=>{
      }}className='dropdown-item'>User Role Management</div>
      
   </div>
-
-
-
-
         </div>
       </div>
       <div className = "main-content-panel">
@@ -264,41 +213,11 @@ const openDropdown =(field)=>{
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "userManagement" && <AdminUserRoleManagement/>}
-
-
-
-
       </div>
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar />
         </Drawer>
-
-<Drawer 
-  className={openDrawer ? 'drawer-open' : ''} 
-  anchor="left" 
-  open={openDrawer} 
-  onClose={() => toggleDrawer(false)}
->      <div style={{display:"flex", justifyContent:"space-between", }}>
-      <button  onClick={()=>toggleDrawer(false)}style={{width:"50%"}}>
-          close (x)
-        </button>
-        <button style={{width:"50%"}}>
-          Print (x)
-        </button>
-      </div>
-      <div style={{height:"40px"}}></div>
-      
-
-
-         </Drawer>
-
-
-
-
-
-
-
       </div>
       </div>
       </>

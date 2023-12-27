@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './secuirty/Login';
 import Register from './secuirty/Register';
 import Dashboard from './components/Dashboard';
-import StudentDashboard from './components/DashboardStudent ';
+import StudentDashboard from './components/dashboard/student/DashboardStudent ';
 import { useState,useEffect } from 'react';
 import LoadingPage from './components/LoadingPage';
 import AuthRoute from './secuirty/AuthRoute';
