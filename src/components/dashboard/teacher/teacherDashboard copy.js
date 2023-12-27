@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseUrl } from '../utils/jsonData';
-import {CardComponent} from './CardComponet';
+import { baseUrl } from '../../../utils/jsonData';
+import {CardComponent} from '../../CardComponet';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,18 +13,18 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import {TableComponent} from "./TableComponent"
-import {ActionCard} from "./CardComponet"
-import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from './notification-bar/NotificationBar';
+import {TableComponent} from "../../TableComponent"
+import {ActionCard} from "../../CardComponet"
+import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from '../../notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StudentPanel from './dashboard/panel/studentPanel';
-import PunishmentPanel from './dashboard/panel/punishmentPanel';
-import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
-import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
-import StudentProfile from './StudentProfile';
+import StudentPanel from '../panel/studentPanel';
+import PunishmentPanel from '../panel/punishmentPanel';
+import CreatePunishmentPanel from '../panel/createPunishmentPanel';
+import CreateNewStudentPanel from '../panel/createNewStudentPanel';
+import StudentProfile from '../../StudentProfile';
 
 
-const Dashboard = () => {
+const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
   const [data, setData] = useState([]);
@@ -105,19 +105,7 @@ const Dashboard = () => {
         <NotificationBar />
         </Drawer>
 
-        <Drawer anchor="left" open={openDrawer} onClose={() => toggleDrawer(false)}>
-          <List>
-            <ListItem button>
-              <ListItemText primary="Students" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Resources" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Referral" />
-            </ListItem>
-          </List>
-        </Drawer>
+
         {/* <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
           <ActionCard url="/forms/start-punishment" title="Punishment" descriptions="Log an infraction and initiate a punishment" style={{ backgroundColor: 'blue', color: 'white' }} />
           <ActionCard url="/forms/ftc-closure" title="Review Assignments" descriptions="Review Student Assignment" style={{ backgroundColor: 'green', color: 'white' }} />
@@ -143,7 +131,7 @@ const Dashboard = () => {
         </Typography> */}
         </div>
 {panelName === "student" &&<StudentPanel/>}
-{panelName === "punishment" &&<PunishmentPanel/>}
+{panelName === "punishment" &&<PunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 
@@ -163,4 +151,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default TeacherDashboard;
