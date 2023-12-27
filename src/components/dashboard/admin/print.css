@@ -1,0 +1,29 @@
+/* print.css */
+
+/* Hide unnecessary elements */
+body * {
+    visibility: hidden;
+}
+
+/* Display the table when printing */
+table.printable {
+    visibility: visible;
+}
+
+/* Styles for the table */
+table.printable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+table.printable th, table.printable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table.printable th {
+    text-align: left;
+    background-color: #f2f2f2;
+}

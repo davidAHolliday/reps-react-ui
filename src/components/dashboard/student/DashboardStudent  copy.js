@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseUrl } from '../utils/jsonData';
-import {CardComponent} from './CardComponet';
+import { baseUrl } from '../../../utils/jsonData';
+import {CardComponent} from '../../CardComponet';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,31 +13,36 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import {TableComponent} from "./TableComponent"
-import {ActionCard} from "./CardComponet"
-import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from './notification-bar/NotificationBar';
+import {TableComponent} from "../../TableComponent"
+import {ActionCard} from "../../CardComponet"
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import NotificationBar from '../../notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StudentPanel from './dashboard/panel/studentPanel';
-import PunishmentPanel from './dashboard/panel/punishmentPanel';
-import CreatePunishmentPanel from './dashboard/panel/createPunishmentPanel';
-import CreateNewStudentPanel from './dashboard/panel/createNewStudentPanel';
-import StudentProfile from './StudentProfile';
+import StudentPanel from './studentClosePunihsmentPanel';
+import PunishmentPanel from '../panel/punishmentPanel';
+import CreatePunishmentPanel from '../panel/createPunishmentPanel';
+import CreateNewStudentPanel from '../panel/createNewStudentPanel';
+import BlankPanelForTest from './blankPanelForTest';
+import StudentClosedPunishmentPanel from './studentClosePunihsmentPanel';
+import StudentOpenPunishmentPanel from './studentOpenPunihsmentPanel';
+import ShoutOutReport from './shoutOutReport';
+import WarningIcon from '@mui/icons-material/Warning';
 
 
-const Dashboard = () => {
+const StudentDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("punishment")
+  const [panelName,setPanelName] = useState("openAssignments")
+
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('schoolName');
     sessionStorage.removeItem('email');
-    sessionStorage.removeItem('role');
     window.location.href = '/login';
   };
 
@@ -118,42 +123,38 @@ const Dashboard = () => {
             </ListItem>
           </List>
         </Drawer>
-        {/* <div style={{ display: 'flex', justifyContent: 'center',backgroundColor:"white" }}>
-          <ActionCard url="/forms/start-punishment" title="Punishment" descriptions="Log an infraction and initiate a punishment" style={{ backgroundColor: 'blue', color: 'white' }} />
-          <ActionCard url="/forms/ftc-closure" title="Review Assignments" descriptions="Review Student Assignment" style={{ backgroundColor: 'green', color: 'white' }} />
-          <ActionCard url="/" title="Open Reports" descriptions="See Reports of Infraction Stats" style={{ backgroundColor: 'orange', color: 'white' }} />
-          <ActionCard url="/" title="Other Link" descriptions="We can add other things here" style={{ backgroundColor: 'purple', color: 'white' }} />
-        </div> */}
+        <div style={{ display: 'flex', flexDirection:"column",backgroundColor:"white" }}>
+          <div>
+<WarningIcon color="warning"/> Assignments 3 days late will result in In Lunch Detention 
+</div>
+<div>
+<WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
+</div>
+        </div>
         <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography onClick={()=>setPanelName("punishment")} backgroundColor={panelName =="punishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+   <Typography onClick={()=>setPanelName("closedAssignments")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Punishment
+   History
         </Typography>
-        <Typography onClick={()=>setPanelName("student")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography id="hue" onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-   Student
+   Shout Out!
         </Typography>
-        <Typography onClick={()=>setPanelName("createPunishment")} backgroundColor={panelName =="createPunishment" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        <Typography onClick={()=>setPanelName("openAssignments")}backgroundColor={panelName ==="openAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Create Punishment
+      To-Do
+
         </Typography>
-        {/* <Typography onClick={()=>setPanelName("createNewStudent")} backgroundColor={panelName =="createNewStudent" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+        {/* <Typography onClick={()=>setPanelName("notification")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
 "5px",textAlign: "center"}}>
-  Create Student
+       Notifications
+
         </Typography> */}
         </div>
-{panelName === "student" &&<StudentPanel/>}
-{panelName === "punishment" &&<PunishmentPanel/>}
-{panelName === "createPunishment" && <CreatePunishmentPanel/>}
-{panelName === "createNewStudent" && <CreateNewStudentPanel/>}
-
-
-
-
-
-{/* 
-        {data.length > 0 && <TableComponent title={"OPEN ASSIGNMENTS"} list={data} status={'OPEN'} />}
-        {data.length > 0 && <TableComponent title={"CLOSED ASSIGMENTS"}list={data} status={'CLOSED'} />} */}
+       
+        {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+        {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
+        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
 
 
 
@@ -163,4 +164,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default StudentDashboard;

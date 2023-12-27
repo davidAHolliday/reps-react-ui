@@ -1,5 +1,5 @@
 import react, {useState,useEffect} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
@@ -7,20 +7,22 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 import StudentProfile from '../../StudentProfile';
+import AddTeacherForm from './addTeacherForm';
 
-   const StudentPanel = () => {
+   const AdminTeacherPanel = () => {
 
 
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
+  const [addTeacherDisplay,setAddTeacherDisplay] = useState(true);
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
     
-    const url = `${baseUrl}/student/v1/allStudents`;
+    const url = `${baseUrl}/users/v1/users`;
     
 
     useEffect(() => {
@@ -34,7 +36,11 @@ import StudentProfile from '../../StudentProfile';
         });
     }, []);
 
-	const data = listOfStudents
+    const data = listOfStudents.filter((student) => 
+    Array.isArray(student.roles) && student.roles.some((role) => role.role === "TEACHER")
+  );
+  
+
 
     const hasScroll = data.length > 10;
     return (
@@ -42,11 +48,11 @@ import StudentProfile from '../../StudentProfile';
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Students
+   Teachers
         </Typography>
         </div>
    
-    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+        <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '720px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -57,7 +63,7 @@ import StudentProfile from '../../StudentProfile';
              Email
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Grade
+              Role
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Phone Number
@@ -71,11 +77,11 @@ import StudentProfile from '../../StudentProfile';
         <TableBody>
 
 
-
+{console.log(data)}
 
           {data.length > 0 ? (
             data.map((x, key) => (
-<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.studentEmail); setStudentName(x.firstName);}}>
+<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.username); setStudentName(x.firstName);}}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <AccountCircleIcon
@@ -87,12 +93,16 @@ import StudentProfile from '../../StudentProfile';
       <span>{x.firstName} {x.lastName}</span>
     </div>
   </TableCell>
-  <TableCell>{x.studentEmail}</TableCell>
-  <TableCell>{x.grade}</TableCell>
-  <TableCell>{x.studentPhoneNumber}</TableCell>
+  <TableCell>{x.username}</TableCell>
+  <TableCell>
+  {Array.isArray(x.roles) ? x.roles.map((roleObj, index) => (
+    <span key={index}>{roleObj.role} {index < x.roles.length - 1 ? ',' : ''} </span>
+  )) : 'No roles available'}
+</TableCell>  
+<TableCell>555-555-5555</TableCell>
   {/* <TableCell>
 
-      <ContactsIcon color="primary" />
+      <ContactsIcon color="primary" /> 
 
       <VisibilityIcon color="primary" /> 
 
@@ -107,16 +117,16 @@ import StudentProfile from '../../StudentProfile';
           )}
         </TableBody>
       </Table>
-      {/* <TableRow>
-      <TableCell colSpan="5"><button>Add New Student</button></TableCell>
-      </TableRow> */}
+   
     </TableContainer>
     {studentDisplay && <StudentProfile studentEmail={studentEmail} studentName={studentName}/>}
+
+
     </>
     )
     }
 
 
-    export default StudentPanel;
+    export default AdminTeacherPanel;
 
 

@@ -68,6 +68,10 @@ export default function SignIn() {
       let path = "/dashboard/student";
       navigate(path)
     }
+    if(role ==="ADMIN"){
+      let path = "/dashboard/admin";
+      navigate(path)
+    }
     
   
   }

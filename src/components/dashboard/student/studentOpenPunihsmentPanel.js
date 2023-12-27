@@ -46,11 +46,11 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
 const handleAssignmentClick=(x)=>{
-  window.location.href = 
-  <a href = {"/infractionAssignments/" + `${x.infraction.infractionName}` + "/" + `${x.infraction.infractionLevel}`}></a>
+    const url = `/infractionAssignments/${x.infraction.infractionName}/${x.infraction.infractionLevel}`;
+    window.location.href = url;
+  };
 
 
-}
 
 
   const dateCreateFormat = (inputDate)=>{
