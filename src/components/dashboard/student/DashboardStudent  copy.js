@@ -81,17 +81,17 @@ const StudentDashboard = () => {
 
   return (
     loggedIn && (
-      <>
-        <div className ="app-bar">
+      <div style={{ maxWidth: '90%', margin: '0 auto' }}> {/* Center the app within 90% of the screen */}
+        <AppBar position="static">
           <Toolbar>
-            {/* <IconButton
+            <IconButton
               edge="start"
               color="inherit"
               aria-label="menu"
               onClick={() => toggleDrawer(true)}
             >
               <MenuIcon />
-            </IconButton> */}
+            </IconButton>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -104,73 +104,62 @@ const StudentDashboard = () => {
             </IconButton>
 
           </Toolbar>
-        </div>
-       <div className='page'>
-         
-      <div style={{width:"20%", backgroundColor:"white",outline:"solid 5px #5333ed",marginRight:"5px"}}className='side-bar'>
-      <div style={{ display: 'flex', flexDirection:"column",backgroundColor:"white" }}>
-          <div style={{marginBottom:"30px"}}>
-<WarningIcon  color="warning"/> Assignments 3 days late will result in In Lunch Detention 
+          
+        </AppBar>
+        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
+        <NotificationBar />
+        </Drawer>
+
+        <Drawer anchor="left" open={openDrawer} onClose={() => toggleDrawer(false)}>
+          <List>
+            <ListItem button>
+              <ListItemText primary="Students" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Resources" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Referral" />
+            </ListItem>
+          </List>
+        </Drawer>
+        <div style={{ display: 'flex', flexDirection:"column",backgroundColor:"white" }}>
+          <div>
+<WarningIcon color="warning"/> Assignments 3 days late will result in In Lunch Detention 
 </div>
 <div>
 <WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
 </div>
         </div>
-  
+        <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+   <Typography onClick={()=>setPanelName("closedAssignments")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+   History
+        </Typography>
+        <Typography id="hue" onClick={()=>setPanelName("shoutOutPanel")} backgroundColor={panelName ==="closedAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+   Shout Out!
+        </Typography>
+        <Typography onClick={()=>setPanelName("openAssignments")}backgroundColor={panelName ==="openAssignments" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+      To-Do
 
-      </div>
-      <div className='main-content'> 
-      <div className = "main-content-menu">
-      <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-  
-  {/* Histroy Drop Down */}
-  <button 
-    className='dropbtn' 
-    onClick={() => {
-      // openDropdown("referalDropdown")
-       setPanelName("closedAssignments")}}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    History
-  </button>
-    {/* Shoutout Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      // openDropdown("teacherDropDown")
-      setPanelName("shoutOutPanel")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    Shout Outs!
-  </button>
+        </Typography>
+        {/* <Typography onClick={()=>setPanelName("notification")}backgroundColor={panelName =="student" && "Blue"} color="white" variant="h6" style={{ flex: 1, outline:"1px solid  white",padding:
+"5px",textAlign: "center"}}>
+       Notifications
 
-
-    {/* Student Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      // openDropdown("studentDropdown")
-      setPanelName("openAssignments")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    Active Assignments
-  </button>
+        </Typography> */}
         </div>
-      </div>
-      <div className = "main-content-panel">
-      </div>
-      {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+       
+        {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
         {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
 
-        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        <NotificationBar />
-        </Drawer>
+
+
+
       </div>
-      </div>
-      </>
     )
   );
 };
