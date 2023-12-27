@@ -152,9 +152,32 @@ import CircularProgress from '@mui/material/CircularProgress';
 </Snackbar>
           <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
           <Table>
-            <TableHead>
-              {/* ... (previous code) */}
-            </TableHead>
+          <TableHead>
+          <TableRow>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+              Name
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Referal Type
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+              Description
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+              Level
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Status
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Days Since
+            </TableCell>
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Action
+            </TableCell>
+   
+          </TableRow>
+        </TableHead>
             <TableBody>
               {data.length > 0 ? (
                 data.map((x, key) => {
@@ -162,9 +185,7 @@ import CircularProgress from '@mui/material/CircularProgress';
   
                   return (
                     <TableRow
-                      style={{
-                        backgroundColor: days >= 4 ? "#A020F0" : days >= 3 ? "#FF402C" : days >= 2 ? "#FFE366" : "#00FF00",
-                      }}
+  
                       key={key}
                     >
                       <TableCell>
@@ -179,9 +200,23 @@ import CircularProgress from '@mui/material/CircularProgress';
                         </div>
                       </TableCell>
                       <TableCell>{x.infraction.infractionName}</TableCell>
-                      <TableCell>{x.infraction.infractionDescription}</TableCell>
+                      <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription}</TableCell>
                       <TableCell>{x.infraction.infractionLevel}</TableCell>
-                      <TableCell>{x.status}</TableCell>
+                      <TableCell>
+  <div style={{
+    backgroundColor: days >= 4 ? "#cc3300" : days >= 3 ? "#ff9966" : days >= 2 ? "#ffcc00" : "#99cc33",
+    width: "75px",
+    padding: "5px 10px",            // Padding for inside the rectangle
+    borderRadius: "15px",           // Adjust the value to increase or decrease the roundness
+    textAlign: "center",            // Center the text inside the rectangle
+    color: "#fff",                  // Text color
+    fontWeight: "bold",             // Bold text (if desired)
+    border: "1px solid #000"        // Border for the rectangle
+  }}>
+    {x.status}
+  </div>
+</TableCell>
+
                       <TableCell>{days}</TableCell>
                       <TableCell>
   <button style={{height:"50px", width:"100px"}} onClick={() => { handleClosePunishment(x) }}>
