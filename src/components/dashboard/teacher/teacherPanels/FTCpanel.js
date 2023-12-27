@@ -83,10 +83,17 @@ const data = listOfStudents;
       .catch(function (error) {
         console.log(error);
       })
-      .finally(
+      .finally(()=>{
         setToast(false)
+        setLoadingStudentId(null)
+
+      }
+
+        
       );
   };
+
+  
 
 
     

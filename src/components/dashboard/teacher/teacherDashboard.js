@@ -24,6 +24,7 @@ import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import StudentProfile from '../../StudentProfile';
 import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
+import TeacherPunishmentPanel from './teacherPanels/teacherPunishmentPanel';
 
 
 const TeacherDashboard = () => {
@@ -237,7 +238,7 @@ const TeacherDashboard = () => {
       </div>
       <div className = "main-content-panel">
 {panelName === "student" &&<TeacherStudentPanel/>}
-{panelName === "punishment" &&<PunishmentPanel filter={punishmentFilter}/>}
+{panelName === "punishment" &&<TeacherPunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "ftc" && <TeacherFTCPanel/>}
