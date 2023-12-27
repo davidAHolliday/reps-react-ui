@@ -61,7 +61,7 @@ import StudentProfile from '../../../StudentProfile';
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Students
+   Students associated to teacher
         </Typography>
         </div>
    
