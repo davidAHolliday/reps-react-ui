@@ -5,9 +5,10 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
-import StudentProfile from '../../../StudentProfile';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -20,11 +21,10 @@ import MuiAlert from '@mui/material/Alert';
 
 
 	const [listOfStudents, setListOfStudents]= useState([])
-  const [studentDisplay, setStudentDisplay] = useState(false);
-  const [studentEmail, setStudentEmail] = useState("");
-  const [studentName, setStudentName] = useState("");
-  const [warningToast,setWarningToast] = useState(true)
+  const [toast,setToast] = useState(false)
   const [loading, setLoading] = useState(false) 
+  const [loadingStudentId, setLoadingStudentId] = useState(null);
+
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -36,7 +36,7 @@ import MuiAlert from '@mui/material/Alert';
         return;
       }
   
-      setWarningToast(false);
+      setToast(false);
     };
   
 
@@ -60,7 +60,7 @@ import MuiAlert from '@mui/material/Alert';
         .catch(function (error) {
           console.log(error);
         });
-    }, [warningToast]);
+    }, [toast]);
 
 
 
@@ -70,19 +70,24 @@ const data = listOfStudents;
 
 
     const handleFTCClose = (obj) =>{
+      setLoadingStudentId(obj.punishmentId)
       const url = `${baseUrl}/punish/v1/close/${obj.punishmentId}`;
       axios
       .post(url,[], { headers }) // Pass the headers option with the JWT token
       .then(function (response) {
         console.log(response)
-        setWarningToast(true)
         setLoading(true)
-        setTimeout(()=>{setWarningToast(false)}
+        setTimeout(()=>{
+        setLoading(false)
+        setToast(true)}
         ,2000)
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
+      .finally(
+        setToast(false)
+      );
   };
 
 
@@ -90,17 +95,17 @@ const data = listOfStudents;
     return (
         <>
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+   
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
    Assignments FTC
         </Typography>
         </div>
-        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={warningToast} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast} autoHideDuration={6000} onClose={handleClose}>
   <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
     Assignment has been marked Complete
   </Alert>
 </Snackbar>
-   
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
@@ -120,20 +125,13 @@ const data = listOfStudents;
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Action
             </TableCell>
-            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Actions
-            </TableCell> */}
-         
+   
           </TableRow>
         </TableHead>
         <TableBody>
-
-
-
-
           {data.length > 0 ? (
             data.map((x, key) => (
-<TableRow key={key} onClick={() => {setStudentDisplay(true); setStudentEmail(x.studentEmail); setStudentName(x.firstName);}}>
+<TableRow key={key}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <AccountCircleIcon
@@ -148,14 +146,15 @@ const data = listOfStudents;
   <TableCell>{x.student.studentEmail}</TableCell>
   <TableCell>{x.student.grade}</TableCell>
   <TableCell>{x.infraction.infractionDescription[1]}</TableCell>
-  <TableCell><button onClick={()=>{handleFTCClose(x)}}>Mark complete</button></TableCell>
-  {/* <TableCell>
-
-      <ContactsIcon color="primary" />
-
-      <VisibilityIcon color="primary" /> 
-
-  </TableCell> */}
+  <TableCell>
+  <button style={{height:"50px", width:"100px"}} onClick={() => { handleFTCClose(x) }}>
+    {loadingStudentId === x.punishmentId ? (
+      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
+    ) : (
+      "Mark complete"
+    )}
+  </button>
+</TableCell>
 </TableRow>
 
             ))
@@ -166,9 +165,6 @@ const data = listOfStudents;
           )}
         </TableBody>
       </Table>
-      {/* <TableRow>
-      <TableCell colSpan="5"><button>Add New Student</button></TableCell>
-      </TableRow> */}
     </TableContainer>
     </>
     )
