@@ -76,9 +76,7 @@ const data = listOfStudents;
       .post(url,[], { headers }) // Pass the headers option with the JWT token
       .then(function (response) {
         console.log(response)
-        setLoading(true)
         setTimeout(()=>{
-        setLoading(false)
         setToast(true)}
         ,2000)
       })
