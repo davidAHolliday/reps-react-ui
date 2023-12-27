@@ -22,6 +22,8 @@ import PunishmentPanel from '../panel/punishmentPanel';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import StudentProfile from '../../StudentProfile';
+import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
+import TeacherFTCPanel from './teacherPanels/FTCpanel';
 
 
 const TeacherDashboard = () => {
@@ -35,7 +37,8 @@ const TeacherDashboard = () => {
     referalDropdown:false,
     teacherDropdown:false,
     studentDropdown:false,
-    toolsDropdown:false
+    toolsDropdown:false,
+    ftcDropdown:false
   });
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
 
@@ -174,7 +177,7 @@ const TeacherDashboard = () => {
     Student
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"33%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"25%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
@@ -195,7 +198,7 @@ const TeacherDashboard = () => {
     Tools
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"66%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"50%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("createNewStudent")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
@@ -208,13 +211,37 @@ const TeacherDashboard = () => {
      }}className='dropdown-item'>New Referral</div>
      
   </div>
+
+    {/* FTC Drop Down */}
+    <button 
+    className='dropbtn' 
+    onClick={() => {
+      openDropdown("ftcDropdown")
+      // setPanelName("punishment")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    FTC
+  </button>
+      {/* Margin Left is used to move dropdown under the buttons */}
+  <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("ftc")  
+      setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
+
+     }}className='dropdown-item'>Pending Assignments</div>
+   
+     
+  </div>
         </div>
       </div>
       <div className = "main-content-panel">
-{panelName === "student" &&<StudentPanel/>}
+{panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<PunishmentPanel filter={punishmentFilter}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
+{panelName === "ftc" && <TeacherFTCPanel/>}
+
 
       </div>
 

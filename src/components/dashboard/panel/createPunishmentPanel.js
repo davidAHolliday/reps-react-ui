@@ -74,7 +74,8 @@ const CreatePunishmentPanel = () => {
       {value:"Dress Code", label:"Dress Code"},
       {value:"Positive Behavior Shout Out!", label:"Positive Behavior Shout Out!"},
       {value:"Behavioral Concern", label:"Behavioral Concern"},
-
+      {value:"Failure to Complete Work", label:"Failure to Complete Work"},
+      
     ]
   
   
