@@ -150,7 +150,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
     Teachers
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"25%"}} className={isDropdownOpen.teacherDropDown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"20%"}} className={isDropdownOpen.teacherDropDown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
       // setPunishmentFilter("OPEN")
@@ -170,7 +170,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
     Student
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"40%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
@@ -191,7 +191,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
     Tools
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"75%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"60%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("createPunishment")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)

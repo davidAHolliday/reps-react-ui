@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import { useState,useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
@@ -11,40 +11,32 @@ import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
 
 
 const CreatePunishmentPanel = () => {
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+  
    
 
-    const [errorDisplay, setErrorDisplay] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-    const [successDisplay, setSuccessDisplay] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
     const [listOfStudents, setListOfStudents] = useState([]);
     const [studentSelected, setStudentSelect] = useState();
     const [infractionSelected, setInfractionSelected] = useState();
     const [infractionPeriodSelected, setInfractionPeriodSelected] = useState();
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
     const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
+    const [toast, setToast] = useState({display:false,message:""})
   
     useEffect(()=>{
       setTeacherEmailSelected(sessionStorage.getItem('email'))
     },[])
   
-  
 
-  
-    // const tardyDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    // const cellPhoneDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    // const disruptiveBehavioralDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    // const HorseplayDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    // const failureToCompleteWorkDescription = "Provide a brief description of the missing assignment (Name of assignment in Powerschool, link to the assignment if possible, the impact it is having on the students grade and the possible points they can regain upon completion.)"
-    // const dressCodeDescription = "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."
-    // const positiveBehaviorDescription = "Needs Text"
-    // const failureToCompleteWorkTitle = "Failure to complete Work"
-    // const otherTitle = "For all offenses other than positive behavior shout out and failure to complete work."
-    // const behaviorShoutTitle = "Shout Comment"
-  
     const defaultTheme = createTheme();
 
     
@@ -152,23 +144,20 @@ const payload = {
 
              axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
                {headers: headers})
-              .then(function (res){
-               setSuccessDisplay(true)
-               setSuccessMessage(res.status === 202 ? "Punishment Created":"error")
+              .then(function (res) {
+               setToast({display:true,message:"Referral Succesfuly Created"})
                setTimeout(()=>{
-                   setSuccessDisplay(false)
-               },3000)
+                setToast({display:false,message:""})
+              },1000)
                resetForm();
                console.log(res)
            })
 .catch(function (error){
                console.log(error)
-               const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-               setErrorDisplay(true)
-               setErrorMessage(errorMessage)
+               setToast({display:true,message:"Something Went Wrong"})
                setTimeout(()=>{
-                   setErrorDisplay(false)
-               },2000)
+                setToast({display:false,message:""})
+              },2000)
            });
     
       
@@ -177,31 +166,34 @@ const payload = {
     }
 
 
+    
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setToast({display:false,message:""});
+    };
+  
 
     return (
         <>
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-          <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
-   Create New Punishement
-        </Typography>
-        </div>
+          { toast.display===true &&   <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast} autoHideDuration={6000} onClose={handleClose}>
+  <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
+  {toast.message}
+  </Alert>
+</Snackbar>}
 
-        <div className="page-container">
-      <div className="lrKTG">
+
         <div className="form-container">
-            <div className="M7eMe">REPS Teacher Managed Referral</div>
+            <div className="form-title">REPS Teacher Managed Referral</div>
              <h5> This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
  After completing this form, the student and their guardian will be informed of the incident and given a restorative assignment to complete to gain insight on the negative effects of the behavior. REPS Discipline Management System will also send follow-up emails if additional steps are needed. These emails are designed to be copied and pasted directly into Review 360 when necessary. </h5>
    
-            <div className="md0UAd" aria-hidden="true" dir="auto">
+            <div  aria-hidden="true" dir="auto">
               * Indicates required question
             </div>
-            {successDisplay && <span style={{background:"green"}}> {successMessage}</span>}
-            {errorDisplay && <span style={{background:"pink"}}> {errorMessage}</span>}
-            
-
-
+      
             <ThemeProvider theme={defaultTheme}>
       <Container component="main" >
 
@@ -212,7 +204,8 @@ const payload = {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            width:"100%"
+            width:"100%",
+            height:"100%"
           }}
         >
         
@@ -333,8 +326,6 @@ const payload = {
       </Container>
     </ThemeProvider>
    </div>
-    </div>
-    </div>
   
     </>
     )

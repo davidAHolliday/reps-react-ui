@@ -19,7 +19,6 @@ import CircularProgress from '@mui/material/CircularProgress';
     });
 
     const [listOfPunishments, setListOfPunishments]= useState([])
-    const [filterData, setFilterData] = useState();
     const [sort,setSort] = useState("");
     const [loadingPunihsmentId, setLoadingPunishmentId] = useState({id:null,buttonType:""});
     const [toast,setToast] = useState({visible:false,message:""})
@@ -166,19 +165,18 @@ useEffect(()=>{
   </div>
 </div>}
 
-       <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
  <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
 
 
       </Typography>
-      </div>
+ 
       <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast.visible} autoHideDuration={6000} onClose={handleClose}>
 <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
 {toast.message}
 </Alert>
 </Snackbar>
-      <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+      <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '100%' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
       <TableHead>
       <TableRow>
@@ -228,7 +226,7 @@ useEffect(()=>{
                     </div>
                   </TableCell>
                   <TableCell>{x.infraction.infractionName}</TableCell>
-                  <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription}</TableCell>
+                  <TableCell style={{width:"20%"}}>{x.infraction.infractionDescription}</TableCell>
                   <TableCell>{x.infraction.infractionLevel}</TableCell>
                   <TableCell>
 <div 
@@ -239,7 +237,7 @@ className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" :
 </TableCell>
 
                   <TableCell>{days}</TableCell>
-                  <TableCell>
+                  <TableCell style={{width:"5%"}}>
 <button style={{height:"50px", width:"100px"}} onClick={() => { 
   setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
   setDeletePayload(x) 
