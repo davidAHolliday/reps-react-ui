@@ -591,5 +591,34 @@ table th tr {
   width: 90%;
 }
 
+/* //Tags */
+
+/* styles.css */
+
+.status-tag {
+  width: 75px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+.tag-critical {
+
+  background-color: #cc3300;
+}
+
+.tag-danger {
+  background-color: #ff9966;
+}
+
+.tag-warning {
+  background-color: #ffcc00;
+}
+
+.tag-good {
+  background-color: #99cc33;
+}
 
 

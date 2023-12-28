@@ -203,16 +203,12 @@ import CircularProgress from '@mui/material/CircularProgress';
                       <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription}</TableCell>
                       <TableCell>{x.infraction.infractionLevel}</TableCell>
                       <TableCell>
-  <div style={{
-    backgroundColor: days >= 4 ? "#cc3300" : days >= 3 ? "#ff9966" : days >= 2 ? "#ffcc00" : "#99cc33",
-    width: "75px",
-    padding: "5px 10px",            // Padding for inside the rectangle
-    borderRadius: "15px",           // Adjust the value to increase or decrease the roundness
-    textAlign: "center",            // Center the text inside the rectangle
-    color: "#fff",                  // Text color
-    fontWeight: "bold",             // Bold text (if desired)
-    border: "1px solid #000"        // Border for the rectangle
-  }}>
+  <div 
+  className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" : days >= 2 ? "tag-warning" : "tag-good"}`}
+  // style={{
+  //   backgroundColor: days >= 4 ? "#cc3300" : days >= 3 ? "#ff9966" : days >= 2 ? "#ffcc00" : "#99cc33",
+  //  }}
+  >
     {x.status}
   </div>
 </TableCell>
