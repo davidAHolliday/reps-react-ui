@@ -596,7 +596,7 @@ table th tr {
 
 
 .modal-header {
-  background-color: green;
+  background-color: #2980b9;
   padding: 10px;
   border-radius: 8px 8px 0 0;
   text-align: center;
@@ -604,7 +604,7 @@ table th tr {
 }
 
 .modal-body {
-  background-color: tan;
+  background-color: #6E7076;
   height: 60%;
   padding: 10px;
   border-radius: 0 0 8px 8px;
