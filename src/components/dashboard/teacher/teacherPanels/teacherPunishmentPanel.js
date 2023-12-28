@@ -205,9 +205,6 @@ import CircularProgress from '@mui/material/CircularProgress';
                       <TableCell>
   <div 
   className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" : days >= 2 ? "tag-warning" : "tag-good"}`}
-  // style={{
-  //   backgroundColor: days >= 4 ? "#cc3300" : days >= 3 ? "#ff9966" : days >= 2 ? "#ffcc00" : "#99cc33",
-  //  }}
   >
     {x.status}
   </div>
