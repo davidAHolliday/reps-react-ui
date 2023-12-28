@@ -4,8 +4,6 @@ import * as React from 'react';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import Snackbar from '@mui/material/Snackbar';
@@ -138,19 +136,17 @@ import CircularProgress from '@mui/material/CircularProgress';
           <>
                    { console.log(listOfPunishments)}
   
-           <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
      <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
   "5px"}}>
   
   
           </Typography>
-          </div>
           <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast.visible} autoHideDuration={6000} onClose={handleClose}>
   <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
     {toast.message}
   </Alert>
 </Snackbar>
-          <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+          <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '75vh' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
           <Table>
           <TableHead>
           <TableRow>

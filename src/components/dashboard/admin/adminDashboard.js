@@ -82,14 +82,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
       <>
         <div className ="app-bar">
           <Toolbar>
-            {/* <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => toggleDrawer(true)}
-            >
-              <MenuIcon />
-            </IconButton> */}
+  
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
