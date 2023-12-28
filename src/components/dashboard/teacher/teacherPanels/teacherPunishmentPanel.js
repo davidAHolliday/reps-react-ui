@@ -59,7 +59,7 @@ import CircularProgress from '@mui/material/CircularProgress';
           return;
         }
     
-        setToast(false);
+        setToast({visible:false,message:""});
       };
 
       const handleClosePunishment = (obj) =>{

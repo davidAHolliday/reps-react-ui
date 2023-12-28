@@ -78,7 +78,7 @@ useEffect(()=>{
         return;
       }
   
-      setToast(false);
+      setToast({visible:false,message:""});
     };
 
     const handleClosePunishment = (obj) =>{
