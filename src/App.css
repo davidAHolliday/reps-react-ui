@@ -568,6 +568,8 @@ table th tr {
 
 
 
+/* MODAL CSS */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -589,6 +591,41 @@ table th tr {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 90%;
+}
+
+
+
+.modal-header {
+  background-color: green;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  color: white;
+}
+
+.modal-body {
+  background-color: tan;
+  height: 60%;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0e0e0; /* Lighter color on hover */
 }
 
 /* //Tags */
@@ -622,3 +659,13 @@ table th tr {
 }
 
 
+/* input css */
+.multi-line-input {
+  resize: vertical;  /* Allows vertical resizing */
+  min-height: 60px;  /* Minimum height */
+  padding: 10px;     /* Padding for spacing */
+  border-radius: 5px; /* Rounded corners */
+  width: 98%;       /* Full width */
+  max-width: 98%;   /* Maximum width */
+  overflow-y:hidden;  /* Adds vertical scroll if content exceeds the height */
+}
