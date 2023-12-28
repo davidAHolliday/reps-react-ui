@@ -23,6 +23,9 @@ import CircularProgress from '@mui/material/CircularProgress';
     const [sort,setSort] = useState("");
     const [loadingPunihsmentId, setLoadingPunishmentId] = useState({id:null,buttonType:""});
     const [toast,setToast] = useState({visible:false,message:""})
+    const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
+    const [deletePayload, setDeletePayload] = useState(null)
+    const [textareaValue, setTextareaValue] = useState("");
 
 
     const headers = {
@@ -73,6 +76,11 @@ useEffect(()=>{
       return daysDifference;
     };
 
+    const handleTextareaChange = (event) => {
+      setTextareaValue(event.target.value);
+    };
+  
+
     const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
         return;
@@ -120,6 +128,7 @@ useEffect(()=>{
       console.log(error);
     })
     .finally(()=>{
+      setOpenModal({display:false,message:""})
       setTimeout(()=>{
         setToast({visible:false,message:""})
         setLoadingPunishmentId({id:null,buttonType:""})
@@ -130,7 +139,32 @@ useEffect(()=>{
     
     return (
       <>
-               { console.log(listOfPunishments)}
+
+             {openModal.display && <div className="modal-overlay">
+  <div className="modal-content">
+    <div className='modal-header'>
+      <h3>{openModal.message}</h3>
+    </div>
+    <div className='modal-body'>
+    <textarea 
+        value={textareaValue}       // Set the value of the textarea to the state variable
+        onChange={handleTextareaChange} // Handle changes to the textarea
+    className="multi-line-input" 
+    placeholder="Enter reason for deletion"
+    rows={4} // This sets the initial height to show 4 rows
+  ></textarea>
+    </div>
+    <div className='modal-buttons'>
+
+      <button onClick={() => {
+        setOpenModal({display:false,message:""})
+        setTextareaValue("")}}>Cancel</button>
+      {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
+     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
+
+    </div>
+  </div>
+</div>}
 
        <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
  <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
@@ -206,7 +240,10 @@ className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" :
 
                   <TableCell>{days}</TableCell>
                   <TableCell>
-<button style={{height:"50px", width:"100px"}} onClick={() => { handleClosePunishment(x) }}>
+<button style={{height:"50px", width:"100px"}} onClick={() => { 
+  setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
+  setDeletePayload(x) 
+ }}>
 {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
   <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
 ) : (
@@ -214,7 +251,9 @@ className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" :
 )}
 </button>
 <hr/>
-<button style={{height:"50px", width:"100px",backgroundColor:"red"}} onClick={() => { handleDeletePunishment(x) }}>
+<button style={{height:"50px", width:"100px",backgroundColor:"red"}} onClick={() => { 
+  setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  setDeletePayload(x) }}>
 {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
   <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
 ) : (

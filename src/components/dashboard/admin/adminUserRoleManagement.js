@@ -205,9 +205,7 @@ const [approveUpdate, setApproveUpdate] = useState("false");
           )}
         </TableBody>
       </Table>
-      <TableRow>
-      <TableCell colSpan="5"><button>Add User</button></TableCell>
-      </TableRow>
+   
     </TableContainer>
 
     </div>
