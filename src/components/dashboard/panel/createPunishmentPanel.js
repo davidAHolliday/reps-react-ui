@@ -2,7 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
-import Select from "react-select";
+// import Select from "react-select";
 import { baseUrl } from '../../../utils/jsonData';
 
 import Button from '@mui/material/Button';
@@ -14,6 +14,34 @@ import Container from '@mui/material/Container';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
+import { useTheme } from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+function getStyles(name, studentNames, theme) {
+  return {
+    fontWeight:
+      studentNames.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
 
 const CreatePunishmentPanel = () => {
@@ -22,15 +50,16 @@ const CreatePunishmentPanel = () => {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
   
-   
-
+  
     const [listOfStudents, setListOfStudents] = useState([]);
     const [studentSelected, setStudentSelect] = useState();
-    const [infractionSelected, setInfractionSelected] = useState();
-    const [infractionPeriodSelected, setInfractionPeriodSelected] = useState();
+    const [infractionTypeSelected, setInfractionTypeSelected] = useState("");
+    const [infractionPeriodSelected, setInfractionPeriodSelected] = useState("");
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
     const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
     const [toast, setToast] = useState({display:false,message:""})
+    const [studentNames, setStudentNames] = React.useState([]);
+
   
     useEffect(()=>{
       setTeacherEmailSelected(sessionStorage.getItem('email'))
@@ -123,26 +152,46 @@ const CreatePunishmentPanel = () => {
         const resetForm = ()=>{
           setStudentSelect(null)
           setInfractionPeriodSelected(null)
-          setInfractionSelected(null)
+          setInfractionTypeSelected(null)
           setInfractionDescriptionSelected(null)
       
       }
       
 
+      const handleChange = (event) => {
+        const {
+          target: { value },
+        } = event;
+        setStudentNames(
+          // On autofill we get a stringified value.
+          typeof value === 'string' ? value.split(',') : value,
+        );
+      };
+
+
+      //Mapping selected students pushing indivdual payloads to post
       const handleSubmit = (event) => {
         event.preventDefault();
+        const payloadContent = []
+        studentNames.map((student)=>{
+          const studentPayload = {
+            firstName:"placeholder",
+            lastName:"placeholder",
+            studentEmail: student,
+            teacherEmail: teacherEmailSelected,
+            infractionPeriod: infractionPeriodSelected,
+            infractionName: infractionTypeSelected,
+            infractionDescription: infractionDescriptionSelected,
 
-const payload = {
-  
-      studentEmail: studentSelected.value,
-      teacherEmail: teacherEmailSelected,
-      infractionPeriod: infractionPeriodSelected.value,
-      infractionName: infractionSelected.value,
-      infractionDescription: infractionDescriptionSelected,
+          }
+          payloadContent.push(studentPayload)
+        })
 
-}
+        const payload =payloadContent
 
-             axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+console.log(payload)
+
+             axios.post(`${baseUrl}/punish/v1/startPunish/formList`,payload,
                {headers: headers})
               .then(function (res) {
                setToast({display:true,message:"Referral Succesfuly Created"})
@@ -165,6 +214,17 @@ const payload = {
       
     }
 
+
+    const handleInfractionPeriodChange = (event) => {
+        setInfractionPeriodSelected(event.target.value);
+
+      }
+
+    const handleInfractionTypeChange = (event) => {
+        setInfractionTypeSelected(event.target.value);
+
+      }
+    
 
     
     const handleClose = (event, reason) => {
@@ -217,75 +277,125 @@ const payload = {
           <hr/>
        
 
+          <InputLabel id="demo-multiple-chip-label">Select Students</InputLabel>
+        <Select
+        sx={{ width: '100%'}}
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          multiple
+          value={studentNames}
+          onChange={handleChange}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+          MenuProps={MenuProps}
+        >
+          {selectOptions.map((name) => (
+            <MenuItem
+              key={name.value}
+              value={name.value}
+              style={getStyles(name, studentNames, defaultTheme)}
+            >
+              {name.label}
+            </MenuItem>
+          ))}
+        </Select>
+
        <div style={{height:"10px"}}></div>
-             
+       <InputLabel id="infractionPeriod">Infraction Period</InputLabel>
+   
        <Select
-  name="selectStudent"
-  options={selectOptions}
-  placeholder="Select Student"
-  value={studentSelected}
-  onChange={(value) => setStudentSelect(value)}
-  isSearchable={true}
-  isMulti={false}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
-  }}
-/>
+      sx={{ width: '100%'}}
 
-<div style={{ height: "10px" }}></div>
-
-<Select
-  name="infractionPeriod"
-  options={infractionPeriodSelectOptions}
-  placeholder="Choose Period"
+  labelId="infractionPeriod"
   value={infractionPeriodSelected}
-  onChange={(value) => setInfractionPeriodSelected(value)}
-  isSearchable={true}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
+  onChange={handleInfractionPeriodChange}
+  renderValue={(selected) => {
+    // Check if selected is an array, if not, wrap it in an array
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+  
+    return (
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+        {selectedArray.map((value) => (
+          <Chip key={value} label={value} />
+        ))}
+      </Box>
+    );
   }}
-/>
+  MenuProps={MenuProps}
+>
+  {infractionPeriodSelectOptions.map((name) => (
+    <MenuItem
+      key={name.value}
+      value={name.value}
+      style={getStyles(name, studentNames, defaultTheme)}
+    >
+      {name.label}
+    </MenuItem>
+  ))}
+
+</Select>
+
+<div style={{height:"10px"}}></div>
+       <InputLabel id="infractionType">Infraction Type</InputLabel>
+   
+       <Select
+      sx={{ width: '100%'}}
+
+  labelId="infractionType"
+  value={infractionTypeSelected}
+  onChange={handleInfractionTypeChange}
+  renderValue={(selected) => {
+    // Check if selected is an array, if not, wrap it in an array
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+  
+    return (
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+        {selectedArray.map((value) => (
+          <Chip key={value} label={value} />
+        ))}
+      </Box>
+    );
+  }}
+  MenuProps={MenuProps}
+>
+  {infractionSelectOptions.map((name) => (
+    <MenuItem
+      key={name.value}
+      value={name.value}
+      style={getStyles(name, studentNames, defaultTheme)}
+    >
+      {name.label}
+    </MenuItem>
+  ))}
+
+</Select>
+
 
 <div style={{ height: "10px" }}></div>
 
-<Select
-  name="infraction"
-  options={infractionSelectOptions}
-  placeholder="Choose Infraction Type"
-  value={infractionSelected}
-  onChange={(value) => setInfractionSelected(value)}
-  isSearchable={true}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
-  }}
-/>
-  
 
 
 
-  {console.log(infractionSelected?.value)}
+  {console.log(infractionTypeSelected?.value)}
 <div className='question-container-text-area'>
   <label htmlFor="offenseDescription">
-    {(infractionSelected?.value === "Failure to Complete Work" ||
-    infractionSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionSelected?.value === "Behavioral Concern")
-      ? getTitle(infractionSelected?.value)
+    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
+    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected?.value === "Behavioral Concern")
+      ? getTitle(infractionTypeSelected?.value)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
   </label>
   <h5>
-    {(infractionSelected?.value === "Failure to Complete Work" ||
-    infractionSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionSelected?.value === "Behavioral Concern")
-      ? getDescription(infractionSelected?.value)
+    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
+    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected?.value === "Behavioral Concern")
+      ? getDescription(infractionTypeSelected?.value)
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
   </h5>
 </div>
