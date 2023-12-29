@@ -9,6 +9,8 @@ import { baseUrl } from '../../../../utils/jsonData'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 
@@ -208,21 +210,28 @@ import CircularProgress from '@mui/material/CircularProgress';
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-  <button style={{height:"50px", width:"100px"}} onClick={() => { handleClosePunishment(x) }}>
+  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"100%",marginBottom:"5px"}} onClick={() => { handleClosePunishment(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      "Mark complete"
+      <CheckBoxIcon/>
     )}
   </button>
-  <hr/>
-  <button style={{height:"50px", width:"100px",backgroundColor:"red"}} onClick={() => { handleDeletePunishment(x) }}>
+
+  <button style={{height:"45px", width:"100%",backgroundColor:"red"}} onClick={() => { handleDeletePunishment(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      "Delete"
+      <DeleteForeverIcon/>
     )}
-  </button>
+  </button></> : <> <button style={{height:"45px", width:"100%",backgroundColor:"red"}} onClick={() => { handleDeletePunishment(x) }}>
+    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
+      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
+    ) : (
+      <DeleteForeverIcon/>
+    )}
+  </button></>}                      
+ 
 
 </TableCell>
                     </TableRow>
