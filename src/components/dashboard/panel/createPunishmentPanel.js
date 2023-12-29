@@ -1,24 +1,20 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-import Typography from '@mui/material/Typography';
 import axios from "axios";
-// import Select from "react-select";
 import { baseUrl } from '../../../utils/jsonData';
 
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import Container from '@mui/material/Container';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
@@ -59,6 +55,7 @@ const CreatePunishmentPanel = () => {
     const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
     const [toast, setToast] = useState({display:false,message:""})
     const [studentNames, setStudentNames] = React.useState([]);
+    const [loading, setLoading] = useState(false)
 
   
     useEffect(()=>{
@@ -150,7 +147,7 @@ const CreatePunishmentPanel = () => {
 
   
         const resetForm = ()=>{
-          setStudentSelect(null)
+          setStudentNames([])
           setInfractionPeriodSelected(null)
           setInfractionTypeSelected(null)
           setInfractionDescriptionSelected(null)
@@ -172,6 +169,7 @@ const CreatePunishmentPanel = () => {
       //Mapping selected students pushing indivdual payloads to post
       const handleSubmit = (event) => {
         event.preventDefault();
+        setLoading(true)
         const payloadContent = []
         studentNames.map((student)=>{
           const studentPayload = {
@@ -196,6 +194,7 @@ console.log(payload)
               .then(function (res) {
                setToast({display:true,message:"Referral Succesfuly Created"})
                setTimeout(()=>{
+                setLoading(false)
                 setToast({display:false,message:""})
               },1000)
                resetForm();
@@ -205,6 +204,7 @@ console.log(payload)
                console.log(error)
                setToast({display:true,message:"Something Went Wrong"})
                setTimeout(()=>{
+                setLoading(false)
                 setToast({display:false,message:""})
               },2000)
            });
@@ -257,8 +257,17 @@ console.log(payload)
 
 
           </div>
-      
-            <ThemeProvider theme={defaultTheme}>
+          {loading &&  <div style={{
+    position: 'absolute',    // Position the div absolutely
+    top: '64%',              // Center vertically
+    left: '60%',             // Center horizontally
+    transform: 'translate(-50%, -50%)', // Adjust to perfectly center the div
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Optional: Add background color or opacity
+    padding: '20px'          // Optional: Add padding for better appearance
+  }}>
+    <CircularProgress style={{}}  color="secondary" />
+  </div>}
+        <ThemeProvider theme={defaultTheme}>
       <Container component="main" >
 
         <CssBaseline />
@@ -380,15 +389,8 @@ MenuProps={MenuProps}
 ))}
 
 </Select>
-
-
 </div>
-
-
 </div>
-      
-
-
 <div style={{ height: "10px" }}></div>
 
 
@@ -456,26 +458,53 @@ MenuProps={MenuProps}
 
 />
             </div>
-
-      
             <br/>
 
 
+            <div style={{ display: 'flex', flexDirection: "row", width: "100%" }} className='button-container'>
+  <div style={{ width: "30%" }}>
+    <Button
+      type="reset"
+      fullWidth
+      variant="contained"
+      onClick={()=>{
+        resetForm();
+      }}
+      sx={{ 
+        height: '100%', // Set explicit height
+        backgroundColor: 'green', // Set background color to green
+        '&:hover': {
+          backgroundColor: 'darkgreen' // Darken the color on hover if desired
+        }
+      }}
+    >
+      Reset
+    </Button>
+  </div>
+  <div style={{ width: "70%" }}>
+    <Button
+    disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
+      type="submit"
+      fullWidth
+      variant="contained"
+      sx={{ height: '100%' }} // Set explicit height
+    >
+      Submit
+    </Button>
+  </div>
+</div>
 
-          <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-           Submit
-            </Button>
+         
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </ThemeProvider>:
+ 
+
+
+     
    </div>
-  
+
     </>
     )
     
