@@ -245,14 +245,18 @@ console.log(payload)
 </Snackbar>}
 
 
-        <div className="form-container">
-            <div className="form-title">REPS Teacher Managed Referral</div>
-             <h5> This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
+        <div  className="form-container">
+          <div style={{backgroundColor:"#D3D3D3"}} className='header'>
+          <div className="form-title">REPS Teacher Managed Referral</div>
+             <h5 > This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
  After completing this form, the student and their guardian will be informed of the incident and given a restorative assignment to complete to gain insight on the negative effects of the behavior. REPS Discipline Management System will also send follow-up emails if additional steps are needed. These emails are designed to be copied and pasted directly into Review 360 when necessary. </h5>
    
             <div  aria-hidden="true" dir="auto">
               * Indicates required question
             </div>
+
+
+          </div>
       
             <ThemeProvider theme={defaultTheme}>
       <Container component="main" >
@@ -260,7 +264,6 @@ console.log(payload)
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -269,9 +272,7 @@ console.log(payload)
           }}
         >
         
-          <Typography component="h1" variant="h5">
-           Create New Punishment
-          </Typography>
+  
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <h4>Submitting Teacher: {teacherEmailSelected}</h4>
           <hr/>
@@ -306,7 +307,11 @@ console.log(payload)
           ))}
         </Select>
 
-       <div style={{height:"10px"}}></div>
+  
+
+<div style={{height:"10px"}}></div>
+<div style={{display:'flex',flexDirection:'row',width:"100%"}}>
+<div style={{width:"50%"}}>
        <InputLabel id="infractionPeriod">Infraction Period</InputLabel>
    
        <Select
@@ -340,41 +345,48 @@ console.log(payload)
   ))}
 
 </Select>
-
-<div style={{height:"10px"}}></div>
-       <InputLabel id="infractionType">Infraction Type</InputLabel>
+</div>
+<div style={{width:"50%",marginLeft:"10px"}}>
+<InputLabel id="infractionType">Infraction Type</InputLabel>
    
-       <Select
-      sx={{ width: '100%'}}
+   <Select
+  sx={{ width: '100%'}}
 
-  labelId="infractionType"
-  value={infractionTypeSelected}
-  onChange={handleInfractionTypeChange}
-  renderValue={(selected) => {
-    // Check if selected is an array, if not, wrap it in an array
-    const selectedArray = Array.isArray(selected) ? selected : [selected];
-  
-    return (
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-        {selectedArray.map((value) => (
-          <Chip key={value} label={value} />
-        ))}
-      </Box>
-    );
-  }}
-  MenuProps={MenuProps}
+labelId="infractionType"
+value={infractionTypeSelected}
+onChange={handleInfractionTypeChange}
+renderValue={(selected) => {
+// Check if selected is an array, if not, wrap it in an array
+const selectedArray = Array.isArray(selected) ? selected : [selected];
+
+return (
+  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+    {selectedArray.map((value) => (
+      <Chip key={value} label={value} />
+    ))}
+  </Box>
+);
+}}
+MenuProps={MenuProps}
 >
-  {infractionSelectOptions.map((name) => (
-    <MenuItem
-      key={name.value}
-      value={name.value}
-      style={getStyles(name, studentNames, defaultTheme)}
-    >
-      {name.label}
-    </MenuItem>
-  ))}
+{infractionSelectOptions.map((name) => (
+<MenuItem
+  key={name.value}
+  value={name.value}
+  style={getStyles(name, studentNames, defaultTheme)}
+>
+  {name.label}
+</MenuItem>
+))}
 
 </Select>
+
+
+</div>
+
+
+</div>
+      
 
 
 <div style={{ height: "10px" }}></div>
@@ -400,22 +412,49 @@ console.log(payload)
   </h5>
 </div>
    <div>               
-<TextField
-              margin="normal"
-              required
-              fullWidth
-              onChange={(event) => {
-                const enteredValue = event.target.value;
-                setInfractionDescriptionSelected(enteredValue);
-              }}               id="offenseDescription"
-               placeholder="Please Type Short Description of Infraction"
-              name="offenseDescription"
-              autoFocus
-              InputLabelProps={{
-                sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
-              }}
-    
-            />
+   <TextField
+  margin="normal"
+  required
+  fullWidth
+  multiline  
+  minRows={4}  // Optional: Set minimum number of rows
+  onChange={(event) => {
+    const enteredValue = event.target.value;
+    setInfractionDescriptionSelected(enteredValue);
+  }}
+  id="offenseDescription"
+  placeholder="Please Type Short Description of Infraction"
+  name="offenseDescription"
+  autoFocus
+  InputLabelProps={{
+    sx: { "&.Mui-focused": { color: "white", marginTop: "-10px" } },
+  }}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent form submission on Enter key
+      
+      // Get the current cursor position
+      const { selectionStart, selectionEnd } = e.target;
+
+      // Get the current value of the input
+      const value = e.target.value;
+
+      // Insert a newline character (\n) at the cursor position
+      const newValue = value.substring(0, selectionStart) + '\n' + value.substring(selectionEnd);
+
+      // Update the input value and set the cursor position after the newline character
+      e.target.value = newValue;
+      e.target.selectionStart = e.target.selectionEnd = selectionStart + 1;
+
+      // Trigger the change event manually (React doesn't update the value automatically)
+      const event = new Event('input', { bubbles: true });
+      e.target.dispatchEvent(event);
+
+      // Optionally, you can add your logic here for what should happen after Enter is pressed.
+    }
+  }}
+
+/>
             </div>
 
       
