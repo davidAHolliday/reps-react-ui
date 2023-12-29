@@ -84,14 +84,6 @@ const StudentDashboard = () => {
       <>
         <div className ="app-bar">
           <Toolbar>
-            {/* <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => toggleDrawer(true)}
-            >
-              <MenuIcon />
-            </IconButton> */}
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -107,16 +99,15 @@ const StudentDashboard = () => {
         </div>
        <div className='page'>
          
-      <div style={{width:"20%", backgroundColor:"white",outline:"solid 5px #5333ed",marginRight:"5px"}}className='side-bar'>
-      <div style={{ display: 'flex', flexDirection:"column",backgroundColor:"white" }}>
-          <div style={{marginBottom:"30px"}}>
-<WarningIcon  color="warning"/> Assignments 3 days late will result in In Lunch Detention 
-</div>
-<div>
-<WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
-</div>
+
+      <div className='side-bar'>
+        <div className="side-bar-widget">
+        <WarningIcon  color="warning"/> Assignments 3 days late will result in In Lunch Detention 
         </div>
-  
+        <div className="side-bar-widget">
+        <WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
+        </div>
+     {/* <button onClick={handleGeneratePDF}>Generate PDF Report</button> */}
 
       </div>
       <div className='main-content'> 
@@ -159,7 +150,7 @@ const StudentDashboard = () => {
   </button>
         </div>
       </div>
-      <div className = "main-content-panel">
+      <div className = "">
       </div>
       {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}

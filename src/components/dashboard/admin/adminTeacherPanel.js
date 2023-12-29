@@ -2,12 +2,9 @@ import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 import StudentProfile from '../../StudentProfile';
-import AddTeacherForm from './addTeacherForm';
 
    const AdminTeacherPanel = () => {
 
@@ -16,7 +13,6 @@ import AddTeacherForm from './addTeacherForm';
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
-  const [addTeacherDisplay,setAddTeacherDisplay] = useState(true);
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -68,10 +64,6 @@ import AddTeacherForm from './addTeacherForm';
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Phone Number
             </TableCell>
-            {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Actions
-            </TableCell> */}
-         
           </TableRow>
         </TableHead>
         <TableBody>
@@ -100,13 +92,6 @@ import AddTeacherForm from './addTeacherForm';
   )) : 'No roles available'}
 </TableCell>  
 <TableCell>555-555-5555</TableCell>
-  {/* <TableCell>
-
-      <ContactsIcon color="primary" /> 
-
-      <VisibilityIcon color="primary" /> 
-
-  </TableCell> */}
 </TableRow>
 
             ))

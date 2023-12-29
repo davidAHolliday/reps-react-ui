@@ -110,10 +110,10 @@ const [approveUpdate, setApproveUpdate] = useState("false");
     </div>
   </div>
 )}
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"15px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
-   Teachers
+   Role Management
         </Typography>
         </div>
    
@@ -205,9 +205,6 @@ const [approveUpdate, setApproveUpdate] = useState("false");
           )}
         </TableBody>
       </Table>
-      <TableRow>
-      <TableCell colSpan="5"><button>Add User</button></TableCell>
-      </TableRow>
     </TableContainer>
 
     </div>
