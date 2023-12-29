@@ -11,9 +11,9 @@ import StudentPanel from '../panel/studentPanel';
 import NotificationBar from '../../notification-bar/NotificationBar';
 import ISSWidget from './issWidget';
 import DetentionWidget from './detentionWidget';
-import AdminPunishmentPanel from './adminPunishmentPanel';
 import AdminTeacherPanel from './adminTeacherPanel';
 import AdminUserRoleManagement from './adminUserRoleManagement';
+import GlobalPunishmentPanel from '../global/globalPunishmentPanel';
 
 
 
@@ -202,7 +202,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
       <div className = "main-content-panel">
 {panelName === "viewTeacher" &&<AdminTeacherPanel/>}
 {panelName === "student" &&<StudentPanel/>}
-{panelName === "punishment" &&<AdminPunishmentPanel filter={punishmentFilter}/>}
+{panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "userManagement" && <AdminUserRoleManagement/>}

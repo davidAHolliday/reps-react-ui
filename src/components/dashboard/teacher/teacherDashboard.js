@@ -11,7 +11,8 @@ import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
-import TeacherPunishmentPanel from './teacherPanels/teacherPunishmentPanel';
+import TeacherPunishmentPanel from '../global/globalPunishmentPanel.js';
+import GlobalPunishmentPanel from '../global/globalPunishmentPanel.js';
 
 
 const TeacherDashboard = () => {
@@ -178,11 +179,7 @@ const TeacherDashboard = () => {
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
   <div style={{marginLeft:"40%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("createNewStudent")  
-      setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
-
-     }}className='dropdown-item'>New Student</div>
+ 
       <div onClick={()=>{
       setPanelName("createPunishment")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
@@ -216,9 +213,8 @@ const TeacherDashboard = () => {
       </div>
       <div className = "main-content-panel">
 {panelName === "student" &&<TeacherStudentPanel/>}
-{panelName === "punishment" &&<TeacherPunishmentPanel filter={punishmentFilter}/>}
+{panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
-{panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "ftc" && <TeacherFTCPanel/>}
 
 

@@ -5,27 +5,30 @@ import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
-import { baseUrl } from '../../../../utils/jsonData'
+import { baseUrl } from '../../../utils/jsonData'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 
 
 
 
-    const TeacherPunishmentPanel = ({filter}) => {
+    const GlobalPunishmentPanel = ({filter,roleType}) => {
       const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
 
       const [listOfPunishments, setListOfPunishments]= useState([])
-      const [filterData, setFilterData] = useState();
       const [sort,setSort] = useState("");
       const [loadingPunihsmentId, setLoadingPunishmentId] = useState({id:null,buttonType:""});
       const [toast,setToast] = useState({visible:false,message:""})
-
+      const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
+      const [deletePayload, setDeletePayload] = useState(null)
+      const [textareaValue, setTextareaValue] = useState("");
 
   
       const headers = {
@@ -45,12 +48,45 @@ import CircularProgress from '@mui/material/CircularProgress';
           .get(url, { headers }) // Pass the headers option with the JWT token
           .then(function (response) {
             const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
-            setListOfPunishments(sortedData);        })
+            if(roleType==="teacher"){
+              const sortedByRole = sortedData.filter(x=>x.teacherEmail === sessionStorage.getItem("email"))
+              setListOfPunishments(sortedByRole);   
+            
+            }
+            else{
+              const sortedByRole = sortedData;
+              setListOfPunishments(sortedByRole);        
+
+            }
+      })
           .catch(function (error) {
             console.log(error);
           });
       }, [ toast.visible]);
 
+
+      const data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+  
+      const hasScroll = data.length > 10;
+  
+      const calculateDaysSince = (dateCreated) => {
+        const currentDate = new Date();
+        const createdDate = new Date(dateCreated);
+      
+        // Set both dates to UTC
+        currentDate.setUTCHours(0, 0, 0, 0);
+        createdDate.setUTCHours(0, 0, 0, 0);
+      
+        const timeDifference = currentDate - createdDate;
+        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+        return daysDifference;
+      };
+
+
+      const handleTextareaChange = (event) => {
+        setTextareaValue(event.target.value);
+      };
+    
 
       const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -74,6 +110,7 @@ import CircularProgress from '@mui/material/CircularProgress';
           console.log(error);
         })
         .finally(()=>{
+          setOpenModal({display:false,message:""})
           setTimeout(()=>{
             setToast({visible:false,message:""})
             setLoadingPunishmentId({id:null,buttonType:""})
@@ -99,6 +136,7 @@ import CircularProgress from '@mui/material/CircularProgress';
         console.log(error);
       })
       .finally(()=>{
+        setOpenModal({display:false,message:""})
         setTimeout(()=>{
           setToast({visible:false,message:""})
           setLoadingPunishmentId({id:null,buttonType:""})
@@ -107,34 +145,35 @@ import CircularProgress from '@mui/material/CircularProgress';
         );
   };
   
-  
-      // if(sort == "ALL"){
-      //   setFilterData(listOfPunishments);
-    
-  
-      
-   
-    const data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
-  
-  
-      const hasScroll = data.length > 10;
-  
-      const calculateDaysSince = (dateCreated) => {
-        const currentDate = new Date();
-        const createdDate = new Date(dateCreated);
-      
-        // Set both dates to UTC
-        currentDate.setUTCHours(0, 0, 0, 0);
-        createdDate.setUTCHours(0, 0, 0, 0);
-      
-        const timeDifference = currentDate - createdDate;
-        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
-        return daysDifference;
-      };
-      
+
       return (
           <>
-                   { console.log(listOfPunishments)}
+            {openModal.display && <div className="modal-overlay">
+  <div className="modal-content">
+    <div className='modal-header'>
+      <h3>{openModal.message}</h3>
+    </div>
+    <div className='modal-body'>
+    <textarea 
+        value={textareaValue}       // Set the value of the textarea to the state variable
+        onChange={handleTextareaChange} // Handle changes to the textarea
+    className="multi-line-input" 
+    placeholder="Enter reason for deletion"
+    rows={4} // This sets the initial height to show 4 rows
+  ></textarea>
+    </div>
+    <div className='modal-buttons'>
+
+      <button onClick={() => {
+        setOpenModal({display:false,message:""})
+        setTextareaValue("")}}>Cancel</button>
+      {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
+     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
+
+    </div>
+  </div>
+</div>}
+          
   
      <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
   "5px"}}>
@@ -208,21 +247,31 @@ import CircularProgress from '@mui/material/CircularProgress';
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-  <button style={{height:"50px", width:"100px"}} onClick={() => { handleClosePunishment(x) }}>
+  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
+  setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      "Mark complete"
+      <CheckBoxIcon/>
     )}
   </button>
-  <hr/>
-  <button style={{height:"50px", width:"100px",backgroundColor:"red"}} onClick={() => { handleDeletePunishment(x) }}>
+
+  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      "Delete"
+      <DeleteForeverIcon/>
     )}
-  </button>
+  </button></> : <> <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  setDeletePayload(x) }}>
+    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
+      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
+    ) : (
+      <DeleteForeverIcon/>
+    )}
+  </button></>}                      
+ 
 
 </TableCell>
                     </TableRow>
@@ -240,4 +289,4 @@ import CircularProgress from '@mui/material/CircularProgress';
     );
   };
 
-export default TeacherPunishmentPanel;
+export default GlobalPunishmentPanel;

@@ -1,19 +1,43 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-import Typography from '@mui/material/Typography';
 import axios from "axios";
-import Select from "react-select";
 import { baseUrl } from '../../../utils/jsonData';
 
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import Container from '@mui/material/Container';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+function getStyles(name, studentNames, theme) {
+  return {
+    fontWeight:
+      studentNames.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
 
 const CreatePunishmentPanel = () => {
@@ -22,15 +46,17 @@ const CreatePunishmentPanel = () => {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
   
-   
-
+  
     const [listOfStudents, setListOfStudents] = useState([]);
     const [studentSelected, setStudentSelect] = useState();
-    const [infractionSelected, setInfractionSelected] = useState();
-    const [infractionPeriodSelected, setInfractionPeriodSelected] = useState();
+    const [infractionTypeSelected, setInfractionTypeSelected] = useState("");
+    const [infractionPeriodSelected, setInfractionPeriodSelected] = useState("");
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
     const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
     const [toast, setToast] = useState({display:false,message:""})
+    const [studentNames, setStudentNames] = React.useState([]);
+    const [loading, setLoading] = useState(false)
+
   
     useEffect(()=>{
       setTeacherEmailSelected(sessionStorage.getItem('email'))
@@ -121,32 +147,54 @@ const CreatePunishmentPanel = () => {
 
   
         const resetForm = ()=>{
-          setStudentSelect(null)
+          setStudentNames([])
           setInfractionPeriodSelected(null)
-          setInfractionSelected(null)
+          setInfractionTypeSelected(null)
           setInfractionDescriptionSelected(null)
       
       }
       
 
+      const handleChange = (event) => {
+        const {
+          target: { value },
+        } = event;
+        setStudentNames(
+          // On autofill we get a stringified value.
+          typeof value === 'string' ? value.split(',') : value,
+        );
+      };
+
+
+      //Mapping selected students pushing indivdual payloads to post
       const handleSubmit = (event) => {
         event.preventDefault();
+        setLoading(true)
+        const payloadContent = []
+        studentNames.map((student)=>{
+          const studentPayload = {
+            firstName:"placeholder",
+            lastName:"placeholder",
+            studentEmail: student,
+            teacherEmail: teacherEmailSelected,
+            infractionPeriod: infractionPeriodSelected,
+            infractionName: infractionTypeSelected,
+            infractionDescription: infractionDescriptionSelected,
 
-const payload = {
-  
-      studentEmail: studentSelected.value,
-      teacherEmail: teacherEmailSelected,
-      infractionPeriod: infractionPeriodSelected.value,
-      infractionName: infractionSelected.value,
-      infractionDescription: infractionDescriptionSelected,
+          }
+          payloadContent.push(studentPayload)
+        })
 
-}
+        const payload =payloadContent
 
-             axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+console.log(payload)
+
+             axios.post(`${baseUrl}/punish/v1/startPunish/formList`,payload,
                {headers: headers})
               .then(function (res) {
                setToast({display:true,message:"Referral Succesfuly Created"})
                setTimeout(()=>{
+                setLoading(false)
                 setToast({display:false,message:""})
               },1000)
                resetForm();
@@ -156,6 +204,7 @@ const payload = {
                console.log(error)
                setToast({display:true,message:"Something Went Wrong"})
                setTimeout(()=>{
+                setLoading(false)
                 setToast({display:false,message:""})
               },2000)
            });
@@ -165,6 +214,17 @@ const payload = {
       
     }
 
+
+    const handleInfractionPeriodChange = (event) => {
+        setInfractionPeriodSelected(event.target.value);
+
+      }
+
+    const handleInfractionTypeChange = (event) => {
+        setInfractionTypeSelected(event.target.value);
+
+      }
+    
 
     
     const handleClose = (event, reason) => {
@@ -185,22 +245,34 @@ const payload = {
 </Snackbar>}
 
 
-        <div className="form-container">
-            <div className="form-title">REPS Teacher Managed Referral</div>
-             <h5> This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
+        <div  className="form-container">
+          <div style={{backgroundColor:"#D3D3D3"}} className='header'>
+          <div className="form-title">REPS Teacher Managed Referral</div>
+             <h5 > This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
  After completing this form, the student and their guardian will be informed of the incident and given a restorative assignment to complete to gain insight on the negative effects of the behavior. REPS Discipline Management System will also send follow-up emails if additional steps are needed. These emails are designed to be copied and pasted directly into Review 360 when necessary. </h5>
    
             <div  aria-hidden="true" dir="auto">
               * Indicates required question
             </div>
-      
-            <ThemeProvider theme={defaultTheme}>
+
+
+          </div>
+          {loading &&  <div style={{
+    position: 'absolute',    // Position the div absolutely
+    top: '64%',              // Center vertically
+    left: '60%',             // Center horizontally
+    transform: 'translate(-50%, -50%)', // Adjust to perfectly center the div
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Optional: Add background color or opacity
+    padding: '20px'          // Optional: Add padding for better appearance
+  }}>
+    <CircularProgress style={{}}  color="secondary" />
+  </div>}
+        <ThemeProvider theme={defaultTheme}>
       <Container component="main" >
 
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -209,124 +281,230 @@ const payload = {
           }}
         >
         
-          <Typography component="h1" variant="h5">
-           Create New Punishment
-          </Typography>
+  
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <h4>Submitting Teacher: {teacherEmailSelected}</h4>
           <hr/>
        
 
-       <div style={{height:"10px"}}></div>
-             
-       <Select
-  name="selectStudent"
-  options={selectOptions}
-  placeholder="Select Student"
-  value={studentSelected}
-  onChange={(value) => setStudentSelect(value)}
-  isSearchable={true}
-  isMulti={false}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
-  }}
-/>
+          <InputLabel id="demo-multiple-chip-label">Select Students</InputLabel>
+        <Select
+        sx={{ width: '100%'}}
+          labelId="demo-multiple-chip-label"
+          id="demo-multiple-chip"
+          multiple
+          value={studentNames}
+          onChange={handleChange}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+          MenuProps={MenuProps}
+        >
+          {selectOptions.map((name) => (
+            <MenuItem
+              key={name.value}
+              value={name.value}
+              style={getStyles(name, studentNames, defaultTheme)}
+            >
+              {name.label}
+            </MenuItem>
+          ))}
+        </Select>
 
-<div style={{ height: "10px" }}></div>
-
-<Select
-  name="infractionPeriod"
-  options={infractionPeriodSelectOptions}
-  placeholder="Choose Period"
-  value={infractionPeriodSelected}
-  onChange={(value) => setInfractionPeriodSelected(value)}
-  isSearchable={true}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
-  }}
-/>
-
-<div style={{ height: "10px" }}></div>
-
-<Select
-  name="infraction"
-  options={infractionSelectOptions}
-  placeholder="Choose Infraction Type"
-  value={infractionSelected}
-  onChange={(value) => setInfractionSelected(value)}
-  isSearchable={true}
-  styles={{
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: 'white', // Set the background color to white
-    }),
-  }}
-/>
   
 
+<div style={{height:"10px"}}></div>
+<div style={{display:'flex',flexDirection:'row',width:"100%"}}>
+<div style={{width:"50%"}}>
+       <InputLabel id="infractionPeriod">Infraction Period</InputLabel>
+   
+       <Select
+      sx={{ width: '100%'}}
+
+  labelId="infractionPeriod"
+  value={infractionPeriodSelected}
+  onChange={handleInfractionPeriodChange}
+  renderValue={(selected) => {
+    // Check if selected is an array, if not, wrap it in an array
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+  
+    return (
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+        {selectedArray.map((value) => (
+          <Chip key={value} label={value} />
+        ))}
+      </Box>
+    );
+  }}
+  MenuProps={MenuProps}
+>
+  {infractionPeriodSelectOptions.map((name) => (
+    <MenuItem
+      key={name.value}
+      value={name.value}
+      style={getStyles(name, studentNames, defaultTheme)}
+    >
+      {name.label}
+    </MenuItem>
+  ))}
+
+</Select>
+</div>
+<div style={{width:"50%",marginLeft:"10px"}}>
+<InputLabel id="infractionType">Infraction Type</InputLabel>
+   
+   <Select
+  sx={{ width: '100%'}}
+
+labelId="infractionType"
+value={infractionTypeSelected}
+onChange={handleInfractionTypeChange}
+renderValue={(selected) => {
+// Check if selected is an array, if not, wrap it in an array
+const selectedArray = Array.isArray(selected) ? selected : [selected];
+
+return (
+  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+    {selectedArray.map((value) => (
+      <Chip key={value} label={value} />
+    ))}
+  </Box>
+);
+}}
+MenuProps={MenuProps}
+>
+{infractionSelectOptions.map((name) => (
+<MenuItem
+  key={name.value}
+  value={name.value}
+  style={getStyles(name, studentNames, defaultTheme)}
+>
+  {name.label}
+</MenuItem>
+))}
+
+</Select>
+</div>
+</div>
+<div style={{ height: "10px" }}></div>
 
 
-  {console.log(infractionSelected?.value)}
+
+
+  {console.log(infractionTypeSelected?.value)}
 <div className='question-container-text-area'>
   <label htmlFor="offenseDescription">
-    {(infractionSelected?.value === "Failure to Complete Work" ||
-    infractionSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionSelected?.value === "Behavioral Concern")
-      ? getTitle(infractionSelected?.value)
+    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
+    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected?.value === "Behavioral Concern")
+      ? getTitle(infractionTypeSelected?.value)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
   </label>
   <h5>
-    {(infractionSelected?.value === "Failure to Complete Work" ||
-    infractionSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionSelected?.value === "Behavioral Concern")
-      ? getDescription(infractionSelected?.value)
+    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
+    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected?.value === "Behavioral Concern")
+      ? getDescription(infractionTypeSelected?.value)
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
   </h5>
 </div>
    <div>               
-<TextField
-              margin="normal"
-              required
-              fullWidth
-              onChange={(event) => {
-                const enteredValue = event.target.value;
-                setInfractionDescriptionSelected(enteredValue);
-              }}               id="offenseDescription"
-               placeholder="Please Type Short Description of Infraction"
-              name="offenseDescription"
-              autoFocus
-              InputLabelProps={{
-                sx: {  "&.Mui-focused": { color: "white", marginTop:"-10px" } },
-              }}
-    
-            />
-            </div>
-
+   <TextField
+  margin="normal"
+  required
+  fullWidth
+  multiline  
+  minRows={4}  // Optional: Set minimum number of rows
+  onChange={(event) => {
+    const enteredValue = event.target.value;
+    setInfractionDescriptionSelected(enteredValue);
+  }}
+  id="offenseDescription"
+  placeholder="Please Type Short Description of Infraction"
+  name="offenseDescription"
+  autoFocus
+  InputLabelProps={{
+    sx: { "&.Mui-focused": { color: "white", marginTop: "-10px" } },
+  }}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent form submission on Enter key
       
+      // Get the current cursor position
+      const { selectionStart, selectionEnd } = e.target;
+
+      // Get the current value of the input
+      const value = e.target.value;
+
+      // Insert a newline character (\n) at the cursor position
+      const newValue = value.substring(0, selectionStart) + '\n' + value.substring(selectionEnd);
+
+      // Update the input value and set the cursor position after the newline character
+      e.target.value = newValue;
+      e.target.selectionStart = e.target.selectionEnd = selectionStart + 1;
+
+      // Trigger the change event manually (React doesn't update the value automatically)
+      const event = new Event('input', { bubbles: true });
+      e.target.dispatchEvent(event);
+
+      // Optionally, you can add your logic here for what should happen after Enter is pressed.
+    }
+  }}
+
+/>
+            </div>
             <br/>
 
 
+            <div style={{ display: 'flex', flexDirection: "row", width: "100%" }} className='button-container'>
+  <div style={{ width: "30%" }}>
+    <Button
+      type="reset"
+      fullWidth
+      variant="contained"
+      onClick={()=>{
+        resetForm();
+      }}
+      sx={{ 
+        height: '100%', // Set explicit height
+        backgroundColor: 'green', // Set background color to green
+        '&:hover': {
+          backgroundColor: 'darkgreen' // Darken the color on hover if desired
+        }
+      }}
+    >
+      Reset
+    </Button>
+  </div>
+  <div style={{ width: "70%" }}>
+    <Button
+    disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
+      type="submit"
+      fullWidth
+      variant="contained"
+      sx={{ height: '100%' }} // Set explicit height
+    >
+      Submit
+    </Button>
+  </div>
+</div>
 
-          <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-           Submit
-            </Button>
+         
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </ThemeProvider>:
+ 
+
+
+     
    </div>
-  
+
     </>
     )
     

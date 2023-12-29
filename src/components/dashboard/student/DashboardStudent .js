@@ -1,28 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../../../utils/jsonData';
-import {CardComponent} from '../../CardComponet';
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import {TableComponent} from "../../TableComponent"
-import {ActionCard} from "../../CardComponet"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationBar from '../../notification-bar/NotificationBar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StudentPanel from './studentClosePunihsmentPanel';
-import PunishmentPanel from '../panel/punishmentPanel';
-import CreatePunishmentPanel from '../panel/createPunishmentPanel';
-import CreateNewStudentPanel from '../panel/createNewStudentPanel';
-import BlankPanelForTest from './blankPanelForTest';
 import StudentClosedPunishmentPanel from './studentClosePunihsmentPanel';
 import StudentOpenPunishmentPanel from './studentOpenPunihsmentPanel';
 import ShoutOutReport from './shoutOutReport';
