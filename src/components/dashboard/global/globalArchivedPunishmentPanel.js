@@ -10,14 +10,13 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import RestoreIcon from '@mui/icons-material/Restore';
 
 
 
 
 
-
-    const GlobalPunishmentPanel = ({filter,roleType}) => {
+    const GlobalArchivedPunishmentPanel = ({filter,roleType}) => {
       const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
@@ -29,13 +28,14 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
+      const [render, setRender] = useState(false)
 
   
       const headers = {
         Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
       };
       
-      const url = `${baseUrl}/punish/v1/punishments`;
+      const url = `${baseUrl}/punish/v1/archived`;
       
   
   useEffect(()=>{
@@ -62,10 +62,10 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
           .catch(function (error) {
             console.log(error);
           });
-      }, [ toast.visible]);
+      }, [ render]);
 
 
-      const data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+      const data = listOfPunishments
   
       const hasScroll = data.length > 10;
   
@@ -96,49 +96,49 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
         setToast({visible:false,message:""});
       };
 
-      const handleClosePunishment = (obj) =>{
-        setLoadingPunishmentId({id:obj.punishmentId,buttonType:"close"})
-        const url = `${baseUrl}/punish/v1/close/${obj.punishmentId}`;
-        axios
-        .post(url,[textareaValue], { headers }) // Pass the headers option with the JWT token
-        .then(function (response) {
-          console.log(response)
-          setToast({visible:true,message:"Your Referral was closed"})
+      const handleRestoreArchive = (obj) =>{
+  
 
+        setLoadingPunishmentId({id:obj.punishmentId,buttonType:"close"})
+    
+        const url = `${baseUrl}/punish/v1/archived/restore/${obj.punishmentId}`;
+        axios
+        .put(url, obj, { headers: headers }) // Pass the headers option with the JWT token
+        .then(function (response) {
+          console.log(response);
+          setToast({ visible: true, message: "Your Referral was Restored" });
         })
         .catch(function (error) {
           console.log(error);
         })
         .finally(()=>{
+          setRender((prev)=>(!prev))
           setOpenModal({display:false,message:""})
           setTimeout(()=>{
             setToast({visible:false,message:""})
             setLoadingPunishmentId({id:null,buttonType:""})
-
           },1000)
         }
-
-        );
+          );
     };
 
-
-    //Delete has been changed to archived api
     const handleDeletePunishment = (obj) =>{
       setLoadingPunishmentId({id:obj.punishmentId,buttonType:"delete"})
     
-      const url = `${baseUrl}/punish/v1/archived/${sessionStorage.getItem("email")}/${obj.punishmentId}`;
+      const url = `${baseUrl}/punish/v1/delete`;
       axios
-      .put(url,[textareaValue] , { headers: headers }) // Pass the headers option with the JWT token
+      .delete(url, { headers:headers,data:obj }) // Pass the headers option with the JWT token
       .then(function (response) {
-        console.log(response);
-        setToast({ visible: true, message: "Your Referral was Deleted" });
+        console.log(response)
+    setToast({visible:true,message:"Your Referral was Deleted"})
+    
       })
       .catch(function (error) {
         console.log(error);
       })
       .finally(()=>{
+        setRender((prev)=>(!prev))
         setOpenModal({display:false,message:""})
-        setTextareaValue("")
         setTimeout(()=>{
           setToast({visible:false,message:""})
           setLoadingPunishmentId({id:null,buttonType:""})
@@ -150,6 +150,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
       return (
           <>
+          {console.log(listOfPunishments)}
             {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
@@ -170,7 +171,6 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
         setOpenModal({display:false,message:""})
         setTextareaValue("")}}>Cancel</button>
       {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
-     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
 
     </div>
   </div>
@@ -198,10 +198,13 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
              Referal Type
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Description
+              Deleted On
+            </TableCell> <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+              Deleted By
             </TableCell>
+
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Level
+              Reason Deleted
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Status
@@ -237,8 +240,10 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
                         </div>
                       </TableCell>
                       <TableCell>{x.infraction.infractionName}</TableCell>
-                      <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription}</TableCell>
-                      <TableCell>{x.infraction.infractionLevel}</TableCell>
+                      <TableCell style={{width:"75px"}}>{x.archivedOn}</TableCell>
+                      <TableCell>{x.archivedBy}</TableCell>
+                      <TableCell>{x.archivedExplanation}</TableCell>
+
                       <TableCell>
   <div 
   className={`status-tag ${days >= 4 ? "tag-critical" : days >= 3 ? "tag-danger" : days >= 2 ? "tag-warning" : "tag-good"}`}
@@ -249,12 +254,11 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
-  setDeletePayload(x)  }}>
+<button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() =>handleRestoreArchive(x)}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      <CheckBoxIcon/>
+      <RestoreIcon/>
     )}
   </button>
 
@@ -265,14 +269,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></> : <> <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
-  setDeletePayload(x) }}>
-    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
-      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
-    ) : (
-      <DeleteForeverIcon/>
-    )}
-  </button></>}                      
+  </button>
+                    
  
 
 </TableCell>
@@ -291,4 +289,4 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
     );
   };
 
-export default GlobalPunishmentPanel;
+export default GlobalArchivedPunishmentPanel;

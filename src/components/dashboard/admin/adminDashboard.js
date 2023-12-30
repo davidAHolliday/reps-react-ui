@@ -14,6 +14,7 @@ import DetentionWidget from './detentionWidget';
 import AdminTeacherPanel from './adminTeacherPanel';
 import AdminUserRoleManagement from './adminUserRoleManagement';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel';
+import GlobalArchivedPunishmentPanel from '../global/globalArchivedPunishmentPanel';
 
 
 
@@ -195,6 +196,11 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
 
      }}className='dropdown-item'>User Role Management</div>
+           <div onClick={()=>{
+      setPanelName("archived")  
+      setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
+
+     }}className='dropdown-item'>Archived</div>
      
   </div>
         </div>
@@ -206,6 +212,8 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "userManagement" && <AdminUserRoleManagement/>}
+{panelName === "archived" && <GlobalArchivedPunishmentPanel/>}
+
       </div>
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
