@@ -12,6 +12,10 @@ import StudentClosedPunishmentPanel from './studentClosePunihsmentPanel';
 import StudentOpenPunishmentPanel from './studentOpenPunihsmentPanel';
 import ShoutOutReport from './shoutOutReport';
 import WarningIcon from '@mui/icons-material/Warning';
+import ShoutOutWidget from './shoutOutWidget';
+import TotalPositivePoints from './positivePointsComponents';
+import Card from '@mui/material/Card';
+
 
 
 const StudentDashboard = () => {
@@ -84,7 +88,7 @@ const StudentDashboard = () => {
         </div>
        <div className='page'>
          
-
+{/* 
       <div className='side-bar'>
         <div className="side-bar-widget">
         <WarningIcon  color="warning"/> Assignments 3 days late will result in In Lunch Detention 
@@ -92,50 +96,76 @@ const StudentDashboard = () => {
         <div className="side-bar-widget">
         <WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
         </div>
-     {/* <button onClick={handleGeneratePDF}>Generate PDF Report</button> */}
+     <button onClick={handleGeneratePDF}>Generate PDF Report</button>
 
-      </div>
-      <div className='main-content'> 
-      <div className = "main-content-menu">
-      <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-  
+      </div> */}
+      <div className='student-main-content'> 
+      {/* start-nav-bar */}
+      <div className ="student-main-content-menu">
+            {/* Mandatory Open Assignment Drop Down */}
+          <button 
+          className='student-drop-btn' 
+          onClick={() => {
+            // openDropdown("studentDropdown")
+            setPanelName("openAssignments")
+        }}
+        >
+          Mandatory Open Assignments
+        </button>
+
+                  {/* Shoutout Drop Down */}
+        <button 
+          className='student-drop-btn' 
+          onClick={() => {
+            // openDropdown("teacherDropDown")
+            setPanelName("shoutOutPanel")
+            }}
+        >
+          Shout Outs!
+        </button>
+
+    
   {/* Histroy Drop Down */}
   <button 
-    className='dropbtn' 
-    onClick={() => {
+          className='student-drop-btn' 
+          onClick={() => {
       // openDropdown("referalDropdown")
        setPanelName("closedAssignments")}}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     History
   </button>
-    {/* Shoutout Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      // openDropdown("teacherDropDown")
-      setPanelName("shoutOutPanel")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    Shout Outs!
-  </button>
 
-
-    {/* Student Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      // openDropdown("studentDropdown")
-      setPanelName("openAssignments")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+   {/* Extra Support Drop Down */}
+   <button 
+          className='student-drop-btn' 
+          onClick={() => {
+      // openDropdown("referalDropdown")
+       setPanelName("")}}
   >
-    Active Assignments
+    Extra Support
   </button>
-        </div>
       </div>
-      <div className = "">
+      {/* end-nav-bar */}
+
+      <div className='dashboard-title'>
+        Student Dashboard
+      </div>
+
+      <div className='student-overview'>
+        <div className='student-overview-first'>
+        <Card variant="outlined">
+        <ShoutOutWidget/>
+        </Card>
+        </div>
+        <div className='student-overview-second'>
+        <Card style={{height:"200px"}}variant="outlined">
+          <TotalPositivePoints/>
+          </Card>
+        </div>
+
+      </div>
+
+      <div className = "student-panel">
       </div>
       {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}

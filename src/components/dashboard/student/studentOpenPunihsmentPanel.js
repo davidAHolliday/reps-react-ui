@@ -72,10 +72,23 @@ const handleAssignmentClick=(x)=>{
   
     // Check if the date is more than 3 days old
     if (daysDifference > 5) {
-      return <WarningIcon color={"error"} />;
+      return(
+        <>
+        <WarningIcon color={"error"}  />
+              <div>ISS </div>
+
+        </>
+
+
+      ) 
     }
     else if (daysDifference > 3){
-      return <WarningIcon color={"warning"} />;
+      return(<>
+      <WarningIcon color={"warning"} />
+      <div>Lunch Detention</div>
+      </>
+
+      ) 
       
 
     }
@@ -116,7 +129,7 @@ const handleAssignmentClick=(x)=>{
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Description 
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            <TableCell variant="head" style={{ fontWeight: 'bold' ,width:"5%" }}>
              Level
             </TableCell>
             {/* <TableCell variant="head" style={{ fontWeight: 'bold' }}>
@@ -128,7 +141,9 @@ const handleAssignmentClick=(x)=>{
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created On
             </TableCell>
-         
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            Consequence if not Completed by Tomorrow
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -157,7 +172,11 @@ const handleAssignmentClick=(x)=>{
   <TableCell>{x.teacherEmail}</TableCell>
 
   <TableCell >
-<div style={{display:"flex"}}>  {calculateImportance(x)} {dateCreateFormat(x.timeCreated)}</div>
+<div style={{display:"flex"}}>   {dateCreateFormat(x.timeCreated)}</div>
+
+    </TableCell>
+    <TableCell >
+<div style={{display:"flex"}}>  {calculateImportance(x)}</div>
 
     </TableCell>
 
