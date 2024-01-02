@@ -5,6 +5,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
 import Tooltip from '@mui/material/Tooltip';
 import WarningIcon from '@mui/icons-material/Warning';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { baseUrl } from '../../../utils/jsonData'
 
@@ -162,7 +163,8 @@ const handleAssignmentClick=(x)=>{
 <TableRow key={key}>
   <TableCell>
   <Tooltip title="Click to view assignment">
-    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>
+    {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/>:
+    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>}
  </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
