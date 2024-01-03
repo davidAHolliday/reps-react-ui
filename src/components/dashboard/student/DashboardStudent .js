@@ -87,18 +87,6 @@ const StudentDashboard = () => {
           </Toolbar>
         </div>
        <div className='page'>
-         
-{/* 
-      <div className='side-bar'>
-        <div className="side-bar-widget">
-        <WarningIcon  color="warning"/> Assignments 3 days late will result in In Lunch Detention 
-        </div>
-        <div className="side-bar-widget">
-        <WarningIcon color ="error"/> Assignments 5 or More Days Past Due, will result in In School Suspension 
-        </div>
-     <button onClick={handleGeneratePDF}>Generate PDF Report</button>
-
-      </div> */}
       <div className='student-main-content'> 
       {/* start-nav-bar */}
       <div className ="student-main-content-menu">
