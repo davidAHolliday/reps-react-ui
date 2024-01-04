@@ -7,7 +7,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
 
-   const ShoutOutReport = () => {
+   const ShoutOutWidget = () => {
 
     const loggedInUser = sessionStorage.getItem("email")
 
@@ -39,38 +39,32 @@ import { baseUrl } from '../../../utils/jsonData'
       return date.toLocaleDateString('en-US',options);
   
     }
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "SO" || punish.status === "CFR");
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "SO" || punish.status ==="CFR");
       
-    const hasScroll = data.length > 10;
+    const hasScroll = data.length > 2;
 
     return (
         <>
-                 { console.log(listOfPunishments)}
-
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
-   Kudos, Lot of People are Talking About You!
-        </Typography>
+         <div >
         </div>
    
-    <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+    <TableContainer component={Paper} style={{ height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
           <TableRow>
           
           
+          <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+             Created On
+            </TableCell>
          
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Notes 
+              Shout Outs 
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created By
             </TableCell>
-			<TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Created On
-            </TableCell>
-         
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -81,10 +75,10 @@ import { baseUrl } from '../../../utils/jsonData'
           {data.length > 0 ? (
             data.map((x, key) => (
 <TableRow key={key}>
+<TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.teacherEmail}</TableCell>
-  <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 </TableRow>
             ))
           ) : (
@@ -99,6 +93,6 @@ import { baseUrl } from '../../../utils/jsonData'
     )
     }
 
-    export default ShoutOutReport;
+    export default ShoutOutWidget;
 
 

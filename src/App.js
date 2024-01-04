@@ -10,6 +10,7 @@ import AdminDashboard from './components/dashboard/admin/adminDashboard';
 import PDFReport from './components/dashboard/admin/reports/PDFReport';
 import { PDFViewer } from '@react-pdf/renderer';
 import TeacherDashboard from './components/dashboard/teacher/teacherDashboard';
+import GlobalArchivedPunishmentPanel from './components/dashboard/global/globalArchivedPunishmentPanel';
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
         <Route path="/dashboard/teacher" element={<TeacherDashboard />} allowedRoles={["TEACHER"]} />
         <Route path="/forms/start-punishment" element={<MyForm />} />
         <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
+        <Route path="/admin/archived" element={<GlobalArchivedPunishmentPanel />} />
+
         <Route path="/forms/report" element={<> 
           <PDFViewer width="100%" height="800px">
 

@@ -13,6 +13,11 @@ import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
 import TeacherPunishmentPanel from '../global/globalPunishmentPanel.js';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel.js';
+import Card from '@mui/material/Card';
+import ShoutOutWidget from '../student/shoutOutWidget.js';
+import TeaherOverviewPanel from './teacherPanels/teacherOverview.js';
+import TeacherOverviewPanel from './teacherPanels/teacherOverview.js';
+import TeacherShoutOutWidget from './teacherPanels/teacherShoutOutWidget.js';
 
 
 const TeacherDashboard = () => {
@@ -21,7 +26,7 @@ const TeacherDashboard = () => {
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("punishment")
+  const [panelName,setPanelName] = useState("overview")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referalDropdown:false,
     teacherDropdown:false,
@@ -113,17 +118,8 @@ const TeacherDashboard = () => {
           </Toolbar>
         </div>
        <div className='page'>
-         
-      <div className='side-bar'>
-        <div className="side-bar-widget">
-        WIDGETS CAN GO HERE
-        </div>
-      
-     {/* <button onClick={handleGeneratePDF}>Generate PDF Report</button> */}
-
-      </div>
-      <div className='main-content'> 
-      <div className = "main-content-menu">
+      <div className='teacher-main-content'> 
+      <div className = "student-main-content-menu">
       <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)"}}>
   
   {/* Punishment Drop Down */}
@@ -209,16 +205,40 @@ const TeacherDashboard = () => {
    
      
   </div>
+  </div>
+  <div className='sub-main'>
+  <div className='left-main'>
+  <div className='teacher-overview'>
+        <div className='teacher-overview-first'>
+        <Card variant="outlined">
+         <h2>Positive Behavioral</h2>
+        <TeacherShoutOutWidget/>
+        </Card>
         </div>
       </div>
-      <div className = "main-content-panel">
+      <div className = "teacher-panel">
+      {panelName === "overview" &&<TeacherOverviewPanel/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "ftc" && <TeacherFTCPanel/>}
+      </div>
+
+
+  </div>
+  <div className='right-side-bar'>
+    Side Bar
+  </div>
+
+
+  </div>
+
+
+   
 
 
       </div>
+
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar />

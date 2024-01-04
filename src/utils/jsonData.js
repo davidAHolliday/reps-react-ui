@@ -1649,7 +1649,7 @@ export const essayData = {
               "infractionName":"Unauthorized Device/Cell Phone",
               "level": 1,
               "Question 1":{
-                "question":"True or false students who were not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
+                "question":"True or false students who were  not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
                 "title": "Read the following Abstract for the article: The Impact of Mobile Phone Usage on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
                 "body": `In this study, we examined the impact of mobile phone usage, during class lecture, on student learning. Participants in three different study groups (control, low-distraction, and high-distraction) watched a video lecture, took notes on that lecture, and took two learning assessments after watching the lecture. Students who were not using their mobile phones wrote down 62% more information in their notes, took more detailed notes, were able to recall more detailed information from the lecture, and scored a full letter grade and a half higher on a multiple choice test than those students who were actively using their mobile phones. Theoretical and pedagogical implications are discussed.`,
                 "references": {
