@@ -517,9 +517,10 @@ button:hover {
 
 }
 .teacher-widget-third{
-  height: 300px;
+  height: auto;
   background-color: teal;
   margin-right: 5px;
+
 
 }
 

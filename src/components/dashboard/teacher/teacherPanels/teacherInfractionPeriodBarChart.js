@@ -101,8 +101,8 @@ const chartSetting = {
     },
   ],
 
-  width: 500,
-  height: 200,
+  width: 900,
+  height: 260,
   sx: {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
       transform: 'translate(-20px, 0)',
@@ -118,7 +118,7 @@ const dataset = [
   },
   {
     incidents: getIncidentByBehavior("Disruptive Behavior"),
-    behavior: 'Disruptive Behavior',
+    behavior: 'Dis. Behavior',
   },
   {
     incidents: getIncidentByBehavior("Horseplay"),
@@ -130,15 +130,15 @@ const dataset = [
   },
   {
     incidents: getIncidentByBehavior("Unauthorized Device/Cell Phone"),
-    behavior: 'Unauthorized Device/Cell Phone',
+    behavior: 'Unauthorized Device',
   },
   {
     incidents: getIncidentByBehavior("Behavioral Concern"),
-    behavior: 'Behavioral Concern',
+    behavior: 'Bx Concern',
   },
   {
     incidents: getIncidentByBehavior("Failure To Complete Work"),
-    behavior: 'Failure To Complete Work',
+    behavior: 'FTC',
   },
   
 ];

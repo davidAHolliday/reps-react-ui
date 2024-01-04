@@ -183,7 +183,7 @@ console.log("final", displayDate)
           },
         ]}
         width={350}
-        height={300}
+        height={200}
         // margin={{
         //   left: 50,
         //   right:5,

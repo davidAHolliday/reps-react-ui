@@ -23,10 +23,6 @@ import ReferralByBehavior from './referralsByBehavior';
 
 
   
-  const size = {
-    width: 500,
-    height: 250,
-  };
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -86,9 +82,12 @@ import ReferralByBehavior from './referralsByBehavior';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
       <Card>
-    <div style={{marginTop:"50px" }}>
+    <div style={{ textAlign:"center",marginTop:"10px"}}>
+    <Typography>Parent Communcation</Typography>
     <PieChart
+   
       series={[
+      
         
         { data: [
           { id: 0, value: 10, label: 'Behavioral' },
@@ -100,13 +99,17 @@ import ReferralByBehavior from './referralsByBehavior';
           
         },
       ]}
+      width={500}
+      height={260}
+      
       sx={{
         [`& .${pieArcLabelClasses.root}`]: {
           fill: 'white',
           fontWeight: 'bold',
         },
       }}
-      {...size}
+   
+    
     />
 
 
