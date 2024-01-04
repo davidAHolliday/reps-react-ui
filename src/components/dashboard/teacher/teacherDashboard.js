@@ -140,7 +140,7 @@ const TeacherDashboard = () => {
   <div className={isDropdownOpen.referalDropdown ? 'dropdown-content show' : 'dropdown-content'}>
   <div onClick={()=>{
         setIsDropdownOpen(false)
-        setPanelName("createNewPunishment")}}
+        setPanelName("createPunishment")}}
         className='dropdown-item'>Create New
         </div>
 {renderDropdownContent(!isDropdownOpen.referalDropdown,"OPEN","View Open","punishment")}
