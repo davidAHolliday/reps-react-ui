@@ -38,6 +38,7 @@ const TeacherDashboard = () => {
     newReferral:false,
   });
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
+  const [sideBarOpen,setSideBarOpen]= useState(false)
 
 
 
@@ -215,7 +216,7 @@ const TeacherDashboard = () => {
   </div>
   </div>
   <div className='sub-main'>
-  <div className='left-main'>
+  <div style={{width: sideBarOpen ?"70%":"95%"}} className='left-main'>
   <div className='teacher-overview'>
         <div className='teacher-overview-first'>
         <Card variant="outlined">
@@ -234,23 +235,29 @@ const TeacherDashboard = () => {
 
 
   </div>
-  <div className='right-side-bar'>
-    <Card>
-<DetentionWidget/>
-    </Card>
-    <ISSWidget/>
-    <Card>
-
-    </Card>
-  </div>
-
-
-  </div>
-
-
-   
-
-
+  <div style={{width: sideBarOpen ?"30%":"5%"}}className="sidebar-content">
+  {!sideBarOpen ? (
+    <div onClick={()=>setSideBarOpen(true)} className="vertical-text">
+      Click to open
+    </div>
+  ) : (
+    <>
+    <button onClick={()=>setSideBarOpen(false)}>Close (x)</button>
+    <div style={{marginBottom:"20px"}}>
+   < Card>
+        <DetentionWidget />
+      </Card>
+    </div>
+      <div>
+      <Card>
+      <ISSWidget />
+      </Card>
+      </div>
+  
+    </>
+  )}
+</div>
+</div>
       </div>
 
 
