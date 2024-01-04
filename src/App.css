@@ -502,11 +502,14 @@ button:hover {
   background-color: purple;
   display: flex;
   flex-direction: row;
+  overflow-x: auto; /* This will add a horizontal scrollbar when content exceeds the container width */
+  white-space: nowrap; /* This will prevent content from wrapping to the next line */
+
+
 
 }
 
 .teacher-widget-half{
-  width: 50%;
   height: 300px;
   background-color: white;
   margin-right: 5px;
@@ -514,7 +517,6 @@ button:hover {
 
 }
 .teacher-widget-third{
-  width: 33%;
   height: 300px;
   background-color: teal;
   margin-right: 5px;
@@ -538,12 +540,12 @@ button:hover {
 
 
 .right-side-bar{
-  width: 15%;
+  width: 20%;
   background-color: orange;
 }
 
 .left-main{
-  width: 85%;
+  width: 80%;
 }
 
 
@@ -706,11 +708,14 @@ table th tr {
 .widget-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: x-small;
+
 }
 
 .widget-table-tr{
   background-color: turquoise;
-  color:white
+  color:white;
+  font-size: x-small;
 }
 
 

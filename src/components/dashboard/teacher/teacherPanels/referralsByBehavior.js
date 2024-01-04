@@ -163,6 +163,21 @@ console.log("final", displayDate)
     console.log('seriesData:', seriesData); // Debugging log
   
 
+const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+const cData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+
+
+const xLabels = [
+  'W5',
+  'W4',
+  'W3',
+  'W3',
+  'W2',
+  'W1',
+  'Current',
+];
+
 
   return (
      punishmentDataAssocTeacher && (<>
@@ -170,27 +185,15 @@ console.log("final", displayDate)
      TBD
       </Typography>
       <LineChart
-        xAxis={[{ 
-          scaleType:'band', data: xAxisData, label:"Weeks"
-       }]}
-
-       yAxis={[ {label:"Number of Incidents"}
+      width={500}
+      height={300}
+      series={[
+        { data: pData, label: 'Tardy' },
+        { data: uData, label: 'Dress Code' },
+        { data: cData, label: 'Horseplay' },
       ]}
-        
-        series={[
-          {
-            data: seriesData, // Number of punishments
-          },
-        ]}
-        width={350}
-        height={300}
-        // margin={{
-        //   left: 50,
-        //   right:5,
-        //   top:20,
-        //   bottom: 70,
-        // }}
-      />
+      xAxis={[{ scaleType: 'point', data: xLabels }]}
+    />
     </>) 
   );
 }

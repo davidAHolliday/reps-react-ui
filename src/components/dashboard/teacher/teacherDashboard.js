@@ -18,6 +18,8 @@ import ShoutOutWidget from '../student/shoutOutWidget.js';
 import TeaherOverviewPanel from './teacherPanels/teacherOverview.js';
 import TeacherOverviewPanel from './teacherPanels/teacherOverview.js';
 import TeacherShoutOutWidget from './teacherPanels/teacherShoutOutWidget.js';
+import DetentionWidget from '../admin/detentionWidget.js';
+import ISSWidget from '../admin/issWidget.js';
 
 
 const TeacherDashboard = () => {
@@ -227,7 +229,13 @@ const TeacherDashboard = () => {
 
   </div>
   <div className='right-side-bar'>
-    Side Bar
+    <Card>
+<DetentionWidget/>
+    </Card>
+    <ISSWidget/>
+    <Card>
+
+    </Card>
   </div>
 
 
