@@ -8,7 +8,10 @@ import StudentProfile from '../../../StudentProfile';
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import TeacherInfractionOverPeriodCarChart from './teacherInfractionPeriodBarChart';
 import IncidentsByStudentTable from './incidentsByStudentTable';
-import TotalReferalByWeek from './totalReferalByWeekLineChart';
+import TotalReferalByWeek from './referralPerWeek';
+import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
+import Card from '@mui/material/Card';
+import ReferralByBehavior from './referralsByBehavior';
 
    const TeacherOverviewPanel = () => {
 
@@ -82,7 +85,8 @@ import TotalReferalByWeek from './totalReferalByWeekLineChart';
 
   <div className='overview-row'>
     <div className='teacher-widget-half'>
-    <div style={{marginTop:"50px"}}>
+      <Card>
+    <div style={{marginTop:"50px" }}>
     <PieChart
       series={[
         
@@ -107,11 +111,15 @@ import TotalReferalByWeek from './totalReferalByWeekLineChart';
 
 
     </div>
+    </Card>
     </div>
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
+        <Card>
 <TeacherInfractionOverPeriodCarChart/>
+</Card>
       </div>
+  
 
 
 </div>
@@ -129,13 +137,15 @@ import TotalReferalByWeek from './totalReferalByWeekLineChart';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-  <IncidentsByStudentTable/>
+  <Card>  <IncidentsByStudentTable/>
+  </Card>
+
 
 </div>
 
     </div>
     <div className='teacher-widget-half'>
-
+<Card></Card>
 
 </div>
 
@@ -151,17 +161,24 @@ import TotalReferalByWeek from './totalReferalByWeekLineChart';
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
+    <Card>
+
       <TotalReferalByWeek/>
+      </Card>
+
 
 
     </div>
     <div className='teacher-widget-third'>
-
-
+      <Card>
+<TotalStudentReferredByWeek/>
+</Card>
 </div>
 
 <div className='teacher-widget-third'>
-
+<Card>
+<ReferralByBehavior/>
+</Card>
 
 </div>
 

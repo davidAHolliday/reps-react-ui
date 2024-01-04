@@ -20,7 +20,7 @@ const getWeekNumber = (date) => {
   return Math.ceil((((date - oneJan) / millisecondsInDay) + oneJan.getDay() + 1) / 7);
 };
 
-export default function TotalReferalByWeek() {
+export default function ReferralByBehavior() {
   const [punishmentDataAssocTeacher, setPunishmentDataAssocTeacher] = useState([]);
   const [punishmentData,setPunishmentData] = useState([])
   const currentWeek = getCurrentWeekOfYear();
@@ -136,16 +136,16 @@ if(cw <=0){
 
 
 const displayDate = [
-  {"Today" :findDataByWeek(accountForYearRollOver(currentWeek))},
-  {"LW1" : findDataByWeek(accountForYearRollOver(currentWeek-1))},
-  {"LW2" : findDataByWeek(accountForYearRollOver(currentWeek-2))},
-  {"LW3" : findDataByWeek(accountForYearRollOver(currentWeek-3))},
-  {"LW4" : findDataByWeek(accountForYearRollOver(currentWeek-4))},
-  {"LW5" : findDataByWeek(accountForYearRollOver(currentWeek-5))},
-  {"LW6" : findDataByWeek(accountForYearRollOver(currentWeek-6))},
-  {"LW7" : findDataByWeek(accountForYearRollOver(currentWeek-7))},
-  {"LW8" : findDataByWeek(accountForYearRollOver(currentWeek-8))},
-  {"LW9" : findDataByWeek(accountForYearRollOver(currentWeek-9))},
+  {"Today" :findDataByWeek(accountForYearRollOver(currentWeek)).length},
+  {"LW1" : findDataByWeek(accountForYearRollOver(currentWeek-1)).length},
+  {"LW2" : findDataByWeek(accountForYearRollOver(currentWeek-2)).length},
+  {"LW3" : findDataByWeek(accountForYearRollOver(currentWeek-3)).length},
+  {"LW4" : findDataByWeek(accountForYearRollOver(currentWeek-4)).length},
+  {"LW5" : findDataByWeek(accountForYearRollOver(currentWeek-5)).length},
+  {"LW6" : findDataByWeek(accountForYearRollOver(currentWeek-6)).length},
+  {"LW7" : findDataByWeek(accountForYearRollOver(currentWeek-7)).length},
+  {"LW8" : findDataByWeek(accountForYearRollOver(currentWeek-8)).length},
+  {"LW9" : findDataByWeek(accountForYearRollOver(currentWeek-9)).length},
 
 ]
 
@@ -167,14 +167,14 @@ console.log("final", displayDate)
   return (
      punishmentDataAssocTeacher && (<>
       <Typography variant="h6" gutterBottom>
-       Number of Students Receiving Refferals By Week
+     TBD
       </Typography>
       <LineChart
         xAxis={[{ 
           scaleType:'band', data: xAxisData, label:"Weeks"
        }]}
 
-       yAxis={[ {label:"Number of Student Referred"}
+       yAxis={[ {label:"Number of Incidents"}
       ]}
         
         series={[
@@ -183,13 +183,13 @@ console.log("final", displayDate)
           },
         ]}
         width={350}
-        height={350}
-        margin={{
-          left: 50,
-          right:5,
-          top:20,
-          bottom: 70,
-        }}
+        height={300}
+        // margin={{
+        //   left: 50,
+        //   right:5,
+        //   top:20,
+        //   bottom: 70,
+        // }}
       />
     </>) 
   );

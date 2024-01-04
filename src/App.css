@@ -507,18 +507,17 @@ button:hover {
 
 .teacher-widget-half{
   width: 50%;
-  height: 400px;
-  background-color: teal;
+  height: 300px;
+  background-color: white;
   margin-right: 5px;
   
 
 }
 .teacher-widget-third{
   width: 33%;
-  height: 400px;
+  height: 300px;
   background-color: teal;
   margin-right: 5px;
-  
 
 }
 
@@ -539,12 +538,12 @@ button:hover {
 
 
 .right-side-bar{
-  width: 20%;
+  width: 15%;
   background-color: orange;
 }
 
 .left-main{
-  width: 80%;
+  width: 85%;
 }
 
 
