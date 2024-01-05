@@ -16,22 +16,32 @@ if(cw <=0){
 }
 
 
-const displayDate = [
-  {"Today":extractDataByWeek(yearAdj(currentWeek),data).length},
-  {"LW1" : extractDataByWeek(yearAdj(currentWeek-1),data).length},
-  {"LW2" : extractDataByWeek(yearAdj(currentWeek-2),data).length},
-  {"LW3" : extractDataByWeek(yearAdj(currentWeek-3),data).length},
-  {"LW4" : extractDataByWeek(yearAdj(currentWeek-4),data).length},
-  {"LW5" : extractDataByWeek(yearAdj(currentWeek-5),data).length},
-  {"LW6" : extractDataByWeek(yearAdj(currentWeek-6),data).length},
-  {"LW7" : extractDataByWeek(yearAdj(currentWeek-7),data).length},
-  {"LW8" : extractDataByWeek(yearAdj(currentWeek-8),data).length},
-  {"LW9" : extractDataByWeek(yearAdj(currentWeek-9),data).length},
+const rangeWeeks = 10
 
-]
+const GenerateChartData = (currentWeek, rangeWeeks,data) => {
+  const genData = [];
+  
+  for (let i = 0; i < rangeWeeks; i++) {
+    const weekKey = `W${yearAdj(currentWeek-i)}`;
+    const weekData = extractDataByWeek(yearAdj(currentWeek-i),data).length; // Assuming findDataByWeek and yearAdj are defined elsewhere
+    
+    genData.push({
+      [weekKey]: weekData
+    });
+  }
 
+  return genData;
+};
+
+
+console.log(data)
+const displayDate = GenerateChartData(currentWeek,rangeWeeks,data)
+
+console.log(displayDate)
 //This reverses the x axis
 displayDate.reverse()
+
+
 
 
 // Convert the weekMap to the format suitable for LineChart
@@ -41,7 +51,7 @@ const seriesData = displayDate.map(obj => Object.values(obj)[0] || 0); // Extrac
   return (
      data && (<>
       <Typography variant="h6" gutterBottom>
-       Number of Students Receiving referrals By Week
+       Number of Referrals By Week
       </Typography>
       <LineChart
         xAxis={[{ 
@@ -56,7 +66,7 @@ const seriesData = displayDate.map(obj => Object.values(obj)[0] || 0); // Extrac
             data: seriesData, // Number of punishments
           },
         ]}
-        width={350}
+        width={400}
         height={200}
       />
     </>) 

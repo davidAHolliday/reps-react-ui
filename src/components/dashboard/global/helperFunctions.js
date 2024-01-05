@@ -65,3 +65,16 @@ export const extractDataByWeek = (week,data) => {
     return thisWeek; // Return the filtered array
   }
 
+
+  export const findDataByWeekAndByPunishment = (week, behavioral,data) => {
+    // Filter data based on the behavioral infraction name
+    const thisWeek = data.filter(punish => punish.infraction.infractionName === behavioral)
+                        .filter(punish => {
+                          const date = new Date(punish.timeCreated);
+                          const weekNumber = getWeekNumber(date); // Assuming getWeekNumber is defined elsewhere in your code
+  
+                          return weekNumber === week; // Return true if date matches the week
+                        });
+  
+    return thisWeek.length; // Return the filtered array
+  };

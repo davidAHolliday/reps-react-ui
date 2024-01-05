@@ -113,7 +113,7 @@ useEffect(() => {
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-  <Card>  <IncidentsByStudentTable/>
+  <Card>  <IncidentsByStudentTable data={punishmentData}/>
   </Card>
 
 
@@ -153,7 +153,7 @@ useEffect(() => {
 
 <div className='teacher-widget-third'>
 <Card>
-<ReferralByBehavior/>
+<ReferralByBehavior data={punishmentData}/>
 </Card>
 
 </div>

@@ -14,20 +14,28 @@ if(cw <=0){
 }
 }
 
-const displayDate = [
-  {"Today":getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek),data)).length},
-  {"LW1" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-1),data)).length},
-  {"LW2" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-2),data)).length},
-  {"LW3" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-3),data)).length},
-  {"LW4" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-4),data)).length},
-  {"LW5" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-5),data)).length},
-  {"LW6" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-6),data)).length},
-  {"LW7" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-7),data)).length},
-  {"LW8" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-8),data)).length},
-  {"LW9" : getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-9),data)).length},
+const rangeWeeks = 10
 
-]
+const GenerateChartData = (currentWeek, rangeWeeks,data) => {
+  const genData = [];
+  
+  for (let i = 0; i < rangeWeeks; i++) {
+    const weekKey = `W${yearAdj(currentWeek-i)}`;
+    const weekData = getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-i),data)).length; // Assuming findDataByWeek and yearAdj are defined elsewhere
+    
+    genData.push({
+      [weekKey]: weekData
+    });
+  }
 
+  return genData;
+};
+
+
+console.log(data)
+const displayDate = GenerateChartData(currentWeek,rangeWeeks,data)
+
+console.log(displayDate)
 //This reverses the x axis
 displayDate.reverse()
 
@@ -58,7 +66,7 @@ displayDate.reverse()
             data: seriesData, // Number of punishments
           },
         ]}
-        width={350}
+        width={400}
         height={200}
       />
     </>) 
