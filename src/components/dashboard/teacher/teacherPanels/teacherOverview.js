@@ -13,6 +13,7 @@ import ReferralByBehavior from './referralsByBehavior';
 import { fetchDataFromApi } from '../../global/helperFunctions';
 import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarChart';
 import { PieChartParentCommunication } from './pieChartParentCommunication';
+import RecentIncidents from './studentRecentIncidents';
 
    const TeacherOverviewPanel = () => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -85,15 +86,18 @@ useEffect(() => {
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-  <Card>  <IncidentsByStudentTable data={punishmentData}/>
-  </Card>
+<Card style={{padding:"5px"}}>
+    <IncidentsByStudentTable data={punishmentData}/>
+</Card>
 
 
 </div>
 
     </div>
     <div className='teacher-widget-half'>
-<Card></Card>
+<Card style={{padding:"5px"}}>
+<RecentIncidents data={punishmentData}/>
+</Card>
 
 </div>
 
@@ -109,7 +113,7 @@ useEffect(() => {
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <Card>
+    <Card style={{padding:"5px"}}>
 
       <TotalReferalByWeek data={punishmentData}/>
       </Card>
@@ -118,13 +122,13 @@ useEffect(() => {
 
     </div>
     <div className='teacher-widget-third'>
-      <Card>
+    <Card style={{padding:"5px"}}>
 <TotalStudentReferredByWeek data={punishmentData}/>
 </Card>
 </div>
 
 <div className='teacher-widget-third'>
-<Card>
+<Card style={{padding:"5px"}}>
 <ReferralByBehavior data={punishmentData}/>
 </Card>
 

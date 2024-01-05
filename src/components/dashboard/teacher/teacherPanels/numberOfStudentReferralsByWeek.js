@@ -1,9 +1,10 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Typography } from '@mui/material';
 import { extractDataByWeek, getCurrentWeekOfYear, getUniqueStudentIdFromList } from '../../global/helperFunctions';
+import { useState } from 'react';
 
 export default function TotalStudentReferredByWeek({data = []}) {
-  
+const [rangeWeeks,setRangeWeek] = useState(10)
 const currentWeek = getCurrentWeekOfYear();
 
 const yearAdj = (cw) =>{
@@ -14,7 +15,6 @@ if(cw <=0){
 }
 }
 
-const rangeWeeks = 10
 
 const GenerateChartData = (currentWeek, rangeWeeks,data) => {
   const genData = [];
@@ -51,8 +51,8 @@ displayDate.reverse()
   return (
      data && (<>
       <Typography variant="h6" gutterBottom>
-       Number of Students Receiving Refferals By Week
-      </Typography>
+       Number of Students Receiving Referrals By Week
+      </Typography> <button onClick={()=>setRangeWeek((prev)=> prev-1)} style={{height:"20px", width:"20px",padding:0,borderRadius:0}}>-</button> <button onClick={()=>setRangeWeek((prev)=> prev+1)} style={{height:"20px", width:"20px",padding:0, borderRadius:0}}>+</button> 
       <LineChart
         xAxis={[{ 
           scaleType:'band', data: xAxisData, label:"Weeks"

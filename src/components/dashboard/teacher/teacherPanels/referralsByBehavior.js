@@ -1,8 +1,10 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Typography } from '@mui/material';
 import { findDataByWeekAndByPunishment, getCurrentWeekOfYear } from '../../global/helperFunctions';
+import { useState } from 'react';
 
 export default function ReferralByBehavior({data = []}) {
+ const [rangeWeeks,setRangeWeek] = useState(10)
   const currentWeek = getCurrentWeekOfYear();
 
  
@@ -28,8 +30,6 @@ const GenerateBxByWeek=(bx,numOfWeeks,data)=>{
 
 }
 
-const rangeWeeks = 10;
-
 const tardyData = GenerateBxByWeek("Tardy",rangeWeeks,data);
 const horseplayData =  GenerateBxByWeek("Horseplay",rangeWeeks,data);
 const dressCodeData =  GenerateBxByWeek("Dress Code",rangeWeeks,data);
@@ -50,8 +50,8 @@ const xLabels = GenerateLabels(rangeWeeks,currentWeek).reverse()
   return (
      data && (<>
       <Typography variant="h6" gutterBottom>
-     TBD
-      </Typography>
+     Behavior Trends
+      </Typography> <button onClick={()=>setRangeWeek((prev)=> prev-1)} style={{height:"20px", width:"20px",padding:0,borderRadius:0}}>-</button> <button onClick={()=>setRangeWeek((prev)=> prev+1)} style={{height:"20px", width:"20px",padding:0, borderRadius:0}}>+</button> 
       <LineChart
       width={550}
       height={200}
