@@ -5,14 +5,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-import TeacherInfractionOverPeriodCarChart from './teacherInfractionPeriodBarChart';
 import IncidentsByStudentTable from './incidentsByStudentTable';
 import TotalReferalByWeek from './referralsByWeek';
 import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
 import Card from '@mui/material/Card';
 import ReferralByBehavior from './referralsByBehavior';
 import { fetchDataFromApi } from '../../global/helperFunctions';
+import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarChart';
+import { PieChartParentCommunication } from './pieChartParentCommunication';
 
    const TeacherOverviewPanel = () => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -56,35 +56,7 @@ useEffect(() => {
     <div className='teacher-widget-half'>
       <Card>
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-    <Typography>Parent Communcation</Typography>
-    <PieChart
-   
-      series={[
-      
-        
-        { data: [
-          { id: 0, value: 10, label: 'Behavioral' },
-          { id: 1, value: 15, label: 'ShoutOut' },
-          { id: 2, value: 20, label: 'Referals' },
-        ],
-          arcLabel: (item) =>  `(${item.value})`,
-          arcLabelMinAngle: 45,
-          
-        },
-      ]}
-      width={500}
-      height={260}
-      
-      sx={{
-        [`& .${pieArcLabelClasses.root}`]: {
-          fill: 'white',
-          fontWeight: 'bold',
-        },
-      }}
-   
-    
-    />
-
+<PieChartParentCommunication data={punishmentData}/>
 
     </div>
     </Card>
@@ -92,7 +64,7 @@ useEffect(() => {
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
         <Card>
-<TeacherInfractionOverPeriodCarChart/>
+<TeacherInfractionOverPeriodBarChart data={punishmentData}/>
 </Card>
       </div>
   
