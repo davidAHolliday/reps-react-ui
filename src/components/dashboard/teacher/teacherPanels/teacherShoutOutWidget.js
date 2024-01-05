@@ -1,27 +1,34 @@
 import react, {useState,useEffect} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import axios from "axios"
-import { baseUrl } from '../../../../utils/jsonData';
 import { dateCreateFormat } from '../../global/helperFunctions';
-
-   const TeacherShoutOutWidget = ({data = []}) => {
-
+import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
   
-
+const TeacherShoutOutWidget = ({data = []}) => {
+    const [barOpen,setBarOpen] = useState(false)
+  
     //We need to fix the cfr issues
 	  const shoutOutData = data.filter(punish => punish.infraction.infractionName === "Positive Behavior Shout Out!");
       
     const hasScroll = shoutOutData.length > 2;
 
     return (
+!barOpen ?  <div style={{display:"flex",flexDirection:"row"}}>
+<div><h2>Positive Behavioral</h2></div>
+<div style={{marginTop:"25px", marginLeft:"20px"}}>
+<ArrowDropDownCircleIcon onClick={()=>setBarOpen(true)}/>
+  </div>
+
+</div> :
         <>
-         <div >
-        </div>
-   
+        <div style={{display:"flex",flexDirection:"row"}}>
+<div><h2>Positive Behavioral</h2></div>
+<div style={{marginTop:"25px", marginLeft:"20px"}}>
+<ArrowDropDownCircleIcon 
+      style={{ transform: 'rotate(180deg)', cursor: 'pointer' }}
+      onClick={() => setBarOpen(false)}
+    />  </div>
+
+</div>
     <TableContainer component={Paper} style={{ height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>

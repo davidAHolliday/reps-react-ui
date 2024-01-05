@@ -218,7 +218,6 @@ const TeacherDashboard = () => {
   <div className='teacher-overview'>
         <div className='teacher-overview-first'>
         <Card variant="outlined">
-         <h2>Positive Behavioral</h2>
         <TeacherShoutOutWidget data={data}/>
         </Card>
         </div>
