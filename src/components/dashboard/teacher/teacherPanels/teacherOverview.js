@@ -15,32 +15,13 @@ import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarCha
 import { PieChartParentCommunication } from './pieChartParentCommunication';
 import RecentIncidents from './studentRecentIncidents';
 
-   const TeacherOverviewPanel = () => {
+   const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
-  const [punishmentData,setPunishmentData] = useState([])
   
   
-  
-  
-const url = `${baseUrl}/punish/v1/punishments`;
-
-//Get All Punishments
-useEffect(() => {
- 
-    fetchDataFromApi(url)
-    .then(data => {
-      setPunishmentData(data);
-      console.log("fetchdata",data)
-    })
-    .catch(error =>{
-        console.error('Error in fetching data:', error);
-    });
-    
- 
-}, []);
 
 
     return (
@@ -57,7 +38,7 @@ useEffect(() => {
     <div className='teacher-widget-half'>
       <Card>
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<PieChartParentCommunication data={punishmentData}/>
+<PieChartParentCommunication data={data}/>
 
     </div>
     </Card>
@@ -65,7 +46,7 @@ useEffect(() => {
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
         <Card>
-<TeacherInfractionOverPeriodBarChart data={punishmentData}/>
+<TeacherInfractionOverPeriodBarChart data={data}/>
 </Card>
       </div>
   
@@ -87,7 +68,7 @@ useEffect(() => {
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
 <Card style={{padding:"5px"}}>
-    <IncidentsByStudentTable data={punishmentData}/>
+    <IncidentsByStudentTable data={data}/>
 </Card>
 
 
@@ -96,7 +77,7 @@ useEffect(() => {
     </div>
     <div className='teacher-widget-half'>
 <Card style={{padding:"5px"}}>
-<RecentIncidents data={punishmentData}/>
+<RecentIncidents data={data}/>
 </Card>
 
 </div>
@@ -115,7 +96,7 @@ useEffect(() => {
     <div className='teacher-widget-third'>
     <Card style={{padding:"5px"}}>
 
-      <TotalReferalByWeek data={punishmentData}/>
+      <TotalReferalByWeek data={data}/>
       </Card>
 
 
@@ -123,13 +104,13 @@ useEffect(() => {
     </div>
     <div className='teacher-widget-third'>
     <Card style={{padding:"5px"}}>
-<TotalStudentReferredByWeek data={punishmentData}/>
+<TotalStudentReferredByWeek data={data}/>
 </Card>
 </div>
 
 <div className='teacher-widget-third'>
 <Card style={{padding:"5px"}}>
-<ReferralByBehavior data={punishmentData}/>
+<ReferralByBehavior data={data}/>
 </Card>
 
 </div>

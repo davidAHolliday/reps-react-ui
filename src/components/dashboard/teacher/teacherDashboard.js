@@ -24,7 +24,6 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
-  const [listOfInfractionsAssociatedByTeacher, setListOfInfractionsAssociatedByTeacher] = useState([]);
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
@@ -71,7 +70,6 @@ const TeacherDashboard = () => {
         setData(response.data);
       })
       .catch(function (error) {
-        setListOfInfractionsAssociatedByTeacher([]);
         console.log(error);
       });
   }, []);
@@ -221,12 +219,12 @@ const TeacherDashboard = () => {
         <div className='teacher-overview-first'>
         <Card variant="outlined">
          <h2>Positive Behavioral</h2>
-        <TeacherShoutOutWidget/>
+        <TeacherShoutOutWidget data={data}/>
         </Card>
         </div>
       </div>
       <div className = "teacher-panel">
-      {panelName === "overview" &&<TeacherOverviewPanel/>}
+      {panelName === "overview" &&<TeacherOverviewPanel data={data}/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}

@@ -6,44 +6,16 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData';
+import { dateCreateFormat } from '../../global/helperFunctions';
 
-   const TeacherShoutOutWidget = () => {
+   const TeacherShoutOutWidget = ({data = []}) => {
 
-    const loggedInUser = sessionStorage.getItem("email")
-
-    const [listOfPunishments, setListOfPunishments]= useState([])
-
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-    
-    const url = `${baseUrl}/punish/v1/punishments`;
-    
-
-    useEffect(() => {
-      axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
-        .then(function (response) {
-          setListOfPunishments(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }, []);
-
-    //Temp Filter, we should filter in backend base on principal user
-
-    const dateCreateFormat = (inputDate)=>{
-      const date = new Date(inputDate);
-      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-      return date.toLocaleDateString('en-US',options);
   
-    }
 
     //We need to fix the cfr issues
-	  const data = listOfPunishments.filter(user=> user.teacherEmail === loggedInUser).filter(punish => punish.status === "SO" || punish.status ==="CFR");
+	  const shoutOutData = data.filter(punish => punish.infraction.infractionName === "Positive Behavior Shout Out!");
       
-    const hasScroll = data.length > 2;
+    const hasScroll = shoutOutData.length > 2;
 
     return (
         <>
@@ -74,8 +46,8 @@ import { baseUrl } from '../../../../utils/jsonData';
 
 
 
-          {data.length > 0 ? (
-            data.map((x, key) => (
+          {shoutOutData.length > 0 ? (
+            shoutOutData.map((x, key) => (
 <TableRow key={key}>
 <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
 
