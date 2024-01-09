@@ -8,7 +8,7 @@ import StudentProfile from '../../../StudentProfile';
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import TeacherInfractionOverPeriodCarChart from './teacherInfractionPeriodBarChart';
 import IncidentsByStudentTable from './incidentsByStudentTable';
-import TotalReferalByWeek from './referralPerWeek';
+import TotalReferralByWeek from './referralPerWeek';
 import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
 import Card from '@mui/material/Card';
 import ReferralByBehavior from './referralsByBehavior';
@@ -93,7 +93,7 @@ import ReferralByBehavior from './referralsByBehavior';
         { data: [
           { id: 0, value: 10, label: 'Behavioral' },
           { id: 1, value: 15, label: 'ShoutOut' },
-          { id: 2, value: 20, label: 'Referals' },
+          { id: 2, value: 20, label: 'Referrals' },
         ],
           arcLabel: (item) =>  `(${item.value})`,
           arcLabelMinAngle: 45,
@@ -163,7 +163,7 @@ import ReferralByBehavior from './referralsByBehavior';
     <div className='teacher-widget-third'>
     <Card>
 
-      <TotalReferalByWeek/>
+      <TotalReferralByWeek/>
       </Card>
 
 

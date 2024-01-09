@@ -28,7 +28,7 @@ const TeacherDashboard = () => {
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("overview")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
-    referalDropdown:false,
+    referralDropdown:false,
     teacherDropdown:false,
     studentDropdown:false,
     toolsDropdown:false,
@@ -126,19 +126,19 @@ const TeacherDashboard = () => {
   <button 
     className='dropbtn' 
     onClick={() => {
-      openDropdown("referalDropdown")
+      openDropdown("referralDropdown")
        setPanelName("punishment")}}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Referals
+    Referrals
   </button>
-  <div className={isDropdownOpen.referalDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div className={isDropdownOpen.referralDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     
 
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"OPEN","Open","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"CFR","CFR","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"CLOSED","Closed","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"ALL","All","punishment")}
+{renderDropdownContent(!isDropdownOpen.referralDropdown,"OPEN","Open","punishment")}
+{renderDropdownContent(!isDropdownOpen.referralDropdown,"CFR","CFR","punishment")}
+{renderDropdownContent(!isDropdownOpen.referralDropdown,"CLOSED","Closed","punishment")}
+{renderDropdownContent(!isDropdownOpen.referralDropdown,"ALL","All","punishment")}
   </div>
 
     {/* Student Drop Down */}

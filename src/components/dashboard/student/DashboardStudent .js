@@ -117,7 +117,7 @@ const StudentDashboard = () => {
   <button 
           className='student-drop-btn' 
           onClick={() => {
-      // openDropdown("referalDropdown")
+      // openDropdown("referralDropdown")
        setPanelName("closedAssignments")}}
   >
     History
@@ -127,7 +127,7 @@ const StudentDashboard = () => {
    <button 
           className='student-drop-btn' 
           onClick={() => {
-      // openDropdown("referalDropdown")
+      // openDropdown("referralDropdown")
        setPanelName("")}}
   >
     Extra Support

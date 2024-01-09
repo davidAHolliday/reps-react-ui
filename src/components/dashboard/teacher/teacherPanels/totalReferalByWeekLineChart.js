@@ -20,7 +20,7 @@ const getWeekNumber = (date) => {
   return Math.ceil((((date - oneJan) / millisecondsInDay) + oneJan.getDay() + 1) / 7);
 };
 
-export default function TotalReferalByWeek() {
+export default function TotalReferralByWeek() {
   const [punishmentDataAssocTeacher, setPunishmentDataAssocTeacher] = useState([]);
   const [punishmentData,setPunishmentData] = useState([])
   const currentWeek = getCurrentWeekOfYear();
