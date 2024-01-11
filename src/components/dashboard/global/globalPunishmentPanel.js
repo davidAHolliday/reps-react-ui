@@ -282,7 +282,7 @@ const defaultTheme = createTheme();
                         </div>
                       </TableCell>
                       <TableCell>{x.infraction.infractionName}</TableCell>
-                      <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription}</TableCell>
+                      <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription[1]}</TableCell>
                       <TableCell>{x.infraction.infractionLevel}</TableCell>
                       <TableCell>
   <div 
