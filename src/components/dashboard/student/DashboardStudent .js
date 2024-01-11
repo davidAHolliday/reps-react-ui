@@ -60,9 +60,6 @@ const StudentDashboard = () => {
       });
   }, []);
 
-  const toggleDrawer = (open) => {
-    setOpenDrawer(open);
-  };
 
   const toggleNotificationDrawer = (open) => {
     setOpenNotificationDrawer(open);
@@ -89,7 +86,13 @@ const StudentDashboard = () => {
        <div className='page'>
       <div className='student-main-content'> 
       {/* start-nav-bar */}
+    
+    
+
+      <div className='dashboard-title'>
       <div className ="student-main-content-menu">
+      <div>Student Dashboard</div>
+
             {/* Mandatory Open Assignment Drop Down */}
           <button 
           className='student-drop-btn' 
@@ -101,16 +104,7 @@ const StudentDashboard = () => {
           Mandatory Open Assignments
         </button>
 
-                  {/* Shoutout Drop Down */}
-        <button 
-          className='student-drop-btn' 
-          onClick={() => {
-            // openDropdown("teacherDropDown")
-            setPanelName("shoutOutPanel")
-            }}
-        >
-          Shout Outs!
-        </button>
+             
 
     
   {/* Histroy Drop Down */}
@@ -123,20 +117,8 @@ const StudentDashboard = () => {
     History
   </button>
 
-   {/* Extra Support Drop Down */}
-   <button 
-          className='student-drop-btn' 
-          onClick={() => {
-      // openDropdown("referralDropdown")
-       setPanelName("")}}
-  >
-    Extra Support
-  </button>
-      </div>
-      {/* end-nav-bar */}
 
-      <div className='dashboard-title'>
-        Student Dashboard
+      </div>
       </div>
 
       <div className='student-overview'>
