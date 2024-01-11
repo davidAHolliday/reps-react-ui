@@ -530,15 +530,20 @@ button:hover {
 .sub-main{
   display: flex;
   flex-direction: row;
-  width: 100%;
-  background-color: grey;
+  /* width: 100%;
+  background-color: grey; */
 
 
 }
 
 
 .teacher-panel{
-  width: 90%;
+  width: 98%;
+}
+
+.sidebar-content{
+  background-color: orange;
+  width: 20%;
 }
 
 

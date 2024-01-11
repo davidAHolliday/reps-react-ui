@@ -231,7 +231,8 @@ const TeacherDashboard = () => {
 
 
   </div>
-  <div style={{width: sideBarOpen ?"30%":"5%"}}className="sidebar-content">
+  <div className="sidebar-content">
+  {/* <div style={{width: sideBarOpen ?"20%":"1%"}}className="sidebar-content"> */}
   {!sideBarOpen ? (
     <div onClick={()=>setSideBarOpen(true)} className="vertical-text">
       Click to open
@@ -240,14 +241,14 @@ const TeacherDashboard = () => {
     <>
     <button onClick={()=>setSideBarOpen(false)}>Close (x)</button>
     <div style={{marginBottom:"10px"}}>
-   < Card>
+   
         <DetentionWidget />
-      </Card>
+      
     </div>
       <div>
-      <Card>
+     
       <ISSWidget />
-      </Card>
+    
       </div>
   
     </>
