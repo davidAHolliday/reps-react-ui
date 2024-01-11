@@ -208,9 +208,8 @@ const TeacherDashboard = () => {
    
      
   </div>
+  
   </div>
-  <div className='sub-main'>
-  <div style={{width: sideBarOpen ?"70%":"95%"}} className='left-main'>
   <div className='teacher-overview'>
         <div className='teacher-overview-first'>
         <Card variant="outlined">
@@ -218,6 +217,9 @@ const TeacherDashboard = () => {
         </Card>
         </div>
       </div>
+  <div className='sub-main'>
+  <div style={{width: sideBarOpen ?"70%":"95%"}} className='left-main'>
+
       <div className = "teacher-panel">
       {panelName === "overview" &&<TeacherOverviewPanel data={data}/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
