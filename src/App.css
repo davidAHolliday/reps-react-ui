@@ -500,7 +500,7 @@ button:hover {
 
 .overview-row{
   width: 100%;
-  background-color: purple;
+  background-color: white;
   display: flex;
   flex-direction: row;
   overflow-x: auto; /* This will add a horizontal scrollbar when content exceeds the container width */
@@ -511,7 +511,7 @@ button:hover {
 }
 
 .teacher-widget-half{
-  height: 300px;
+  /* height: 50%; */
   background-color: white;
   margin-right: 5px;
   
@@ -538,8 +538,7 @@ button:hover {
 
 
 .teacher-panel{
-  width: 100%;
-  background-color: purple;
+  width: 90%;
 }
 
 
@@ -549,6 +548,7 @@ button:hover {
 }
 
 .left-main{
+  justify-items: center;
   width: 95%;
 }
 

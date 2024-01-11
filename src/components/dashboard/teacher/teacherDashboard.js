@@ -125,6 +125,17 @@ const TeacherDashboard = () => {
       <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)"}}>
   
 
+    {/* Overview button */}
+    <button 
+    className='dropbtn' 
+    onClick={() => {
+      setPanelName("overview")
+  }}
+    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+  >
+    Overview
+  </button>
+
   {/* Punishment Drop Down */}
   <button 
     className='dropbtn' 
@@ -160,7 +171,7 @@ const TeacherDashboard = () => {
     Student
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"25%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
@@ -169,27 +180,7 @@ const TeacherDashboard = () => {
      
   </div>
 
-    {/* Student Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      openDropdown("toolsDropdown")
-      // setPanelName("punishment")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    Tools
-  </button>
-      {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"50%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
- 
-      <div onClick={()=>{
-      setPanelName("createPunishment")  
-      setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
-
-     }}className='dropdown-item'>New Referral</div>
-     
-  </div>
+  
 
     {/* FTC Drop Down */}
     <button 
@@ -209,6 +200,11 @@ const TeacherDashboard = () => {
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
 
      }}className='dropdown-item'>Pending Assignments</div>
+       <div onClick={()=>{
+      setPanelName("levelThree")  
+      setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
+
+     }}className='dropdown-item'>Level Three Approval</div>
    
      
   </div>
@@ -228,6 +224,7 @@ const TeacherDashboard = () => {
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "ftc" && <TeacherFTCPanel/>}
+{panelName === "levelThree" && <TeacherFTCPanel/>}
       </div>
 
 
@@ -240,7 +237,7 @@ const TeacherDashboard = () => {
   ) : (
     <>
     <button onClick={()=>setSideBarOpen(false)}>Close (x)</button>
-    <div style={{marginBottom:"20px"}}>
+    <div style={{marginBottom:"10px"}}>
    < Card>
         <DetentionWidget />
       </Card>
