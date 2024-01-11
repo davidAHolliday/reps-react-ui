@@ -1,7 +1,7 @@
 import  {useEffect,useState} from 'react'
 import * as React from 'react';
 
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, TextField, Select, Box, Chip, MenuItem, createTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
@@ -15,9 +15,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 
-
-
-    const GlobalPunishmentPanel = ({filter,roleType}) => {
+    const GlobalPunishmentPanel = ({roleType}) => {
       const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
@@ -29,6 +27,9 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
+const [filter, setFilter] = useState("OPEN");
+
+const defaultTheme = createTheme();
 
   
       const headers = {
@@ -37,6 +38,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       
       const url = `${baseUrl}/punish/v1/punishments`;
       
+
   
   useEffect(()=>{
       setSort(filter)
@@ -86,7 +88,18 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const handleTextareaChange = (event) => {
         setTextareaValue(event.target.value);
       };
+
+
+      const handleFilterChange = (event) =>{
+        setFilter(event.target.value)
+      }
     
+      const filterOptions = [
+        {value:"ALL", label:"All"},
+        {value:"OPEN", label:"Open"},
+        {value:"CLOSED", label:"Closed"},
+        {value:"CFR", label:"CFR"},
+      ]
 
       const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -176,12 +189,44 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
   </div>
 </div>}
           
-  
+{/*   
      <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
   "5px"}}>
   
   
-          </Typography>
+          </Typography> */}
+
+          <Select
+      sx={{ width: '100%',backgroundColor:"white"}}
+
+  labelId="filterSelected"
+  value={filter}
+  onChange={handleFilterChange}
+  renderValue={(selected) => {
+    // Check if selected is an array, if not, wrap it in an array
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+  
+    return (
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+        {selectedArray.map((value) => (
+          <Chip key={value} label={value} />
+        ))}
+      </Box>
+    );
+  }}
+  MenuProps={"MenuProps"}
+>
+  {filterOptions.map((name) => (
+    <MenuItem
+      key={name.value}
+      value={name.value}
+    >
+      {name.label}
+    </MenuItem>
+  ))}
+
+</Select>
+
           <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast.visible} autoHideDuration={6000} onClose={handleClose}>
   <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
     {toast.message}
