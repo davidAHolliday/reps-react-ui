@@ -40,6 +40,7 @@ import RecentIncidents from './studentRecentIncidents';
     <div style={{ textAlign:"center",marginTop:"10px"}}>
 <PieChartParentCommunication data={data}/>
 
+
     </div>
     </Card>
     </div>
@@ -97,6 +98,7 @@ import RecentIncidents from './studentRecentIncidents';
     <Card style={{padding:"5px"}}>
 
       <TotalReferalByWeek data={data}/>
+
       </Card>
 
 

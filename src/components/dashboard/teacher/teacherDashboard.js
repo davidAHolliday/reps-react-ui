@@ -29,7 +29,7 @@ const TeacherDashboard = () => {
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("overview")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
-    referalDropdown:false,
+    referralDropdown:false,
     teacherDropdown:false,
     studentDropdown:false,
     toolsDropdown:false,
@@ -129,7 +129,7 @@ const TeacherDashboard = () => {
   <button 
     className='dropbtn' 
     onClick={() => {
-      openDropdown("referalDropdown")
+      openDropdown("referralDropdown")
        setPanelName("punishment")}}
     style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >

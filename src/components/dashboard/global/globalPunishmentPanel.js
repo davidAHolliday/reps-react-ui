@@ -195,7 +195,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
               Name
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Referal Type
+             Referral Type
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Description

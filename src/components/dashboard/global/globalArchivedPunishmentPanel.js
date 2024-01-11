@@ -195,7 +195,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
               Name
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Referal Type
+             Referral Type
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Deleted On
