@@ -121,7 +121,7 @@ const TeacherDashboard = () => {
         </div>
        <div className='page'>
       <div className='teacher-main-content'> 
-      <div className = "student-main-content-menu">
+      <div className = "teacher-main-content-menu">
       <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)"}}>
   
 

@@ -246,24 +246,13 @@ console.log(payload)
 
 
         <div  className="form-container">
-          <div style={{backgroundColor:"#D3D3D3"}} className='header'>
-          <div className="form-title">REPS Teacher Managed Referral</div>
-             <h5 > This form will be used to provide automated assignments based on the behavior described in this form. The offense number will be looked up automatically and will include offenses from other class. A list of the offenses and their assignments can be viewed{' '}
- After completing this form, the student and their guardian will be informed of the incident and given a restorative assignment to complete to gain insight on the negative effects of the behavior. REPS Discipline Management System will also send follow-up emails if additional steps are needed. These emails are designed to be copied and pasted directly into Review 360 when necessary. </h5>
-   
-            <div  aria-hidden="true" dir="auto">
-              * Indicates required question
-            </div>
-
-
-          </div>
+     
           {loading &&  <div style={{
     position: 'absolute',    // Position the div absolutely
     top: '64%',              // Center vertically
     left: '60%',             // Center horizontally
     transform: 'translate(-50%, -50%)', // Adjust to perfectly center the div
     backgroundColor: 'rgba(255, 255, 255, 0.9)', // Optional: Add background color or opacity
-    padding: '20px'          // Optional: Add padding for better appearance
   }}>
     <CircularProgress style={{}}  color="secondary" />
   </div>}
@@ -318,7 +307,7 @@ console.log(payload)
 
   
 
-<div style={{height:"10px"}}></div>
+<div style={{height:"5px"}}></div>
 <div style={{display:'flex',flexDirection:'row',width:"100%"}}>
 <div style={{width:"50%"}}>
        <InputLabel id="infractionPeriod">Infraction Period</InputLabel>
@@ -391,7 +380,6 @@ MenuProps={MenuProps}
 </Select>
 </div>
 </div>
-<div style={{ height: "10px" }}></div>
 
 
 
@@ -405,13 +393,13 @@ MenuProps={MenuProps}
       ? getTitle(infractionTypeSelected?.value)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
   </label>
-  <h5>
+  <p>
     {(infractionTypeSelected?.value === "Failure to Complete Work" ||
     infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
     infractionTypeSelected?.value === "Behavioral Concern")
       ? getDescription(infractionTypeSelected?.value)
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
-  </h5>
+  </p>
 </div>
    <div>               
    <TextField
@@ -419,7 +407,7 @@ MenuProps={MenuProps}
   required
   fullWidth
   multiline  
-  minRows={4}  // Optional: Set minimum number of rows
+  minRows={2}  // Optional: Set minimum number of rows
   onChange={(event) => {
     const enteredValue = event.target.value;
     setInfractionDescriptionSelected(enteredValue);
@@ -458,7 +446,7 @@ MenuProps={MenuProps}
 
 />
             </div>
-            <br/>
+            {/* <br/> */}
 
 
             <div style={{ display: 'flex', flexDirection: "row", width: "100%" }} className='button-container'>
