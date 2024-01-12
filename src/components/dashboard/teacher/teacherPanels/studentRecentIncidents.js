@@ -55,7 +55,7 @@ const RecentIncidents = ({data = []}) => {
               <TableCell>{record.student.firstName} {record.student.lastName} {String(record.student.studentIdNumber).substring(0,5)}</TableCell>
               <TableCell>{dateCreateFormat(record.timeCreated)}</TableCell>
               <TableCell>{record.infraction.infractionName}</TableCell> 
-              <TableCell>{record.infraction.infractionDescription}</TableCell> 
+              <TableCell>{record.infraction.infractionDescription[1]}</TableCell> 
 
             </TableRow>
           ))}
