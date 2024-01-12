@@ -15,6 +15,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ShoutOutWidget from './shoutOutWidget';
 import TotalPositivePoints from './positivePointsComponents';
 import Card from '@mui/material/Card';
+import BlankPanelForTest from './blankPanelForTest';
 
 
 
@@ -117,9 +118,16 @@ const StudentDashboard = () => {
     History
   </button>
 
+      </div>
+      </div>
 
-      </div>
-      </div>
+      { false ? 
+      <div style={{backgroundColor:"white",height:"80vh",marginTop:"10px"}} className='student-panel'>
+      <BlankPanelForTest/>
+      </div>:<>
+
+      
+
 
       <div className='student-overview'>
         <div className='student-overview-first'>
@@ -136,10 +144,12 @@ const StudentDashboard = () => {
       </div>
 
       <div className = "student-panel">
-      </div>
-      {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+          {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
         {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
+      </div>
+      </>
+}
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar />
