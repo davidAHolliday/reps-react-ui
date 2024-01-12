@@ -31,6 +31,12 @@
 
 
 }
+
+.answer-container{
+  overflow-y: scroll;
+  height: 300px;
+
+}
 .RH5hzf{
 background-color: transparent;
 -webkit-box-shadow: none;

@@ -138,33 +138,9 @@ const defaultTheme = createTheme();
     };
 
 
-    //Delete has been changed to archived api
-    const handleDeletePunishment = (obj) =>{
-      setLoadingPunishmentId({id:obj.punishmentId,buttonType:"delete"})
-    
-      const url = `${baseUrl}/punish/v1/archived/${sessionStorage.getItem("email")}/${obj.punishmentId}`;
-      axios
-      .put(url,[textareaValue] , { headers: headers }) // Pass the headers option with the JWT token
-      .then(function (response) {
-        console.log(response);
-        setToast({ visible: true, message: "Your Referral was Deleted" });
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(()=>{
-        setOpenModal({display:false,message:""})
-        setTextareaValue("")
-        setTimeout(()=>{
-          setToast({visible:false,message:""})
-          setLoadingPunishmentId({id:null,buttonType:""})
-        },1000)
-      }
-        );
-  };
-  
 
   
+
   
 
       return (
@@ -176,17 +152,18 @@ const defaultTheme = createTheme();
     <div className="modal-content">
       <div className='modal-header'>
         <h3>{openModal.message}</h3>
+        <div className='answer-container'>
         {openModal.data.infraction.infractionDescription.map((item, index) =>{ 
           if(index > 1){
             const record = item.split(",")
             const question = record[0].replace("StudentAnswer(question=","");
             const answer = record[1].replace("answer=","").replace(")","");
             return (
-              <div key={index} className="">
-                <div style={{backgroundColor:"grey",minHeight:"15px"}}>
+              <div key={index} style={{display:"flex", flexDirection:"row",border:"1px solid black"}}>
+                <div style={{backgroundColor:"grey",minHeight:"15px", width:"30%"}}>
                   <strong>Question:</strong> {question}
                 </div>
-                <div style={{color:"black",backgroundColor:"lightBlue",minHeight:"50px"}}>
+                <div style={{color:"black",backgroundColor:"lightBlue",minHeight:"50px",width:"70%",textAlign:"left", paddingLeft:"10px"}}>
                   <strong>Answer:</strong> {answer}
                 </div>
               </div>
@@ -195,15 +172,16 @@ const defaultTheme = createTheme();
           }
 
     })}
+    </div>
             </div>
       <div className='modal-body'>
-      <textarea 
+      {/* <textarea 
           value={textareaValue}       // Set the value of the textarea to the state variable
           onChange={handleTextareaChange} // Handle changes to the textarea
       className="multi-line-input" 
       placeholder="Enter additional comments"
       rows={4} // This sets the initial height to show 4 rows
-    ></textarea>
+    ></textarea> */}
       </div>
       <div className='modal-buttons'>
   
