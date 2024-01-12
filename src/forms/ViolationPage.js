@@ -13,7 +13,7 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [studentAnswers, setStudentAnswers] = useState([])
-  const [mapIndex, setMapIndex] = useState(0)
+  const [mapIndex, setMapIndex] = useState(6)
   
   //Grabs Params to Decide what Json Object to use
   const { param1, param2 } = useParams();

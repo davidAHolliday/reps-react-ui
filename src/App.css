@@ -868,3 +868,12 @@ button:hover {
   clip-path: polygon(50% 50%, 100% 0, 100% 100%);
   transform-origin: 50% 50%;
 }
+
+.table-container-review {
+  display: flex;
+}
+
+.table-container-review div {
+  flex: 2; /* This will make both columns take up equal width */
+  padding: 8px; /* Add padding for spacing */
+}

@@ -21,6 +21,7 @@ import TeacherShoutOutWidget from './teacherPanels/teacherShoutOutWidget.js';
 import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import LevelThreePanel from '../global/levelThreePanel.js';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -226,7 +227,7 @@ const TeacherDashboard = () => {
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "ftc" && <TeacherFTCPanel/>}
-{panelName === "levelThree" && <TeacherFTCPanel/>}
+{panelName === "levelThree" && <LevelThreePanel/>}
       </div>
 
 
