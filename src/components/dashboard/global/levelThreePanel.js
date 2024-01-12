@@ -316,7 +316,9 @@ const defaultTheme = createTheme();
 </TableCell>
 
                       <TableCell>
-  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
+                        <div className='level-three-button-container'>
+                     
+  {x.status == "OPEN" ?  <><button className='level-three-buttons' onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
   setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
@@ -325,7 +327,7 @@ const defaultTheme = createTheme();
     )}
   </button>
 
-  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  <button className='level-three-buttons' style={{backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
   setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
@@ -339,7 +341,8 @@ const defaultTheme = createTheme();
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></>}                      
+  </button></>}  
+  </div>                    
  
 
 </TableCell>

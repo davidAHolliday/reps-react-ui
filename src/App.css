@@ -1,13 +1,13 @@
 .App {
   width: 98%;      
   margin: 0 auto;
-  background-color: black;  
+  background-color: #5333ed;  
   height: 100vh;
 
 }
 
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -16,9 +16,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.level-three-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }
 
+.level-three-buttons{
+  height: 40px;
+  width: 100px;
 
+
+}
 .RH5hzf{
 background-color: transparent;
 -webkit-box-shadow: none;
@@ -403,29 +415,6 @@ button:hover {
   height: 100px;
   margin-bottom: 20px;
 }
-
-#hue {
-  height: 40px;
-  background: linear-gradient(90deg,
-    hsl(0, 100%, 50%),
-    hsl(30, 100%, 50%),
-    hsl(60, 100%, 50%),
-    hsl(90, 100%, 50%),
-    hsl(120, 100%, 50%),
-    hsl(150, 100%, 50%),
-    hsl(180, 100%, 50%),
-    hsl(210, 100%, 50%),
-    hsl(240, 100%, 50%),
-    hsl(270, 100%, 50%),
-    hsl(300, 100%, 50%),
-    hsl(330, 100%, 50%),
-    hsl(360, 100%, 50%)
-  );
-}
-
-/* Existing styles... */
-
-/* Add this CSS to move the content when the drawer is open */
 
 
 .page{
