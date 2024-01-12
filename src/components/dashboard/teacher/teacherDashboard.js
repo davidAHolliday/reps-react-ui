@@ -96,7 +96,7 @@ const TeacherDashboard = () => {
         setIsDropdownOpen(dropdownState)
         setPunishmentFilter(filterValue)
         setPanelName(panelName)}}
-        className='dropdown-item'>{label}
+        className='teacher-dropdown-item'>{label}
         </div>
     )
   }
@@ -122,28 +122,26 @@ const TeacherDashboard = () => {
         </div>
        <div className='page'>
       <div className='teacher-main-content'> 
-      <div className = "teacher-main-content-menu">
-      <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)"}}>
+      <div className = "">
+      <div className='teacher-main-content-menu'
+      >
   
-
     {/* Overview button */}
     <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
       setPanelName("overview")
   }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     Overview
   </button>
 
   {/* Punishment Drop Down */}
   <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("referralDropdown")
        setPanelName("punishment")}}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     Referals/Shoutouts
   </button>
@@ -151,7 +149,7 @@ const TeacherDashboard = () => {
   <div onClick={()=>{
         setIsDropdownOpen(false)
         setPanelName("createPunishment")}}
-        className='dropdown-item'>Create New
+        className='teacher-dropdown-item'>Create New
         </div>
 {renderDropdownContent(!isDropdownOpen.referalDropdown,"OPEN","View Open","punishment")}
 {renderDropdownContent(!isDropdownOpen.referalDropdown,"CFR","View CFR","punishment")}
@@ -162,12 +160,12 @@ const TeacherDashboard = () => {
 
     {/* Student Drop Down */}
     <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("studentDropdown")
       // setPanelName("punishment")
   }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+    // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     Student
   </button>
@@ -177,7 +175,7 @@ const TeacherDashboard = () => {
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
-     }}className='dropdown-item'>View Students</div>
+     }}className='teacher-dropdown-item'>View Students</div>
      
   </div>
 
@@ -185,27 +183,25 @@ const TeacherDashboard = () => {
 
     {/* FTC Drop Down */}
     <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("ftcDropdown")
       // setPanelName("punishment")
   }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     FTC
   </button>
-      {/* Margin Left is used to move dropdown under the buttons */}
   <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("ftc")  
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
 
-     }}className='dropdown-item'>Pending Assignments</div>
+     }}className='teacher-dropdown-item'>Pending Assignments</div>
        <div onClick={()=>{
       setPanelName("levelThree")  
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
 
-     }}className='dropdown-item'>Level Three Approval</div>
+     }}className='teacher-dropdown-item'>Level Three Approval</div>
    
      
   </div>
@@ -219,7 +215,9 @@ const TeacherDashboard = () => {
         </div>
       </div>
   <div className='sub-main'>
-  <div style={{width: sideBarOpen ?"70%":"95%"}} className='left-main'>
+  <div 
+  // style={{width: sideBarOpen ?"70%":"95%"}}
+   className='left-main'>
 
       <div className = "teacher-panel">
       {panelName === "overview" &&<TeacherOverviewPanel data={data}/>}
@@ -232,8 +230,8 @@ const TeacherDashboard = () => {
 
 
   </div>
-  <div className="sidebar-content">
-  {/* <div style={{width: sideBarOpen ?"20%":"1%"}}className="sidebar-content"> */}
+  {/* <div className="sidebar-content">
+  <div style={{width: sideBarOpen ?"20%":"1%"}}className="sidebar-content">
   {!sideBarOpen ? (
     <div onClick={()=>setSideBarOpen(true)} className="vertical-text">
       Click to open
@@ -255,8 +253,9 @@ const TeacherDashboard = () => {
     </>
   )}
 </div>
-</div>
-      </div>
+</div> */}
+   </div> 
+     </div>
 
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>

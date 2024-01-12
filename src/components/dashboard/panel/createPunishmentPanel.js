@@ -245,7 +245,7 @@ console.log(payload)
 </Snackbar>}
 
 
-        <div  className="form-container">
+        <div  className="form-referral">
      
           {loading &&  <div style={{
     position: 'absolute',    // Position the div absolutely
