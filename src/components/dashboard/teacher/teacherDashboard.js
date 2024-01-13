@@ -61,7 +61,7 @@ const TeacherDashboard = () => {
 
 
   const headers = {
-    Authorization: 'Bearer ' + sessionStorage.getItem('Authorization'),
+    Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
   };
 
   useEffect(() => {
