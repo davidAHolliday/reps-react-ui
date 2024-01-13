@@ -15,6 +15,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ShoutOutWidget from './shoutOutWidget';
 import TotalPositivePoints from './positivePointsComponents';
 import Card from '@mui/material/Card';
+import BlankPanelForTest from './blankPanelForTest';
 
 
 
@@ -60,9 +61,6 @@ const StudentDashboard = () => {
       });
   }, []);
 
-  const toggleDrawer = (open) => {
-    setOpenDrawer(open);
-  };
 
   const toggleNotificationDrawer = (open) => {
     setOpenNotificationDrawer(open);
@@ -89,7 +87,13 @@ const StudentDashboard = () => {
        <div className='page'>
       <div className='student-main-content'> 
       {/* start-nav-bar */}
+    
+    
+
+      <div className='dashboard-title'>
       <div className ="student-main-content-menu">
+      <div>Student Dashboard</div>
+
             {/* Mandatory Open Assignment Drop Down */}
           <button 
           className='student-drop-btn' 
@@ -101,16 +105,7 @@ const StudentDashboard = () => {
           Mandatory Open Assignments
         </button>
 
-                  {/* Shoutout Drop Down */}
-        <button 
-          className='student-drop-btn' 
-          onClick={() => {
-            // openDropdown("teacherDropDown")
-            setPanelName("shoutOutPanel")
-            }}
-        >
-          Shout Outs!
-        </button>
+             
 
     
   {/* Histroy Drop Down */}
@@ -123,21 +118,16 @@ const StudentDashboard = () => {
     History
   </button>
 
-   {/* Extra Support Drop Down */}
-   <button 
-          className='student-drop-btn' 
-          onClick={() => {
-      // openDropdown("referralDropdown")
-       setPanelName("")}}
-  >
-    Extra Support
-  </button>
       </div>
-      {/* end-nav-bar */}
+      </div>
 
-      <div className='dashboard-title'>
-        Student Dashboard
-      </div>
+      { false ? 
+      <div style={{backgroundColor:"white",height:"80vh",marginTop:"10px"}} className='student-panel'>
+      <BlankPanelForTest/>
+      </div>:<>
+
+      
+
 
       <div className='student-overview'>
         <div className='student-overview-first'>
@@ -154,10 +144,12 @@ const StudentDashboard = () => {
       </div>
 
       <div className = "student-panel">
-      </div>
-      {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
+          {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
         {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
+      </div>
+      </>
+}
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar />

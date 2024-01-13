@@ -5,74 +5,25 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-import TeacherInfractionOverPeriodCarChart from './teacherInfractionPeriodBarChart';
 import IncidentsByStudentTable from './incidentsByStudentTable';
-import TotalReferralByWeek from './referralPerWeek';
+import TotalReferalByWeek from './referralsByWeek';
 import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
 import Card from '@mui/material/Card';
 import ReferralByBehavior from './referralsByBehavior';
+import { fetchDataFromApi } from '../../global/helperFunctions';
+import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarChart';
+import { PieChartParentCommunication } from './pieChartParentCommunication';
+import RecentIncidents from './studentRecentIncidents';
 
-   const TeacherOverviewPanel = () => {
-
-
+   const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
-
-
   
-  const size = {
-    width: 500,
-    height: 250,
-  };
-
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-    
-
-//Using punihsments to find asscoiated teachers
-    // const url = `${baseUrl}/student/v1/allStudents`;
-    const url = `${baseUrl}/punish/v1/punishments`;
+  
 
 
-    useEffect(() => {
-      axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
-        .then(function (response) {
-          //Figure out how we are going to return only students associated with teacher.
-          // Maybe only pulling up students with active and closed punishments
-          const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
-          console.log("find me",data)
-          setListOfStudents(data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }, []);
-
-
-
-
-  const uniqueMap = new Map();
-
-  const data = listOfStudents.filter(item => {
-    const studentId = item.student.studentIdNumber;
-    
-    // If the studentIdNumber is not in the map, add it and return true to keep the item
-    if (!uniqueMap.has(studentId)) {
-        uniqueMap.set(studentId, true);
-        return true;
-    }
-    
-    // If the studentIdNumber is already in the map, return false to filter out the duplicate item
-    return false;
-});
-
-
-    const hasScroll = data.length > 10;
     return (
         <>
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
@@ -86,28 +37,8 @@ import ReferralByBehavior from './referralsByBehavior';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
       <Card>
-    <div style={{marginTop:"50px" }}>
-    <PieChart
-      series={[
-        
-        { data: [
-          { id: 0, value: 10, label: 'Behavioral' },
-          { id: 1, value: 15, label: 'ShoutOut' },
-          { id: 2, value: 20, label: 'Referrals' },
-        ],
-          arcLabel: (item) =>  `(${item.value})`,
-          arcLabelMinAngle: 45,
-          
-        },
-      ]}
-      sx={{
-        [`& .${pieArcLabelClasses.root}`]: {
-          fill: 'white',
-          fontWeight: 'bold',
-        },
-      }}
-      {...size}
-    />
+    <div style={{ textAlign:"center",marginTop:"10px"}}>
+<PieChartParentCommunication data={data}/>
 
 
     </div>
@@ -116,7 +47,7 @@ import ReferralByBehavior from './referralsByBehavior';
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
         <Card>
-<TeacherInfractionOverPeriodCarChart/>
+<TeacherInfractionOverPeriodBarChart data={data}/>
 </Card>
       </div>
   
@@ -137,15 +68,18 @@ import ReferralByBehavior from './referralsByBehavior';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-  <Card>  <IncidentsByStudentTable/>
-  </Card>
+<Card style={{padding:"5px"}}>
+    <IncidentsByStudentTable data={data}/>
+</Card>
 
 
 </div>
 
     </div>
     <div className='teacher-widget-half'>
-<Card></Card>
+<Card style={{padding:"5px"}}>
+<RecentIncidents data={data}/>
+</Card>
 
 </div>
 
@@ -161,23 +95,24 @@ import ReferralByBehavior from './referralsByBehavior';
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <Card>
+    <Card style={{padding:"5px"}}>
 
-      <TotalReferralByWeek/>
+      <TotalReferalByWeek data={data}/>
+
       </Card>
 
 
 
     </div>
     <div className='teacher-widget-third'>
-      <Card>
-<TotalStudentReferredByWeek/>
+    <Card style={{padding:"5px"}}>
+<TotalStudentReferredByWeek data={data}/>
 </Card>
 </div>
 
 <div className='teacher-widget-third'>
-<Card>
-<ReferralByBehavior/>
+<Card style={{padding:"5px"}}>
+<ReferralByBehavior data={data}/>
 </Card>
 
 </div>

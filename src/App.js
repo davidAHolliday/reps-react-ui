@@ -15,6 +15,7 @@ import GlobalArchivedPunishmentPanel from './components/dashboard/global/globalA
 function App() {
 
   return (
+    <div className='App'>
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -40,6 +41,7 @@ function App() {
         {/* <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} /> */}
       </Routes>
     </Router>
+    </div>
   );
 }
 

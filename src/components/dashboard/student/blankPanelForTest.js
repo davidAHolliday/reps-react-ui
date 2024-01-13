@@ -10,12 +10,7 @@ import { baseUrl } from '../../../utils/jsonData'
    const BlankPanelForTest = () => {
 
 
-	const [listOfStudents, setListOfStudents]= useState([])
-
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-    
+	
     
 
   

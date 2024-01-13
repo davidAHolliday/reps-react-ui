@@ -15,7 +15,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 
-    const GlobalPunishmentPanel = ({roleType}) => {
+    const LevelThreePanel = ({roleType}) => {
       const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
@@ -24,7 +24,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [sort,setSort] = useState("");
       const [loadingPunihsmentId, setLoadingPunishmentId] = useState({id:null,buttonType:""});
       const [toast,setToast] = useState({visible:false,message:""})
-      const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
+      const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:"",data:null})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
 const [filter, setFilter] = useState("OPEN");
@@ -67,8 +67,11 @@ const defaultTheme = createTheme();
       }, [ toast.visible]);
 
 
-      const data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
-  
+      let data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+  console.log(data)
+      data = data.filter((record) => record.infraction.infractionLevel=== "3");      
+      console.log(data)
+
       const hasScroll = data.length > 10;
   
       const calculateDaysSince = (dateCreated) => {
@@ -135,67 +138,67 @@ const defaultTheme = createTheme();
     };
 
 
-    //Delete has been changed to archived api
-    const handleDeletePunishment = (obj) =>{
-      setLoadingPunishmentId({id:obj.punishmentId,buttonType:"delete"})
-    
-      const url = `${baseUrl}/punish/v1/archived/${sessionStorage.getItem("email")}/${obj.punishmentId}`;
-      axios
-      .put(url,[textareaValue] , { headers: headers }) // Pass the headers option with the JWT token
-      .then(function (response) {
-        console.log(response);
-        setToast({ visible: true, message: "Your Referral was Deleted" });
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(()=>{
-        setOpenModal({display:false,message:""})
-        setTextareaValue("")
-        setTimeout(()=>{
-          setToast({visible:false,message:""})
-          setLoadingPunishmentId({id:null,buttonType:""})
-        },1000)
-      }
-        );
-  };
+
+  
+
   
 
       return (
           <>
-            {openModal.display && <div className="modal-overlay">
-  <div className="modal-content">
-    <div className='modal-header'>
-      <h3>{openModal.message}</h3>
-    </div>
-    <div className='modal-body'>
-    <textarea 
-        value={textareaValue}       // Set the value of the textarea to the state variable
-        onChange={handleTextareaChange} // Handle changes to the textarea
-    className="multi-line-input" 
-    placeholder="Enter reason for deletion"
-    rows={4} // This sets the initial height to show 4 rows
-  ></textarea>
-    </div>
-    <div className='modal-buttons'>
 
-      <button onClick={() => {
-        setOpenModal({display:false,message:""})
-        setTextareaValue("")}}>Cancel</button>
-      {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
-     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
 
+
+    {openModal.display && <div className="modal-overlay">
+    <div className="modal-content">
+      <div className='modal-header'>
+        <h3>{openModal.message}</h3>
+        <div className='answer-container'>
+        {openModal.data.infraction.infractionDescription.map((item, index) =>{ 
+          if(index > 1){
+            const record = item.split(",")
+            const question = record[0].replace("StudentAnswer(question=","");
+            const answer = record[1].replace("answer=","").replace(")","");
+            return (
+              <div key={index} style={{display:"flex", flexDirection:"row",border:"1px solid black"}}>
+                <div style={{backgroundColor:"grey",minHeight:"15px", width:"30%"}}>
+                  <strong>Question:</strong> {question}
+                </div>
+                <div style={{color:"black",backgroundColor:"lightBlue",minHeight:"50px",width:"70%",textAlign:"left", paddingLeft:"10px"}}>
+                  <strong>Answer:</strong> {answer}
+                </div>
+              </div>
+            );
+
+          }
+
+    })}
     </div>
-  </div>
-</div>}
+            </div>
+      <div className='modal-body'>
+      {/* <textarea 
+          value={textareaValue}       // Set the value of the textarea to the state variable
+          onChange={handleTextareaChange} // Handle changes to the textarea
+      className="multi-line-input" 
+      placeholder="Enter additional comments"
+      rows={4} // This sets the initial height to show 4 rows
+    ></textarea> */}
+      </div>
+      <div className='modal-buttons'>
+  
+        <button onClick={() => {
+          setOpenModal({display:false,message:""})
+          setTextareaValue("")}}>Cancel</button>
+       <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>
+  
+      </div>
+    </div>
+  </div>}
+
+  
+
+
+
           
-{/*   
-     <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-  "5px"}}>
-  
-  
-          </Typography> */}
-
           <Select
       sx={{ width: '100%',backgroundColor:"white"}}
 
@@ -251,9 +254,7 @@ const defaultTheme = createTheme();
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Status
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Days Since
-            </TableCell>
+          
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Action
             </TableCell>
@@ -292,18 +293,19 @@ const defaultTheme = createTheme();
   </div>
 </TableCell>
 
-                      <TableCell>{days}</TableCell>
                       <TableCell>
-  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
+                        <div className='level-three-button-container'>
+                     
+  {x.status == "OPEN" ?  <><button className='level-three-buttons' onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
   setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
-      <CheckBoxIcon/>
+     <div>Review</div>
     )}
   </button>
 
-  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  <button className='level-three-buttons' style={{backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
   setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
@@ -317,7 +319,8 @@ const defaultTheme = createTheme();
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></>}                      
+  </button></>}  
+  </div>                    
  
 
 </TableCell>
@@ -336,4 +339,4 @@ const defaultTheme = createTheme();
     );
   };
 
-export default GlobalPunishmentPanel;
+export default LevelThreePanel;

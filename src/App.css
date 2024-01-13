@@ -1,19 +1,13 @@
 .App {
-  text-align: center;
+  width: 98%;      
+  margin: 0 auto;
+  background-color: #5333ed;  
+  height: 100vh;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -22,21 +16,27 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.level-three-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }
 
-.App-link {
-  color: #61dafb;
+.level-three-buttons{
+  height: 40px;
+  width: 100px;
+
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.answer-container{
+  overflow-y: scroll;
+  height: 300px;
 
+}
 .RH5hzf{
 background-color: transparent;
 -webkit-box-shadow: none;
@@ -66,6 +66,7 @@ word-wrap: break-word;
   align-items: center;
   height: 50vh;
   background-color: #f4f4f4;
+
 }
 
 /* Style for the form itself */
@@ -81,6 +82,13 @@ word-wrap: break-word;
   overflow-y:auto;  /* Adds vertical scroll if content exceeds the height */
 
 }
+
+.form-referral {
+
+  background-color: #fff;
+
+}
+
 
 
 /* Style for the required question message */
@@ -414,29 +422,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-#hue {
-  height: 40px;
-  background: linear-gradient(90deg,
-    hsl(0, 100%, 50%),
-    hsl(30, 100%, 50%),
-    hsl(60, 100%, 50%),
-    hsl(90, 100%, 50%),
-    hsl(120, 100%, 50%),
-    hsl(150, 100%, 50%),
-    hsl(180, 100%, 50%),
-    hsl(210, 100%, 50%),
-    hsl(240, 100%, 50%),
-    hsl(270, 100%, 50%),
-    hsl(300, 100%, 50%),
-    hsl(330, 100%, 50%),
-    hsl(360, 100%, 50%)
-  );
-}
-
-/* Existing styles... */
-
-/* Add this CSS to move the content when the drawer is open */
-
 
 .page{
 
@@ -499,25 +484,29 @@ button:hover {
 
 .overview-row{
   width: 100%;
-  background-color: purple;
+  background-color: white;
   display: flex;
   flex-direction: row;
+  overflow-x: auto; /* This will add a horizontal scrollbar when content exceeds the container width */
+  white-space: nowrap; /* This will prevent content from wrapping to the next line */
+
+
 
 }
 
 .teacher-widget-half{
-  width: 50%;
   height: 300px;
+  width: 50%;
   background-color: white;
   margin-right: 5px;
   
 
 }
 .teacher-widget-third{
-  width: 33%;
-  height: 300px;
+  height: auto;
   background-color: teal;
   margin-right: 5px;
+
 
 }
 
@@ -526,24 +515,30 @@ button:hover {
 .sub-main{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  /* width: 100%;
+  background-color: grey; */
+
 
 }
 
 
 .teacher-panel{
-  width: 100%;
-  background-color: purple;
+}
+
+.sidebar-content{
+  background-color: orange;
+  width: 20%;
 }
 
 
 .right-side-bar{
-  width: 15%;
+  width: 5%;
   background-color: orange;
 }
 
 .left-main{
-  width: 85%;
+  justify-items: center;
+  width: 100%;
 }
 
 
@@ -565,24 +560,36 @@ button:hover {
 }
 
 .student-drop-btn{
- flex: 1; 
  outline:"2px solid white"; 
  text-align: "center";
- width: 25%;
+ width: 35%;
  background-color: #0056b3; /* Blue background */
  color: white; /* White text color */
  padding: 10px 20px; /* Padding around the text */
  font-size: 16px; /* Font size */
  cursor: pointer; /* Cursor style */
- height: 50px;
+ height: 40px;
+
 }
 
 .student-main-content-menu{
-display:"flex";
-/* background-color:"rgb(25, 118, 210)"; */
-width: 100%;
+display:flex;
+justify-self: center;
+justify-content: space-between;
+/* justify-content: center; Horizontal centering */
+align-items: center;     /* Vertical centering */
+width: 98%;
 margin-bottom: 10px;
+background-color: white;
+height: 60px;
 
+
+}
+
+.teacher-main-content-menu{
+  display: flex;
+  width: 100%;
+  background-color:"rgb(25, 118, 210)" ;
 }
 
 .dashboard-title{
@@ -619,6 +626,19 @@ margin-bottom: 10px;
 
 }
 
+
+
+
+.vertical-text {
+  position: relative;
+  top: 500px;
+  margin-left: 210px;
+  transform: translateX(-50%) rotate(-90deg); /* Rotate text 90 degrees counter-clockwise */
+  transform-origin: 0 0; /* Set the origin point to the top-left corner */
+  white-space: nowrap; /* Prevent text from wrapping */
+  background-color: #fff; /* Background color to cover rotated content if needed */
+  padding: 5px 200px; /* Adjust padding as needed */
+}
 
 
 
@@ -673,9 +693,30 @@ table th tr {
   position: relative;
 }
 
+
+
 .dropdown-item:hover {
   background-color: #6E7076; /* Darker blue on hover */
 }
+
+.teacher-dropdown-item{
+  background-color: #3498db; /* Blue background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style */
+  outline: none; /* Remove outline on focus */
+  position: relative;
+  width: 100%;
+}
+
+
+
+.teacher-dropdown-item:hover {
+  background-color: #6E7076; /* Darker blue on hover */
+}
+
 
 /* Show the dropdown content */
 .show {
@@ -683,19 +724,23 @@ table th tr {
 }
 
 /* Styling for the dropdown button */
-.dropbtn {
+.teacher-dash-dropbtn {
+  flex:1;
   background-color: #0056b3; /* Blue background */
   color: white; /* White text color */
-  padding: 10px 20px; /* Padding around the text */
+  padding: 10px 20px;
   font-size: 16px; /* Font size */
   border: none; /* No border */
   cursor: pointer; /* Cursor style */
-  border-radius: 4px; /* Rounded corners */
+  border-radius: 0px; /* Rounded corners */
   outline: none; /* Remove outline on focus */
   position: relative;
   height: 50px;
+  border: 1px solid #02448b;
 
 }
+
+ /* style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}} */
 
 /* Hover effect for the dropdown button */
 .dropbtn:hover {
@@ -706,11 +751,14 @@ table th tr {
 .widget-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: x-small;
+
 }
 
 .widget-table-tr{
   background-color: turquoise;
-  color:white
+  color:white;
+  font-size: x-small;
 }
 
 
@@ -834,4 +882,13 @@ button:hover {
   height: 100%;
   clip-path: polygon(50% 50%, 100% 0, 100% 100%);
   transform-origin: 50% 50%;
+}
+
+.table-container-review {
+  display: flex;
+}
+
+.table-container-review div {
+  flex: 2; /* This will make both columns take up equal width */
+  padding: 8px; /* Add padding for spacing */
 }

@@ -168,7 +168,7 @@ const handleAssignmentClick=(x)=>{
  </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
-  <TableCell>{x.infraction.infractionDescription}</TableCell>
+  <TableCell>{x.infraction.infractionDescription[1]}</TableCell>
   <TableCell>{x.infraction.infractionLevel}</TableCell>
   {/* <TableCell>{x.status}</TableCell> */}
   <TableCell>{x.teacherEmail}</TableCell>
