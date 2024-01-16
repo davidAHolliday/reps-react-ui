@@ -146,9 +146,11 @@ const handleRadioChange = (e) =>{
 
 const handleSubmit = () => {
 
+  const formattedInfraction = (essay.infractionName==="Unauthorized Device Cell Phone") ? "Unauthorized Device/Cell Phone":essay.infractionName;
+
   var payload = {
       "studentEmail" :loggedInUser ,
-      "infractionName": essay.infractionName,
+      "infractionName": formattedInfraction,
       "studentAnswer": studentAnswers
       }
   
