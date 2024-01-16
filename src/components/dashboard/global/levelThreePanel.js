@@ -27,7 +27,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:"",data:null})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
-const [filter, setFilter] = useState("OPEN");
+const [filter, setFilter] = useState("Open");
 
 const defaultTheme = createTheme();
 
@@ -67,7 +67,8 @@ const defaultTheme = createTheme();
       }, [ toast.visible]);
 
 
-      let data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=> x.status === "OPEN" || x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
+
   console.log(data)
       data = data.filter((record) => record.infraction.infractionLevel=== "3");      
       console.log(data)
@@ -99,7 +100,7 @@ const defaultTheme = createTheme();
     
       const filterOptions = [
         {value:"ALL", label:"All"},
-        {value:"OPEN", label:"Open"},
+        {value:"Open", label:"Open"},
         {value:"CLOSED", label:"Closed"},
         {value:"CFR", label:"CFR"},
       ]
@@ -296,7 +297,7 @@ const defaultTheme = createTheme();
                       <TableCell>
                         <div className='level-three-button-container'>
                      
-  {x.status == "OPEN" ?  <><button className='level-three-buttons' onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
+  {x.status == "OPEN" || x.status =="PENDING" ?  <><button className='level-three-buttons' onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
   setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
@@ -305,21 +306,25 @@ const defaultTheme = createTheme();
     )}
   </button>
 
-  <button className='level-three-buttons' style={{backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  {/* <button className='level-three-buttons' style={{backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
   setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></> : <> <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  </button> */}
+  </> : 
+  <> 
+  {/* <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
   setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></>}  
+  </button> */}
+  </>}  
   </div>                    
  
 
