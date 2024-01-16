@@ -1,6 +1,6 @@
 import React from "react";
 
-  function MutipleChoiceFormat({question, saveAnswerAndProgress,sectionName}) {
+  function MutipleChoiceFormat({data, saveAnswerAndProgress,sectionName}) {
     const essayStyles = {
         fontFamily: 'Arial, sans-serif',
         fontSize: '18px',
@@ -21,11 +21,11 @@ import React from "react";
       <>
         <div className="essay-container">
           <div className="section-header" style={{ background: "green", color: "white" }}>
-            {sectionName}
-            <h4 className="question-header" style={{ color: "green", background: "#FDFD96" }}>{question}</h4>
+            {data.title}
+            <h4 className="question-header" style={{ color: "green", background: "#FDFD96" }}>{data.question}</h4>
           </div>
-          <h1 className="section-name">{sectionName}</h1>
-          <p className="question-text">{question}</p>
+          {/* <h1 className="section-name">{question.title}</h1> */}
+          <p className="question-text">{data.question}</p>
         </div>
         <div className="md0UAd" aria-hidden="true" dir="auto">
           * Indicates required question

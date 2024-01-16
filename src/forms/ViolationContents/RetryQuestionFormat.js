@@ -12,10 +12,10 @@ import {React, useEffect, useState} from "react";
           setGeneratedImage(imageElement);
       }, []); // Run this effect only once when the component mounts
     
-      const compareText = essay.retryQuestion["textToCompare"];
+      const compareText = essay["textToCompare"];
       const checkWork = () => {
         const minMatchPercent = 80
-        const compareText = essay.retryQuestion["textToCompare"];
+        const compareText = essay["textToCompare"];
         console.log(compareText);
       
         const originalText = prepText(compareText);
@@ -110,7 +110,7 @@ return image;      };
           {generatedImage !== null ? (
             <div id="image">{generatedImage && <img src={generatedImage.src} alt="Generated" />}</div>
           ) : (
-            <p>{essay.retryQuestion["imageTextAlt"]}</p>
+            <p>{essay["imageTextAlt"]}</p>
           )}
         </div>
               <textarea

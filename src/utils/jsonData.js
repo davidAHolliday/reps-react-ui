@@ -1864,7 +1864,7 @@ export const essayData = {
     
         ////////////////////////Unauthorized Device 3/////////////////////////////////
         "unauthorizeddevice-3":{
-          "infractionName":"Unauthorized Device/Cell Phone",
+          "infractionName":"Unauthorized Device Cell Phone",
           "level": 3,
           "Question 1":{
             "question":"Read the following passage to determine who was cited for connecting a fear of missing out with problematic phone use.",
@@ -1976,7 +1976,161 @@ export const essayData = {
           "textToCompare":""     
         }
         }, 
-  }
+  },
+  
+ 
 }
 
 //123abc; justin_iverson.c@charleston.k12.sc.us
+
+
+export const dataWithArray = [{
+  "infractionName":"Unauthorized Device Cell Phone",
+  "level": 3,
+  "questions": [
+      {
+        "type":"reading",
+        "question":"Read the following passage to determine who was cited for connecting a fear of missing out with problematic phone use.",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+       
+        "references": {
+          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        },
+        "radioAnswers": {
+          1: {"value": "correct","label":"Kuss, D. J., & Griffiths, M. D."},
+          2: {"value": "incorrect","label":"Montag, C., Becker, B., & Gan, C."},
+          3: {"value": "incorrect","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          4: {"value": "incorrect","label":"Bianchi, A., & Phillips, J. G."}
+      },
+      
+      },
+      {
+        "type":"retryQuestion",
+        "textToCompare":"A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors."
+      },
+      {
+        "question":"Read the following passage to determine who was cited for connecting emotional coping and escapism with problematic phone use.",
+        "type":"reading",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+        "references": {
+          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        },
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Bianchi, A., & Phillips, J. G."},
+          2: {"value": "correct","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          3: {"value": "incorrect","label":"Montag, C., Becker, B., & Gan, C."},
+          4: {"value": "incorrect","label":"Kuss, D. J., & Griffiths, M. D."}
+        },
+    
+      },
+      {
+        "type":"retryQuestion",
+        "textToCompare":"Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation."
+      },
+      {
+        "question":"Read the following passage to determine who was cited for connecting gratification from repetitive phone use and the development of addictive behaviors.",
+        "type":"reading",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+        "references": {
+          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        },
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Newport, C., Smith, A."},
+          2: {"value": "incorrect","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          3: {"value": "incorrect","label":"Kuss, D. J., & Griffiths, M. D."},
+          4: {"value": "correct","label":"Montag, C., Becker, B., & Gan, C."}
+        }
+      },
+      
+      {
+        "type":"retryQuestion",
+        "textToCompare":"Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction."
+        },
+      
+      {
+      "type":"exploratory-open-ended",
+      "title": "openEndedExplanation",
+      "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+       
+      },
+      {
+        "type":"exploratory-radio",
+        "title": "emotionalRegulation-radio",
+        "question": "Choose whether you agree disagree or feel neutral to the following statement I have difficulty controlling my emotions and can say or do things that I regret when my emotions are overwhelming.",
+         
+        },
+        {
+          "type":"exploratory-radio",
+          "title": "academic-radio",
+          "question":"Choose whether you agree, disagree or feel neutral to the following statement: I find my class work frustrating or difficult and don't feel like I get the help I need with my work.",
+           
+          },
+          {
+            "type":"exploratory-open-ended",
+            "title": "academic-openEnded",
+            "question":"Can you explain the struggles you've had academically in the past. Is there anything that helps ease this frustration? When was the last time you felt good about a grade or class?",
+            
+             
+            },
+            {
+              "type":"exploratory-radio",
+              "title": "activities-radio",
+              "question": "Choose whether you agree, disagree or feel neutral to the following statement:I would like to find more productive outlets for my energy like sports, activities or clubs.",
+
+               
+              },
+              {
+                "type":"exploratory-open-ended",
+                "title": "emotionalCoping",
+                "question": "Please list any of your current interests and/or any activities, clubs or sports you would like to learn more about" 
+  
+                 
+                }
+              ]
+      
+  
+    }]
+
+

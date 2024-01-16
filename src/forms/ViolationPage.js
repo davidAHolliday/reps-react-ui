@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { baseUrl, essayData } from '../utils/jsonData';
+import { baseUrl, dataWithArray, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
 import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
@@ -13,7 +13,8 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [studentAnswers, setStudentAnswers] = useState([])
-  const [mapIndex, setMapIndex] = useState(0)
+  const [mapIndex, setMapIndex] = useState(6)
+  const [infractionData,setInfractionData] = useState([])
   
   //Grabs Params to Decide what Json Object to use
   const { param1, param2 } = useParams();
@@ -22,7 +23,7 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   const decodedParam1 = decodeURIComponent(param1);
   const decodedParam2 = decodeURIComponent(param2);
   
-  const essay = Object.values(essayData).filter(
+  const essay = Object.values(dataWithArray).filter(
     essay =>
       essay.infractionName === decodedParam1 &&
       essay.level === parseInt(decodedParam2)
@@ -32,6 +33,14 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   console.log("essay",essay)
 
 
+
+  useEffect(()=>{
+    setInfractionData(dataWithArray[0])
+
+
+  },[])
+
+  console.log(infractionData)
 
 // List of all possible components to compare json too
 const listOfPossibleSections = [
@@ -97,19 +106,28 @@ sectionMap.push("Submit")
 console.log(sectionMap);
 
 
+const sectionList = [
+  {index:0,sections:["question", "retry"]},
+  {index:1,sections:["question", "retry"]},
+  {index:2,sections:["question", "retry"]}, 
+  {index:3,sections:["question", "retry"]}
+
+
+]
+
+
 const loggedInUser = sessionStorage.getItem("email")
    
 
 const saveAnswerAndProgress = () =>{
-  if(loggedInUser){
+  if(true){
     if(selectedAnswer === "correct"){
       window.alert("Congratulations! That is correct!")
-      setMapIndex((prev) => prev + 2);
+      setMapIndex((prev) => prev + 1);
       setSelectedAnswer("")
   
     }else{
       window.alert("Sorry, that is incorrect")
-      setMapIndex((prev) => prev + 1);
     }
   
 
@@ -257,6 +275,7 @@ const conditionalRender = () => {
 
  
 
+
   
   return( 
     <div className="">
@@ -267,10 +286,71 @@ const conditionalRender = () => {
 </a>
       <div className="form-container" style={{width:"100%"}}>
         <form onSubmit={handleSubmit}>
-        <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1>
+        <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1> <span>{mapIndex}</span>
           <hr></hr>
+
+  {/* {!infractionData[mapIndex] && 
+        <div>
+          <h1>Congratulations! You have Completed the Assignment </h1><br />
+          <h3>Hit Submit to Record Your Response for {loggedInUser} </h3>
+          <button onClick={() => handleSubmit()} type="button">Submit</button>
+        </div>
+
+    } */}
  <div>
- {conditionalRender()}
+ {/* {conditionalRender()} */}
+ {infractionData && infractionData.questions && infractionData.questions.map((data, index) => {
+  return(
+    <>
+    {console.log(index,data)}
+    {(data.type==="reading" && mapIndex === index) &&<EssayFactory
+          essay={data}
+          saveAnswerAndProgress={saveAnswerAndProgress}
+          handleRadioChange={handleRadioChange}
+          sectionName={sectionMap[mapIndex]}
+        />}
+    
+    {(data.type==="retryQuestion" && mapIndex === index) &&<RetryQuestionFormat
+          essay={data}
+          saveAnswerAndProgress={textCorrectlyCopied}
+          handleRadioChange={handleRadioChange}
+          sectionName={sectionMap[mapIndex]}
+        />}
+                
+      {(data.type ==="exploratory-open-ended" && mapIndex === index) &&
+        <OpenEndedFormat
+        question={data}
+        saveAnswerAndProgress={openEndedQuestionAnswered}
+        sectionName={"TBD"}
+      />
+}          
+
+               {(data.type ==="exploratory-radio" && mapIndex === index) &&
+               <>
+               {console.log("readio",data)}
+         <MultipleChoiceFormat
+         data={data}
+         saveAnswerAndProgress={openEndedQuestionAnswered}
+         sectionName={"tbd"}
+       />
+       </>
+}    
+     
+    </>
+  )
+
+ })}
+
+
+{infractionData && infractionData.questions && mapIndex === infractionData.questions.length && (
+
+<div>
+<h1>Congratulations! You have Completed the Assignment </h1><br />
+<h3>Hit Submit to Record Your Response for {loggedInUser} </h3>
+<button onClick={() => handleSubmit()} type="button">Submit</button>
+</div>
+
+)}
  </div>
 
 

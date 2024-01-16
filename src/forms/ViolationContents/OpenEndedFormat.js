@@ -17,10 +17,10 @@ import {React, useState} from "react";
    
       return (
         <div>
-          <h4 className="section-header">{sectionName}</h4>
+          <h4 className="section-header">{question.title}</h4>
           <hr />
           <div className="question-container">
-            <h5 className="question-text">{question}*</h5>
+            <h5 className="question-text">{question.question}*</h5>
             <div className="image-container">
               {/* Add any additional content here */}
             </div>
