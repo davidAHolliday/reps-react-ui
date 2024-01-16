@@ -118,6 +118,18 @@ const StudentDashboard = () => {
     History
   </button>
 
+    {/* Histroy Drop Down */}
+    <button disabled={true}
+          style={{opacity:.4}}
+
+          className='student-drop-btn' 
+          onClick={() => {
+      // openDropdown("referralDropdown")
+       setPanelName("closedAssignments")}}
+  >
+    Resources
+  </button>
+
       </div>
       </div>
 

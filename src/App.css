@@ -565,10 +565,11 @@ button:hover {
  width: 35%;
  background-color: #0056b3; /* Blue background */
  color: white; /* White text color */
- padding: 10px 20px; /* Padding around the text */
  font-size: 16px; /* Font size */
  cursor: pointer; /* Cursor style */
- height: 40px;
+ height: 50px;
+ margin-right: 10px;
+ 
 
 }
 
@@ -593,10 +594,11 @@ height: 60px;
 }
 
 .dashboard-title{
-  height: 50px;
+  height: 60px;
   background-color: whitesmoke;
   padding: 10px 20px; /* Padding around the text */
   text-align: "center";
+  font-weight: bold;
   font-size: 20px;
 
 }
