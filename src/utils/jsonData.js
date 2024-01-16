@@ -1,5 +1,5 @@
-// export const baseUrl = "http://localhost:8080"
-export const baseUrl = "https://repsdev31.ue.r.appspot.com"
+export const baseUrl = "http://localhost:8080"
+// export const baseUrl = "https://repsdev31.ue.r.appspot.com"
 
 
 export const essayData = {
@@ -1050,7 +1050,7 @@ export const essayData = {
       "imageUrl":"https://lh3.googleusercontent.com/7ogDXl-LxxXC1N7RfxARN8nZFV4I4tLofpp3VbV9eSWBHH-KXneGTkSYlB-K2r6Nq9wfq7PsPeZy82BKCfxHzmWZvhO8JXoXtIrqVSn2dJxig4sr4VOvlvvSInP3G86fWRNHO0UWpmM_EHxCo3MUKPCMaVQI7w",
       "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
     }
-  },
+  }
 },
     ////////////////////////Dress Code 2/////////////////////////////////
     "dresscode-2":{

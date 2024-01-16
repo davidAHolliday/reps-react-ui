@@ -164,10 +164,8 @@ const handleSubmit = () => {
       .then(function (res){
         console.log(res)
         window.alert(`You Work Has been Recorded for ${payload.studentEmail}`)
-    
-        window.opener = null;
-        window.open("", "_self");
-        window.close();
+        window.location.href = "/dashboard/student";
+
 
 
     })
