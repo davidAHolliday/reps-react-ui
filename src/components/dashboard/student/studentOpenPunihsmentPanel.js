@@ -101,7 +101,7 @@ const handleAssignmentClick=(x)=>{
   };
   
   
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "OPEN");
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "OPEN" || punish.status=== "PENDING"));
       
     const hasScroll = data.length > 10;
 
@@ -161,9 +161,9 @@ const handleAssignmentClick=(x)=>{
             
             
 <TableRow key={key}>
-  <TableCell>
-  <Tooltip title="Click to view assignment">
-    {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/>:
+<TableCell style={{ textAlign: 'center' }}>
+  <Tooltip title= {x.status==="PENDING"? "Waiting For Teacher To Approve":"Click to view assignment"}>
+    {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/> : x.status === "PENDING" ? <Typography color="orange">Pending</Typography>:
     <Button size="small" color='success' variant="contained" onClick={()=>handleAssignmentClick(x)}>Start Assignment</Button>}
  </Tooltip>
   </TableCell>
@@ -178,7 +178,7 @@ const handleAssignmentClick=(x)=>{
 
     </TableCell>
     <TableCell >
-<div style={{display:"flex"}}>  {calculateImportance(x)}</div>
+<div style={{display:"flex"}}>  {x.status==="PENDING" ? "": calculateImportance(x)}</div>
 
     </TableCell>
 
