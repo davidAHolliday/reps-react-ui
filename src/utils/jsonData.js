@@ -1080,9 +1080,9 @@ export const essayData = {
             3: {"value": "incorrect","label":"Confidence and Self expression"},
             4: {"value": "incorrect","label":"Inspires Productivity"}
         },
-        "retryQuestion": "https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
+        "retryQuestion": {"imageUrl":"https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
           "textToCompare":"The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings."
-    
+      }
         },
     
       "Question 2":{
