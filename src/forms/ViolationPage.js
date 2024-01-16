@@ -13,15 +13,23 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [studentAnswers, setStudentAnswers] = useState([])
-  const [mapIndex, setMapIndex] = useState(6)
+  const [mapIndex, setMapIndex] = useState(0)
   
   //Grabs Params to Decide what Json Object to use
   const { param1, param2 } = useParams();
-  const essay =  Object.values(essayData).filter(
+
+  // Decode URL-encoded parameters
+  const decodedParam1 = decodeURIComponent(param1);
+  const decodedParam2 = decodeURIComponent(param2);
+  
+  const essay = Object.values(essayData).filter(
     essay =>
-      essay.infractionName === param1 &&  
-       essay.level === parseInt(param2) 
-  )[0]; 
+      essay.infractionName === decodedParam1 &&
+      essay.level === parseInt(decodedParam2)
+  )[0];
+
+  console.log("params",decodedParam1,decodedParam2)
+  console.log("essay",essay)
 
 
 
@@ -138,9 +146,11 @@ const handleRadioChange = (e) =>{
 
 const handleSubmit = () => {
 
+  const formattedInfraction = (essay.infractionName==="Unauthorized Device Cell Phone") ? "Unauthorized Device/Cell Phone":essay.infractionName;
+
   var payload = {
       "studentEmail" :loggedInUser ,
-      "infractionName": essay.infractionName,
+      "infractionName": formattedInfraction,
       "studentAnswer": studentAnswers
       }
   
@@ -156,10 +166,8 @@ const handleSubmit = () => {
       .then(function (res){
         console.log(res)
         window.alert(`You Work Has been Recorded for ${payload.studentEmail}`)
-    
-        window.opener = null;
-        window.open("", "_self");
-        window.close();
+        window.location.href = "/dashboard/student";
+
 
 
     })
@@ -171,72 +179,87 @@ const handleSubmit = () => {
 }
 
 
-  const conditionalRender = () => {
-    const currentSection = sectionMap[mapIndex]
-    console.log(currentSection, mapIndex)
+const conditionalRender = () => {
+  const currentSection = sectionMap[mapIndex];
+  console.log(currentSection)
 
-//If Retry Question Present Render
-    if (currentSection.includes(".retryQuestion")){
-      return(
+  // Check if currentSection is defined
+  if (currentSection) {
+    console.log(currentSection, mapIndex);
+
+    // If Retry Question Present Render
+    if (currentSection.includes(".retryQuestion")) {
+      return (
         <RetryQuestionFormat
-        essay={essay[currentSection.replace(".retryQuestion", "")]}
-        saveAnswerAndProgress={textCorrectlyCopied}
-        sectionName={sectionMap[mapIndex]}
+          essay={essay[currentSection.replace(".retryQuestion", "")]}
+          saveAnswerAndProgress={textCorrectlyCopied}
+          sectionName={sectionMap[mapIndex]}
         />
-
       );
-
     }
-    //If Question Present Render
-
-    else if(currentSection.includes(".question")) {
-      return(
-      <EssayFactory
-      essay={essay[sectionMap[mapIndex].replace(".question","")]}
-      saveAnswerAndProgress={saveAnswerAndProgress}
-      handleRadioChange={handleRadioChange}
-      sectionName={sectionMap[mapIndex]}
-    />
-      )
+    // If Question Present Render
+    else if (currentSection.includes(".question")) {
+      return (
+        <EssayFactory
+          essay={essay[sectionMap[mapIndex].replace(".question", "")]}
+          saveAnswerAndProgress={saveAnswerAndProgress}
+          handleRadioChange={handleRadioChange}
+          sectionName={sectionMap[mapIndex]}
+        />
+      );
     }
-    else if (currentSection.includes("Submit")){
-      return(
-        <div> 
-          <h1>Congratuations! You have Completed the Assignment </h1><br/>
-        <h3>Hit Submit to Record Your Response for {loggedInUser} </h3>
-        <button  onClick={()=> handleSubmit()} type="button">Submit</button>
+    // If Submit section Render
+    else if (currentSection.includes("Submit")) {
+      return (
+        <div>
+          <h1>Congratulations! You have Completed the Assignment </h1><br />
+          <h3>Hit Submit to Record Your Response for {loggedInUser} </h3>
+          <button onClick={() => handleSubmit()} type="button">Submit</button>
         </div>
-      )
+      );
     }
-    //check for exploratory questions
-    else if(currentSection.includes(".openEndedExplanation") 
-    ||currentSection.includes(".emotionalRegulation-openEnded") 
-    ||currentSection.includes(".academic-openEnded") 
-    ||currentSection.includes(".emotionalCoping") 
-  
-    ){
-      return(
-      <OpenEndedFormat question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.","")]} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={currentSection.replace("exploratory-questions.","")}/>
-      )}
-    
- 
-    else if(currentSection.includes(".emotionalRegulation-radio")
-    || currentSection.includes(".academic-radio")
-    || currentSection.includes(".activities-radio")  ){
-      return(
-     <MultipleChoiceFormat question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.","")]} saveAnswerAndProgress={openEndedQuestionAnswered} sectionName={currentSection.replace("exploratory-questions.","")}/>
-      )
-    
-    }else{
+    // Check for exploratory questions
+    else if (
+      currentSection.includes(".openEndedExplanation") ||
+      currentSection.includes(".emotionalRegulation-openEnded") ||
+      currentSection.includes(".academic-openEnded") ||
+      currentSection.includes(".emotionalCoping")
+    ) {
+      return (
+        <OpenEndedFormat
+          question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.", "")]}
+          saveAnswerAndProgress={openEndedQuestionAnswered}
+          sectionName={currentSection.replace("exploratory-questions.", "")}
+        />
+      );
+    }
+    // Check for radio questions
+    else if (
+      currentSection.includes(".emotionalRegulation-radio") ||
+      currentSection.includes(".academic-radio") ||
+      currentSection.includes(".activities-radio")
+    ) {
+      return (
+        <MultipleChoiceFormat
+          question={essay['exploratory-questions'][currentSection.replace("exploratory-questions.", "")]}
+          saveAnswerAndProgress={openEndedQuestionAnswered}
+          sectionName={currentSection.replace("exploratory-questions.", "")}
+        />
+      );
+    } else {
       return null;
-
     }
   }
+
+  // Return null if currentSection is undefined
+  return null;
+};
+
  
 
   
   return( 
-    <div className="page-container">
+    <div className="">
 
     <div className="lrKTG">
     <a href="/dashboard/student">

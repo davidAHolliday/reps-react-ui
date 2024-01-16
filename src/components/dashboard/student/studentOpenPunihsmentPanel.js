@@ -1,5 +1,5 @@
 import react, {useState,useEffect} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
@@ -47,7 +47,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
 const handleAssignmentClick=(x)=>{
-    const url = `/infractionAssignments/${x.infraction.infractionName}/${x.infraction.infractionLevel}`;
+    const url = `/infractionAssignments/${x.infraction.infractionName.replace("/"," ")}/${x.infraction.infractionLevel}`;
     window.location.href = url;
   };
 
@@ -101,7 +101,7 @@ const handleAssignmentClick=(x)=>{
   };
   
   
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "OPEN");
+	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "OPEN" || punish.status=== "PENDING"));
       
     const hasScroll = data.length > 10;
 
@@ -161,10 +161,10 @@ const handleAssignmentClick=(x)=>{
             
             
 <TableRow key={key}>
-  <TableCell>
-  <Tooltip title="Click to view assignment">
-    {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/>:
-    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>}
+<TableCell style={{ textAlign: 'center' }}>
+  <Tooltip title= {x.status==="PENDING"? "Waiting For Teacher To Approve":"Click to view assignment"}>
+    {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/> : x.status === "PENDING" ? <Typography color="orange">Pending</Typography>:
+    <Button size="small" color='success' variant="contained" onClick={()=>handleAssignmentClick(x)}>Start Assignment</Button>}
  </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
@@ -178,7 +178,7 @@ const handleAssignmentClick=(x)=>{
 
     </TableCell>
     <TableCell >
-<div style={{display:"flex"}}>  {calculateImportance(x)}</div>
+<div style={{display:"flex"}}>  {x.status==="PENDING" ? "": calculateImportance(x)}</div>
 
     </TableCell>
 

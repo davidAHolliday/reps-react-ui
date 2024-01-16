@@ -29,6 +29,7 @@ const TeacherDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("createPunishment")
+  const [notificationData,setNotificationData]= useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
     teacherDropdown:false,
@@ -63,6 +64,7 @@ const TeacherDashboard = () => {
   const headers = {
     Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
   };
+
 
   useEffect(() => {
     axios
@@ -100,6 +102,9 @@ const TeacherDashboard = () => {
         </div>
     )
   }
+
+
+
 
   return (
     loggedIn && (
@@ -256,10 +261,10 @@ const TeacherDashboard = () => {
 </div> */}
    </div> 
      </div>
-
-
+     {<div>You have {} Pending Level 3</div>}
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        <NotificationBar />
+        <NotificationBar notificationData={data}/>
+
         </Drawer>
       </div>
       </div>

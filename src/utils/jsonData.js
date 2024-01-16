@@ -1050,7 +1050,7 @@ export const essayData = {
       "imageUrl":"https://lh3.googleusercontent.com/7ogDXl-LxxXC1N7RfxARN8nZFV4I4tLofpp3VbV9eSWBHH-KXneGTkSYlB-K2r6Nq9wfq7PsPeZy82BKCfxHzmWZvhO8JXoXtIrqVSn2dJxig4sr4VOvlvvSInP3G86fWRNHO0UWpmM_EHxCo3MUKPCMaVQI7w",
       "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
     }
-  },
+  }
 },
     ////////////////////////Dress Code 2/////////////////////////////////
     "dresscode-2":{
@@ -1080,9 +1080,9 @@ export const essayData = {
             3: {"value": "incorrect","label":"Confidence and Self expression"},
             4: {"value": "incorrect","label":"Inspires Productivity"}
         },
-        "retryQuestion": "https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
+        "retryQuestion": {"imageUrl":"https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
           "textToCompare":"The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings."
-    
+      }
         },
     
       "Question 2":{
@@ -1646,7 +1646,7 @@ export const essayData = {
 
             ////////////////////////Unauthorized Device 1/////////////////////////////////
             "unauthorizeddevice-1":{
-              "infractionName":"Unauthorized Device/Cell Phone",
+              "infractionName":"Unauthorized Device Cell Phone",
               "level": 1,
               "Question 1":{
                 "question":"True or false students who were  not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
