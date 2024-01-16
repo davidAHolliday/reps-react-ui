@@ -1646,7 +1646,7 @@ export const essayData = {
 
             ////////////////////////Unauthorized Device 1/////////////////////////////////
             "unauthorizeddevice-1":{
-              "infractionName":"Unauthorized Device/Cell Phone",
+              "infractionName":"Unauthorized Device Cell Phone",
               "level": 1,
               "Question 1":{
                 "question":"True or false students who were  not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",

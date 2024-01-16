@@ -47,7 +47,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
 const handleAssignmentClick=(x)=>{
-    const url = `/infractionAssignments/${x.infraction.infractionName}/${x.infraction.infractionLevel}`;
+    const url = `/infractionAssignments/${x.infraction.infractionName.replace("/"," ")}/${x.infraction.infractionLevel}`;
     window.location.href = url;
   };
 
