@@ -1,5 +1,5 @@
 import react, {useState,useEffect} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, getImageListItemBarUtilityClass, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import axios from "axios"
@@ -164,7 +164,7 @@ const handleAssignmentClick=(x)=>{
   <TableCell>
   <Tooltip title="Click to view assignment">
     {x.infraction.infractionName === "Failure to Complete Work" ? <AssignmentIcon/>:
-    <OpenInNewIcon color="primary" onClick={()=>handleAssignmentClick(x)}/>}
+    <Button size="small" color='success' variant="contained" onClick={()=>handleAssignmentClick(x)}>Start Assignment</Button>}
  </Tooltip>
   </TableCell>
   <TableCell>{x.infraction.infractionName}</TableCell>
