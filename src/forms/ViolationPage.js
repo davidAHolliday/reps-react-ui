@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
-import { baseUrl, dataWithArray, essayData } from '../utils/jsonData';
+import { baseUrl } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
 import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
@@ -15,6 +15,8 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   const [studentAnswers, setStudentAnswers] = useState([])
   const [mapIndex, setMapIndex] = useState(0)
   const [infractionData,setInfractionData] = useState([])
+  const [dataWithArray, setDataWithArray] = useState([])
+  const [essay,setEssay] = useState()
   
   //Grabs Params to Decide what Json Object to use
   // const { param1, param2 } = useParams();
@@ -22,14 +24,37 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   // // Decode URL-encoded parameters
   // const decodedParam1 = decodeURIComponent(param1);
   // const decodedParam2 = decodeURIComponent(param2);
-  
-console.log("violdaitonpage",props.data.infraction.infractionName)
 
-  const essay = Object.values(dataWithArray).filter(
-    essay =>
-      essay.infractionName === props.data.infraction.infractionName &&
-      essay.level === parseInt(props.data.infraction.infractionLevel)
-  )[0];
+
+
+useState(()=>{
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
+
+const url =`${baseUrl}/assignments/v1/`
+axios.get(url,{headers})
+.then(response => {
+console.log(response.data);
+setDataWithArray(response.data)
+const essay = response.data.filter(
+  essay =>
+    essay.infractionName === props.data.infraction.infractionName &&
+    essay.level == parseInt(props.data.infraction.infractionLevel)
+);
+setEssay(essay[0])
+})
+.catch(error => {
+console.error(error);
+});
+
+},[])
+  
+console.log(props.data.infraction.infractionName)
+console.log((props.data.infraction.infractionLevel))
+
+
 
   // console.log("params",decodedParam1,decodedParam2)
   console.log("essay",essay)
@@ -128,17 +153,20 @@ const handleSubmit = () => {
 }
 
 return( 
-    <div className="">
+ essay &&  (<>
 
+    <div className="">
     <div className="">
       <div className="form-container" style={{width:"100%"}}>
         <form onSubmit={handleSubmit}>
-        <h1 className="instructions">{essay.infractionName} Violation Level:{essay.level}</h1> 
-          <hr></hr>
+        <h1 className="instructions">
+                {essay && essay.infractionName} Violation Level:{' '}
+                {essay && essay.level}
+              </h1>          <hr></hr>
 
 
  <div>
- {infractionData && infractionData.questions && infractionData.questions.map((data, index) => {
+ {essay && essay.questions && essay.questions.map((data, index) => {
   return(
     <>
     {console.log(index,data)}
@@ -193,5 +221,5 @@ return(
       </div>
     </div>
   </div>
-);
+  </>))
   }
