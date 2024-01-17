@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container, Paper, MenuItem, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { TextField, Button, Typography, Container, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import axios from 'axios';
+import { baseUrl } from './jsonData';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 const MultiPageForm = () => {
   const [numOfQuestions, setNumberOfQuestions] = useState(1);
+  const [openAccordion, setOpenAccordion] = useState(null);
+
   const [payload, setPayload] = useState({
     infractionName: '',
     level: 1,
@@ -12,7 +21,7 @@ const MultiPageForm = () => {
         type: "",
         title: "",
         body: "",
-        references: ["ref1"],
+        references: [""],
         radioAnswers: {},
         textToCompare: "",
         
@@ -86,18 +95,35 @@ const MultiPageForm = () => {
       questions: payload.questions,
     };
     console.log(finalPayload);
+
+
+    const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
+      
+
+const url =`${baseUrl}/assignments/v1/`
+axios.post(url, finalPayload,{headers})
+.then(response => {
+  console.log(response.data);
+  window.alert(`Successfully created assignment ${response.data}`);
+})
+.catch(error => {
+  console.error(error);
+});
     // You can use the finalPayload as needed (e.g., send it to an API)
   };
 
   return (
     <Container component="main" maxWidth="md">
       <Paper elevation={3} style={{ padding: 20, margin: '20px 0' }}>
-        <Typography variant="h5">Payload Builder</Typography>
+        <Typography variant="h5">Create New Assignment</Typography>
         <form>
           <TextField
             label="Infraction Name"
             fullWidth
             required
+            style={{marginBottom:"10px"}}
             value={payload.infractionName}
             onChange={(e) => handleChange('infractionName', e.target.value)}
           />
@@ -105,6 +131,8 @@ const MultiPageForm = () => {
             label="Level"
             type="number"
             fullWidth
+            style={{marginBottom:"10px"}}
+
             required
             value={payload.level}
             onChange={(e) => handleChange('level', parseInt(e.target.value))}
@@ -112,7 +140,13 @@ const MultiPageForm = () => {
 
           {/* Dynamic Questions */}
           {[...Array(numOfQuestions)].map((_, questionIndex) => (
-            <Accordion key={questionIndex}>
+            <Accordion
+            style={{marginBottom:"10px"}}
+             key={questionIndex}
+             expanded={questionIndex === openAccordion}
+             onChange={() => setOpenAccordion(questionIndex === openAccordion ? null : questionIndex)}
+
+             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`question-${questionIndex}-content`}
@@ -122,40 +156,57 @@ const MultiPageForm = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <div>
-                  <TextField
+                 
+                 
+                   {/* Use Select component for Question Type */}
+                   <FormControl fullWidth required>
+                   <InputLabel>Question Type</InputLabel>
+
+                    <Select
+                                        style={{marginBottom:"10px"}}
+
+                      value={payload.questions[questionIndex]?.type || ''}
+                      onChange={(e) => handleMappedChange('type', e.target.value, questionIndex)}
+                    >
+                      <MenuItem value="reading">Reading</MenuItem>
+                      <MenuItem value="retryQuestion">Retry Question</MenuItem>
+                      <MenuItem value="exploratory">Exploratory</MenuItem>
+                    </Select>
+                  </FormControl>
+                  {payload.questions[questionIndex]?.type === "reading" && (
+                    <>
+
+                    <TextField
                     label={`Question Text`}
+                    id="outlined-basic" 
+                    variant="outlined"
                     multiline
-                    rows={4}
+                    rows={1}
                     fullWidth
                     required
+                    style={{marginBottom:"10px"}}
                     value={payload.questions[questionIndex]?.question || ''}
                     onChange={(e) => handleMappedChange('question', e.target.value, questionIndex)}
                   />
-                  <TextField
-                    label={`Question Type`}
-                    multiline
-                    rows={4}
-                    fullWidth
-                    required
-                    value={payload.questions[questionIndex]?.type || ''}
-                    onChange={(e) => handleMappedChange('type', e.target.value, questionIndex)}
-                  />
-                  {payload.questions[questionIndex]?.type === "reading" && (
-                    <>
+
                       <TextField
-                        label={`Text Title`}
+                        label={`Essay Title`}
                         multiline
-                        rows={4}
+                        rows={2}
                         fullWidth
+                        style={{marginBottom:"10px"}}
+
                         required
                         value={payload.questions[questionIndex]?.title || ''}
                         onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
                       />
                       <TextField
-                        label={`Text Body`}
+                        label={`Essay Body`}
                         multiline
                         rows={4}
                         fullWidth
+                        style={{marginBottom:"10px"}}
+
                         required
                         value={payload.questions[questionIndex]?.body || ''}
                         onChange={(e) => handleMappedChange('body', e.target.value, questionIndex)}
@@ -166,8 +217,10 @@ const MultiPageForm = () => {
     <TextField
       label={`Reference ${referenceIndex + 1}`}
       multiline
-      rows={4}
+      rows={2}
       fullWidth
+      style={{marginBottom:"10px"}}
+
       required
       value={reference}
       onChange={(e) => {
@@ -187,11 +240,11 @@ const MultiPageForm = () => {
                       </Button>
   
                       {Object.keys(payload.questions[questionIndex]?.radioAnswers || {}).map((answerIndex) => (
-                        <div key={answerIndex}>
+                        <div style={{display:"flex", marginBottom:"10px"}} key={answerIndex}>
                           <TextField
                             select
                             label={`Answer ${answerIndex}`}
-                            fullWidth
+                            style={{width:"50%"}}
                             required
                             value={payload.questions[questionIndex]?.radioAnswers[answerIndex]?.value.toString() || 'false'}
                             onChange={(e) => handleAnswerChange('value', e.target.value, questionIndex, answerIndex)}
@@ -202,7 +255,7 @@ const MultiPageForm = () => {
                           <TextField
                             label={`Text Answer ${answerIndex}`}
                             multiline
-                            rows={4}
+                            rows={1}
                             fullWidth
                             required
                             value={payload.questions[questionIndex]?.radioAnswers[answerIndex]?.label || ''}
@@ -241,12 +294,26 @@ const MultiPageForm = () => {
     <TextField
       label={`Title`}
       multiline
-      rows={4}
+      rows={1}
       fullWidth
+      style={{marginBottom:"10px"}}
       required
       value={payload.questions[questionIndex]?.title || ''}
       onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
     />
+
+<TextField
+                    label={`Question Text`}
+                    id="outlined-basic" 
+                    variant="outlined"
+                    multiline
+                    rows={1}
+                    fullWidth
+                    required
+                    style={{marginBottom:"10px"}}
+                    value={payload.questions[questionIndex]?.question || ''}
+                    onChange={(e) => handleMappedChange('question', e.target.value, questionIndex)}
+                  />
   </>
 )}
                 </div>
@@ -254,14 +321,16 @@ const MultiPageForm = () => {
             </Accordion>
           ))}
 
-          <Button variant="contained" color="primary" onClick={buildPayload}>
-            Build Payload
-          </Button>
+    
         </form>
         <Button variant="outlined" onClick={() => setNumberOfQuestions((prev) => prev + 1)}>
           Add Question
         </Button>
       </Paper>
+
+      <Button variant="contained" color="primary" onClick={buildPayload}>
+            Submit Assignment
+          </Button>
     </Container>
   );
 };
