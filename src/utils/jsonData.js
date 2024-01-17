@@ -1985,7 +1985,7 @@ export const essayData = {
 
 
 export const dataWithArray = [{
-  "infractionName":"Unauthorized Device Cell Phone",
+  "infractionName":"Unauthorized Device/Cell Phone",
   "level": 3,
   "questions": [
       {
@@ -2004,12 +2004,12 @@ export const dataWithArray = [{
         
         Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
        
-        "references": {
-          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
-          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
-          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
-          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
-        },
+        references: [
+          "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+          "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+          "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+          "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
         "radioAnswers": {
           1: {"value": "correct","label":"Kuss, D. J., & Griffiths, M. D."},
           2: {"value": "incorrect","label":"Montag, C., Becker, B., & Gan, C."},
@@ -2037,12 +2037,12 @@ export const dataWithArray = [{
         Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
         
         Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
-        "references": {
-          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
-          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
-          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
-          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
-        },
+        "references": [
+          "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+        "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+         "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+       "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
         "radioAnswers": {
           1: {"value": "incorrect","label":"Bianchi, A., & Phillips, J. G."},
           2: {"value": "correct","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
@@ -2070,12 +2070,12 @@ export const dataWithArray = [{
         Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
         
         Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
-        "references": {
-          "reference1": "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
-          "reference2": "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
-          "reference3": "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
-          "reference4": "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
-        },
+        "references": [
+       "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+         "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+      "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+    "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
         "radioAnswers": {
           1: {"value": "incorrect","label":"Newport, C., Smith, A."},
           2: {"value": "incorrect","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},

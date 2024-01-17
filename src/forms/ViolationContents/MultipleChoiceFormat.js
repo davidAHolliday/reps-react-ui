@@ -1,17 +1,9 @@
 import React from "react";
 
   function MutipleChoiceFormat({data, saveAnswerAndProgress,sectionName}) {
-    const essayStyles = {
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '18px',
-        lineHeight: '1.6', // Increase line height for more space between lines
-        color: '#333',
-        textAlign: 'left', // Align text to the left',
-      /* Add more CSS styles as needed */
-    };
-
+ 
     const handleRadioChange = (value) =>{
-      var payload = {question:sectionName, answer:value}
+      var payload = {question:data.question, answer:value}
       saveAnswerAndProgress(payload)
   
      

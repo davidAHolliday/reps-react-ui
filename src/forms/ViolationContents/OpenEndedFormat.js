@@ -8,7 +8,7 @@ import {React, useState} from "react";
     
     
       const submitAnswer = () =>{
-        var payload = {question:sectionName, answer:value}
+        var payload = {question:question.question, answer:value}
         saveAnswerAndProgress(payload)
         setValue("")
     

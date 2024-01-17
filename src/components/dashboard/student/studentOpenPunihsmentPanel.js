@@ -9,7 +9,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { baseUrl } from '../../../utils/jsonData'
 
-   const StudentOpenPunishmentPanel = () => {
+   const StudentOpenPunishmentPanel = ({handleStartAssignment}) => {
 
     const loggedInUser = sessionStorage.getItem("email")
 
@@ -47,8 +47,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
 const handleAssignmentClick=(x)=>{
-    const url = `/infractionAssignments/${x.infraction.infractionName.replace("/"," ")}/${x.infraction.infractionLevel}`;
-    window.location.href = url;
+  handleStartAssignment(x)
   };
 
 
