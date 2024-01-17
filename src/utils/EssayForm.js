@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container, Paper } from '@mui/material';
-
+import { TextField, Button, Typography, Container, Paper, MenuItem, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const MultiPageForm = () => {
   const [numOfQuestions, setNumberOfQuestions] = useState(1);
   const [payload, setPayload] = useState({
@@ -12,7 +12,7 @@ const MultiPageForm = () => {
         type: "",
         title: "",
         body: "",
-        references: [],
+        references: ["ref1"],
         radioAnswers: {},
         textToCompare: ""
       }
@@ -34,6 +34,22 @@ const MultiPageForm = () => {
     });
   };
 
+  const handleAnswerChange = (key, value, questionIndex, answerIndex) => {
+    const newAnswers = { ...payload.questions[questionIndex].radioAnswers };
+    if (key === 'label') {
+      newAnswers[answerIndex][key] = value;
+    } else {
+      newAnswers[answerIndex][key] = value === 'true'; // Convert 'true'/'false' to boolean
+    }
+    handleMappedChange('radioAnswers', newAnswers, questionIndex);
+  };
+
+  const addAnswer = (questionIndex) => {
+    const newAnswers = { ...payload.questions[questionIndex].radioAnswers };
+    const newIndex = Object.keys(newAnswers).length + 1; // Generate a new index
+    newAnswers[newIndex] = { label: '', value: false }; // Default value to false
+    handleMappedChange('radioAnswers', newAnswers, questionIndex);
+  };
 
   const handleRefChange = (key, value, questionIndex, referenceIndex) => {
     setPayload((prevPayload) => {
@@ -41,7 +57,7 @@ const MultiPageForm = () => {
   
       // Check if the key is 'references'
       if (key === 'references') {
-        newQuestions[questionIndex].references[referenceIndex] = value;
+        newQuestions[questionIndex][key][referenceIndex] = value;
       } else {
         // Handle other keys normally
         newQuestions[questionIndex] = { ...newQuestions[questionIndex], [key]: value };
@@ -55,26 +71,18 @@ const MultiPageForm = () => {
     setPayload((prevPayload) => {
       const newQuestions = [...prevPayload.questions];
       const currentReferences = newQuestions[questionIndex]?.references || [];
-  
-      // Push a new reference to the currentReferences array
       currentReferences.push('');
-  
-      // Update the state with the new references array
       newQuestions[questionIndex].references = currentReferences;
-  
       return { ...prevPayload, questions: newQuestions };
     });
   };
-  const buildPayload = () => {
-    // Concatenate references into a list of strings
 
-    // Final payload to use as needed
+  const buildPayload = () => {
     const finalPayload = {
       infractionName: payload.infractionName,
       level: payload.level,
       questions: payload.questions,
     };
-
     console.log(finalPayload);
     // You can use the finalPayload as needed (e.g., send it to an API)
   };
@@ -102,72 +110,149 @@ const MultiPageForm = () => {
 
           {/* Dynamic Questions */}
           {[...Array(numOfQuestions)].map((_, questionIndex) => (
-            <div key={questionIndex}>
-              <TextField
-                label={`Question Text ${questionIndex + 1}`}
-                multiline
-                rows={4}
-                fullWidth
-                required
-                value={payload.questions[questionIndex]?.question || ''}
-                onChange={(e) => handleMappedChange('question', e.target.value, questionIndex)}
-              />
-              <TextField
-                label={`Question Type ${questionIndex + 1}`}
-                multiline
-                rows={4}
-                fullWidth
-                required
-                value={payload.questions[questionIndex]?.type || ''}
-                onChange={(e) => handleMappedChange('type', e.target.value, questionIndex)}
-              />
-              {payload.questions[questionIndex]?.type === "reading" && (
-                <>
+            <Accordion key={questionIndex}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`question-${questionIndex}-content`}
+                id={`question-${questionIndex}-header`}
+              >
+                <Typography variant="h6">Question {questionIndex + 1}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <div>
                   <TextField
-                    label={`Text Title ${questionIndex + 1}`}
+                    label={`Question Text`}
                     multiline
                     rows={4}
                     fullWidth
                     required
-                    value={payload.questions[questionIndex]?.title || ''}
+                    value={payload.questions[questionIndex]?.question || ''}
+                    onChange={(e) => handleMappedChange('question', e.target.value, questionIndex)}
+                  />
+                  <TextField
+                    label={`Question Type`}
+                    multiline
+                    rows={4}
+                    fullWidth
+                    required
+                    value={payload.questions[questionIndex]?.type || ''}
+                    onChange={(e) => handleMappedChange('type', e.target.value, questionIndex)}
+                  />
+                  {payload.questions[questionIndex]?.type === "reading" && (
+                    <>
+                      <TextField
+                        label={`Text Title`}
+                        multiline
+                        rows={4}
+                        fullWidth
+                        required
+                        value={payload.questions[questionIndex]?.title || ''}
+                        onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
+                      />
+                      <TextField
+                        label={`Text Body`}
+                        multiline
+                        rows={4}
+                        fullWidth
+                        required
+                        value={payload.questions[questionIndex]?.body || ''}
+                        onChange={(e) => handleMappedChange('body', e.target.value, questionIndex)}
+                      />
+                      <Button
+                        variant="outlined"
+                        onClick={() => addReference(questionIndex)}
+                        style={{ margin: '10px 0' }}
+                      >
+                        Add Reference
+                      </Button>
+                      {payload.questions[questionIndex]?.references.map((reference, referenceIndex) => (
+  <div key={referenceIndex}>
+    <TextField
+      label={`Reference ${referenceIndex + 1}`}
+      multiline
+      rows={4}
+      fullWidth
+      required
+      value={reference}
+      onChange={(e) => {
+        console.log('Before Update:', payload);
+        handleRefChange('references', e.target.value, questionIndex, referenceIndex);
+        console.log('After Update:', payload);
+      }}
+    />
+  </div>
+))}
+   <Button
+                        variant="outlined"
+                        onClick={() => addAnswer(questionIndex)}
+                        style={{ margin: '10px 0' }}
+                      >
+                        Add Answer
+                      </Button>
+                      {Object.keys(payload.questions[questionIndex]?.radioAnswers || {}).map((answerIndex) => (
+                        <div key={answerIndex}>
+                          <TextField
+                            select
+                            label={`Answer ${answerIndex}`}
+                            fullWidth
+                            required
+                            value={payload.questions[questionIndex]?.radioAnswers[answerIndex]?.value.toString() || 'false'}
+                            onChange={(e) => handleAnswerChange('value', e.target.value, questionIndex, answerIndex)}
+                          >
+                            <MenuItem value="true">Correct</MenuItem>
+                            <MenuItem value="false">Incorrect</MenuItem>
+                          </TextField>
+                          <TextField
+                            label={`Text Answer ${answerIndex}`}
+                            multiline
+                            rows={4}
+                            fullWidth
+                            required
+                            value={payload.questions[questionIndex]?.radioAnswers[answerIndex]?.label || ''}
+                            onChange={(e) => handleAnswerChange('label', e.target.value, questionIndex, answerIndex)}
+                          />
+                        </div>
+                      ))}
+                    </>
+                  )}
+                 
+                  
+                  {payload.questions[questionIndex]?.type === "retryQuestion" && (
+                    <>
+                      <TextField
+                    label={`Text To Copy`}
+                    multiline
+                    rows={4}
+                    fullWidth
+                    required
+                    value={payload.questions[questionIndex]?.textToCompare || ''}
+                    onChange={(e) => handleMappedChange('textToCompare', e.target.value, questionIndex)}
+                  />
+
+                    </>
+                  )}
+
+{payload.questions[questionIndex]?.type.includes("exploratory")  && (
+                    <>
+                      <TextField
+                    label={`Title`}
+                    multiline
+                    rows={4}
+                    fullWidth
+                    required
+                    value={payload.questions[questionIndex]?.textToCompare || ''}
                     onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
                   />
-                  <TextField
-                    label={`Text Body ${questionIndex + 1}`}
-                    multiline
-                    rows={4}
-                    fullWidth
-                    required
-                    value={payload.questions[questionIndex]?.body || ''}
-                    onChange={(e) => handleMappedChange('body', e.target.value, questionIndex)}
-                  />
-                  {/* Add Reference button */}
-                  <Button
-                    variant="outlined"
-                    onClick={() => addReference(questionIndex)}
-                    style={{ margin: '10px 0' }}
-                  >
-                    Add Reference
-                  </Button>
 
-                  {console.log("LOG",payload.questions[questionIndex]?.references)}
-                  {payload.questions[questionIndex]?.references.map((reference, referenceIndex) => (
-                    <TextField
-                      key={referenceIndex}
-                      label={`Reference ${referenceIndex + 1}`}
-                      multiline
-                      rows={4}
-                      fullWidth
-                      required
-                      value={reference}
-                      onChange={(e) => handleRefChange('references', e.target.value, questionIndex, referenceIndex)}
-                    />
-                  ))}
-                </>
-              )}
-            </div>
+
+
+                    </>
+                  )}
+                </div>
+              </AccordionDetails>
+            </Accordion>
           ))}
-          
+
           <Button variant="contained" color="primary" onClick={buildPayload}>
             Build Payload
           </Button>
