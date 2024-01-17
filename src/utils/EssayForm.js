@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField, Button, Typography, Container, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import axios from 'axios';
@@ -7,10 +7,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Assignment from '@mui/icons-material/Assignment';
 
 const MultiPageForm = () => {
   const [numOfQuestions, setNumberOfQuestions] = useState(1);
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [edit,setEdit] = useState(false);
+  const [existingAssignments,setExistingAssignments] = useState()
+  const [updateId,setUpdateId]= useState();
 
   const [payload, setPayload] = useState({
     infractionName: '',
@@ -88,6 +92,34 @@ const MultiPageForm = () => {
     });
   };
 
+
+useEffect(()=>{
+    const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
+      
+
+const url =`${baseUrl}/assignments/v1/`
+axios.get(url,{headers})
+.then(response => {
+  console.log(response.data);
+  setExistingAssignments(response.data)
+})
+.catch(error => {
+  console.error(error);
+});
+},[])
+
+
+// useEffect(() => {
+//   if (edit && existingAssignments && existingAssignments.length > 0) {
+//     // Assuming you want to load the first assignment when in edit mode
+//     const selectedAssignment = existingAssignments[0];
+//     setPayload(selectedAssignment);
+//     setNumberOfQuestions(selectedAssignment.questions.length);
+//   }
+// }, [edit, existingAssignments]);
+
   const buildPayload = () => {
     const finalPayload = {
       infractionName: payload.infractionName,
@@ -114,19 +146,73 @@ axios.post(url, finalPayload,{headers})
     // You can use the finalPayload as needed (e.g., send it to an API)
   };
 
+  const UpdatePayload = () => {
+    const finalPayload = {
+      infractionName: payload.infractionName,
+      level: payload.level,
+      questions: payload.questions,
+    };
+    console.log(finalPayload);
+
+
+    const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
+      
+
+const url =`${baseUrl}/assignments/v1/${updateId}`
+axios.put(url, finalPayload,{headers})
+.then(response => {
+  console.log(response.data);
+  window.alert(`Successfully updated assignment ${updateId}`);
+})
+.catch(error => {
+  console.error(error);
+});
+    // You can use the finalPayload as needed (e.g., send it to an API)
+  };
+
+
   return (
     <Container component="main" maxWidth="md">
       <Paper elevation={3} style={{ padding: 20, margin: '20px 0' }}>
-        <Typography variant="h5">Create New Assignment</Typography>
+        <Typography variant="h5">Create New Assignment</Typography><span style={{color:"blue",textDecoration:"bold"}}onClick={()=>{setEdit(true)}}>Edit</span> | <span style={{color:"green",textDecoration:"bold"}}onClick={()=>{setEdit(false)}}>New</span>
         <form>
-          <TextField
-            label="Infraction Name"
-            fullWidth
-            required
-            style={{marginBottom:"10px"}}
-            value={payload.infractionName}
-            onChange={(e) => handleChange('infractionName', e.target.value)}
-          />
+            {edit && existingAssignments ?
+            
+            <FormControl fullWidth required>
+            <Select
+              style={{ marginBottom: "10px" }}
+              value={payload.infractionName}
+              onChange={(e) => {
+                const selectedAssignment = existingAssignments.find((assignment) => assignment.infractionName === e.target.value);
+                if (selectedAssignment) {
+                  setPayload(selectedAssignment);
+                  setNumberOfQuestions(selectedAssignment.questions.length);
+                  setUpdateId(selectedAssignment.assignmentId)
+
+                }
+              }}
+            >
+              {existingAssignments.map((assignment) => (
+                <MenuItem key={assignment.infractionName} value={assignment.infractionName}>
+                  {assignment.infractionName}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>:
+                  <TextField
+                  label="Infraction Name"
+                  fullWidth
+                  required
+                  style={{marginBottom:"10px"}}
+                  value={payload.infractionName}
+                  onChange={(e) => handleChange('infractionName', e.target.value)}
+                />
+            
+            
+            }
+     
           <TextField
             label="Level"
             type="number"
@@ -328,9 +414,9 @@ axios.post(url, finalPayload,{headers})
         </Button>
       </Paper>
 
-      <Button variant="contained" color="primary" onClick={buildPayload}>
+      {edit ? <Button variant="contained" color="primary" onClick={UpdatePayload}>Update Assignment</Button>:<Button variant="contained" color="primary" onClick={buildPayload}>
             Submit Assignment
-          </Button>
+          </Button>}
     </Container>
   );
 };
