@@ -12,10 +12,10 @@ import {React, useEffect, useState} from "react";
           setGeneratedImage(imageElement);
       }, []); // Run this effect only once when the component mounts
     
-      const compareText = essay.retryQuestion["textToCompare"];
+      const compareText = essay["textToCompare"];
       const checkWork = () => {
         const minMatchPercent = 80
-        const compareText = essay.retryQuestion["textToCompare"];
+        const compareText = essay["textToCompare"];
         console.log(compareText);
       
         const originalText = prepText(compareText);
@@ -29,7 +29,7 @@ import {React, useEffect, useState} from "react";
         const threshold = minMatchPercent;
         if (percentage >= threshold) {
           window.alert("Correct");
-          saveAnswerAndProgress("correct");
+          saveAnswerAndProgress("true");
         } else {
           window.alert(`Try Again, Text Must Match to at least ${minMatchPercent} % \n you are currently at ${percentage.toFixed(0)} % `);
         }
@@ -110,7 +110,7 @@ return image;      };
           {generatedImage !== null ? (
             <div id="image">{generatedImage && <img src={generatedImage.src} alt="Generated" />}</div>
           ) : (
-            <p>{essay.retryQuestion["imageTextAlt"]}</p>
+            <p>{essay["imageTextAlt"]}</p>
           )}
         </div>
               <textarea

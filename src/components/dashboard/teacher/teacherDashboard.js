@@ -261,10 +261,9 @@ const TeacherDashboard = () => {
 </div> */}
    </div> 
      </div>
-     {<div>You have {} Pending Level 3</div>}
+  
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar notificationData={data}/>
-
         </Drawer>
       </div>
       </div>

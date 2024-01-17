@@ -11,6 +11,7 @@ import PDFReport from './components/dashboard/admin/reports/PDFReport';
 import { PDFViewer } from '@react-pdf/renderer';
 import TeacherDashboard from './components/dashboard/teacher/teacherDashboard';
 import GlobalArchivedPunishmentPanel from './components/dashboard/global/globalArchivedPunishmentPanel';
+import MultiPageForm from './utils/EssayForm';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
         <Route path="/forms/start-punishment" element={<MyForm />} />
         <Route path="/forms/ftc-closure" element={<FailureToComplete />} />
         <Route path="/admin/archived" element={<GlobalArchivedPunishmentPanel />} />
+        <Route path="/admin/essay-form" element={<MultiPageForm />} />
+
 
         <Route path="/forms/report" element={<> 
           <PDFViewer width="100%" height="800px">

@@ -16,6 +16,7 @@ import ShoutOutWidget from './shoutOutWidget';
 import TotalPositivePoints from './positivePointsComponents';
 import Card from '@mui/material/Card';
 import BlankPanelForTest from './blankPanelForTest';
+import ViolationPage from '../../../forms/ViolationPage';
 
 
 
@@ -26,6 +27,7 @@ const StudentDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("openAssignments")
+  const [selectAssignmentToStart,setSelectAssignmentToStart] = useState();
 
 
   const handleLogout = () => {
@@ -65,6 +67,11 @@ const StudentDashboard = () => {
   const toggleNotificationDrawer = (open) => {
     setOpenNotificationDrawer(open);
   };
+
+  const handleStartAssignment = (data) =>{
+    setSelectAssignmentToStart(data)
+    setPanelName("startAssignment")
+  }
 
   return (
     loggedIn && (
@@ -158,7 +165,9 @@ const StudentDashboard = () => {
       <div className = "student-panel">
           {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
-        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel/>}
+        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel handleStartAssignment={handleStartAssignment}/>}
+        {panelName === "startAssignment" &&<ViolationPage data={selectAssignmentToStart} />}
+{console.log(selectAssignmentToStart)}
       </div>
       </>
 }
