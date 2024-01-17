@@ -14,7 +14,9 @@ const MultiPageForm = () => {
         body: "",
         references: ["ref1"],
         radioAnswers: {},
-        textToCompare: ""
+        textToCompare: "",
+        
+        
       }
     ]
   });
@@ -158,14 +160,8 @@ const MultiPageForm = () => {
                         value={payload.questions[questionIndex]?.body || ''}
                         onChange={(e) => handleMappedChange('body', e.target.value, questionIndex)}
                       />
-                      <Button
-                        variant="outlined"
-                        onClick={() => addReference(questionIndex)}
-                        style={{ margin: '10px 0' }}
-                      >
-                        Add Reference
-                      </Button>
-                      {payload.questions[questionIndex]?.references.map((reference, referenceIndex) => (
+                     
+                      {payload.questions[questionIndex]?.references?.map((reference, referenceIndex) => (
   <div key={referenceIndex}>
     <TextField
       label={`Reference ${referenceIndex + 1}`}
@@ -182,13 +178,14 @@ const MultiPageForm = () => {
     />
   </div>
 ))}
-   <Button
+ <Button
                         variant="outlined"
-                        onClick={() => addAnswer(questionIndex)}
+                        onClick={() => addReference(questionIndex)}
                         style={{ margin: '10px 0' }}
                       >
-                        Add Answer
+                        Add Reference
                       </Button>
+  
                       {Object.keys(payload.questions[questionIndex]?.radioAnswers || {}).map((answerIndex) => (
                         <div key={answerIndex}>
                           <TextField
@@ -213,6 +210,13 @@ const MultiPageForm = () => {
                           />
                         </div>
                       ))}
+                       <Button
+                        variant="outlined"
+                        onClick={() => addAnswer(questionIndex)}
+                        style={{ margin: '10px 0' }}
+                      >
+                        Add Answer
+                      </Button>
                     </>
                   )}
                  
@@ -232,22 +236,19 @@ const MultiPageForm = () => {
                     </>
                   )}
 
-{payload.questions[questionIndex]?.type.includes("exploratory")  && (
-                    <>
-                      <TextField
-                    label={`Title`}
-                    multiline
-                    rows={4}
-                    fullWidth
-                    required
-                    value={payload.questions[questionIndex]?.textToCompare || ''}
-                    onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
-                  />
-
-
-
-                    </>
-                  )}
+{payload.questions[questionIndex]?.type.includes("exploratory") && (
+  <>
+    <TextField
+      label={`Title`}
+      multiline
+      rows={4}
+      fullWidth
+      required
+      value={payload.questions[questionIndex]?.title || ''}
+      onChange={(e) => handleMappedChange('title', e.target.value, questionIndex)}
+    />
+  </>
+)}
                 </div>
               </AccordionDetails>
             </Accordion>
