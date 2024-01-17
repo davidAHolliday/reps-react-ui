@@ -11,7 +11,7 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
 
 
  export default function ViolationPage(props) {
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState();
   const [studentAnswers, setStudentAnswers] = useState([])
   const [mapIndex, setMapIndex] = useState(0)
   const [infractionData,setInfractionData] = useState([])
@@ -45,21 +45,17 @@ console.log("violdaitonpage",props.data.infraction.infractionName)
   console.log(infractionData)
 
 
-
-
-
-
-
-
 const loggedInUser = sessionStorage.getItem("email")
-   
 
 const saveAnswerAndProgress = () =>{
   if(loggedInUser){
-    if(selectedAnswer === "correct"){
+    console.log("selectedAnswer in saveAnswerAndProgress:", selectedAnswer);
+
+
+    if (selectedAnswer === "true") {
       window.alert("Congratulations! That is correct!")
         setMapIndex((prev) => prev + 2);
-        setSelectedAnswer("")
+        setSelectedAnswer(null)
 
       }else{
         window.alert("Sorry, that is incorrect")
@@ -76,18 +72,13 @@ const saveAnswerAndProgress = () =>{
 }
 
 
-
-
-
 const textCorrectlyCopied = (selectedAnswer) =>{
-  if(selectedAnswer === "correct"){
+  if(selectedAnswer === "true"){
     window.alert("Congratulations! That is correct!")
     setMapIndex((prev) => prev + 1);
 }
 
 }
-
-
 
 
 const openEndedQuestionAnswered = (selectedAnswer) =>{

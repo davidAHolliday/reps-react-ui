@@ -29,7 +29,7 @@ import {React, useEffect, useState} from "react";
         const threshold = minMatchPercent;
         if (percentage >= threshold) {
           window.alert("Correct");
-          saveAnswerAndProgress("correct");
+          saveAnswerAndProgress("true");
         } else {
           window.alert(`Try Again, Text Must Match to at least ${minMatchPercent} % \n you are currently at ${percentage.toFixed(0)} % `);
         }

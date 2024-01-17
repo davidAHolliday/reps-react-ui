@@ -35,7 +35,6 @@ const shuffleArray = (array) => {
       setShuffledKeys(shuffleArray(Object.keys(essay.radioAnswers)));
     }, [essay]);
   
-  
     return (
       <>
         <div className="essay-container">
