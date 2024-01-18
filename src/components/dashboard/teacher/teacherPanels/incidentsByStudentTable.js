@@ -30,14 +30,14 @@ const IncidentsByStudentTable = ({data = []}) => {
   return (
     <TableContainer component={Paper}>
        <Typography variant="h6" align="center" style={{ margin: '10px' }}>
-        Incdient % By Student
+        Write-up % By Student
       </Typography>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell>Incidents</TableCell>
-            <TableCell>Percent of Incidents</TableCell>
+            <TableCell>Write-ups</TableCell>
+            <TableCell>Percent of Write-ups</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

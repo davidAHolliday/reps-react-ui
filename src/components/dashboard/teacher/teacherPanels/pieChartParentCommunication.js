@@ -21,8 +21,8 @@ const numReferrals = data.filter(record => infractionNamesToMatch.includes(recor
         
         { data: [
           { id: 0, value: numBxConcern, label: 'Behavioral' },
-          { id: 1, value: numShoutout, label: 'ShoutOut' },
-          { id: 2, value: numReferrals, label: 'Referals' },
+          { id: 1, value: numShoutout, label: 'Shout Out' },
+          { id: 2, value: numReferrals, label: 'Punishments' },
         ],
           arcLabel: (item) =>  `(${item.value})`,
           arcLabelMinAngle: 45,

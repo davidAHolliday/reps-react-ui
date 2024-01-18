@@ -43,11 +43,11 @@ const dataset = [
   },
   {
     incidents: getIncidentByBehavior("Unauthorized Device/Cell Phone",data),
-    behavior: 'Unauthorized Device',
+    behavior: 'Device',
   },
   {
     incidents: getIncidentByBehavior("Behavioral Concern",data),
-    behavior: 'Bx Concern',
+    behavior: 'B. Concern',
   },
   {
     incidents: getIncidentByBehavior("Failure to Complete Work",data),
@@ -59,12 +59,12 @@ const dataset = [
   return (
     <div>
       <Typography variant="h6" gutterBottom>
-        Incidents Overview
+        Punishments Overview
       </Typography>
       <BarChart
         dataset={dataset}
         xAxis={[{ scaleType: 'band', dataKey: 'behavior' }]}
-        series={[{ dataKey: 'incidents', label: 'incidents' }]}
+        series={[{ dataKey: 'incidents', label: 'Punishments' }]}
         {...chartSetting}
       />
     </div>

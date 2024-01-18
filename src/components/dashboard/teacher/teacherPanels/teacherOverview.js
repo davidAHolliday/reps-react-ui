@@ -6,7 +6,7 @@ import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
 import IncidentsByStudentTable from './incidentsByStudentTable';
-import TotalReferalByWeek from './referralsByWeek';
+import TotalReferralByWeek from './referralsByWeek';
 import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
 import Card from '@mui/material/Card';
 import ReferralByBehavior from './referralsByBehavior';
@@ -97,7 +97,7 @@ import RecentIncidents from './studentRecentIncidents';
     <div className='teacher-widget-third'>
     <Card style={{padding:"5px"}}>
 
-      <TotalReferalByWeek data={data}/>
+      <TotalReferralByWeek data={data}/>
 
       </Card>
 

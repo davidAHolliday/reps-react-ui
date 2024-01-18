@@ -68,7 +68,7 @@ const RecentIncidents = ({data = []}) => {
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>Date</TableCell>
-            <TableCell>Referals</TableCell>
+            <TableCell>Contact Reason</TableCell>
             <TableCell>Description</TableCell>
           </TableRow>
         </TableHead>

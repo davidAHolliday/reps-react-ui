@@ -147,13 +147,13 @@ const TeacherDashboard = () => {
   <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      openDropdown("newReferral")
-      // setPanelName("punishment")
+      // openDropdown("newReferral")
+      setPanelName("punishment")
   }}
   >
-    Referral/Incidents
+    New Referral/Shout out
   </button>
-  <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
+  {/* <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("createPunishment")  
       setIsDropdownOpen(!isDropdownOpen.newReferral)
@@ -163,20 +163,20 @@ const TeacherDashboard = () => {
       setPanelName("punishment")  
       setIsDropdownOpen(!isDropdownOpen.newReferral)
 
-     }}className='teacher-dropdown-item'>Incdients</div>
+     }}className='teacher-dropdown-item'>Incidents</div>
 
-</div>
+</div> */}
  
     {/* Student Drop Down */}
     <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("studentDropdown")
-      // setPanelName("punishment")
+      // setPanelName("student")
   }}
     // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Student
+    Information
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
   <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
@@ -185,6 +185,12 @@ const TeacherDashboard = () => {
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
      }}className='teacher-dropdown-item'>View Students</div>
+
+    <div onClick={()=>{
+      setPanelName("punishment") 
+      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
+ 
+     }}className='teacher-dropdown-item'>View Contacts</div>
      
   </div>
 
@@ -198,14 +204,14 @@ const TeacherDashboard = () => {
       // setPanelName("punishment")
   }}
   >
-    FTC
+    Teacher Approvals
   </button>
   <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("ftc")  
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
 
-     }}className='teacher-dropdown-item'>Pending Assignments</div>
+     }}className='teacher-dropdown-item'>Failure to Complete Work</div>
        <div onClick={()=>{
       setPanelName("levelThree")  
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
