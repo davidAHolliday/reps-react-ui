@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, Typography } from '@mui/material';
 
 
 const IncidentsByStudentTable = ({data = []}) => {
@@ -29,6 +29,9 @@ const IncidentsByStudentTable = ({data = []}) => {
 
   return (
     <TableContainer component={Paper}>
+       <Typography variant="h6" align="center" style={{ margin: '10px' }}>
+        Incdient % By Student
+      </Typography>
       <Table>
         <TableHead>
           <TableRow>

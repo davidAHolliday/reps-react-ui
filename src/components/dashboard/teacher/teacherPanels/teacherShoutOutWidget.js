@@ -38,7 +38,10 @@ const TeacherShoutOutWidget = ({data = []}) => {
           <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Created On
             </TableCell>
-         
+            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            Student
+            </TableCell>
+        
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Shout Outs 
             </TableCell>
@@ -57,7 +60,7 @@ const TeacherShoutOutWidget = ({data = []}) => {
             shoutOutData.map((x, key) => (
 <TableRow key={key}>
 <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
-
+<TableCell>{x.student.firstName} {x.student.lastName} </TableCell>
   <TableCell>{x.infraction.infractionDescription}</TableCell>
   <TableCell>{x.teacherEmail}</TableCell>
 </TableRow>
