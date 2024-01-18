@@ -28,7 +28,7 @@ const TeacherDashboard = () => {
   const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("createPunishment")
+  const [panelName,setPanelName] = useState("overview")
   const [notificationData,setNotificationData]= useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
