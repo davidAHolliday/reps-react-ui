@@ -142,27 +142,31 @@ const TeacherDashboard = () => {
   </button>
 
   {/* Punishment Drop Down */}
+
+  {/* FTC Drop Down */}
   <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      openDropdown("referralDropdown")
-       setPanelName("punishment")}}
+      openDropdown("newReferral")
+      // setPanelName("punishment")
+  }}
   >
-    Referals/Shoutouts
+    Referral/Incidents
   </button>
-  <div className={isDropdownOpen.referalDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-  <div onClick={()=>{
-        setIsDropdownOpen(false)
-        setPanelName("createPunishment")}}
-        className='teacher-dropdown-item'>Create New
-        </div>
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"OPEN","View Open","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"CFR","View CFR","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"CLOSED","View Closed","punishment")}
-{renderDropdownContent(!isDropdownOpen.referalDropdown,"ALL","View All","punishment")}
+  <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("createPunishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
 
-  </div>
+     }}className='teacher-dropdown-item'>New Referral</div>
+       <div onClick={()=>{
+      setPanelName("punishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
 
+     }}className='teacher-dropdown-item'>Incdients</div>
+
+</div>
+ 
     {/* Student Drop Down */}
     <button 
     className='teacher-dash-dropbtn' 
