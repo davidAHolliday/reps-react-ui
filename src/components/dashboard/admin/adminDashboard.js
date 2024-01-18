@@ -19,13 +19,14 @@ import AdminOverviewPanel from './adminOverview';
 import { baseUrl } from '../../../utils/jsonData';
 import axios from 'axios';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import AssignmentManager from '../../../utils/EssayForm';
 
 
 
 const AdminDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
-  const [panelName,setPanelName] = useState("punishment")
+  const [panelName,setPanelName] = useState("overview")
   const [data,setData] = useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
@@ -88,18 +89,6 @@ useEffect(() => {
 }, []);
 
 
-
-
-const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
-  return(
-    <div onClick={()=>{
-      setIsDropdownOpen(dropdownState)
-      setPunishmentFilter(filterValue)
-      setPanelName(panelName)}}
-      className='dropdown-item'>{label}
-      </div>
-  )
-}
 
   return (
     loggedIn && (
@@ -218,12 +207,12 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
     Tools
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"60%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  <div style={{marginLeft:"75%"}} className={isDropdownOpen.toolsDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
-      setPanelName("createPunishment")  
+      setPanelName("createEditAssignments")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
 
-     }}className='dropdown-item'>Create Punishment</div>
+     }}className='dropdown-item'>Create/Edit Assignments</div>
       <div onClick={()=>{
       setPanelName("userManagement")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
@@ -247,6 +236,8 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
 {panelName === "userManagement" && <AdminUserRoleManagement/>}
 {panelName === "archived" && <GlobalArchivedPunishmentPanel/>}
+{panelName === "createEditAssignments" && <AssignmentManager/>}
+
 
       </div>
       </div>

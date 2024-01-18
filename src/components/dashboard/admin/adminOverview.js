@@ -8,6 +8,7 @@ import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudent
 import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teacherInfractionPeriodBarChart';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart copy';
+import { BlankPlaceHolderWidget } from './widget/blank-widget';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -84,7 +85,7 @@ import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-char
     <div className='teacher-widget-third'>
 <div className='studentIncidentTable'>
 <Card style={{padding:"5px"}}>
-    {/* <IncidentsByStudentTable data={data}/> */}
+    <BlankPlaceHolderWidget data={data}/>
 </Card>
 
 
@@ -93,7 +94,7 @@ import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-char
     </div>
     <div className='teacher-widget-third'>
 <Card style={{padding:"5px"}}>
-{/* <RecentIncidents data={data}/> */}
+<BlankPlaceHolderWidget data={data}/>
 </Card>
 
 </div>
