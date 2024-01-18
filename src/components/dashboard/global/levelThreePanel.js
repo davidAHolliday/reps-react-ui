@@ -67,7 +67,7 @@ const defaultTheme = createTheme();
       }, [ toast.visible]);
 
 
-      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=> x.status === "OPEN" || x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
+      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=>  x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
 
   console.log(data)
       data = data.filter((record) => record.infraction.infractionLevel=== "3");      
