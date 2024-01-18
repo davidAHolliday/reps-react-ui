@@ -13,7 +13,7 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState();
   const [studentAnswers, setStudentAnswers] = useState([])
-  const [mapIndex, setMapIndex] = useState(8)
+  const [mapIndex, setMapIndex] = useState(0)
   const [infractionData,setInfractionData] = useState([])
   const [dataWithArray, setDataWithArray] = useState([])
   const [essay,setEssay] = useState()
