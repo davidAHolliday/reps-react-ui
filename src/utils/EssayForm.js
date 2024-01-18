@@ -54,6 +54,7 @@ const resetPayload = () =>{
       })
 
       setNumberOfQuestions(1)
+      setEdit(false)
 
 }
 
