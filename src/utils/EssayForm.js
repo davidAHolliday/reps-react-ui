@@ -186,11 +186,12 @@ axios.put(url, finalPayload,{headers})
     // You can use the finalPayload as needed (e.g., send it to an API)
   };
 
+  {console.log(payload)}
 
   return (
     <Container component="main" maxWidth="md">
       <Paper elevation={3} style={{ padding: 20, margin: '20px 0' }}>
-        <Typography variant="h5">Create New Assignment</Typography><span style={{color:"blue",textDecoration:"bold"}}onClick={()=>{setEdit(true)}}>Edit</span> | <span style={{color:"green",textDecoration:"bold"}}onClick={()=>{setEdit(false)}}>New</span>
+        <Typography variant="h5">{(edit && payload !=="") ? `Edit ${payload.infractionName} ${payload.level}`:"Create New Assignment"}</Typography><span style={{color:"blue",textDecoration:"bold"}}onClick={()=>{setEdit(true)}}>Edit</span> | <span style={{color:"green",textDecoration:"bold"}}onClick={()=>{setEdit(false)}}>New</span>
         <form>
             {edit && existingAssignments ?
             
@@ -204,8 +205,13 @@ axios.put(url, finalPayload,{headers})
                 );
               
                 if (selectedAssignment) {
-                  setPayload(selectedAssignment);
-                  setNumberOfQuestions(selectedAssignment.questions.length);
+                  setPayload((prevPayload) => ({
+                    ...prevPayload,
+                    infractionName: selectedAssignment.infractionName,
+                    level: selectedAssignment.level,
+                    questions: selectedAssignment.questions || [{ question: "", type: "", title: "", body: "", references: [""], radioAnswers: {}, textToCompare: "" }],
+                  }));
+                  setNumberOfQuestions(selectedAssignment.questions ? selectedAssignment.questions.length : 1);
                   setUpdateId(selectedAssignment.assignmentId);
                 }
               }}
