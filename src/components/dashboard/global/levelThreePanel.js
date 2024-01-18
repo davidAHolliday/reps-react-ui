@@ -163,10 +163,10 @@ const defaultTheme = createTheme();
 
       return (
         <div key={index} style={{ display: "flex", flexDirection: "row", border: "1px solid black" }}>
-          <div style={{ backgroundColor: "grey", minHeight: "15px", width: "30%" }}>
+          <div style={{ backgroundColor: "grey", minHeight: "15px", width: "40%" }}>
             <strong>Question:</strong> {question}
           </div>
-          <div style={{ color: "black", backgroundColor: "lightBlue", minHeight: "50px", width: "70%", textAlign: "left", paddingLeft: "10px" }}>
+          <div style={{ color: "black", backgroundColor: "lightBlue", minHeight: "50px", width: "60%", textAlign: "left", paddingLeft: "10px" }}>
             <strong>Answer:</strong> {answer}
           </div>
         </div>
