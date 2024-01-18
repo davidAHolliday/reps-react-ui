@@ -28,6 +28,7 @@ const StudentDashboard = () => {
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("openAssignments")
   const [selectAssignmentToStart,setSelectAssignmentToStart] = useState();
+  const [studentDetails,setStudentDetails] = useState();
 
 
   const handleLogout = () => {
@@ -47,6 +48,9 @@ const StudentDashboard = () => {
   }, []);
 
 
+
+
+
   const headers = {
     Authorization: 'Bearer ' + sessionStorage.getItem('Authorization'),
   };
@@ -62,6 +66,20 @@ const StudentDashboard = () => {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}/student/v1/email/${sessionStorage.getItem("email")}`, { headers })
+      .then(function (response) {
+        setStudentDetails(response.data);
+        console.log("student data",response.data)
+      })
+      .catch(function (error) {
+        setStudentDetails([]);
+        console.log(error);
+      });
+  }, []);
+
 
 
   const toggleNotificationDrawer = (open) => {
@@ -156,7 +174,7 @@ const StudentDashboard = () => {
         </div>
         <div className='student-overview-second'>
         <Card style={{height:"200px"}}variant="outlined">
-          <TotalPositivePoints/>
+          <TotalPositivePoints data={studentDetails}/>
           </Card>
         </div>
 
@@ -167,7 +185,6 @@ const StudentDashboard = () => {
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
         {panelName === "openAssignments" &&<StudentOpenPunishmentPanel handleStartAssignment={handleStartAssignment}/>}
         {panelName === "startAssignment" &&<ViolationPage data={selectAssignmentToStart} />}
-{console.log(selectAssignmentToStart)}
       </div>
       </>
 }

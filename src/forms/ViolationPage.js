@@ -205,7 +205,7 @@ return(
  })}
 
 
-{infractionData && infractionData.questions && mapIndex === infractionData.questions.length && (
+{essay && essay.questions && mapIndex === essay.questions.length  && (
 
 <div>
 <h1>Congratulations! You have Completed the Assignment </h1><br />

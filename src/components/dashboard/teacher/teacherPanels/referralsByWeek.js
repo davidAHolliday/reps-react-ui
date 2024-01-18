@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import { extractDataByWeek, getCurrentWeekOfYear } from '../../global/helperFunctions';
 import { useState } from 'react';
 
-export default function TotalReferalByWeek({data = []}) {
+export default function TotalReferralByWeek({data = []}) {
   const [rangeWeeks,setRangeWeek] = useState(10);
   const currentWeek = getCurrentWeekOfYear();
 

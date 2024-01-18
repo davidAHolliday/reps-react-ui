@@ -18,7 +18,7 @@ const MultiPageForm = () => {
 
   const [payload, setPayload] = useState({
     infractionName: '',
-    level: 1,
+    level: 0,
     questions: [
       {
         question: "",
@@ -33,6 +33,30 @@ const MultiPageForm = () => {
       }
     ]
   });
+
+const resetPayload = () =>{
+   setPayload({
+        infractionName: '',
+        level: 0,
+        questions: [
+          {
+            question: "",
+            type: "",
+            title: "",
+            body: "",
+            references: [""],
+            radioAnswers: {},
+            textToCompare: "",
+            
+            
+          }
+        ]
+      })
+
+      setNumberOfQuestions(1)
+      setEdit(false)
+
+}
 
   const handleChange = (key, value) => {
     setPayload((prevPayload) => ({
@@ -111,15 +135,6 @@ axios.get(url,{headers})
 },[])
 
 
-// useEffect(() => {
-//   if (edit && existingAssignments && existingAssignments.length > 0) {
-//     // Assuming you want to load the first assignment when in edit mode
-//     const selectedAssignment = existingAssignments[0];
-//     setPayload(selectedAssignment);
-//     setNumberOfQuestions(selectedAssignment.questions.length);
-//   }
-// }, [edit, existingAssignments]);
-
   const buildPayload = () => {
     const finalPayload = {
       infractionName: payload.infractionName,
@@ -172,11 +187,12 @@ axios.put(url, finalPayload,{headers})
     // You can use the finalPayload as needed (e.g., send it to an API)
   };
 
+  {console.log(payload)}
 
   return (
     <Container component="main" maxWidth="md">
       <Paper elevation={3} style={{ padding: 20, margin: '20px 0' }}>
-        <Typography variant="h5">Create New Assignment</Typography><span style={{color:"blue",textDecoration:"bold"}}onClick={()=>{setEdit(true)}}>Edit</span> | <span style={{color:"green",textDecoration:"bold"}}onClick={()=>{setEdit(false)}}>New</span>
+        <Typography variant="h5">{(edit && payload !=="") ? `Edit ${payload.infractionName} ${payload.level}`:"Create New Assignment"}</Typography><span style={{color:"blue",textDecoration:"bold"}}onClick={()=>{setEdit(true)}}>Edit</span> | <span style={{color:"green",textDecoration:"bold"}}onClick={()=>{setEdit(false)}}>New</span>
         <form>
             {edit && existingAssignments ?
             
@@ -185,19 +201,27 @@ axios.put(url, finalPayload,{headers})
               style={{ marginBottom: "10px" }}
               value={payload.infractionName}
               onChange={(e) => {
-                const selectedAssignment = existingAssignments.find((assignment) => assignment.infractionName === e.target.value);
+                const selectedAssignment = existingAssignments.find((assignment) => 
+                  assignment.infractionName === e.target.value.infractionName && assignment.level === e.target.value.level
+                );
+              
                 if (selectedAssignment) {
-                  setPayload(selectedAssignment);
-                  setNumberOfQuestions(selectedAssignment.questions.length);
-                  setUpdateId(selectedAssignment.assignmentId)
-
+                  setPayload((prevPayload) => ({
+                    ...prevPayload,
+                    infractionName: selectedAssignment.infractionName,
+                    level: selectedAssignment.level,
+                    questions: selectedAssignment.questions || [{ question: "", type: "", title: "", body: "", references: [""], radioAnswers: {}, textToCompare: "" }],
+                  }));
+                  setNumberOfQuestions(selectedAssignment.questions ? selectedAssignment.questions.length : 1);
+                  setUpdateId(selectedAssignment.assignmentId);
                 }
               }}
             >
               {existingAssignments.map((assignment) => (
-                <MenuItem key={assignment.infractionName} value={assignment.infractionName}>
-                  {assignment.infractionName}
-                </MenuItem>
+             <MenuItem key={assignment.infractionName} value={{ infractionName: assignment.infractionName, level: assignment.level }}>
+             {assignment.infractionName} {assignment.level}
+           </MenuItem>
+           
               ))}
             </Select>
           </FormControl>:
@@ -256,7 +280,10 @@ axios.put(url, finalPayload,{headers})
                     >
                       <MenuItem value="reading">Reading</MenuItem>
                       <MenuItem value="retryQuestion">Retry Question</MenuItem>
-                      <MenuItem value="exploratory">Exploratory</MenuItem>
+                      <MenuItem value="exploratory-open-ended">Exploratory Open Ended</MenuItem>
+                      <MenuItem value="exploratory-radio">Exploratory Radio</MenuItem>
+
+                      
                     </Select>
                   </FormControl>
                   {payload.questions[questionIndex]?.type === "reading" && (
@@ -416,7 +443,9 @@ axios.put(url, finalPayload,{headers})
 
       {edit ? <Button variant="contained" color="primary" onClick={UpdatePayload}>Update Assignment</Button>:<Button variant="contained" color="primary" onClick={buildPayload}>
             Submit Assignment
-          </Button>}
+          </Button>} 
+          <Button variant="contained" color="primary" style={{marginLeft:"10px"}} onClick={resetPayload}>
+Reset          </Button>
     </Container>
   );
 };
