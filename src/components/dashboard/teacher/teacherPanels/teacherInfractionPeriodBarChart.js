@@ -58,7 +58,7 @@ const dataset = [
 
   return (
     <div>
-      <Typography variant="h6" gutterBottom>
+      <Typography  marginLeft={"25%"} marginTop={"10px"}>
         Punishments Overview
       </Typography>
       <BarChart

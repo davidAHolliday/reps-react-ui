@@ -15,6 +15,10 @@ import AdminTeacherPanel from './adminTeacherPanel';
 import AdminUserRoleManagement from './adminUserRoleManagement';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel';
 import GlobalArchivedPunishmentPanel from '../global/globalArchivedPunishmentPanel';
+import AdminOverviewPanel from './adminOverview';
+import { baseUrl } from '../../../utils/jsonData';
+import axios from 'axios';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 
@@ -22,6 +26,7 @@ const AdminDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("punishment")
+  const [data,setData] = useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
     teacherDropdown:false,
@@ -66,6 +71,24 @@ const openDropdown =(field)=>{
   }))
 }
 
+const headers = {
+  Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
+};
+
+
+useEffect(() => {
+  axios
+    .get(`${baseUrl}/punish/v1/punishments`, { headers })
+    .then(function (response) {
+      setData(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}, []);
+
+
+
 
 const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
   return(
@@ -83,7 +106,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
       <>
         <div className ="app-bar">
           <Toolbar>
-  
+          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"blue",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -99,7 +122,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
         </div>
        <div className='page'>
          
-      <div className='side-bar'>
+      {/* <div className='side-bar'>
         <div className="side-bar-widget">
           <DetentionWidget/>
         </div>
@@ -108,33 +131,68 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
         </div>
      <button onClick={handleGeneratePDF}>Generate PDF Report</button>
 
-      </div>
-      <div className='main-content'> 
-      <div className = "main-content-menu">
-      <div style={{display:"flex",backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+      </div> */}
+
+      <div className='teacher-main-content'> 
+      <div className="">
+      <div className = "teacher-main-content-menu">
+
+        {/* Overview button */}
+    <button 
+    className='teacher-dash-dropbtn' 
+    onClick={() => {
+      setPanelName("overview")
+  }}
+  >
+    Overview
+  </button>
+
+  {/* New Shout Reffere **/}
+  <button 
+    className='teacher-dash-dropbtn' 
+    onClick={() => {
+      // openDropdown("newReferral")
+      setPanelName("createPunishment")
+  }}
+  >
+    New Referral/Shout out
+  </button>
   
   {/* Punishment Drop Down */}
+  {/* Student Drop Down */}
   <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
-      openDropdown("referralDropdown")
-       setPanelName("punishment")}}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
+      openDropdown("studentDropdown")
+      // setPanelName("student")
+  }}
+    // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Referrals
+    Information
   </button>
-  <div className={isDropdownOpen.referralDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    
+      {/* Margin Left is used to move dropdown under the buttons */}
+  <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("student") 
+      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
+ 
+     }}className='teacher-dropdown-item'>View Students</div>
 
-{renderDropdownContent(!isDropdownOpen.referralDropdown,"OPEN","Open","punishment")}
-{renderDropdownContent(!isDropdownOpen.referralDropdown,"CFR","CFR","punishment")}
-{renderDropdownContent(!isDropdownOpen.referralDropdown,"CLOSED","Closed","punishment")}
-{renderDropdownContent(!isDropdownOpen.referralDropdown,"ALL","All","punishment")}
+    <div onClick={()=>{
+      setPanelName("punishment") 
+      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
+ 
+     }}className='teacher-dropdown-item'>View Contacts</div>
+      
+      <div onClick={()=>{
+      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
+      // setPunishmentFilter("OPEN")
+       setPanelName("viewTeacher")
+       }}className='dropdown-item'> View Teachers</div>
   </div>
-
-
+     
     {/* Teacher Drop Down */}
-    <button 
+    {/* <button 
     className='dropbtn' 
     onClick={() => {
       openDropdown("teacherDropDown")
@@ -144,38 +202,13 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
     Teachers
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"20%"}} className={isDropdownOpen.teacherDropDown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setIsDropdownOpen(!isDropdownOpen.teacherDropDown)
-      // setPunishmentFilter("OPEN")
-       setPanelName("viewTeacher")
-       }}className='dropdown-item'>Active Teachers</div>
-  </div>
-
-    {/* Student Drop Down */}
-    <button 
-    className='dropbtn' 
-    onClick={() => {
-      openDropdown("studentDropdown")
-      // setPanelName("punishment")
-  }}
-    style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
-  >
-    Student
-  </button>
-      {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"40%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("student") 
-      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
-     }}className='dropdown-item'>View Students</div>
-     
-  </div>
 
-    {/* Student Drop Down */}
+ 
+
+    {/* Tooks Drop Down */}
     <button 
-    className='dropbtn' 
+    className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("toolsDropdown")
       // setPanelName("punishment")
@@ -206,6 +239,7 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
         </div>
       </div>
       <div className = "main-content-panel">
+{panelName === "overview" &&<AdminOverviewPanel data={data}/>}
 {panelName === "viewTeacher" &&<AdminTeacherPanel/>}
 {panelName === "student" &&<StudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}
@@ -215,11 +249,11 @@ const renderDropdownContent = (dropdownState,filterValue,label,panelName) =>{
 {panelName === "archived" && <GlobalArchivedPunishmentPanel/>}
 
       </div>
+      </div>
 
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
         <NotificationBar />
         </Drawer>
-      </div>
       </div>
       </>
     )

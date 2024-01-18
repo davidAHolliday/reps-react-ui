@@ -141,9 +141,7 @@ const TeacherDashboard = () => {
     Overview
   </button>
 
-  {/* Punishment Drop Down */}
-
-  {/* FTC Drop Down */}
+  {/* New Shout Reffere **/}
   <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
