@@ -44,7 +44,7 @@ const shuffleArray = (array) => {
           <h1>{essay.title}</h1>
           <p>{essay.body}</p>
           <h2 className="references">References</h2>
-          {essay.references.map(ref=> {
+          {essay.references && essay.references.map(ref=> {
            return <p>{ref}</p>;
           })}
         </div>
