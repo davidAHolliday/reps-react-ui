@@ -148,7 +148,7 @@ const TeacherDashboard = () => {
     className='teacher-dash-dropbtn' 
     onClick={() => {
       // openDropdown("newReferral")
-      setPanelName("punishment")
+      setPanelName("createPunishment")
   }}
   >
     New Referral/Shout out
