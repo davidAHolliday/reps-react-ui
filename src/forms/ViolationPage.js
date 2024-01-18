@@ -13,7 +13,7 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
  export default function ViolationPage(props) {
   const [selectedAnswer, setSelectedAnswer] = useState();
   const [studentAnswers, setStudentAnswers] = useState([])
-  const [mapIndex, setMapIndex] = useState(0)
+  const [mapIndex, setMapIndex] = useState(8)
   const [infractionData,setInfractionData] = useState([])
   const [dataWithArray, setDataWithArray] = useState([])
   const [essay,setEssay] = useState()
@@ -205,7 +205,7 @@ return(
  })}
 
 
-{infractionData && infractionData.questions && mapIndex === infractionData.questions.length && (
+{essay && essay.questions && mapIndex === essay.questions.length  && (
 
 <div>
 <h1>Congratulations! You have Completed the Assignment </h1><br />
