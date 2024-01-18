@@ -202,7 +202,7 @@ const defaultTheme = createTheme();
 
 
           
-          <Select
+          {/* <Select
       sx={{ width: '100%',backgroundColor:"white"}}
 
   labelId="filterSelected"
@@ -231,7 +231,7 @@ const defaultTheme = createTheme();
     </MenuItem>
   ))}
 
-</Select>
+</Select> */}
 
           <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast.visible} autoHideDuration={6000} onClose={handleClose}>
   <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>
