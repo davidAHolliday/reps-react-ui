@@ -4,9 +4,10 @@ import Card from '@mui/material/Card';
 import TotalReferralByWeek from '../teacher/teacherPanels/referralsByWeek';
 import TotalStudentReferredByWeek from '../teacher/teacherPanels/numberOfStudentReferralsByWeek';
 import ReferralByBehavior from '../teacher/teacherPanels/referralsByBehavior';
-import { IncidentByStudentPieChart } from './widget/pieChartParentCommunication';
 import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
 import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teacherInfractionPeriodBarChart';
+import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
+import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart copy';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -73,7 +74,7 @@ import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teache
     <div className='teacher-widget-third'>
 <div className='studentIncidentTable'>
 <Card style={{padding:"5px"}}>
-    {/* <IncidentsByStudentTable data={data}/> */}
+    <IncidentByTeacherPieChart data={data}/>
 </Card>
 
 
