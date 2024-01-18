@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, TextField } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, TextField, Typography } from '@mui/material';
 import { dateCreateFormat } from '../../global/helperFunctions';
 
 
@@ -13,15 +13,35 @@ const RecentIncidents = ({data = []}) => {
     const filteredRecords = data.filter(record => {
       const { student, infraction } = record;
       const fullName = `${student.firstName} ${student.lastName}`.toLowerCase();
-
+  
       return fullName.includes(searchQuery.toLowerCase()) || 
              infraction.infractionName.toLowerCase().includes(searchQuery.toLowerCase());
     });
-
+  
     // Sort the filtered records based on the number of incidents in descending order
-    const sortedData = [...filteredRecords].sort((a, b) => b.incidents - a.incidents);
+    const sortedData = [...filteredRecords];
+    const uniqueStudentIds = sortedData.reduce((uniqueIds, record) => {
+      const studentId = record.student.studentIdNumber;
+  
+      // Check if the studentId is not already in the uniqueIds array
+      if (!uniqueIds.includes(studentId)) {
+        uniqueIds.push(studentId);
+      }
+  
+      return uniqueIds;
+    }, []);
 
-    setFilteredData(sortedData);
+    const recentRecords = []
+  
+    sortedData.reverse()
+    const recentContacts = uniqueStudentIds.map(studentId => {
+      // Find the most recent record for each unique studentId
+      const mostRecentRecord = sortedData.find(record => record.student.studentIdNumber === studentId);
+      return mostRecentRecord;
+    });
+  
+    setFilteredData(recentContacts);
+
   }, [data, searchQuery]);
 
   const handleSearchChange = (e) => {
@@ -31,9 +51,12 @@ const RecentIncidents = ({data = []}) => {
 
   return (
     <TableContainer component={Paper}>
+       <Typography variant="h6" align="center" style={{ margin: '10px' }}>
+        Recent Contact By Student
+      </Typography>
       <Table>
         <TableHead>
-        <TableRow>
+        {/* <TableRow>
         <TextField
         label="Search"
         variant="outlined"
@@ -41,7 +64,7 @@ const RecentIncidents = ({data = []}) => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-        </TableRow>
+        </TableRow> */}
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>Date</TableCell>
@@ -50,7 +73,7 @@ const RecentIncidents = ({data = []}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredData.slice(0,10).map((record, index) => (
+        {filteredData.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated)).slice(0, 10).map((record, index) => (
             <TableRow key={index}>
               <TableCell>{record.student.firstName} {record.student.lastName} {String(record.student.studentIdNumber).substring(0,5)}</TableCell>
               <TableCell>{dateCreateFormat(record.timeCreated)}</TableCell>
