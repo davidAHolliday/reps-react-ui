@@ -23,7 +23,27 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
     };
   });
 
-  studentsWithIncidentsList.sort((a, b) => b.incidents - a.incidents);
+
+const meetsTres = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent)>5.00).sort((a, b) => b.incidents - a.incidents);
+const otherNotMeetingTreshold = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent) <= 5.00).sort((a, b) => b.incidents - a.incidents);
+
+const modifiedList = [
+  ...meetsTres,
+  {
+    studentId: "001",
+    firstName: "Other",
+    lastName: "",
+    incidents: otherNotMeetingTreshold.reduce((acc, student) => {
+      return acc + student.incidents;
+    }, 0).toFixed(2),
+    percent: otherNotMeetingTreshold.reduce((acc, student) => {
+      return acc + parseFloat(student.percent);
+    }, 0).toFixed(2) // Closing parenthesis was added here
+  }
+];
+
+console.log("student-pie",modifiedList)
+
 
   // Custom styles for the scrollable container
   const scrollableContainerStyle = {
@@ -44,7 +64,7 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
         <PieChart
           series={[
             {
-              data: studentsWithIncidentsList.map((student, index) => ({
+              data: modifiedList.map((student, index) => ({
                 id: index, value: student.percent, label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
               })),
               arcLabel: (item) => `(${item.value}%)`,
@@ -69,7 +89,7 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
           />
         {/* Scrollable container for labels */}
         <div className="legend">
-      {studentsWithIncidentsList.map((student, index) => (
+      {modifiedList.map((student, index) => (
         <div key={index} className="legend-item">
           <div className={`legend-color legend-color-${index + 1}`} style={{ backgroundColor: generateLegendColor(index) }}></div>
           <span>{`${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`}</span>
