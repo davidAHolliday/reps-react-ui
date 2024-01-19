@@ -40,16 +40,12 @@ const totalIncidents = data.length;
 
 //Grab teachers and extract emails
 
-console.log("FINDME TOO", teacherData)
 
 const teachersWithIncidentsList = []
 
 teacherData.map((teacher) => {
-  console.log("TEACHER MAPPED",teacher.email)
   const filteredData = data.filter(item => item.teacherEmail === teacher.email);
-  // console.log("am i john",filteredData)
   if(filteredData.length > 0){
-    console.log("fucntion", filteredData.email,filteredData.length,totalIncidents)
      
 teachersWithIncidentsList.push({
   teacherEmail: teacher.email,
@@ -60,7 +56,6 @@ teachersWithIncidentsList.push({
 }
 });
 
-console.log("newList", teachersWithIncidentsList)
 
 // Filter out undefined items before mapping
 
