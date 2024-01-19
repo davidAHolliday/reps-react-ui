@@ -1,6 +1,6 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Typography } from '@mui/material';
-import { extractDataByWeek, getCurrentWeekOfYear, getUniqueStudentIdFromList } from '../../global/helperFunctions';
+import { extractDataByWeek, extractDataByWeekFirstDay, getCurrentWeekOfYear, getFirstDayOfWeek, getUniqueStudentIdFromList } from '../../global/helperFunctions';
 import { useState } from 'react';
 
 export default function TotalStudentReferredByWeek({data = []}) {
@@ -16,20 +16,27 @@ if(cw <=0){
 }
 
 
-const GenerateChartData = (currentWeek, rangeWeeks,data) => {
+const GenerateChartData = (currentWeek, rangeWeeks, data) => {
   const genData = [];
   
   for (let i = 0; i < rangeWeeks; i++) {
-    const weekKey = `W${yearAdj(currentWeek-i)}`;
-    const weekData = getUniqueStudentIdFromList(extractDataByWeek(yearAdj(currentWeek-i),data)).length; // Assuming findDataByWeek and yearAdj are defined elsewhere
+    const weekKey = `W${yearAdj(currentWeek - i)}`;
+    const weekData = extractDataByWeekFirstDay(yearAdj(currentWeek - i), data).length; // Assuming findDataByWeek and yearAdj are defined elsewhere
+    
+    const startDate = getFirstDayOfWeek(yearAdj(currentWeek - i));
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + 6); // Assuming you want to show the end date of the week
+    
+    const label = `${startDate.getMonth() + 1}/${startDate.getDate()} - ${endDate.getMonth() + 1}/${endDate.getDate()}`;
     
     genData.push({
-      [weekKey]: weekData
+      [label]: weekData,
     });
   }
 
   return genData;
 };
+
 
 
 console.log(data)
@@ -67,7 +74,7 @@ displayDate.reverse()
           },
         ]}
         width={400}
-        height={200}
+        height={250}
       />
     </>) 
   );

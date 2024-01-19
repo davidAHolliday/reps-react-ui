@@ -74,7 +74,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-<div className='studentIncidentTable'>
+    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <IncidentByTeacherPieChart data={data}/>
 </Card>
@@ -84,22 +84,22 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
     </div>
     <div className='teacher-widget-third'>
-<div className='studentIncidentTable'>
+    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <Top5TeacherRatioTable data={data}/>
 </Card>
-
-
 </div>
-
     </div>
+
     <div className='teacher-widget-third'>
+    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
 <WorseClassTable data={data}/>
 </Card>
 
 </div>
 
+  </div>
   </div>
 
   <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
@@ -112,6 +112,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
+      
     <Card style={{padding:"5px"}}>
 
       <TotalReferralByWeek data={data}/>

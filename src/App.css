@@ -896,3 +896,8 @@ button:hover {
   flex: 2; /* This will make both columns take up equal width */
   padding: 8px; /* Add padding for spacing */
 }
+
+.student-incident-table{
+  height: 300px;
+
+}
