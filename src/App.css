@@ -484,6 +484,7 @@ button:hover {
 
 .overview-row{
   width: 100%;
+  height: 50%;
   background-color: white;
   display: flex;
   flex-direction: row;

@@ -47,8 +47,11 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
               data: studentsWithIncidentsList.map((student, index) => ({
                 id: index, value: student.percent, label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
               })),
+              arcLabel: (item) => `(${item.value}%)`,
+              arcLabelMinAngle: 45,
             },
           ]}
+         
           width={300}
           height={300}
           sx={{

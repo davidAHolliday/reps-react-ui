@@ -56,13 +56,20 @@ teachersWithIncidentsList.push({
 }
 });
 
+const generateLegendColor = (index) => {
+  const colors = ['#02B2AF', '#2E96FF', '#B800D8', '#60009B', '#2731C8', '#03008D'];
+  return colors[index % colors.length];
+};
+
 
 // Filter out undefined items before mapping
 
 
   return (
     <>
-      <Typography>Incident By Staff Involved</Typography>
+      <Typography style={{justifySelf:"center"}}>Incident By Staff Involved</Typography>
+      <div style={{ display: 'flex' }}>
+
       <PieChart
         series={[
           {
@@ -75,7 +82,7 @@ teachersWithIncidentsList.push({
             arcLabelMinAngle: 45,
           },
         ]}
-        width={600}
+        width={300}
         height={300}
         sx={{
           [`& .${pieArcLabelClasses.root}`]: {
@@ -83,7 +90,19 @@ teachersWithIncidentsList.push({
             fontWeight: 'bold',
           },
         }}
+        slotProps={{ legend: { hidden: true } }}
+
       />
+       {/* Scrollable container for labels */}
+       <div className="legend">
+      {teachersWithIncidentsList.map((teacher, index) => (
+        <div key={index} className="legend-item">
+          <div className={`legend-color legend-color-${index + 1}`} style={{ backgroundColor: generateLegendColor(index) }}></div>
+          <span>{`${teacher.teacherEmail.split("@")[0]}} (${teacher.incidents})`}</span>
+        </div>
+      ))}
+    </div>
+      </div>
     </>
   );
 };

@@ -41,7 +41,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
     </Card>
     </div>
     <div className='teacher-widget-third'>
-      <div className='infraction-bar-chart'>
+      <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
         <Card>
 <IncidentsByStudentTable data={data}/>
 </Card>
@@ -52,7 +52,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 </div>
 
 <div className='teacher-widget-third'>
-      <div className='infraction-bar-chart'>
+<div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
         <Card>
 <TeacherInfractionOverPeriodBarChart data={data}/>
 </Card>
