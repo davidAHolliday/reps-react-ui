@@ -1,7 +1,5 @@
 import { Typography } from "@mui/material"
 import React from "react"
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-import { getIncidentByBehavior } from "../../global/helperFunctions";
 
 export const BlankPlaceHolderWidget = ({data = []}) =>{
   const uniqueStudents = {};

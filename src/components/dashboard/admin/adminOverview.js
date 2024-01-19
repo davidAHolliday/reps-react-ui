@@ -7,7 +7,7 @@ import ReferralByBehavior from '../teacher/teacherPanels/referralsByBehavior';
 import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
 import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teacherInfractionPeriodBarChart';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
-import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart copy';
+import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart';
 import { BlankPlaceHolderWidget } from './widget/blank-widget';
 
    const AdminOverviewPanel = ({data = []}) => {
