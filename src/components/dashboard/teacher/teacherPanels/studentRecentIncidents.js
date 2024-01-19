@@ -52,7 +52,7 @@ const RecentIncidents = ({data = []}) => {
   return (
     <TableContainer component={Paper}>
        <Typography variant="h6" align="center" style={{ margin: '10px' }}>
-        Recent Contact By Student
+        Student Contact Reminder
       </Typography>
       <Table>
         <TableHead>
@@ -67,7 +67,7 @@ const RecentIncidents = ({data = []}) => {
         </TableRow> */}
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell>Date</TableCell>
+            <TableCell>Last Contacted</TableCell>
             <TableCell>Contact Reason</TableCell>
             <TableCell>Description</TableCell>
           </TableRow>

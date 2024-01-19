@@ -14,6 +14,7 @@ import { fetchDataFromApi } from '../../global/helperFunctions';
 import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarChart';
 import { PieChartParentCommunication } from './pieChartParentCommunication';
 import RecentIncidents from './studentRecentIncidents';
+import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
 
    const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -26,6 +27,11 @@ import RecentIncidents from './studentRecentIncidents';
 
     return (
         <>
+                <div className='teacher-overview-first'>
+        <Card variant="outlined">
+        <TeacherShoutOutWidget data={data}/>
+        </Card>
+        </div>
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
