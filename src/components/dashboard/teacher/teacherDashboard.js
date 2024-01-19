@@ -182,13 +182,13 @@ const TeacherDashboard = () => {
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
-     }}className='teacher-dropdown-item'>View Students</div>
+     }}className='teacher-dropdown-item'>My Students</div>
 
     <div onClick={()=>{
       setPanelName("punishment") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
-     }}className='teacher-dropdown-item'>View Contacts</div>
+     }}className='teacher-dropdown-item'>My Write-Ups</div>
      
   </div>
 
@@ -221,13 +221,6 @@ const TeacherDashboard = () => {
   
   </div>
   <div className='teacher-overview'>
-        <div className='teacher-overview-first'>
-        <Card variant="outlined">
-        <TeacherShoutOutWidget data={data}/>
-        </Card>
-        </div>
-      </div>
-  <div className='sub-main'>
   <div 
   // style={{width: sideBarOpen ?"70%":"95%"}}
    className='left-main'>
