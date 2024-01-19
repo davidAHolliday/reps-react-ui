@@ -57,6 +57,7 @@ const CreatePunishmentPanel = () => {
     const [studentNames, setStudentNames] = React.useState([]);
     const [loading, setLoading] = useState(false)
     const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
+    const [submitPayload, setSubmitPayload] = useState(null)
 
   
     useEffect(()=>{
@@ -258,6 +259,8 @@ console.log(payload)
       {openModal.buttonType==="submit" && <Button
     disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
       type="submit"
+      onSubmit={handleSubmit}
+      onClick={() => {setOpenModal({display:false,message:""})}}
       fullWidth
       variant="contained"
       sx={{ height: '100%' }} // Set explicit height
@@ -498,7 +501,8 @@ MenuProps={MenuProps}
     {studentNames.length > 1 ? <Button
         disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
         onClick={() => {
-          setOpenModal({display:true, message:"WARNING! You are about to write up a multiple students at the same time. If you wish to continue please hit submit if this was a mistake hit Cancel", buttonType:"submit"});
+          setOpenModal({display:true, message:"WARNING! You are about to write up a multiple students at the same time. If you wish to continue please click Submit, to go back click Cancel", buttonType:"submit"});
+          setSubmitPayload()
         }}
         fullWidth
         variant="contained"
