@@ -56,6 +56,7 @@ const CreatePunishmentPanel = () => {
     const [toast, setToast] = useState({display:false,message:""})
     const [studentNames, setStudentNames] = React.useState([]);
     const [loading, setLoading] = useState(false)
+    const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
 
   
     useEffect(()=>{
@@ -243,6 +244,30 @@ console.log(payload)
   {toast.message}
   </Alert>
 </Snackbar>}
+{openModal.display && <div className="modal-overlay">
+  <div className="modal-content">
+    <div className='modal-header'>
+      <h3>{openModal.message}</h3>
+    </div>
+    <div className='modal-body'>
+    </div>
+    <div className='modal-buttons'>
+
+      <button onClick={() => {
+        setOpenModal({display:false,message:""})}}>Cancel</button>
+      {openModal.buttonType==="submit" && <Button
+    disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
+      type="submit"
+      fullWidth
+      variant="contained"
+      sx={{ height: '100%' }} // Set explicit height
+    >
+      Submit
+    </Button>}
+
+    </div>
+  </div>
+</div>}
 
 
         <div  className="form-referral">
@@ -470,6 +495,15 @@ MenuProps={MenuProps}
     </Button>
   </div>
   <div style={{ width: "70%" }}>
+    {studentNames.length > 1 ? <Button
+        disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
+        onClick={() => {
+          setOpenModal({display:true, message:"WARNING! You are about to write up a multiple students at the same time. If you wish to continue please hit submit if this was a mistake hit Cancel", buttonType:"submit"});
+        }}
+        fullWidth
+        variant="contained"
+        sx={{ height: '100%' }} // Set explicit height
+        >Submit Multiple</Button> :
     <Button
     disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
       type="submit"
@@ -478,7 +512,7 @@ MenuProps={MenuProps}
       sx={{ height: '100%' }} // Set explicit height
     >
       Submit
-    </Button>
+    </Button>}
   </div>
 </div>
 

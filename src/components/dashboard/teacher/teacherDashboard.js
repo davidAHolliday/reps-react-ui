@@ -41,6 +41,7 @@ const TeacherDashboard = () => {
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
 
+  const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
 
 
   const handleLogout = () => {
@@ -176,7 +177,7 @@ const TeacherDashboard = () => {
   }}
     // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Information
+    My Data
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
   <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
@@ -204,7 +205,7 @@ const TeacherDashboard = () => {
       // setPanelName("punishment")
   }}
   >
-    Teacher Approvals
+    My Tasks
   </button>
   <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
