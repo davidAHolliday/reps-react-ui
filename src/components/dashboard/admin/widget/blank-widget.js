@@ -29,117 +29,84 @@ export const BlankPlaceHolderWidget = ({data = []}) =>{
 
 
   const teachersWithIncidentsList = []
+  const schoolTotal =  data.length
+  const posAvg = data.filter(item => item.infraction.infractionName === "Positive Behavior Shout Out!").length
+  const negAvg = data.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!").length
 
 
+
+const schoolAvg = {pos:((posAvg/schoolTotal * 100).toFixed(2)) ,neg:((negAvg/schoolTotal * 100).toFixed(2))}
 
   teacherData.map((teacher) => {
     if (data) {
         const teacherIncidents = data.filter(item => item.teacherEmail === teacher.email);
-        
-        if (teacherIncidents.length > 0) {
-            console.log(teacherIncidents, "teacher ind");
 
-            // Iterate through each incident in teacherIncidents array
-            teacherIncidents.forEach(incident => {
-                if (incident.incidents) {
-                    const posIncidents = incident.incidents.filter(inc => inc.infraction.infractionName === "Positive Behavior Shout Out");
-                    const negIncidents = incident.incidents.filter(inc => inc.infraction.infractionName !== "Positive Behavior Shout Out");
 
-                    teachersWithIncidentsList.push({
-                      name: teacher[1].firstName ? `${teacher[1].firstName} ${teacher[1].lastName}` : "",
-                      posRatio: ((posIncidents.length / teacherIncidents.incidents.length) * 100).toFixed(2),
-                      negRatio: ((negIncidents.length / teacherIncidents.incidents.length) * 100).toFixed(2),
-                    })
-                    // Now you can use posIncidents and negIncidents as needed
-                } else {
-                    console.error(`Incidents data missing for teacher with email ${teacher.email}`);
-                }
-            });
-        }
+if(teacherIncidents.length>0){
+      const totalIncidents = teacherIncidents.length;
+      const posIncidents = teacherIncidents.filter(item => item.infraction.infractionName === "Positive Behavior Shout Out!").length;
+      const negIncidents = teacherIncidents.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!").length;
+
+      teachersWithIncidentsList.push({teacherName:teacher.email.split("@")[0], posRatio:(posIncidents/totalIncidents * 100).toFixed(2),negRatio:(negIncidents/totalIncidents * 100).toFixed(2)})
+}
+
+
+      
+
+         
+      
     }
 });
 
-       
 
-       
-
-console.log(teachersWithIncidentsList)
-
-
-
-
-
-// 
-    return(
-        <>
-       
-       
+   return (
+      <>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              {/* Header Row */}
+              <TableRow style={{ backgroundColor: '#2196F3', color: 'white' }}>
+                <TableCell>School Average %</TableCell>
+                <TableCell>{`Pos:${schoolAvg.pos}% Neg: ${schoolAvg.neg}%`}</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {/* Sub-Header Row */}
+              <TableRow style={{ backgroundColor: '#64B5F6', color: 'white' }}>
+                <TableCell>Most Positive Teacher Ratios</TableCell>
+                <TableCell>Pos Ratios</TableCell>
+              </TableRow>
     
-         <TableContainer component={Paper}>
-       {/* <Typography variant="h6" align="center" style={{ margin: '10px' }}>
-        Write-up % By Student
-      </Typography> */}
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>School Average %</TableCell>
-            <TableCell>{"schoolAvg"}</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-       <TableRow>
-<TableCell> Most Positive Teacher Ratios</TableCell>  
-<TableCell> Ratios</TableCell>   
-</TableRow>
-
-{teachersWithIncidentsList.map(teacher=>{
-  return(
-    <>
-    {console.log("teacher ojb",teacher)}
-    <TableRow>
-  <TableCell> {teacher.name}</TableCell>
-  <TableCell> {teacher.posRatio}</TableCell>
-</TableRow>
-    </>
-  )
-})}  
-
-<TableRow>
-  <TableCell> Teacher 2</TableCell>
-  <TableCell> Ration 2</TableCell>
-</TableRow><TableRow>
-  <TableCell> Teacher 3</TableCell>
-  <TableCell> Ration 3</TableCell>
-</TableRow><TableRow>
-  <TableCell> Teacher 4</TableCell>
-  <TableCell> Ration 4</TableCell>
-</TableRow>
-<TableRow>
-<TableCell> Most Negative Teacher Ratios</TableCell>     
-<TableCell> Ratios</TableCell>   
-</TableRow>
-<TableRow>
-  <TableCell> Teacher 1</TableCell>
-  <TableCell> Ration 1</TableCell>
-</TableRow>
-<TableRow>
-  <TableCell> Teacher 2</TableCell>
-  <TableCell> Ration 2</TableCell>
-</TableRow><TableRow>
-  <TableCell> Teacher 3</TableCell>
-  <TableCell> Ration 3</TableCell>
-</TableRow><TableRow>
-  <TableCell> Teacher 4</TableCell>
-  <TableCell> Ration 4</TableCell>
-</TableRow>
-
-
+              {teachersWithIncidentsList
+                .sort((a, b) => b.posRatio - a.posRatio)
+                .slice(0, 5)
+                .map((teacher) => (
+                  <TableRow key={teacher.teacherName}>
+                    <TableCell>{teacher.teacherName}</TableCell>
+                    <TableCell>{teacher.posRatio}</TableCell>
+                  </TableRow>
+                ))}
     
-        </TableBody>
-      </Table>
-    </TableContainer>
-        </>
-    )
+              <TableRow style={{ backgroundColor: '#64B5F6', color: 'white' }}>
+                <TableCell>Most Negative Teacher Ratios</TableCell>
+                <TableCell>Neg Ratios</TableCell>
+              </TableRow>
+    
+              {teachersWithIncidentsList
+                .sort((a, b) => b.negRatio - a.negRatio)
+                .slice(0, 5)
+                .map((teacher) => (
+                  <TableRow key={teacher.teacherName}>
+                    <TableCell>{teacher.teacherName}</TableCell>
+                    <TableCell>{teacher.negRatio}</TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </>
+    );
+    
    
 
 
