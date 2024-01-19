@@ -8,7 +8,8 @@ import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudent
 import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teacherInfractionPeriodBarChart';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart';
-import { BlankPlaceHolderWidget } from './widget/blank-widget';
+import {  Top5TeacherRatioTable } from './widget/top-5-ratio-table';
+import { WorseClassTable } from './widget/top-class-with-write-up';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -85,7 +86,7 @@ import { BlankPlaceHolderWidget } from './widget/blank-widget';
     <div className='teacher-widget-third'>
 <div className='studentIncidentTable'>
 <Card style={{padding:"5px"}}>
-    <BlankPlaceHolderWidget data={data}/>
+    <Top5TeacherRatioTable data={data}/>
 </Card>
 
 
@@ -94,7 +95,7 @@ import { BlankPlaceHolderWidget } from './widget/blank-widget';
     </div>
     <div className='teacher-widget-third'>
 <Card style={{padding:"5px"}}>
-<BlankPlaceHolderWidget data={data}/>
+<WorseClassTable data={data}/>
 </Card>
 
 </div>

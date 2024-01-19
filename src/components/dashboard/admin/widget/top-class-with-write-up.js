@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import { baseUrl } from "../../../../utils/jsonData";
 import axios from "axios";
 
-export const BlankPlaceHolderWidget = ({data = []}) =>{
+export const WorseClassTable = ({data = []}) =>{
   const [teacherData,setTeacherData] = useState([])
  
 
