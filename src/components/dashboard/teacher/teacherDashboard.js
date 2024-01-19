@@ -41,9 +41,6 @@ const TeacherDashboard = () => {
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
 
-  const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
-
-
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
     sessionStorage.removeItem('userName');

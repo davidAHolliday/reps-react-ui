@@ -15,18 +15,29 @@ import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarCha
 import { PieChartParentCommunication } from './pieChartParentCommunication';
 import RecentIncidents from './studentRecentIncidents';
 import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
+import LevelThreePanel from '../../global/levelThreePanel.js';
 
    const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
+  const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
+  const [status, setStatus] = useState([])
   
   
 
 
     return (
         <>
+        {data.punishment.status === "Tardy" && <div className="modal-overlay">
+  <div className="modal-content">
+    <div className='modal-header'>
+      <LevelThreePanel/>
+    </div>
+    </div>
+    </div>
+}
                 <div className='teacher-overview-first'>
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data}/>
