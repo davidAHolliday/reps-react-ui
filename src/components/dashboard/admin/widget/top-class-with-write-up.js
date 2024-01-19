@@ -27,36 +27,70 @@ export const WorseClassTable = ({data = []}) =>{
   }, []);
 
 
-
-  const teachersWithIncidentsList = []
-  const schoolTotal =  data.length
-  const posAvg = data.filter(item => item.infraction.infractionName === "Positive Behavior Shout Out!").length
-  const negAvg = data.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!").length
+  //This compoenet needs to sepearte the punsihemnt by block
+  //then find the tacher with the most write up (negative)
+  //and find count the write up
 
 
 
-const schoolAvg = {pos:((posAvg/schoolTotal * 100).toFixed(2)) ,neg:((negAvg/schoolTotal * 100).toFixed(2))}
+  const listOfBlocksWithWorseTeacherData = []
+  const listOfBlocksWithWorstTeacherData = [];
+
+  // Create an object to store the maximum write-up count for each block
+  const maxWriteUpsByBlock = { block1: 0, block2: 0, block3: 0, block4: 0 };
+  
+  teacherData.forEach((teacher) => {
+    const negWriteUpData = data.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!" && item.teacherEmail === teacher.email);
+  
+    const block1 = negWriteUpData.filter(item => item.classPeriod === "block1").length;
+    const block2 = negWriteUpData.filter(item => item.classPeriod === "block2").length;
+    const block3 = negWriteUpData.filter(item => item.classPeriod === "block3").length;
+    const block4 = negWriteUpData.filter(item => item.classPeriod === "block4").length;
+  
+    // Update the maximum write-up count for each block
+    maxWriteUpsByBlock.block1 = Math.max(maxWriteUpsByBlock.block1, block1);
+    maxWriteUpsByBlock.block2 = Math.max(maxWriteUpsByBlock.block2, block2);
+    maxWriteUpsByBlock.block3 = Math.max(maxWriteUpsByBlock.block3, block3);
+    maxWriteUpsByBlock.block4 = Math.max(maxWriteUpsByBlock.block4, block4);
+  
+    // Add teacher data to the list if they have the maximum write-up count in any block
+    if (block1 === maxWriteUpsByBlock.block1 ||
+        block2 === maxWriteUpsByBlock.block2 ||
+        block3 === maxWriteUpsByBlock.block3 ||
+        block4 === maxWriteUpsByBlock.block4) {
+      listOfBlocksWithWorstTeacherData.push({
+        teacherName: teacher.email.split("@")[0],
+        blocks: { block1, block2, block3, block4 },
+      });
+    }
+  });
+  
+  console.log(listOfBlocksWithWorstTeacherData);
+
 
   teacherData.map((teacher) => {
-    if (data) {
-        const teacherIncidents = data.filter(item => item.teacherEmail === teacher.email);
+    
+    const negWriteUpData = data.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!" && item.teacherEmail === teacher.email);
+    const block1 = negWriteUpData.filter(item => item.classPeriod === "block1").length;
+    const block2 = negWriteUpData.filter(item => item.classPeriod === "block2").length;
+    const block3 = negWriteUpData.filter(item => item.classPeriod === "block3").length;
+    const block4 = negWriteUpData.filter(item => item.classPeriod === "block4").length;
+  
+     // Find the block with the maximum negative incidents
+  const maxBlock = Math.max(block1, block2, block3, block4);
 
-
-if(teacherIncidents.length>0){
-      const totalIncidents = teacherIncidents.length;
-      const posIncidents = teacherIncidents.filter(item => item.infraction.infractionName === "Positive Behavior Shout Out!").length;
-      const negIncidents = teacherIncidents.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!").length;
-
-      teachersWithIncidentsList.push({teacherName:teacher.email.split("@")[0], posRatio:(posIncidents/totalIncidents * 100).toFixed(2),negRatio:(negIncidents/totalIncidents * 100).toFixed(2)})
-}
-
-
-      
-
-         
-      
-    }
+ const worseClassByIncident = 
+ listOfBlocksWithWorseTeacherData.push({
+  teacherName: teacher.email.split("@")[0],
+  blocks: { block1, block2, block3, block4 },
+  maxBlock: maxBlock, // Add the block with the maximum negative incidents
 });
+});
+
+        
+      
+
+
 
 
    return (
@@ -67,7 +101,7 @@ if(teacherIncidents.length>0){
               {/* Header Row */}
               <TableRow style={{ backgroundColor: '#2196F3', color: 'white' }}>
                 <TableCell>School Average %</TableCell>
-                <TableCell>{`Pos:${schoolAvg.pos}% Neg: ${schoolAvg.neg}%`}</TableCell>
+                {/* <TableCell>{`Pos:${schoolAvg.pos}% Neg: ${schoolAvg.neg}%`}</TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -77,7 +111,7 @@ if(teacherIncidents.length>0){
                 <TableCell>Pos Ratios</TableCell>
               </TableRow>
     
-              {teachersWithIncidentsList
+              {/* {teachersWithIncidentsList
                 .sort((a, b) => b.posRatio - a.posRatio)
                 .slice(0, 5)
                 .map((teacher) => (
@@ -85,14 +119,14 @@ if(teacherIncidents.length>0){
                     <TableCell>{teacher.teacherName}</TableCell>
                     <TableCell>{teacher.posRatio}</TableCell>
                   </TableRow>
-                ))}
+                ))} */}
     
               <TableRow style={{ backgroundColor: '#64B5F6', color: 'white' }}>
                 <TableCell>Most Negative Teacher Ratios</TableCell>
                 <TableCell>Neg Ratios</TableCell>
               </TableRow>
     
-              {teachersWithIncidentsList
+              {/* {teachersWithIncidentsList
                 .sort((a, b) => b.negRatio - a.negRatio)
                 .slice(0, 5)
                 .map((teacher) => (
@@ -100,7 +134,7 @@ if(teacherIncidents.length>0){
                     <TableCell>{teacher.teacherName}</TableCell>
                     <TableCell>{teacher.negRatio}</TableCell>
                   </TableRow>
-                ))}
+                ))} */}
             </TableBody>
           </Table>
         </TableContainer>

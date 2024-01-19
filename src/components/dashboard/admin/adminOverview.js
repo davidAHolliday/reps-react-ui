@@ -6,10 +6,10 @@ import TotalStudentReferredByWeek from '../teacher/teacherPanels/numberOfStudent
 import ReferralByBehavior from '../teacher/teacherPanels/referralsByBehavior';
 import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
 import TeacherInfractionOverPeriodBarChart from '../teacher/teacherPanels/teacherInfractionPeriodBarChart';
-import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-chart';
 import {  Top5TeacherRatioTable } from './widget/top-5-ratio-table';
 import { WorseClassTable } from './widget/top-class-with-write-up';
+import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
