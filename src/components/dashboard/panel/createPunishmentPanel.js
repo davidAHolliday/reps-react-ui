@@ -172,6 +172,7 @@ const CreatePunishmentPanel = () => {
       const handleSubmit = (event) => {
         event.preventDefault();
         setLoading(true)
+        setOpenModal({display:false,message:""})
         const payloadContent = []
         studentNames.map((student)=>{
           const studentPayload = {
@@ -259,9 +260,8 @@ console.log(payload)
       {openModal.buttonType==="submit" && <Button
     disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
       type="submit"
-      onSubmit={handleSubmit}
-      onClick={() => {setOpenModal({display:false,message:""})}}
-      fullWidth
+      onClick={handleSubmit}
+      width='50%'
       variant="contained"
       sx={{ height: '100%' }} // Set explicit height
     >
