@@ -15,7 +15,7 @@ const chartSetting = {
   ],
 
   width: 900,
-  height: 260,
+  height: 290,
   sx: {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
       transform: 'translate(-20px, 0)',
@@ -58,7 +58,7 @@ const dataset = [
 
   return (
     <div>
-      <Typography variant="h6" gutterBottom>
+      <Typography  marginLeft={"25%"} marginTop={"10px"}>
         Punishments Overview
       </Typography>
       <BarChart

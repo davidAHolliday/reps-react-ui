@@ -51,13 +51,7 @@ console.error(error);
 
 },[])
   
-console.log(props.data.infraction.infractionName)
-console.log((props.data.infraction.infractionLevel))
 
-
-
-  // console.log("params",decodedParam1,decodedParam2)
-  console.log("essay",essay)
 
 
 
@@ -67,7 +61,6 @@ console.log((props.data.infraction.infractionLevel))
 
   },[])
 
-  console.log(infractionData)
 
 
 const loggedInUser = sessionStorage.getItem("email")
@@ -107,9 +100,25 @@ const textCorrectlyCopied = (selectedAnswer) =>{
 
 
 const openEndedQuestionAnswered = (selectedAnswer) =>{
- console.log(selectedAnswer)
+  console.log(selectedAnswer)
+  if(selectedAnswer.answer === "agree"){
     setMapIndex((prev) => prev + 1);
     setStudentAnswers((prev) => [...prev, selectedAnswer]);
+
+
+
+  }else if(selectedAnswer.answer === "disagree" || selectedAnswer.answer === "neutral"){
+    console.log(selectedAnswer)
+    setMapIndex((prev) => prev + 2);
+    setStudentAnswers((prev) => [...prev, selectedAnswer]);
+
+  }else{
+    console.log(selectedAnswer)
+    setMapIndex((prev) => prev + 1);
+    setStudentAnswers((prev) => [...prev, selectedAnswer]);
+
+  }
+
  
 }
 
@@ -138,7 +147,6 @@ const handleSubmit = () => {
 
       axios.post(url,payload, { headers })
       .then(function (res){
-        console.log(res)
         window.alert(`You Work Has been Recorded for ${payload.studentEmail}`)
         window.location.href = "/dashboard/student";
 
@@ -169,7 +177,6 @@ return(
  {essay && essay.questions && essay.questions.map((data, index) => {
   return(
     <>
-    {console.log(index,data)}
     {(data.type==="reading" && mapIndex === index) &&<EssayFactory
           essay={data}
           saveAnswerAndProgress={saveAnswerAndProgress}

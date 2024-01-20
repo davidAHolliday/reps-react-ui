@@ -9,7 +9,7 @@ import StudentProfile from '../../StudentProfile';
    const AdminTeacherPanel = () => {
 
 
-	const [listOfStudents, setListOfStudents]= useState([])
+	const [data, setData]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
@@ -18,24 +18,21 @@ import StudentProfile from '../../StudentProfile';
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
     
-    const url = `${baseUrl}/users/v1/users`;
+    const url = `${baseUrl}/employees/v1/employees/TEACHER`;
     
 
     useEffect(() => {
       axios
         .get(url, { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          setListOfStudents(response.data);
+          setData(response.data);
         })
         .catch(function (error) {
           console.log(error);
         });
     }, []);
 
-    const data = listOfStudents.filter((student) => 
-    Array.isArray(student.roles) && student.roles.some((role) => role.role === "TEACHER")
-  );
-  
+
 
 
     const hasScroll = data.length > 10;
@@ -61,9 +58,6 @@ import StudentProfile from '../../StudentProfile';
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Role
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Phone Number
-            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -85,13 +79,9 @@ import StudentProfile from '../../StudentProfile';
       <span>{x.firstName} {x.lastName}</span>
     </div>
   </TableCell>
-  <TableCell>{x.username}</TableCell>
-  <TableCell>
-  {Array.isArray(x.roles) ? x.roles.map((roleObj, index) => (
-    <span key={index}>{roleObj.role} {index < x.roles.length - 1 ? ',' : ''} </span>
-  )) : 'No roles available'}
-</TableCell>  
-<TableCell>555-555-5555</TableCell>
+  <TableCell>{x.email}</TableCell>
+  <TableCell>{String(x.roles.map(x=>x.role))}</TableCell>
+
 </TableRow>
 
             ))

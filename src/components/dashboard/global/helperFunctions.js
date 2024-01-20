@@ -66,6 +66,40 @@ export const extractDataByWeek = (week,data) => {
   }
 
 
+
+
+  export const extractDataByWeekFirstDay = (week, data, format = 'MM/DD') => {
+    const firstDayOfWeek = getFirstDayOfWeek(week); // Get the first day of the specified week
+    const thisWeek = data.filter(punish => {
+      const date = new Date(punish.timeCreated);
+      const weekNumber = getWeekNumber(date);
+  
+      return weekNumber === week && isSameDay(date, firstDayOfWeek); // Return true if date matches the week and is the first day of the week
+    });
+  
+    return thisWeek; // Return the filtered array
+  }
+  
+  // Helper function to get the first day of a week
+ export  const getFirstDayOfWeek = (week) => {
+    const year = new Date().getFullYear(); // Use the current year, you can adjust this if needed
+    const januaryFirst = new Date(year, 0, 1); // January 1st of the year
+  
+    const firstDayOfWeek = new Date(januaryFirst);
+    firstDayOfWeek.setDate(januaryFirst.getDate() + (week - 1) * 7); // Calculate the first day of the specified week
+  
+    return firstDayOfWeek;
+  }
+  
+  // Helper function to check if two dates are the same day
+  const isSameDay = (date1, date2) => {
+    return date1.getDate() === date2.getDate() &&
+           date1.getMonth() === date2.getMonth() &&
+           date1.getFullYear() === date2.getFullYear();
+  }
+  
+
+
 export const findDataByWeekAndByPunishment = (week, behavioral,data) => {
     // Filter data based on the behavioral infraction name
     const thisWeek = data.filter(punish => punish.infraction.infractionName === behavioral)
