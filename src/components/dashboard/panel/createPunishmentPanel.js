@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box, CircularProgress } from '@mui/material';
+import { Autocomplete, Box, CircularProgress } from '@mui/material';
 import Container from '@mui/material/Container';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -40,6 +40,8 @@ function getStyles(name, studentNames, theme) {
 }
 
 
+
+
 const CreatePunishmentPanel = () => {
 
   const Alert = React.forwardRef(function Alert(props, ref) {
@@ -52,7 +54,7 @@ const CreatePunishmentPanel = () => {
     const [infractionTypeSelected, setInfractionTypeSelected] = useState("");
     const [infractionPeriodSelected, setInfractionPeriodSelected] = useState("");
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
-    const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState();
+    const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState("");
     const [toast, setToast] = useState({display:false,message:""})
     const [studentNames, setStudentNames] = React.useState([]);
     const [loading, setLoading] = useState(false)
@@ -152,7 +154,8 @@ const CreatePunishmentPanel = () => {
           setStudentNames([])
           setInfractionPeriodSelected(null)
           setInfractionTypeSelected(null)
-          setInfractionDescriptionSelected(null)
+          setInfractionDescriptionSelected("")
+          
       
       }
       
@@ -175,10 +178,11 @@ const CreatePunishmentPanel = () => {
         setOpenModal({display:false,message:""})
         const payloadContent = []
         studentNames.map((student)=>{
+          console.log(student)
           const studentPayload = {
             firstName:"placeholder",
             lastName:"placeholder",
-            studentEmail: student,
+            studentEmail: student.value,
             teacherEmail: teacherEmailSelected,
             infractionPeriod: infractionPeriodSelected,
             infractionName: infractionTypeSelected,
@@ -201,6 +205,8 @@ console.log(payload)
                 setToast({display:false,message:""})
               },1000)
                resetForm();
+               setInfractionDescriptionSelected("");
+
                console.log(res)
            })
 .catch(function (error){
@@ -304,36 +310,31 @@ console.log(payload)
           <hr/>
        
 
-          <InputLabel id="demo-multiple-chip-label">Select Students</InputLabel>
-        <Select
-        sx={{ width: '100%'}}
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          multiple
-          value={studentNames}
-          onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {selectOptions.map((name) => (
-            <MenuItem
-              key={name.value}
-              value={name.value}
-              style={getStyles(name, studentNames, defaultTheme)}
-            >
-              {name.label}
-            </MenuItem>
-          ))}
-        </Select>
 
-  
+<Autocomplete
+  multiple
+  id="demo-multiple-chip"
+  value={studentNames}
+  onChange={(event, newValue) => setStudentNames(newValue)}
+  options={selectOptions} // Pass the selectOptions array here
+  getOptionLabel={(option) => option.label}
+  renderInput={(params) => (
+    <TextField
+      {...params}
+      label="Select Students"
+      variant="outlined"
+      sx={{ width: '100%' }}
+    />
+  )}
+  renderTags={(value, getTagProps) =>
+    value.map((option, index) => (
+      <Chip key={option.value} label={option.label} {...getTagProps({ index })} />
+    ))
+  }
+/>
+
+
+
 
 <div style={{height:"5px"}}></div>
 <div style={{display:'flex',flexDirection:'row',width:"100%"}}>
@@ -444,6 +445,7 @@ MenuProps={MenuProps}
   placeholder="Please Type Short Description of Infraction"
   name="offenseDescription"
   autoFocus
+  value={infractionDescriptionSelected}
   InputLabelProps={{
     sx: { "&.Mui-focused": { color: "white", marginTop: "-10px" } },
   }}
@@ -533,6 +535,9 @@ MenuProps={MenuProps}
 
     </>
     )
+
+
+ 
     
   }
   export default CreatePunishmentPanel;
