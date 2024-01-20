@@ -445,6 +445,7 @@ MenuProps={MenuProps}
   placeholder="Please Type Short Description of Infraction"
   name="offenseDescription"
   autoFocus
+  value={infractionDescriptionSelected}
   InputLabelProps={{
     sx: { "&.Mui-focused": { color: "white", marginTop: "-10px" } },
   }}
