@@ -71,6 +71,9 @@ const CreatePunishmentPanel = () => {
 
     
     const infractionPeriodSelectOptions =[
+      {value:"exchange", label:"Class Exchange"},
+      {value:"afterSchool", label:"After School"},
+      {value:"lunch", label:"Lunch"},
       {value:"block1", label:"Block 1"},
       {value:"block2", label:"Block 2"},
       {value:"block3", label:"Block 3"},
@@ -503,7 +506,7 @@ MenuProps={MenuProps}
     {studentNames.length > 1 ? <Button
         disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
         onClick={() => {
-          setOpenModal({display:true, message:"WARNING! You are about to write up a multiple students at the same time. If you wish to continue please click Submit, to go back click Cancel", buttonType:"submit"});
+          setOpenModal({display:true, message:"Warning! You are currently writing up multiple students simultaneously. If this is your intent make sure you have not included any student identifiers including names or pronouns. If you wish to continue press Submit, to go back press cancel.", buttonType:"submit"});
           setSubmitPayload()
         }}
         fullWidth

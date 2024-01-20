@@ -294,7 +294,7 @@ const defaultTheme = createTheme();
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"Please provide brief explaination of why you will close the record",buttonType:"close"})
+  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
   setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
