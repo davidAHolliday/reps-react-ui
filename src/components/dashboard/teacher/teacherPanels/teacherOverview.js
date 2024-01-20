@@ -30,14 +30,14 @@ import LevelThreePanel from '../../global/levelThreePanel.js';
 
     return (
         <>
-        {data.punishment.status === "Tardy" && <div className="modal-overlay">
+        {/* {data.punishment.status === "Tardy" && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
       <LevelThreePanel/>
     </div>
     </div>
     </div>
-}
+} */}
                 <div className='teacher-overview-first'>
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data}/>
