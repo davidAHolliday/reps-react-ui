@@ -13,6 +13,7 @@ import StudentProfile from '../../../StudentProfile';
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
   const [studentName, setStudentName] = useState("");
+  const [studentProfileModal,setStudentProfileModal] = useState(false)
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -58,13 +59,28 @@ import StudentProfile from '../../../StudentProfile';
     const hasScroll = data.length > 10;
     return (
         <>
+          {true && <div className="modal-overlay">
+  <div className="modal-content">
+    <div className='modal-header'>
+    </div>
+    <div className='modal-body'>
+  
+    </div>
+    <div className='modal-buttons'>
+
+      <button onClick={()=>{setStudentProfileModal(false)}}>Cancel</button>
+
+    </div>
+  </div>
+</div>}
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
    Students associated to teacher
         </Typography>
         </div>
-   
+      
+
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
