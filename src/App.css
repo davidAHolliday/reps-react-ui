@@ -484,6 +484,7 @@ button:hover {
 
 .overview-row{
   width: 100%;
+  height: 50%;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -894,4 +895,9 @@ button:hover {
 .table-container-review div {
   flex: 2; /* This will make both columns take up equal width */
   padding: 8px; /* Add padding for spacing */
+}
+
+.student-incident-table{
+  height: 300px;
+
 }

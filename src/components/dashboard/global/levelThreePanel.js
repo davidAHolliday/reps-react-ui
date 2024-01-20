@@ -67,7 +67,7 @@ const defaultTheme = createTheme();
       }, [ toast.visible]);
 
 
-      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=> x.status === "OPEN" || x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
+      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=>  x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
 
   console.log(data)
       data = data.filter((record) => record.infraction.infractionLevel=== "3");      
@@ -154,25 +154,27 @@ const defaultTheme = createTheme();
       <div className='modal-header'>
         <h3>{openModal.message}</h3>
         <div className='answer-container'>
-        {openModal.data.infraction.infractionDescription.map((item, index) =>{ 
-          if(index > 1){
-            const record = item.split(",")
-            const question = record[0].replace("StudentAnswer(question=","");
-            const answer = record[1].replace("answer=","").replace(")","");
-            return (
-              <div key={index} style={{display:"flex", flexDirection:"row",border:"1px solid black"}}>
-                <div style={{backgroundColor:"grey",minHeight:"15px", width:"30%"}}>
-                  <strong>Question:</strong> {question}
-                </div>
-                <div style={{color:"black",backgroundColor:"lightBlue",minHeight:"50px",width:"70%",textAlign:"left", paddingLeft:"10px"}}>
-                  <strong>Answer:</strong> {answer}
-                </div>
-              </div>
-            );
+        {openModal.data.infraction.infractionDescription.map((item, index) => {
+  if (index > 1) {
+    const match = item.match(/question=([\s\S]+?),\s*answer=([\s\S]+?)(?=\))/);
+    if (match) {
+      const question = match[1].trim();
+      const answer = match[2].trim();
 
-          }
+      return (
+        <div key={index} style={{ display: "flex", flexDirection: "row", border: "1px solid black" }}>
+          <div style={{ backgroundColor: "grey", minHeight: "15px", width: "40%" }}>
+            <strong>Question:</strong> {question}
+          </div>
+          <div style={{ color: "black", backgroundColor: "lightBlue", minHeight: "50px", width: "60%", textAlign: "left", paddingLeft: "10px" }}>
+            <strong>Answer:</strong> {answer}
+          </div>
+        </div>
+      );
+    }
+  }
+})}
 
-    })}
     </div>
             </div>
       <div className='modal-body'>
@@ -200,7 +202,7 @@ const defaultTheme = createTheme();
 
 
           
-          <Select
+          {/* <Select
       sx={{ width: '100%',backgroundColor:"white"}}
 
   labelId="filterSelected"
@@ -229,7 +231,7 @@ const defaultTheme = createTheme();
     </MenuItem>
   ))}
 
-</Select>
+</Select> */}
 
           <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={toast.visible} autoHideDuration={6000} onClose={handleClose}>
   <Alert Close={handleClose} severity="success" sx={{ width: '100%' }}>

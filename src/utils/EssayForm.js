@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Assignment from '@mui/icons-material/Assignment';
 
-const MultiPageForm = () => {
+const AssignmentManager = () => {
   const [numOfQuestions, setNumberOfQuestions] = useState(1);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [edit,setEdit] = useState(false);
@@ -450,4 +450,4 @@ Reset          </Button>
   );
 };
 
-export default MultiPageForm;
+export default AssignmentManager;
