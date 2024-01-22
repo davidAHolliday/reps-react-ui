@@ -1,4 +1,4 @@
-import react, {useState,useEffect} from 'react'
+import react, {useState,useEffect,useRef} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -6,6 +6,9 @@ import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 
    const TeacherStudentPanel = () => {
 
@@ -83,6 +86,47 @@ const handleProfileClick = (x) =>{
   setStudentName(x.student.firstName);
   fetchStudentData(x.student.studentEmail)
 }
+
+const pdfRef = useRef();
+
+const generatePDF = (studentData) => {
+  const pdf = new jsPDF();
+    // Add logo
+    const logoWidth = 50; // Adjust the width of the logo as needed
+    const logoHeight = 50; // Adjust the height of the logo as needed
+    const logoX = 130; // Adjust the X coordinate of the logo as needed
+    const logoY = 15; // Adjust the Y coordinate of the logo as needed
+    
+//https://medium.com/dont-leave-me-out-in-the-code/5-steps-to-create-a-pdf-in-react-using-jspdf-1af182b56cee
+//Resource for adding image and how pdf text works
+    var image = new Image();
+    image.src = "/burke-logo.png";
+    pdf.addImage(image, 'PNG', logoX,logoY , logoWidth, logoHeight);
+
+  // Add student details section
+  pdf.setFontSize(12)
+  pdf.rect(15,15,180,50)
+  pdf.text(`${studentData[0].student.firstName} ${studentData[0].student.lastName}`, 20, 20);
+  pdf.text(`Email: ${studentData[0].student.studentEmail}`, 20, 30);
+  pdf.text(`Phone: ${studentData[0].student.studentPhoneNumber}`, 20, 40);
+  pdf.text(`Grade: ${studentData[0].student.grade}`, 20, 50);
+  pdf.text(`Address: ${studentData[0].student.address}`, 20, 60);
+
+  // Add punishment details table
+  pdf.autoTable({
+    startY: 70, // Adjust the Y-coordinate as needed
+    head: [['Status', 'Description', 'Date', 'Infraction']],
+    body: studentData.map((student) => [
+      student.status,
+      student.infraction.infractionDescription,
+      student.timeCreated,
+      student.infraction.infractionName,
+    ]),
+  });
+
+  // Save or open the PDF
+  pdf.save('student_report.pdf');
+};
 
     const hasScroll = data.length > 10;
 
@@ -177,7 +221,7 @@ const handleProfileClick = (x) =>{
 
       <div style={{padding:"10px"}} className='modal-buttons'>
         <button onClick={() => { setStudentDisplay(false) }}>Cancel</button>
-        <button style={{backgroundColor:"#CF9FFF"}} >Print</button>
+        <button onClick={()=>{generatePDF(studentData)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
 
       </div>
     </div>
