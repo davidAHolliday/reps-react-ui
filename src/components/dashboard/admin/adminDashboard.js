@@ -242,8 +242,12 @@ useEffect(() => {
       </div>
       </div>
 
-        <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        <NotificationBar />
+         
+      <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
+        {/* <NotificationBar notificationData={data}/> */}
+        <DetentionWidget />
+      
+        <ISSWidget />
         </Drawer>
       </div>
       </>
