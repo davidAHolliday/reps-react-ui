@@ -149,19 +149,7 @@ const TeacherDashboard = () => {
   >
     New Referral/Shout out
   </button>
-  {/* <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("createPunishment")  
-      setIsDropdownOpen(!isDropdownOpen.newReferral)
 
-     }}className='teacher-dropdown-item'>New Referral</div>
-       <div onClick={()=>{
-      setPanelName("punishment")  
-      setIsDropdownOpen(!isDropdownOpen.newReferral)
-
-     }}className='teacher-dropdown-item'>Incidents</div>
-
-</div> */}
  
     {/* Student Drop Down */}
     <button 
@@ -170,7 +158,6 @@ const TeacherDashboard = () => {
       openDropdown("studentDropdown")
       // setPanelName("student")
   }}
-    // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
     My Data
   </button>
@@ -220,7 +207,7 @@ const TeacherDashboard = () => {
   </div>
   <div className='teacher-overview'>
   <div 
-  // style={{width: sideBarOpen ?"70%":"95%"}}
+  style={{width: false ?"70%":"100%"}}
    className='left-main'>
 
       <div className = "teacher-panel">
@@ -234,35 +221,14 @@ const TeacherDashboard = () => {
 
 
   </div>
-  {/* <div className="sidebar-content">
-  <div style={{width: sideBarOpen ?"20%":"1%"}}className="sidebar-content">
-  {!sideBarOpen ? (
-    <div onClick={()=>setSideBarOpen(true)} className="vertical-text">
-      Click to open
-    </div>
-  ) : (
-    <>
-    <button onClick={()=>setSideBarOpen(false)}>Close (x)</button>
-    <div style={{marginBottom:"10px"}}>
-   
-        <DetentionWidget />
-      
-    </div>
-      <div>
-     
-      <ISSWidget />
-    
-      </div>
-  
-    </>
-  )}
-</div>
-</div> */}
    </div> 
      </div>
   
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        <NotificationBar notificationData={data}/>
+        {/* <NotificationBar notificationData={data}/> */}
+        <DetentionWidget />
+      
+        <ISSWidget />
         </Drawer>
       </div>
       </div>
