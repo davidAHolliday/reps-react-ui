@@ -27,6 +27,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
+      const [archivedData, setArchivedData] = useState([])
 const [filter, setFilter] = useState("OPEN");
 
 const defaultTheme = createTheme();
@@ -37,9 +38,9 @@ const defaultTheme = createTheme();
       };
       
       const url = `${baseUrl}/punish/v1/punishments`;
-      
+      const urlArchive = `${baseUrl}/punish/v1/archived`;
 
-  
+      
   useEffect(()=>{
       setSort(filter)
       
@@ -64,10 +65,29 @@ const defaultTheme = createTheme();
           .catch(function (error) {
             console.log(error);
           });
+
+          axios
+          .get(urlArchive, { headers }) // Pass the headers option with the JWT token
+          .then(function (response) {
+            const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
+            if(roleType==="teacher"){
+              const sortedByRole = sortedData.filter(x=>x.teacherEmail === sessionStorage.getItem("email"))
+              setArchivedData(sortedByRole);   
+            
+            }
+            else{
+        
+            }
+      })
+          .catch(function (error) {
+            console.log(error);
+          });
       }, [ toast.visible]);
 
+//Merging the punishment and arhcived data
 
-      const data = (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+      const data = sort === "ARCHIVED" ? archivedData : (sort === "ALL")? listOfPunishments: listOfPunishments.filter((x)=> x.status === sort);
+
   
       const hasScroll = data.length > 10;
   
@@ -98,8 +118,9 @@ const defaultTheme = createTheme();
         {value:"ALL", label:"All"},
         {value:"OPEN", label:"Open"},
         {value:"CLOSED", label:"Closed"},
-        {value:"CFR", label:"CFR"},
-        {value:"PENDING", label:"Pending"}
+        {value:"PENDING", label:"Pending"},
+        {value:"ARCHIVED", label:"Archived"},
+
       ]
 
       const handleClose = (event, reason) => {
@@ -295,7 +316,8 @@ const defaultTheme = createTheme();
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-  {x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
+
+  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
   setDeletePayload(x)  }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
@@ -318,7 +340,7 @@ const defaultTheme = createTheme();
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></>}                      
+  </button></>)     }                
  
 
 </TableCell>
