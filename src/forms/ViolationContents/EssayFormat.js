@@ -42,8 +42,13 @@ const shuffleArray = (array) => {
             <h4 className="question-header">{essay.question}</h4>
           </div>
           <h1>{essay.title}</h1>
-          <p>{essay.body}</p>
-          <h2 className="references">References</h2>
+          <p style={{whiteSpace:'pre-line'}}>{essay.body.replace(/\n{2,}/g, '\n').split('\n').map((paragraph, index) => (
+  <React.Fragment key={index}>
+    {"\u00A0"}{"\u00A0"}{"\u00A0"}{"\u00A0"}{paragraph}
+    <br />
+    <br />
+  </React.Fragment>
+))}</p>          <h2 className="references">References</h2>
           {essay.references && essay.references.map(ref=> {
            return <p>{ref}</p>;
           })}
