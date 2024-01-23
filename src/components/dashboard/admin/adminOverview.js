@@ -112,7 +112,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-      
+
     <Card style={{padding:"5px"}}>
 
       <TotalReferralByWeek data={data}/>

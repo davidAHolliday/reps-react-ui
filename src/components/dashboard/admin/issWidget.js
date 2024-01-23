@@ -1,4 +1,4 @@
-import react, {useEffect,useState} from 'react'
+import react, {useEffect,useRef,useState} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -6,6 +6,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
+import jsPDF from 'jspdf';
 
 
 
@@ -50,6 +51,39 @@ import { baseUrl } from '../../../utils/jsonData'
     };
     
 
+    const pdfRef = useRef();
+
+    const generatePDF = (studentData) => {
+      const pdf = new jsPDF();
+        // Add logo
+        const logoWidth = 50; // Adjust the width of the logo as needed
+        const logoHeight = 50; // Adjust the height of the logo as needed
+        const logoX = 130; // Adjust the X coordinate of the logo as needed
+        const logoY = 15; // Adjust the Y coordinate of the logo as needed
+        
+    //https://medium.com/dont-leave-me-out-in-the-code/5-steps-to-create-a-pdf-in-react-using-jspdf-1af182b56cee
+    
+    
+    pdf.setFontSize(16);
+    pdf.text('ISS List', 105, 40, { align: 'center' }); // Adjust coordinates and styling as needed
+    
+    
+      // Add punishment details table
+      pdf.autoTable({
+        startY: 70, // Adjust the Y-coordinate as needed
+        head: [['Last Name', 'First Name', 'Infraction Period']],
+        body: studentData.map((student) => [
+          student.student.lastName,
+          student.student.firstName,
+          student.classPeriod,
+        ]),
+      });
+    
+      // Save or open the PDF
+      pdf.save(`iss_report.pdf`);
+    };
+    
+    
 
     // if(sort == "ALL"){
     //   setFilterData(listOfPunishments);
@@ -76,8 +110,7 @@ import { baseUrl } from '../../../utils/jsonData'
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
               <th>Name</th>
-              <th>Infraction</th>
-              <th>Past Due</th>
+              <th>inf Period</th>
             </tr>
           </thead>
     
@@ -96,8 +129,7 @@ import { baseUrl } from '../../../utils/jsonData'
                         <span>{x.student.firstName} {x.student.lastName}</span>
                       </div>
                     </td>
-                    <td>{x.infraction.infractionName}</td>
-                    <td>{days}</td>
+                    <td>{x.classPeriod}</td>
                   </tr>
                 );
               })
@@ -108,6 +140,8 @@ import { baseUrl } from '../../../utils/jsonData'
             )}
           </tbody>
         </table>
+        <button onClick={()=>{generatePDF(data)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
+
       </>
     );
             }
