@@ -16,6 +16,8 @@ import { PieChartParentCommunication } from './pieChartParentCommunication';
 import RecentIncidents from './studentRecentIncidents';
 import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
 import LevelThreePanel from '../../global/levelThreePanel.js';
+import Button from '@mui/material/Button';
+
 
    const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -24,20 +26,45 @@ import LevelThreePanel from '../../global/levelThreePanel.js';
   const [studentName, setStudentName] = useState("");
   const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
   const [status, setStatus] = useState([])
-  
-  
+
+  // const filterPunishmentByStatus = (data) => {
+  //   return data.filter(x => x.status === "PENDING");
+  // }
+
+  useEffect(() => {
+    const statusQuo = data.filter(x => x.status === "PENDING");
+    if(statusQuo.length > 0){
+      setOpenModal({display:true, message:"Attention! You have level 3 punishments with student answers that must be reviewed before closing. You can find these by clicking the \"My Tasks\" tab and clicking \"Level Three Approval\". You will receive notifications until the answers are reviewed as they are not Closed until you review. \n Thank you!", buttonType:"redirect"});
+    }
+  }, [data]);
+
 
 
     return (
         <>
-        {/* {data.punishment.status === "Tardy" && <div className="modal-overlay">
+            {console.log(data + "These are the data!")}
+    {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
-      <LevelThreePanel/>
+      <h3>{openModal.message}</h3>
     </div>
+    <div className='modal-body'>
     </div>
-    </div>
-} */}
+    <div className='modal-buttons'>
+
+      {openModal.buttonType==="redirect" && <Button
+      type="redirect"
+      onClick={() => {
+        setOpenModal({display:false,message:""})}}
+      width='50%'
+      variant="contained"
+      sx={{ height: '100%' }} // Set explicit height
+    >
+      Thank You!
+    </Button>}
+   </div>
+  </div>
+</div>}
                 <div className='teacher-overview-first'>
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data}/>

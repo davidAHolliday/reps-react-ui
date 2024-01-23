@@ -4,7 +4,7 @@ import { dateCreateFormat } from '../../global/helperFunctions';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
   
 const TeacherShoutOutWidget = ({data = []}) => {
-    const [barOpen,setBarOpen] = useState(false)
+    const [barOpen,setBarOpen] = useState(true)
   
     //We need to fix the cfr issues
 	  const shoutOutData = data.filter(punish => punish.infraction.infractionName === "Positive Behavior Shout Out!");

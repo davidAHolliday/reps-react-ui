@@ -71,6 +71,9 @@ const CreatePunishmentPanel = () => {
 
     
     const infractionPeriodSelectOptions =[
+      {value:"exchange", label:"Class Exchange"},
+      {value:"afterSchool", label:"After School"},
+      {value:"lunch", label:"Lunch"},
       {value:"block1", label:"Block 1"},
       {value:"block2", label:"Block 2"},
       {value:"block3", label:"Block 3"},
@@ -109,7 +112,7 @@ const CreatePunishmentPanel = () => {
   
     const titles = {
       "Failure to Complete Work": "Failure to Complete Work",
-      "Positive Behavior Shout Out!": "Positive Behavior Shout Out! ",
+      "Positive Behavior Shout Out!": "Positive Behavior Shout Out!",
     };
   
 
@@ -230,6 +233,8 @@ console.log(payload)
       }
 
     const handleInfractionTypeChange = (event) => {
+      console.log(event + " This is the event")
+      console.log(event.target.value + " This is the value")
         setInfractionTypeSelected(event.target.value);
 
       }
@@ -412,21 +417,20 @@ MenuProps={MenuProps}
 
 
 
-
-  {console.log(infractionTypeSelected?.value)}
+{console.log(infractionTypeSelected)}
 <div className='question-container-text-area'>
   <label htmlFor="offenseDescription">
-    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
-    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionTypeSelected?.value === "Behavioral Concern")
-      ? getTitle(infractionTypeSelected?.value)
+    {(infractionTypeSelected === "Failure to Complete Work" ||
+    infractionTypeSelected === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected === "Behavioral Concern")
+      ? getTitle(infractionTypeSelected)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
   </label>
   <p>
-    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
-    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionTypeSelected?.value === "Behavioral Concern")
-      ? getDescription(infractionTypeSelected?.value)
+    {(infractionTypeSelected === "Failure to Complete Work" ||
+    infractionTypeSelected === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected === "Behavioral Concern")
+      ? getDescription(infractionTypeSelected)
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
   </p>
 </div>
@@ -503,7 +507,7 @@ MenuProps={MenuProps}
     {studentNames.length > 1 ? <Button
         disabled={!infractionPeriodSelected || !infractionTypeSelected || !infractionDescriptionSelected || studentNames.length ===0 }
         onClick={() => {
-          setOpenModal({display:true, message:"WARNING! You are about to write up a multiple students at the same time. If you wish to continue please click Submit, to go back click Cancel", buttonType:"submit"});
+          setOpenModal({display:true, message:"Warning! You are currently writing up multiple students simultaneously. If this is your intent make sure you have not included any student identifiers including names or pronouns. If you wish to continue press Submit, to go back press cancel.", buttonType:"submit"});
           setSubmitPayload()
         }}
         fullWidth

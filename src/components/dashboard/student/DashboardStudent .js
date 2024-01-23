@@ -95,7 +95,7 @@ const StudentDashboard = () => {
     loggedIn && (
       <>
         <div className ="app-bar">
-          <Toolbar>
+        <Toolbar style={{background:"yellow", color: "black"}}>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>

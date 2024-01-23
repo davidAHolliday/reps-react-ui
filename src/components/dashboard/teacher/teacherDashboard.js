@@ -108,8 +108,8 @@ const TeacherDashboard = () => {
     loggedIn && (
       <>
         <div className ="app-bar">
-          <Toolbar>
-          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"blue",backgroundColor:"black", marginRight:"10px"}}/>
+          <Toolbar style={{background:"blue", color: "white"}}>
+          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -143,26 +143,38 @@ const TeacherDashboard = () => {
   <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      // openDropdown("newReferral")
-      setPanelName("createPunishment")
+      openDropdown("newReferral")
+      // setPanelName("createPunishment")
   }}
   >
-    New Referral/Shout out
+  Referral/Shout Out
   </button>
+  <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("createPunishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
 
+     }}className='teacher-dropdown-item'>New Referral/Shout Out</div>
+       <div onClick={()=>{
+      setPanelName("punishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
+
+     }}className='teacher-dropdown-item'>Existing Referrals/Shout Outs</div>
+
+</div>
  
     {/* Student Drop Down */}
     <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      openDropdown("studentDropdown")
-      // setPanelName("student")
+      // openDropdown("studentDropdown")
+      setPanelName("student")
   }}
   >
-    My Data
+    My Students
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
-  <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  {/* <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
@@ -175,7 +187,7 @@ const TeacherDashboard = () => {
  
      }}className='teacher-dropdown-item'>My Write-Ups</div>
      
-  </div>
+  </div> */}
 
   
 

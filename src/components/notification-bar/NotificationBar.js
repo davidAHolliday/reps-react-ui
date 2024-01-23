@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import "./notification-bar.css"
 export const NotificationBar = (props) => {
 
@@ -48,8 +49,7 @@ export const NotificationBar = (props) => {
 
   }
 
-  return (
-    
+  return (  
 <div className='notification-body'>
 <div className="popup-container">
   {data.length === 0 ? (
@@ -68,7 +68,6 @@ export const NotificationBar = (props) => {
   )}
 </div>
 </div>
-
 
     
   );
