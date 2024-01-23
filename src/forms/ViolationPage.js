@@ -165,7 +165,7 @@ return(
 
     <div className="">
     <div className="">
-      <div className="form-container" style={{width:"100%"}}>
+      <div className="form-container-violation" style={{width:"100%"}}>
         <form onSubmit={handleSubmit}>
         <h1 className="instructions">
                 {essay && essay.infractionName} Violation Level:{' '}

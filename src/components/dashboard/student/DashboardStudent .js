@@ -166,7 +166,7 @@ const StudentDashboard = () => {
       
 
 
-      <div className='student-overview'>
+      <div className='student-overview' style={{display: panelName ==="startAssignment"?"none":""}}>
         <div className='student-overview-first'>
         <Card variant="outlined">
         <ShoutOutWidget/>
@@ -180,7 +180,7 @@ const StudentDashboard = () => {
 
       </div>
 
-      <div className = "student-panel">
+      <div style={{height:"80vh"}}className = "student-panel">
           {panelName === "shoutOutPanel" &&<ShoutOutReport/>}
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel/>}
         {panelName === "openAssignments" &&<StudentOpenPunishmentPanel handleStartAssignment={handleStartAssignment}/>}

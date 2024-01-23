@@ -32,7 +32,7 @@ import Button from '@mui/material/Button';
   // }
 
   useEffect(() => {
-    const statusQuo = data.filter(x => x.status === "PENDING");
+    const statusQuo = data.filter(x => x.status === "PENDING" && x.infraction.infractionLevel === "3");
     if(statusQuo.length > 0){
       setOpenModal({display:true, message:"Attention! You have level 3 punishments with student answers that must be reviewed before closing.You can go to the page to review these by clicking the \"Level Three\" Button or you may hit the \"Later\" button to take care of this at another time. You will receive notifications until the answers are reviewed as they are not Closed until you review. Thank you!", buttonType:"redirect"});
     }
