@@ -16,6 +16,7 @@ import { PieChartParentCommunication } from './pieChartParentCommunication';
 import RecentIncidents from './studentRecentIncidents';
 import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
 import LevelThreePanel from '../../global/levelThreePanel.js';
+import Button from '@mui/material/Button';
 
    const TeacherOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -24,20 +25,47 @@ import LevelThreePanel from '../../global/levelThreePanel.js';
   const [studentName, setStudentName] = useState("");
   const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
   const [status, setStatus] = useState([])
-  
-  
+
+
+    const isFound = data.some(element => {
+      if(element.status === "PENDING") {
+        return true;
+      }
+      return false;
+    })
+
+    if(isFound) {
+      setOpenModal({display:true, message:"Attention! You have level 3 punishments with student answers that must be reviewed before closing. Please hit the redirect button to go to the level 3 approval page or cancel to continue. You will receive notifications until the answers are reviewed as they are not Closed until you review. Thank you!", buttonType:"redirect"});
+    }
 
 
     return (
         <>
-        {/* {data.punishment.status === "Tardy" && <div className="modal-overlay">
+        {console.log(isFound)}
+        {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
-      <LevelThreePanel/>
+      <h3>{openModal.message}</h3>
     </div>
+    <div className='modal-body'>
     </div>
-    </div>
-} */}
+    <div className='modal-buttons'>
+
+      <button onClick={() => {
+        setOpenModal({display:false,message:""})}}>Cancel</button>
+      {openModal.buttonType==="redirect" && <Button
+      type="redirect"
+      onClick={() => {
+        setOpenModal({display:false,message:""})}}
+      width='50%'
+      variant="contained"
+      sx={{ height: '100%' }} // Set explicit height
+    >
+      Submit
+    </Button>}
+   </div>
+  </div>
+</div>}
                 <div className='teacher-overview-first'>
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data}/>
