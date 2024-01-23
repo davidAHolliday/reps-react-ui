@@ -195,13 +195,13 @@ const TeacherDashboard = () => {
     <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      openDropdown("ftcDropdown")
-      // setPanelName("punishment")
+      // openDropdown("ftcDropdown")
+      setPanelName("levelThree")
   }}
   >
     My Tasks
   </button>
-  <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
+  {/* <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("ftc")  
       setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
@@ -214,7 +214,7 @@ const TeacherDashboard = () => {
      }}className='teacher-dropdown-item'>Level Three Approval</div>
    
      
-  </div>
+  </div> */}
   
   </div>
   <div className='teacher-overview'>

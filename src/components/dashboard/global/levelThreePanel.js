@@ -67,11 +67,7 @@ const defaultTheme = createTheme();
       }, [ toast.visible]);
 
 
-      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=>  x.status === "PENDING" ): listOfPunishments.filter((x)=> x.status === sort);
-
-  console.log(data)
-      data = data.filter((record) => record.infraction.infractionLevel=== "3");      
-      console.log(data)
+      let data = (sort === "ALL")? listOfPunishments: (sort==="Open") ?listOfPunishments.filter((x)=>  x.status === "PENDING" || (x.infraction.infractionName ==="Failure to Complete Work" && x.status==="PENDING") ): listOfPunishments.filter((x)=> x.status === sort);
 
       const hasScroll = data.length > 10;
   
@@ -140,8 +136,7 @@ const defaultTheme = createTheme();
 
 
 
-  
-
+   
   
 
       return (
@@ -299,34 +294,36 @@ const defaultTheme = createTheme();
                       <TableCell>
                         <div className='level-three-button-container'>
                      
-  {x.status == "OPEN" || x.status =="PENDING" ?  <><button className='level-three-buttons' onClick={() => {  setOpenModal({display:true,message:"Please Review Student Answers",buttonType:"close",data: x})
-  setDeletePayload(x)  }}>
-    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
-      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
-    ) : (
-     <div>Review</div>
-    )}
-  </button>
+  {x.infraction.infractionLevel === "3" ? (
+    <>
+      <button
+        className='level-three-buttons'
+        onClick={() => {
+          setOpenModal({
+            display: true,
+            message: 'Please Review Student Answers',
+            buttonType: 'close',
+            data: x,
+          });
+          setDeletePayload(x);
+        }}
+      >
+        {loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType === 'close' ? (
+          <CircularProgress style={{ height: '20px', width: '20px' }} color='secondary' />
+        ) : (
+          <div>Review</div>
+        )}
+      </button>
+    </>
+  ) : (
+    <button style={{height:"45px", width:"150px"}} onClick={() => { handleClosePunishment(x) }}>
+    Mark Complete</button>
+  )}
 
-  {/* <button className='level-three-buttons' style={{backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
-  setDeletePayload(x) }}>
-    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
-      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
-    ) : (
-      <DeleteForeverIcon/>
-    )}
-  </button> */}
-  </> : 
-  <> 
-  {/* <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
-  setDeletePayload(x) }}>
-    {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
-      <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
-    ) : (
-      <DeleteForeverIcon/>
-    )}
-  </button> */}
-  </>}  
+
+
+
+  
   </div>                    
  
 
