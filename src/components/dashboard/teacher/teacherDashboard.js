@@ -108,8 +108,8 @@ const TeacherDashboard = () => {
     loggedIn && (
       <>
         <div className ="app-bar">
-          <Toolbar>
-          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"blue",backgroundColor:"black", marginRight:"10px"}}/>
+          <Toolbar style={{background:"blue", color: "white"}}>
+          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>

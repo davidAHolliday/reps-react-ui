@@ -112,7 +112,7 @@ const CreatePunishmentPanel = () => {
   
     const titles = {
       "Failure to Complete Work": "Failure to Complete Work",
-      "Positive Behavior Shout Out!": "Positive Behavior Shout Out! ",
+      "Positive Behavior Shout Out!": "Positive Behavior Shout Out!",
     };
   
 
@@ -233,6 +233,8 @@ console.log(payload)
       }
 
     const handleInfractionTypeChange = (event) => {
+      console.log(event + " This is the event")
+      console.log(event.target.value + " This is the value")
         setInfractionTypeSelected(event.target.value);
 
       }
@@ -415,21 +417,20 @@ MenuProps={MenuProps}
 
 
 
-
-  {console.log(infractionTypeSelected?.value)}
+{console.log(infractionTypeSelected)}
 <div className='question-container-text-area'>
   <label htmlFor="offenseDescription">
-    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
-    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionTypeSelected?.value === "Behavioral Concern")
-      ? getTitle(infractionTypeSelected?.value)
+    {(infractionTypeSelected === "Failure to Complete Work" ||
+    infractionTypeSelected === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected === "Behavioral Concern")
+      ? getTitle(infractionTypeSelected)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
   </label>
   <p>
-    {(infractionTypeSelected?.value === "Failure to Complete Work" ||
-    infractionTypeSelected?.value === "Positive Behavior Shout Out!" ||
-    infractionTypeSelected?.value === "Behavioral Concern")
-      ? getDescription(infractionTypeSelected?.value)
+    {(infractionTypeSelected === "Failure to Complete Work" ||
+    infractionTypeSelected === "Positive Behavior Shout Out!" ||
+    infractionTypeSelected === "Behavioral Concern")
+      ? getDescription(infractionTypeSelected)
       : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
   </p>
 </div>
