@@ -19,7 +19,7 @@ import LevelThreePanel from '../../global/levelThreePanel.js';
 import Button from '@mui/material/Button';
 
 
-   const TeacherOverviewPanel = ({data = []}) => {
+   const TeacherOverviewPanel = ({setPanelName,data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
   const [studentEmail, setStudentEmail] = useState("");
@@ -55,7 +55,9 @@ import Button from '@mui/material/Button';
       {openModal.buttonType==="redirect" && <Button
       type="redirect"
       onClick={() => {
-        setOpenModal({display:false,message:""})}}
+        setOpenModal({display:false,message:""})
+        setPanelName("levelThree")
+      }}
       width='50%'
       variant="contained"
       sx={{ height: '100%' }} // Set explicit height

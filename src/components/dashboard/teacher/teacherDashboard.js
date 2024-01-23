@@ -223,7 +223,7 @@ const TeacherDashboard = () => {
    className='left-main'>
 
       <div className = "teacher-panel">
-      {panelName === "overview" &&<TeacherOverviewPanel data={data}/>}
+      {panelName === "overview" &&<TeacherOverviewPanel setPanelName={setPanelName} data={data}/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} roleType={"teacher"}/>}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}

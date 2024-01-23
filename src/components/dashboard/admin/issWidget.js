@@ -80,7 +80,7 @@ import jsPDF from 'jspdf';
       });
     
       // Save or open the PDF
-      pdf.save('iss_report.pdf');
+      pdf.save(`iss_report.pdf`);
     };
     
     
