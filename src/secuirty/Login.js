@@ -226,7 +226,7 @@ axios.post(`${baseUrl}/auth`, payload)
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2" style={{color:"white"}}>
+                <Link href="/forgot-password" variant="body2" style={{color:"white"}}>
                   Forgot password?
                 </Link>
               </Grid>
