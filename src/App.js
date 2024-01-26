@@ -11,6 +11,8 @@ import PDFReport from './components/dashboard/admin/reports/PDFReport';
 import { PDFViewer } from '@react-pdf/renderer';
 import TeacherDashboard from './components/dashboard/teacher/teacherDashboard';
 import GlobalArchivedPunishmentPanel from './components/dashboard/global/globalArchivedPunishmentPanel';
+import ResetPassword from './secuirty/Reset';
+import ForgotPassword from './secuirty/forgotPassword';
 
 function App() {
 
@@ -19,6 +21,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/infractionAssignments/:param1/:param2" element={<ViolationPage />} />
         <Route path="/" element={<Login />} />
