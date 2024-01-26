@@ -20,6 +20,7 @@ import { baseUrl } from '../../../utils/jsonData';
 import axios from 'axios';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentManager from '../../../utils/EssayForm';
+import TeacherStudentPanel from '../teacher/teacherPanels/teacherStudentPanel';
 
 
 
@@ -230,7 +231,7 @@ useEffect(() => {
       <div className = "main-content-panel">
 {panelName === "overview" &&<AdminOverviewPanel data={data}/>}
 {panelName === "viewTeacher" &&<AdminTeacherPanel/>}
-{panelName === "student" &&<StudentPanel/>}
+{panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
