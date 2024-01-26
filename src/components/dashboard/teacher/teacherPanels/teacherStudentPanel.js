@@ -23,6 +23,9 @@ import 'jspdf-autotable';
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
     };
+
+    const admin = sessionStorage.getItem("role")=== "ADMIN";
+
     
 //get
     const url = `${baseUrl}/punish/v1/punishments`;
@@ -32,9 +35,18 @@ import 'jspdf-autotable';
         .then(function (response) {
           //Figure out how we are going to return only students associated with teacher.
           // Maybe only pulling up students with active and closed punishments
-          const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
-          console.log("find me",data)
-          setListOfStudents(data);
+          if(admin){
+            const data = response.data;
+            setListOfStudents(data);
+
+
+          }else{
+            const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
+            setListOfStudents(data);
+
+          }
+          console.log(admin)
+          console.log("find me",data.length)
         })
         .catch(function (error) {
           console.log(error);
@@ -277,13 +289,7 @@ const generatePDF = (studentData) => {
   <TableCell>{x.student.studentEmail}</TableCell>
   <TableCell>{x.student.AccountCircleIcongrade}</TableCell>
   <TableCell>{x.student.studentPhoneNumber}</TableCell>
-  {/* <TableCell>
-
-      <ContactsIcon color="primary" />
-
-      <VisibilityIcon color="primary" /> 
-
-  </TableCell> */}
+ 
 </TableRow>
 
             ))
