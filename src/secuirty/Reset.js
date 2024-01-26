@@ -64,7 +64,9 @@ const [alertMessage, setAlertMessage] = useState('');
       });
   
       showToast('success', 'Password has been successfully changed');
-      navigate('/login');
+      setTimeout(()=>{
+        navigate('/login');
+      },2000)
 
     } catch (error) {
       console.error('Error:', error);
