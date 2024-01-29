@@ -98,7 +98,7 @@ const generateLegendColor = (index) => {
       {teachersWithIncidentsList.map((teacher, index) => (
         <div key={index} className="legend-item">
           <div className={`legend-color legend-color-${index + 1}`} style={{ backgroundColor: generateLegendColor(index) }}></div>
-          <span>{`${teacher.teacherEmail.split("@")[0]}} (${teacher.incidents})`}</span>
+          <span>{`${teacher.teacherEmail.split("@")[0]} (${teacher.incidents})`}</span>
         </div>
       ))}
     </div>
