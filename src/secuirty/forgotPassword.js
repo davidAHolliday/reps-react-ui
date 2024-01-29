@@ -95,9 +95,9 @@ const [alertMessage, setAlertMessage] = useState('');
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Forgot You Password?
+            Forgot Your Password?
           </Typography>
-          <p>Dont Worry we got you!</p>
+          <p>Dont Worry we got you! Please enter a valid school email address</p>
         
           {loading ? (
             <CircularProgress style={{ marginTop: '10px' }} color="secondary" />
