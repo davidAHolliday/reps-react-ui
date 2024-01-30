@@ -29,7 +29,10 @@ export const ContactUsModal = ({ setContactUsDisplayModal, contactUsDisplayModal
     setMessage(event.target.value);
   };
 
+
   const handleSendMessage = () => {
+    setEmailValidationMessage('');
+
     // Regular expression for basic email validation
     const emailValidationRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -128,7 +131,7 @@ export const ContactUsModal = ({ setContactUsDisplayModal, contactUsDisplayModal
           />
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button disabled={!selectedTopic || !emailAddress || !message || Boolean(emailValidationMessage)} variant="contained" color="primary" onClick={handleSendMessage}>
+            <Button disabled={!selectedTopic  || !message } variant="contained" color="primary" onClick={handleSendMessage}>
               Send Message
             </Button>
 
