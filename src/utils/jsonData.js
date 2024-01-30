@@ -1,4 +1,106 @@
+// export const baseUrl = "http://localhost:8080"
+// export const baseUrl = "https://repsdev31.ue.r.appspot.com"
+export const baseUrl = "https://repsdms.ue.r.appspot.com"
+
 export const essayData = {
+  "id-123359":{
+    "infractionName":"Behavioral Concern",
+    "level": 1,
+  "Question 1":{
+    "question":"Use the following passage to determine who was cited for identifying the significant negative correlation between tardiness and academic performance.",
+    "title": "The Impact of Tardiness on Academic Performance: A Critical Analysis",
+    "body": "Punctuality is a fundamental attribute that contributes to academic success. However, chronic tardiness among students has become a prevalent issue with potentially detrimental consequences on their academic performance. This essay explores the effects of tardiness on academic achievement, drawing upon research findings to underscore its significance as a hindrance to students' educational progress.\n\nTardiness disrupts the learning environment, affecting both the late student and their peers. When students arrive late to class, it interrupts the flow of instruction and disturbs the concentration of their fellow classmates. As stated by Rumberger and Losen (2017), latecomers not only miss crucial information and announcements but also create a distraction that hampers the overall learning experience. Consistently missing instructional time due to tardiness can impede students' comprehension of the curriculum, leading to gaps in knowledge and understanding.\n\nPersistent tardiness often correlates with reduced engagement and participation in classroom activities. According to a study by Gottfried (2014), students who are frequently late tend to exhibit lower levels of active involvement in class discussions, group work, and other interactive learning opportunities. This diminished engagement can result in limited interaction with teachers and peers, hindering the development of critical thinking skills, collaboration, and the exchange of ideas necessary for academic growth.\n\nTardiness can be indicative of poor time management and organizational skills. Students who struggle with punctuality often face challenges in planning and prioritizing their commitments, resulting in a domino effect of missed deadlines and incomplete assignments. As highlighted by DeSocio et al. (2018), chronic tardiness reflects a lack of discipline and can lead to a cycle of academic underachievement. The inability to manage time effectively compromises students' ability to meet academic obligations and succeed academically.\n\nThe accumulation of tardiness can have a direct impact on students' grades and overall academic achievement. A study by Hirschfield and Gasper (2011) found a significant negative relationship between tardiness and academic performance. Persistent tardiness often translates into missed quizzes, tests, or class participation points, ultimately affecting students' final grades. Additionally, the stress and anxiety resulting from trying to catch up on missed content and assignments can further impede students' academic progress, creating a vicious cycle of poor performance.\n\nTardiness emerges as a detrimental factor that impedes students' academic performance and hampers their educational journey. The disruptive nature of tardiness, coupled with reduced engagement, compromised time management, and the cumulative effect on grades, highlights the need for proactive measures to address this issue. Educational institutions, teachers, parents, and students themselves should collaborate to promote punctuality and instill the importance of time management skills. By fostering a culture of timeliness and emphasizing the connection between punctuality and academic success, we can create an environment that maximizes students' potential and enhances their overall academic performance.",
+    "references": {
+        "reference1": "DeSocio, J., Staggers, S., & Kurkiewicz, D. (2018). Students’ tardiness and discipline at a Midwestern middle school: A concurrent mixed-methods study. Journal of School Nursing, 34(6), 441-448.",
+        "reference2": "Gottfried, M. A. (2014). Chronic absenteeism and its effects on students’ academic and socioemotional outcomes. Journal of Education for Students Placed at Risk (JESPAR), 19(2), 53-75."
+    },
+    "radioAnswers": {
+        1: {"value": "incorrect","label":"Gottfried, M. A."},
+        2: {"value": "correct","label":"Hirschfield and Gasper"},
+        3: {"value": "incorrect","label":"DeSocio, J., Staggers, S., & Kurkiewicz, D."},
+        4: {"value": "incorrect","label":"McDonald, J. and Smith, A."}
+  
+  
+    },
+    "retryQuestion": {
+      "imageUrl":"https://lh3.googleusercontent.com/03wsLfk6KbiDxMFk-iJ6c7nzbdO64C8za5Ti72LPyHIytEKTDT5rJJWmKygopxyl7T_q4kzjE4Sj2XbsQrQt6BOobRTtKj8P6WOafQH-Aj5gB4R-XuAGe9mynvsVuIqWSg=w740",
+      "textToCompare":"A study by Hirschfield and Gasper (2011) found a significant negative relationship between tardiness and academic performance. Persistent tardiness often translates into missed quizzes, tests, or class participation points, ultimately affecting students' final grades. Additionally, the stress and anxiety resulting from trying to catch up on missed content and assignments can further impede students' academic progress, creating a vicious cycle of poor performance."
+
+    }
+  },
+
+  "Question 2":{
+  "question":"Use the following passage to determine who identified the distraction caused by tardy students and the negative effects it has on the other students?",
+  "title": "The Impact of Tardiness on Academic Performance: A Critical Analysis",
+  "body": "Punctuality is a fundamental attribute that contributes to academic success. However, chronic tardiness among students has become a prevalent issue with potentially detrimental consequences on their academic performance. This essay explores the effects of tardiness on academic achievement, drawing upon research findings to underscore its significance as a hindrance to students' educational progress.\n\nTardiness disrupts the learning environment, affecting both the late student and their peers. When students arrive late to class, it interrupts the flow of instruction and disturbs the concentration of their fellow classmates. As stated by Rumberger and Losen (2017), latecomers not only miss crucial information and announcements but also create a distraction that hampers the overall learning experience. Consistently missing instructional time due to tardiness can impede students' comprehension of the curriculum, leading to gaps in knowledge and understanding.\n\nPersistent tardiness often correlates with reduced engagement and participation in classroom activities. According to a study by Gottfried (2014), students who are frequently late tend to exhibit lower levels of active involvement in class discussions, group work, and other interactive learning opportunities. This diminished engagement can result in limited interaction with teachers and peers, hindering the development of critical thinking skills, collaboration, and the exchange of ideas necessary for academic growth.\n\nTardiness can be indicative of poor time management and organizational skills. Students who struggle with punctuality often face challenges in planning and prioritizing their commitments, resulting in a domino effect of missed deadlines and incomplete assignments. As highlighted by DeSocio et al. (2018), chronic tardiness reflects a lack of discipline and can lead to a cycle of academic underachievement. The inability to manage time effectively compromises students' ability to meet academic obligations and succeed academically.\n\nThe accumulation of tardiness can have a direct impact on students' grades and overall academic achievement. A study by Hirschfield and Gasper (2011) found a significant negative relationship between tardiness and academic performance. Persistent tardiness often translates into missed quizzes, tests, or class participation points, ultimately affecting students' final grades. Additionally, the stress and anxiety resulting from trying to catch up on missed content and assignments can further impede students' academic progress, creating a vicious cycle of poor performance.\n\nTardiness emerges as a detrimental factor that impedes students' academic performance and hampers their educational journey. The disruptive nature of tardiness, coupled with reduced engagement, compromised time management, and the cumulative effect on grades, highlights the need for proactive measures to address this issue. Educational institutions, teachers, parents, and students themselves should collaborate to promote punctuality and instill the importance of time management skills. By fostering a culture of timeliness and emphasizing the connection between punctuality and academic success, we can create an environment that maximizes students' potential and enhances their overall academic performance.",
+  "references": {
+      "reference1": "DeSocio, J., Staggers, S., & Kurkiewicz, D. (2018). Students’ tardiness and discipline at a Midwestern middle school: A concurrent mixed-methods study. Journal of School Nursing, 34(6), 441-448.",
+      "reference2": "Gottfried, M. A. (2014). Chronic absenteeism and its effects on students’ academic and socioemotional outcomes. Journal of Education for Students Placed at Risk (JESPAR), 19(2), 53-75."
+  },
+  "radioAnswers": {
+      1: {"value": "incorrect","label":"DeSocio"},
+      2: {"value": "incorrect","label":"Gottfried"},
+      3: {"value": "correct","label":"Rumberger and Losen"},
+      4: {"value": "incorrect","label":"Gasper"}
+
+
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh5.googleusercontent.com/qQXLs297z776WQ_K7IGHSBQ--EbLRU4T6sINDGRtoOPPfmpyNbSAWZj3OR0RKmL2la_4r8GaFSjr2kGnhtXA4sckOQQEiMaTwSDxmY9t27imqIqAhlaStm6aInP3y8N9fg=w740",
+    "textToCompare":"Tardiness disrupts the learning environment, affecting both the late student and their peers. When students arrive late to class, it interrupts the flow of instruction and disturbs the concentration of their fellow classmates. As stated by Rumberger and Losen (2017), latecomers not only miss crucial information and announcements but also create a distraction that hampers the overall learning experience. Consistently missing instructional time due to tardiness can impede students' comprehension of the curriculum, leading to gaps in knowledge and understanding."
+
+  }
+},
+
+"Question 3":{
+  "question":"Use the following passage to determine who was cited for identifying the positive mental health benefits of being punctual including decreased stress.",
+  "title": "The Power of Punctuality: Unleashing the Benefits",
+  "body": "Punctuality, the act of being on time or completing tasks within a specified timeframe, is a virtue that holds immense value in our modern society. Far from being a mere social convention, punctuality offers numerous benefits that positively impact individuals, businesses, and society as a whole. This essay aims to explore the advantages of punctuality and the evidence-based research that supports its significance. Drawing on recent scholarly sources published since 2018, we will delve into the multifaceted benefits of punctuality and demonstrate why it is an essential attribute to cultivate.\n\nOne of the key benefits of punctuality is its direct correlation with increased productivity. Research conducted by Lee et al. (2019) found that individuals who consistently practice punctuality exhibit higher levels of productivity in both personal and professional settings. By being punctual, individuals establish a disciplined routine and develop a sense of responsibility towards meeting deadlines. This discipline enhances time management skills, reduces procrastination, and boosts overall productivity.\n\nPunctuality plays a pivotal role in shaping an individual's professional reputation. According to a study by Davis and Stark (2018), professionals who consistently demonstrate punctuality are viewed as reliable, trustworthy, and competent by their peers, superiors, and clients. Being punctual showcases a commitment to honoring obligations and demonstrates respect for others' time, leading to increased opportunities for career advancement and building strong professional relationships.\n\nThe impact of punctuality on mental well-being should not be underestimated. Research by Johnson et al. (2020) highlights that individuals who adhere to punctuality experience reduced stress levels compared to those who are consistently late or fail to meet deadlines. Punctuality allows individuals to manage their time effectively, preventing the accumulation of unnecessary stress caused by rushing, missed deadlines, or unfinished tasks. This reduced stress not only enhances overall well-being but also enables individuals to perform better in various aspects of life.\n\nPunctuality serves as a catalyst for developing effective time management skills. A study by Roberts and Thompson (2018) reveals that individuals who prioritize punctuality consistently exhibit superior time management abilities. By valuing punctuality, individuals gain a heightened sense of awareness and control over their time, enabling them to allocate it efficiently to various tasks and responsibilities. These enhanced time management skills contribute to improved productivity, reduced stress, and overall success in personal and professional endeavors.\n\nIn conclusion, punctuality offers a wide array of benefits that positively impact individuals, businesses, and society. Through increased productivity, enhanced professional reputation, reduced stress levels, and improved time management skills, individuals who practice punctuality gain a competitive advantage in today's fast-paced world. The evidence presented from recent scholarly sources published since 2018 solidifies the significance of punctuality as a virtue worth cultivating. By embracing punctuality as a core value, individuals can unlock their full potential and contribute to a more efficient and prosperous society.",
+  "references": {
+    "reference1": "Davis, R. M., & Stark, E. M. (2018). The importance of punctuality and workplace timeliness: A moral and ethical imperative. Journal of Business Ethics, 151(1), 253-264.",
+    "reference2": "Johnson, P., Sullivan, B. A., & Gravina, N. (2020). The link between punctuality and perceived stress. Journal of Applied Social Psychology, 50(1), 27-38.",
+    "reference3": "Lee, K., Allan, B. A., & Sadler, P. (2019). Punctuality at work: A comprehensive model of individual differences in punctuality. Personality and Individual Differences, 139, 290-296.",
+    "reference4": "Roberts, A., & Thompson, L. (2018). Punctuality as a window to the soul: How and why punctuality influences job performance. Journal of Applied Psychology, 103(3), 269-277.",
+  },
+  "radioAnswers": {
+      1: {"value": "correct","label":"Johnson"},
+      2: {"value": "incorrect","label":"Roberts"},
+      3: {"value": "incorrect","label":"Lee"},
+      4: {"value": "incorrect","label":"Davis"}
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh4.googleusercontent.com/8BzHp4Z8sKRegGxX4NogSMbGYiXeV8U17GRlHzd0Ir4uC1rFBtcW_H2Vdk6Q4NJkKqUU8ybTlMd1tnniFuU2Bl9YeqZlEU-7bvUmCRD0KzqICLUj8ZvWggk6tK43-F21yQ=w740",
+    "textToCompare":"The impact of punctuality on mental well-being should not be underestimated. Research by Johnson et al. (2020) highlights that individuals who adhere to punctuality experience reduced stress levels compared to those who are consistently late or fail to meet deadlines. Punctuality allows individuals to manage their time effectively, preventing the accumulation of unnecessary stress caused by rushing, missed deadlines, or unfinished tasks. This reduced stress not only enhances overall well-being but also enables individuals to perform better in various aspects of life."
+
+  }
+},
+"Question 4":{
+  "question": "Use the following passage to determine who was cited for identifying the benefits of punctuality for building a reputation of trustworthiness, reliability and competence.",
+  "title": "The Power of Punctuality: Unleashing the Benefits",
+  "body": "Punctuality, the act of being on time or completing tasks within a specified timeframe, is a virtue that holds immense value in our modern society. Far from being a mere social convention, punctuality offers numerous benefits that positively impact individuals, businesses, and society as a whole. This essay aims to explore the advantages of punctuality and the evidence-based research that supports its significance. Drawing on recent scholarly sources published since 2018, we will delve into the multifaceted benefits of punctuality and demonstrate why it is an essential attribute to cultivate.\n\nOne of the key benefits of punctuality is its direct correlation with increased productivity. Research conducted by Lee et al. (2019) found that individuals who consistently practice punctuality exhibit higher levels of productivity in both personal and professional settings. By being punctual, individuals establish a disciplined routine and develop a sense of responsibility towards meeting deadlines. This discipline enhances time management skills, reduces procrastination, and boosts overall productivity.\n\nPunctuality plays a pivotal role in shaping an individual's professional reputation. According to a study by Davis and Stark (2018), professionals who consistently demonstrate punctuality are viewed as reliable, trustworthy, and competent by their peers, superiors, and clients. Being punctual showcases a commitment to honoring obligations and demonstrates respect for others' time, leading to increased opportunities for career advancement and building strong professional relationships.\n\nThe impact of punctuality on mental well-being should not be underestimated. Research by Johnson et al. (2020) highlights that individuals who adhere to punctuality experience reduced stress levels compared to those who are consistently late or fail to meet deadlines. Punctuality allows individuals to manage their time effectively, preventing the accumulation of unnecessary stress caused by rushing, missed deadlines, or unfinished tasks. This reduced stress not only enhances overall well-being but also enables individuals to perform better in various aspects of life.\n\nPunctuality serves as a catalyst for developing effective time management skills. A study by Roberts and Thompson (2018) reveals that individuals who prioritize punctuality consistently exhibit superior time management abilities. By valuing punctuality, individuals gain a heightened sense of awareness and control over their time, enabling them to allocate it efficiently to various tasks and responsibilities. These enhanced time management skills contribute to improved productivity, reduced stress, and overall success in personal and professional endeavors.\n\nIn conclusion, punctuality offers a wide array of benefits that positively impact individuals, businesses, and society. Through increased productivity, enhanced professional reputation, reduced stress levels, and improved time management skills, individuals who practice punctuality gain a competitive advantage in today's fast-paced world. The evidence presented from recent scholarly sources published since 2018 solidifies the significance of punctuality as a virtue worth cultivating. By embracing punctuality as a core value, individuals can unlock their full potential and contribute to a more efficient and prosperous society.",
+  "references": {
+      "reference1": "Davis, R. M., & Stark, E. M. (2018). The importance of punctuality and workplace timeliness: A moral and ethical imperative. Journal of Business Ethics, 151(1), 253-264.",
+      "reference2": "Johnson, P., Sullivan, B. A., & Gravina, N. (2020). The link between punctuality and perceived stress. Journal of Applied Social Psychology, 50(1), 27-38.",
+      "reference3": "Lee, K., Allan, B. A., & Sadler, P. (2019). Punctuality at work: A comprehensive model of individual differences in punctuality. Personality and Individual Differences, 139, 290-296.",
+      "reference4": "Roberts, A., & Thompson, L. (2018). Punctuality as a window to the soul: How and why punctuality influences job performance. Journal of Applied Psychology, 103(3), 269-277.",
+
+  
+    },
+  "radioAnswers": {
+      1: {"value": "incorrect","label":"Johnson"},
+      2: {"value": "incorrect","label":"Roberts"},
+      3: {"value": "incorrect","label":"Lee"},
+      4: {"value": "correct","label":"Davis"}
+
+
+  },
+  "retryQuestion": {
+    "imageUrl":"https://lh3.googleusercontent.com/6hYLUzCoKspxcjD7qzn2CUtogvso0aS6VX6ShJxA7kS77HfO3HS3oq-vGF_xgCjoMTavNxE73LXYLZD4004f7Jz-EM-Bt7aUbFG_-dO-khfuamd46G4cIZwb0F1U9XdZ9Q=w740",
+    "textToCompare":"Punctuality plays a pivotal role in shaping an individual's professional reputation. According to a study by Davis and Stark (2018), professionals who consistently demonstrate punctuality are viewed as reliable, trustworthy, and competent by their peers, superiors, and clients. Being punctual showcases a commitment to honoring obligations and demonstrates respect for others' time, leading to increased opportunities for career advancement and building strong professional relationships."
+
+  }
+},
+},
 
 "tardy-1":{
     "infractionName":"Tardy",
@@ -948,7 +1050,7 @@ export const essayData = {
       "imageUrl":"https://lh3.googleusercontent.com/7ogDXl-LxxXC1N7RfxARN8nZFV4I4tLofpp3VbV9eSWBHH-KXneGTkSYlB-K2r6Nq9wfq7PsPeZy82BKCfxHzmWZvhO8JXoXtIrqVSn2dJxig4sr4VOvlvvSInP3G86fWRNHO0UWpmM_EHxCo3MUKPCMaVQI7w",
       "textToCompare":"Stress and emotional challenges can manifest in various ways among students. For some, engaging in roughhousing or horseplay might be a way to cope with overwhelming emotions or stressors outside of the school environment. When students face difficulties at home or deal with personal issues, these feelings can spill over into their behavior at school. Creating a nurturing and supportive environment that emphasizes emotional regulation and provides outlets for expressing emotions constructively can aid in reducing rough play tendencies."
     }
-  },
+  }
 },
     ////////////////////////Dress Code 2/////////////////////////////////
     "dresscode-2":{
@@ -978,9 +1080,9 @@ export const essayData = {
             3: {"value": "incorrect","label":"Confidence and Self expression"},
             4: {"value": "incorrect","label":"Inspires Productivity"}
         },
-        "retryQuestion": "https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
+        "retryQuestion": {"imageUrl":"https://lh4.googleusercontent.com/ctbnlCMC6spNh8q5VPY7lhady5rXlCteT4Ehy18I6bl1SNs7Ptan3kFqCZoQrdbjquiG0dZzNgr0spqnH-86E768BJoovsoCF8EphU5qr0w6vxwNThf9X_YNkWJtpt9PjNTnWcHANPvkapCP5479VmG1sZLJiw",
           "textToCompare":"The implementation of dress codes is instrumental in promoting professionalism across various settings. Dress codes help establish positive first impressions, cultivate confidence and self-expression, enhance team cohesion and company culture, inspire productivity and focus, and promote respect and professional etiquette. By embracing dress codes, individuals and organizations can create a professional image, foster a cohesive work environment, and achieve higher levels of success and respect. Dress codes are a powerful tool in enhancing professionalism and should be embraced in a wide range of professional settings."
-    
+      }
         },
     
       "Question 2":{
@@ -1527,30 +1629,27 @@ export const essayData = {
       "retryQuestion": {
         "imageUrl":"https://lh5.googleusercontent.com/6ZHbgVh9_QCia_B4x2_hv1Dnkfjehv0hqj8LPf8miykhkp6RA-xKudvdwBgmWX8pgnBP3M6yglq0IJg1jy7pwymvEz5Qkqk0A1AwaJFc_6qjjpoPM9fy0n8jBh9YCc7V8f0MuwdSkOnw62o33iV8qFJvD7Gkjw",
         "textToCompare":"The home environment plays a significant role in shaping a student's behavior in school. Adverse circumstances at home, such as family conflicts, instability, or lack of support, can cause emotional distress, which may manifest as disruptive behavior at school. A study by Reyes, Brackett, Rivers, White, and Salovey (2012) found that students who experienced stressful home environments were more likely to engage in disruptive behavior at school. Establishing partnerships with families and providing resources to support students and their families can create a more stable and supportive home environment, thus reducing disruptive behavior (Reyes et al., 2012)."
-      }
+      },
     },
 
-    "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
-    "title": "",
-    "body": ``,
-    "references": {
-      },
-    "radioAnswers": {
-    },
-    "retryQuestion": {
-      "imageUrl":"",
-      "imageTextAlt":"",
-      "textToCompare":""
-  
+    "exploratory-questions":{
+        "openEndedExplanation" : "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+        "emotionalRegulation-radio" : "Choose whether you agree disagree or feel neutral to the following statement I have difficulty controlling my emotions and can say or do things that I regret when my emotions are overwhelming.",
+        "emotionalRegulation-openEnded" : "Can you explain what it feels like before, during and after your emotions become overwhelming. Please add anything that may be causing these overwhelming emotions. ",
+        "academic-radio": "Choose whether you agree, disagree or feel neutral to the following statement: I find my class work frustrating or difficult and don't feel like I get the help I need with my work.",
+        "academic-openEnded": "Can you explain the struggles you've had academically in the past. Is there anything that helps ease this frustration? When was the last time you felt good about a grade or class?",
+        "activities-radio":"Choose whether you agree, disagree or feel neutral to the following statement:I would like to find more productive outlets for my energy like sports, activities or clubs.",
+        "emotionalCoping":"Please list any of your current interests and/or any activities, clubs or sports you would like to learn more about" 
     }
+
     },
 
             ////////////////////////Unauthorized Device 1/////////////////////////////////
             "unauthorizeddevice-1":{
-              "infractionName":"Unauthorized Device/Cell Phone",
+              "infractionName":"Unauthorized Device Cell Phone",
               "level": 1,
               "Question 1":{
-                "question":"True or false students who were not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
+                "question":"True or false students who were  not using their mobile phones only scored a letter grade higher on a multiple choice test than those students who were actively using their mobile phones.",
                 "title": "Read the following Abstract for the article: The Impact of Mobile Phone Usage on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
                 "body": `In this study, we examined the impact of mobile phone usage, during class lecture, on student learning. Participants in three different study groups (control, low-distraction, and high-distraction) watched a video lecture, took notes on that lecture, and took two learning assessments after watching the lecture. Students who were not using their mobile phones wrote down 62% more information in their notes, took more detailed notes, were able to recall more detailed information from the lecture, and scored a full letter grade and a half higher on a multiple choice test than those students who were actively using their mobile phones. Theoretical and pedagogical implications are discussed.`,
                 "references": {
@@ -1765,7 +1864,7 @@ export const essayData = {
     
         ////////////////////////Unauthorized Device 3/////////////////////////////////
         "unauthorizeddevice-3":{
-          "infractionName":"Unauthorized Device/Cell Phone",
+          "infractionName":"Unauthorized Device Cell Phone",
           "level": 3,
           "Question 1":{
             "question":"Read the following passage to determine who was cited for connecting a fear of missing out with problematic phone use.",
@@ -1874,9 +1973,304 @@ export const essayData = {
         "retryQuestion": {
           "imageUrl":"",
           "imageTextAlt":"",
-          "textToCompare":""
-      
+          "textToCompare":""     
         }
         }, 
-  }
+  },
+  
+ 
 }
+
+//123abc; justin_iverson.c@charleston.k12.sc.us
+
+
+export const dataWithArray = [{
+  "infractionName":"Unauthorized Device/Cell Phone",
+  "level": 3,
+  "questions": [
+      {
+        "type":"reading",
+        "question":"Read the following passage to determine who was cited for connecting a fear of missing out with problematic phone use.",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+       
+        references: [
+          "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+          "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+          "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+          "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
+        "radioAnswers": {
+          1: {"value": "correct","label":"Kuss, D. J., & Griffiths, M. D."},
+          2: {"value": "incorrect","label":"Montag, C., Becker, B., & Gan, C."},
+          3: {"value": "incorrect","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          4: {"value": "incorrect","label":"Bianchi, A., & Phillips, J. G."}
+      },
+      
+      },
+      {
+        "type":"retryQuestion",
+        "textToCompare":"A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors."
+      },
+      {
+        "question":"Read the following passage to determine who was cited for connecting emotional coping and escapism with problematic phone use.",
+        "type":"reading",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+        "references": [
+          "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+        "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+         "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+       "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Bianchi, A., & Phillips, J. G."},
+          2: {"value": "correct","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          3: {"value": "incorrect","label":"Montag, C., Becker, B., & Gan, C."},
+          4: {"value": "incorrect","label":"Kuss, D. J., & Griffiths, M. D."}
+        },
+    
+      },
+      {
+        "type":"retryQuestion",
+        "textToCompare":"Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation."
+      },
+      {
+        "question":"Read the following passage to determine who was cited for connecting gratification from repetitive phone use and the development of addictive behaviors.",
+        "type":"reading",
+        "title": "The Causes of Phone Addiction: Unveiling the Digital Dilemma",
+        "body": `In the contemporary world, the rise of smartphones has revolutionized the way we communicate, work, and entertain ourselves. However, this technological marvel has also given birth to a concerning phenomenon: phone addiction. The compulsive and excessive use of smartphones can lead to various negative consequences, affecting individuals' mental health, relationships, and productivity. This essay delves into the causes of phone addiction, shedding light on four key factors supported by extensive research.
+
+        Easy Accessibility and Constant Connectivity: One of the primary causes of phone addiction lies in the easy accessibility and constant connectivity offered by smartphones. With smartphones becoming an integral part of our lives, they have become a constant companion, always within arm's reach. According to a study conducted by Bianchi and Phillips (2019), the proximity of smartphones allows individuals to indulge in frequent and impulsive use, leading to addiction. The constant connection to social media, messaging apps, and online content creates a perpetual need for engagement, triggering addictive behaviors.
+        
+        The fear of missing out, or FOMO, serves as another significant cause of phone addiction. FOMO refers to the anxiety-inducing feeling of being left out from social events, experiences, or information when not actively engaged with one's smartphone. A study by Kuss and Griffiths (2017) found that individuals experiencing FOMO are more likely to engage in excessive phone use to mitigate their fear of missing out. Social media platforms play a pivotal role in exacerbating this phenomenon, as users constantly monitor their feeds to stay updated, inadvertently reinforcing addictive behaviors.
+        
+        Phone addiction is often fueled by the psychological gratification individuals experience through smartphone use. Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction.
+        
+        Phones offer an easily accessible avenue for escapism and emotional coping, contributing to the development of addiction. For individuals facing stress, anxiety, or emotional challenges, smartphones can serve as a means to temporarily escape reality. A study by Elhai et al. (2017) suggests that individuals experiencing emotional distress are more likely to engage in excessive smartphone use as a way to cope with negative emotions. This reliance on smartphones as a coping mechanism can escalate into addiction, as individuals become increasingly dependent on their digital devices for emotional regulation.
+        
+        Phone addiction is a complex issue with multifaceted causes. Easy accessibility and constant connectivity, fear of missing out (FOMO), psychological gratification, and escapism/emotional coping mechanisms are key factors that contribute to the development and perpetuation of phone addiction. Understanding these causes is crucial in devising effective strategies for prevention and intervention. By raising awareness, fostering digital literacy, and promoting healthy technology usage habits, individuals can break free from the grasp of phone addiction and achieve a balanced and fulfilling life in the digital age.`,
+        "references": [
+       "Bianchi, A., & Phillips, J. G. (2019). Psychological predictors of problematic smartphone use. Cyberpsychology, Behavior, and Social Networking, 22(8), 548-555.",
+         "Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J. (2017). Problematic smartphone use: A conceptual overview and systematic review of relations with anxiety and depression psychopathology. Journal of Affective Disorders, 207, 251-259.",
+      "Kuss, D. J., & Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. International Journal of Environmental Research and Public Health, 14(3), 311.",
+    "Montag, C., Becker, B., & Gan, C. (2019). The multipurpose application WeChat: A review on recent research. Frontiers in Psychology, 10, 2756."
+        ],
+        "radioAnswers": {
+          1: {"value": "incorrect","label":"Newport, C., Smith, A."},
+          2: {"value": "incorrect","label":"Elhai, J. D., Dvorak, R. D., Levine, J. C., & Hall, B. J."},
+          3: {"value": "incorrect","label":"Kuss, D. J., & Griffiths, M. D."},
+          4: {"value": "correct","label":"Montag, C., Becker, B., & Gan, C."}
+        }
+      },
+      
+      {
+        "type":"retryQuestion",
+        "textToCompare":"Engaging with social media, receiving notifications, or playing games on smartphones can trigger a release of dopamine—a neurotransmitter associated with pleasure and reward—in the brain. As highlighted by Montag et al. (2019), the repetitive engagement with smartphone activities that elicit pleasurable responses can lead to the development of addictive behaviors. Individuals seek to recreate the pleasurable experiences, leading to a compulsive cycle of phone use and addiction."
+        },
+      
+      {
+      "type":"exploratory-open-ended",
+      "title": "openEndedExplanation",
+      "question": "Can you explain what happened before you were written up for disruptive behavior? What happened that caused the write up? And would you have done anything differently if the same situation happened again? Why or Why not?",
+       
+      },
+      {
+        "type":"exploratory-radio",
+        "title": "emotionalRegulation-radio",
+        "question": "Choose whether you agree disagree or feel neutral to the following statement I have difficulty controlling my emotions and can say or do things that I regret when my emotions are overwhelming.",
+         
+        },
+        {
+          "type":"exploratory-radio",
+          "title": "academic-radio",
+          "question":"Choose whether you agree, disagree or feel neutral to the following statement: I find my class work frustrating or difficult and don't feel like I get the help I need with my work.",
+           
+          },
+          {
+            "type":"exploratory-open-ended",
+            "title": "academic-openEnded",
+            "question":"Can you explain the struggles you've had academically in the past. Is there anything that helps ease this frustration? When was the last time you felt good about a grade or class?",
+            
+             
+            },
+            {
+              "type":"exploratory-radio",
+              "title": "activities-radio",
+              "question": "Choose whether you agree, disagree or feel neutral to the following statement:I would like to find more productive outlets for my energy like sports, activities or clubs.",
+
+               
+              },
+              {
+                "type":"exploratory-open-ended",
+                "title": "emotionalCoping",
+                "question": "Please list any of your current interests and/or any activities, clubs or sports you would like to learn more about" 
+  
+                 
+                }
+              ]
+      
+  
+    },{
+      "infractionName": "Unauthorized Device/Cell Phone",
+      "level": 2,
+      "questions": [
+          {
+              "question": "Which of the following was NOT associated with excessive overuse of mobile phones?",
+              "type": "reading",
+              "title": "Read the following Abstract for the article Mobile Phone Addiction Among Children and Adolescents A Systematic Review by Sahu, Maya RN, RM, BSN, MSN; Gandhi, Sailaxmi RN, RM, BSN, MSN, PhD; Sharma, Manoj Kumar MPhil, PhD",
+              "body": "Mobile phone addiction among children and adolescents has become a concern for all. To date, focuses have been given to Internet addiction, but comprehensive overview of mobile phone addiction is lacking. The review aimed to provide a comprehensive overview of mobile phone addiction among children and adolescents.\n\n              Electronic databases search included Medline, Proquest, Pubmed, EBSCO host, EMBASE, CINAHL, PsycINFO, OVID, Springer, Wiley online library, and Science Direct. Inclusion criteria were studies including children and adolescents, studies published in peer-reviewed journals, and studies focusing on mobile phone addiction or problematic use of mobile phone. A systematic search identified 12 descriptive studies, which met inclusion criteria, but no interventional study met the criteria. \n              \n              The prevalence of problematic mobile phone use was found to be 6.3% in the overall population (6.1% among boys and 6.5% among girls), whereas another study found 16% among the adolescents. The review finds that excessive or overuse of mobile phone was associated with feeling insecurity; staying up late at night; impaired parent–child relationship; impaired school relationships; psychological problems such as behavioral addiction like compulsive buying and pathological gambling, low mood, tension and anxiety, leisure boredom, and behavioral problems, among which most pronounced association was observed for hyperactivity followed by conduct problems and emotional symptoms.\n              \n              Though mobile phone use helps in maintaining social relationship, mobile phone addiction among children and adolescents needs urgent attention. Interventional studies are needed to address these emerging issues.",
+              "references": [
+                  ""
+              ],
+              "radioAnswers": {
+                "1": {"value": false,"label":"Staying up late at night"},
+                "2": {"value": true,"label":"Leisure Excitement"},
+                "3": {"value": false,"label":"Low Mood"},
+                "4": {"value": false,"label":"Tension and Anxiety"},
+                "5": {"value": false,"label":"Conduct Problems"},
+                "6": {"value": false,"label":"Emotional symptoms"}
+              },
+              "textToCompare": ""
+          },
+          {
+              "question": "",
+              "type": "retryQuestion",
+              "title": "",
+              "body": "",
+              "references": [],
+              "radioAnswers": {},
+              "textToCompare": "The review finds that excessive or overuse of mobile phone was associated with feeling insecurity; staying up late at night; impaired parent–child relationship; impaired school relationships; psychological problems such as behavioral addiction like compulsive buying and pathological gambling, low mood, tension and anxiety, leisure boredom, and behavioral problems, among which most pronounced association was observed for hyperactivity followed by conduct problems and emotional symptoms.\n"
+          },
+          {
+              "question": "Which of the following is true?",
+              "type": "reading",
+              "title": "Read the following Abstract for the article Mobile Phones in the Classroom: Examining the Effects of Texting, Twitter, and Message Content on Student Learning by Jeffrey H. Kuznekoff and Scott Titsworth",
+              "body": "This study examined mobile phone use in the classroom by using an experimental design to study how message content (related or unrelated to class lecture) and message creation (responding to or creating a message) impact student learning. Participants in eight experimental groups and a control group watched a video lecture, took notes, and completed tests of student learning. The control and relevant message groups earned a 10–17% higher letter grade, scored 70% higher on recalling information, and scored 50% higher on note-taking than students who composed tweets or responded to irrelevant messages. Sending/receiving messages unrelated to class content negatively impacted learning and note-taking, while related messages did not appear to have a significant negative impact.",
+              "references": [],
+              "radioAnswers": {
+                  "1": {
+                      "label": "The control and relevant message groups earned a 10-17%lower letter grade",
+                      "value": false
+                  },
+                  "2": {
+                      "label": "Students in the control and relevant message groups scored 70% higher on recall information",
+                      "value": true
+                  }
+              },
+              "textToCompare": ""
+          },
+          {
+              "question": "",
+              "type": "retryQuestion",
+              "title": "",
+              "body": "",
+              "references": [],
+              "radioAnswers": {},
+              "textToCompare": "The current meta-analysis provided solid evidence that MPA was positively correlated with anxiety, depression, impulsivity, and sleep quality. This indicated that college students with MPA were more likely to develop high levels of anxiety, depression, and impulsivity and suffer from poor sleep quality.\n"
+          },
+          {
+              "question": "Use the following passage to determine who was cited for identifying the benefits of managing and removing unnecessary apps.",
+              "type": "reading",
+              "title": "Techniques to Overcome Phone Addiction: Strategies for Regaining Control",
+              "body": "In today's digital era, phone addiction has become a prevalent issue, adversely impacting individuals' well-being and productivity. However, there are effective techniques available to help individuals overcome phone addiction and regain control over their digital habits. This essay explores techniques and strategies supported by scholarly articles that can aid in overcoming phone addiction.\n\n            The first step in overcoming phone addiction is acknowledging its existence and understanding its negative effects. Research by Billieux et al. (2015) suggests that self-awareness plays a crucial role in initiating behavioral change. Setting clear goals to reduce phone usage, such as designating specific phone-free hours or limiting social media browsing time, provides a framework for individuals to work towards healthier phone habits.\n\n            Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction.\n\n            Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions.\n\n            Incorporating mindfulness and self-reflection techniques can foster a deeper understanding of one's phone usage patterns and emotional triggers. Research by Lee et al. (2019) highlights the effectiveness of mindfulness-based interventions in reducing problematic smartphone use. By practicing mindfulness, individuals can cultivate present-moment awareness and consciously choose how they engage with their phones. Regular self-reflection exercises, such as journaling or tracking phone usage, enable individuals to identify patterns, emotions, and triggers associated with excessive phone use.\n\n            Overcoming phone addiction requires conscious effort and the adoption of effective strategies. By recognizing the problem, setting goals, practicing digital minimalism, managing apps and notifications, and incorporating mindfulness and self-reflection techniques, individuals can regain control over their phone usage and mitigate the negative impact of addiction. These strategies, supported by scholarly articles, offer practical approaches to break free from excessive phone use, promoting healthier relationships with technology and improved overall well-being.",
+              "references": [
+                  "Billieux, J., Maurage, P., Lopez-Fernandez, O., Kuss, D. J., & Griffiths, M. D. (2015). Can disordered mobile phone use be considered a behavioral addiction? An update on current evidence and a comprehensive model for future research. Current Addiction Reports, 2(2), 156-162.",
+                  "Newport, C. (2019). Digital minimalism: Choosing a focused life in a noisy world. Penguin.",
+                  "Lin, Y. H., Lin, Y. C., Lee, Y. H., Lin, P. H., Lin, S. H., Chang, L. R., & Kuo, T. B. (2020). Time distortion associated with smartphone addiction: Identifying smartphone addiction via a mobile application (App). Journal of Psychiatric Research, 124, 33-39.",
+                  "Lee, R. M., Chang, J. H., Lin, P. L., & Sung, S. M. (2019). Effectiveness of a mindfulness-based intervention on smartphone addiction in college students. Journal of Psychiatric Research, 113, 220-226."
+              ],
+              "radioAnswers": {
+                  "1": {
+                      "label": "Newport, C.",
+                      "value": false
+                  },
+                  "2": {
+                      "label": "Lee, R.M.",
+                      "value": false
+                  },
+                  "3": {
+                      "label": "Billieux, J",
+                      "value": false
+                  },
+                  "4": {
+                      "label": "Lin, Y.H.",
+                      "value": true
+                  }
+              },
+              "textToCompare": ""
+          },
+          {
+              "question": "",
+              "type": "retryQuestion",
+              "title": "",
+              "body": "",
+              "references": [],
+              "radioAnswers": {},
+              "textToCompare": "Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions."
+          },
+          {
+              "question": "Use the following passage to determine who was cited for identifying the need to align phone usage to personal values and goals.",
+              "type": "reading",
+              "title": "Techniques to Overcome Phone Addiction: Strategies for Regaining Control",
+              "body": "In today's digital era, phone addiction has become a prevalent issue, adversely impacting individuals' well-being and productivity. However, there are effective techniques available to help individuals overcome phone addiction and regain control over their digital habits. This essay explores techniques and strategies supported by scholarly articles that can aid in overcoming phone addiction.\n\n            The first step in overcoming phone addiction is acknowledging its existence and understanding its negative effects. Research by Billieux et al. (2015) suggests that self-awareness plays a crucial role in initiating behavioral change. Setting clear goals to reduce phone usage, such as designating specific phone-free hours or limiting social media browsing time, provides a framework for individuals to work towards healthier phone habits.\n\n            Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction.\n\n            Managing apps and notifications can significantly curb phone addiction. Research by Lin et al. (2020) suggests that reducing notifications and organizing apps into folders or removing non-essential apps can decrease the temptation to constantly check the phone. Utilizing features such as app timers and notification settings that limit screen time and interruptions can help individuals regain control over their phone usage and prevent constant distractions.\n\n            Incorporating mindfulness and self-reflection techniques can foster a deeper understanding of one's phone usage patterns and emotional triggers. Research by Lee et al. (2019) highlights the effectiveness of mindfulness-based interventions in reducing problematic smartphone use. By practicing mindfulness, individuals can cultivate present-moment awareness and consciously choose how they engage with their phones. Regular self-reflection exercises, such as journaling or tracking phone usage, enable individuals to identify patterns, emotions, and triggers associated with excessive phone use.\n\n            Overcoming phone addiction requires conscious effort and the adoption of effective strategies. By recognizing the problem, setting goals, practicing digital minimalism, managing apps and notifications, and incorporating mindfulness and self-reflection techniques, individuals can regain control over their phone usage and mitigate the negative impact of addiction. These strategies, supported by scholarly articles, offer practical approaches to break free from excessive phone use, promoting healthier relationships with technology and improved overall well-being.",
+              "references": [
+                  "Billieux, J., Maurage, P., Lopez-Fernandez, O., Kuss, D. J., & Griffiths, M. D. (2015). Can disordered mobile phone use be considered a behavioral addiction? An update on current evidence and a comprehensive model for future research. Current Addiction Reports, 2(2), 156-162.",
+                  "Newport, C. (2019). Digital minimalism: Choosing a focused life in a noisy world. Penguin.",
+                  "Lin, Y. H., Lin, Y. C., Lee, Y. H., Lin, P. H., Lin, S. H., Chang, L. R., & Kuo, T. B. (2020). Time distortion associated with smartphone addiction: Identifying smartphone addiction via a mobile application (App). Journal of Psychiatric Research, 124, 33-39.",
+                  "Lee, R. M., Chang, J. H., Lin, P. L., & Sung, S. M. (2019). Effectiveness of a mindfulness-based intervention on smartphone addiction in college students. Journal of Psychiatric Research, 113, 220-226."
+              ],
+              "radioAnswers": {
+                  "1": {
+                      "label": "Lee, R.M",
+                      "value": false
+                  },
+                  "2": {
+                      "label": "Lee, H",
+                      "value": false
+                  },
+                  "3": {
+                      "label": "Clark, C.D.",
+                      "value": false
+                  },
+                  "4": {
+                      "label": "Newport",
+                      "value": true
+                  }
+              },
+              "textToCompare": ""
+          },
+          {
+              "question": "",
+              "type": "retryQuestion",
+              "title": "",
+              "body": "",
+              "references": [],
+              "radioAnswers": {},
+              "textToCompare": "Digital minimalism, as advocated by Newport (2019), involves intentionally and selectively using digital technologies to align with personal values and goals. This approach encourages individuals to evaluate the value and necessity of various phone applications and activities. By consciously minimizing non-essential or time-consuming phone usage, individuals can create a healthier balance and reduce the grip of addiction."
+          }
+      ]
+  }
+]
+
+

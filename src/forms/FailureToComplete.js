@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { essayData } from '../utils/jsonData';
+import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from "react-select";
 
@@ -23,10 +23,13 @@ function FailureToComplete() {
   const [listOfInfractions, setListOfInfractions] = useState([])
 
 
-
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
   
   useEffect(()=>{
-    axios.get("https://repsdms.ue.r.appspot.com/student/v1/allStudents")
+    axios.get(`${baseUrl}/student/v1/allStudents`,{headers})
     .then(function(response){
         setListOfStudents(response.data)
     }).catch(function (error){
@@ -37,7 +40,7 @@ function FailureToComplete() {
 
   
 useEffect(()=>{
-  axios.get("https://repsdms.ue.r.appspot.com/punish/v1/student/"+ email)
+  axios.get(`${baseUrl}/punish/v1/student/${email}`,{headers})
   .then(function(response){
       setListOfInfractions(response.data)
   }).catch(function (error){
@@ -93,8 +96,7 @@ if(foundStudent){
             }
         
 
-            axios.post("https://repsdms.ue.r.appspot.com/punish/v1/punishId/close",payload
-            // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload, repsdms.ue.r.appspot.com
+            axios.post(`${baseUrl}/punish/v1/punishId/close`,payload,{headers:headers}
 
             )
             .then(function (res){
@@ -132,8 +134,7 @@ if(foundStudent){
   };
 
   const handleClose = (punishmentId) =>{
-      axios.post("https://repsdms.ue.r.appspot.com/punish/v1/close/"+punishmentId,{}
-      // axios.post("http://localhost:8080/punish/v1/startPunish/form",payload, repsdms.ue.r.appspot.com
+      axios.post(`${baseUrl}/punish/v1/close/${punishmentId}`,null,{headers:headers}
 
       )
       .then(function (res){

@@ -1,19 +1,13 @@
 .App {
-  text-align: center;
+  width: 98%;      
+  margin: 0 auto;
+  background-color: #5333ed;  
+  height: 100vh;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -22,21 +16,27 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.level-three-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }
 
-.App-link {
-  color: #61dafb;
+.level-three-buttons{
+  height: 40px;
+  width: 100px;
+
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.answer-container{
+  overflow-y: scroll;
+  height: 300px;
 
+}
 .RH5hzf{
 background-color: transparent;
 -webkit-box-shadow: none;
@@ -64,26 +64,45 @@ word-wrap: break-word;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90;
+  height: 50vh;
   background-color: #f4f4f4;
+
 }
 
 /* Style for the form itself */
 .form-container {
+  /* margin-top: 20vh; */
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  max-width: 780px;
+  width: 100%;
+  height: 50vh;
+  overflow-y:auto;  /* Adds vertical scroll if content exceeds the height */
+
 }
 
-/* Style for the form title */
-.M7eMe {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.form-container-violation {
+  /* margin-top: 20vh; */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 80vh;
+  overflow-y:auto;  /* Adds vertical scroll if content exceeds the height */
+
 }
+
+.form-referral {
+
+  background-color: #fff;
+
+}
+
+
 
 /* Style for the required question message */
 .md0UAd {
@@ -102,19 +121,22 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: white;
 }
 
 /* Style for input fields and select boxes */
 input[type="text"],
 input[type="email"],
 select {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  width: 100%;
+  /* padding: 10px; */
+  border: 1px solid blue;
+  background-color: white;
   border-radius: 5px;
   font-size: 16px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   outline: none;
+  
 }
 
 /* Style for the description input field */
@@ -168,3 +190,727 @@ h5 {
 
 
 /* Add more styles as needed */
+/* Login.css */
+
+/* Style for the login container */
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the login form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for input fields */
+.login-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style for the login button */
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Register.css */
+
+/* Style for the register container */
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the register form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for input fields */
+.register-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style for the register button */
+.register-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hover effect for the register button */
+.register-button:hover {
+  background-color: #1e7e34;
+}
+
+input[type="password"], input[type="password"], select {
+  width: 100%;
+  /* padding: 10px; */
+  border-radius: 5px;
+  border: 1px solid blue;
+  background-color: white;
+  font-size: 16px;
+  /* margin-top: 5px; */
+  /* margin-bottom: 15px; */
+  outline: none;
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  width: 100%;
+}
+
+.dashboard h1 {
+  font-size: 24px;
+}
+
+.dashboard-button {
+  display: block;
+  margin: 10px;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.dashboard-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add more CSS styles for logos/images if needed */
+.centered-snackbar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+  background-size: 600% 600%;
+  animation: GradientBackground 8s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+/* Essay Styles */
+.essay-container {
+  font-family: 'Arial, sans-serif';
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  background: #4caf50;
+  color: #fff;
+  padding: 10px;
+}
+
+.question-header {
+  color: #4caf50;
+  background: #fdfd96;
+  padding: 10px;
+}
+
+.references {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Form Styles */
+.required-question {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.question-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.radio-label {
+  display: block;
+  margin-bottom: 5px;
+color: black;
+
+}
+
+/* Button Styles */
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.radio {
+  display: flex;
+  
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.logo {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+
+.page{
+
+  height: 80vh;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.app-bar{
+  width: 100%;
+  background-color: #5333ed;
+}
+
+.side-bar{
+  background-color: #644be1;
+  width: 20%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.side-bar-widget{
+  background-color: gray;
+  width: 100%;
+  height: max-content;
+  margin-bottom: 10px;
+
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80vh;
+}
+
+/* Teacher Dash Variation */
+
+.teacher-main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+}
+
+.teacher-overview{
+  width: 100%;
+  background-color: yellow;
+}
+
+
+.teacher-overview-first{
+  width: 100%;
+  margin-right: 10px;
+  
+
+}
+
+.overview-row{
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* This will add a horizontal scrollbar when content exceeds the container width */
+  white-space: nowrap; /* This will prevent content from wrapping to the next line */
+
+
+
+}
+
+.teacher-widget-half{
+  height: 300px;
+  width: 50%;
+  background-color: white;
+  margin-right: 5px;
+  
+
+}
+.teacher-widget-third{
+  height: auto;
+  background-color: teal;
+  margin-right: 5px;
+
+
+}
+
+
+
+.sub-main{
+  display: flex;
+  flex-direction: row;
+  /* width: 100%;
+  background-color: grey; */
+
+
+}
+
+
+.teacher-panel{
+}
+
+.sidebar-content{
+  background-color: orange;
+  width: 20%;
+}
+
+
+.right-side-bar{
+  width: 5%;
+  background-color: orange;
+}
+
+.left-main{
+  justify-items: center;
+  width: 100%;
+}
+
+
+
+
+
+
+/* Student Dash Variaction */
+
+.student-main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+}
+
+.student-panel{
+  width: 100%;
+}
+
+.student-drop-btn{
+ outline:"2px solid white"; 
+ text-align: "center";
+ width: 35%;
+ background-color: #0056b3; /* Blue background */
+ color: white; /* White text color */
+ font-size: 16px; /* Font size */
+ cursor: pointer; /* Cursor style */
+ height: 50px;
+ margin-right: 10px;
+ 
+
+}
+
+.student-main-content-menu{
+display:flex;
+justify-self: center;
+justify-content: space-between;
+/* justify-content: center; Horizontal centering */
+align-items: center;     /* Vertical centering */
+width: 98%;
+margin-bottom: 10px;
+background-color: white;
+height: 60px;
+
+
+}
+
+.teacher-main-content-menu{
+  display: flex;
+  width: 100%;
+  background-color:"rgb(25, 118, 210)" ;
+}
+
+.dashboard-title{
+  height: 60px;
+  background-color: whitesmoke;
+  padding: 10px 20px; /* Padding around the text */
+  text-align: "center";
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.student-overview{
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+
+
+}
+.student-overview-first{
+  width: 70%;
+  height: 200px;
+  margin-right: 10px;
+  background-color: white;
+
+
+}
+.student-overview-second{
+  width: 30%;
+  text-align: center;
+  height: 300px;
+
+
+}
+
+
+
+
+.vertical-text {
+  position: relative;
+  top: 500px;
+  margin-left: 210px;
+  transform: translateX(-50%) rotate(-90deg); /* Rotate text 90 degrees counter-clockwise */
+  transform-origin: 0 0; /* Set the origin point to the top-left corner */
+  white-space: nowrap; /* Prevent text from wrapping */
+  background-color: #fff; /* Background color to cover rotated content if needed */
+  padding: 5px 200px; /* Adjust padding as needed */
+}
+
+
+
+.main-content-menu{
+  width: 100%;
+  height: 5%;
+
+}
+
+.main-content-panel{
+  background-color: rgb(25, 118, 210);
+margin-top:"10px";
+height: 100%;
+
+}
+
+
+
+table th tr {
+  font-size: small;
+  height: fit-content;
+  
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  width: 20%;
+  margin-top: 45px;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* Add other styles as needed */
+}
+
+.dropdown-item{
+  padding: 1px;
+  background-color: blue;
+  margin-bottom: 1px;
+
+  background-color: #3498db; /* Blue background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style */
+  border-radius: 4px; /* Rounded corners */
+  outline: none; /* Remove outline on focus */
+  position: relative;
+}
+
+
+
+.dropdown-item:hover {
+  background-color: #6E7076; /* Darker blue on hover */
+}
+
+.teacher-dropdown-item{
+  background-color: #3498db; /* Blue background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style */
+  outline: none; /* Remove outline on focus */
+  position: relative;
+  width: 100%;
+}
+
+
+
+.teacher-dropdown-item:hover {
+  background-color: #6E7076; /* Darker blue on hover */
+}
+
+
+/* Show the dropdown content */
+.show {
+  display: block;
+}
+
+/* Styling for the dropdown button */
+.teacher-dash-dropbtn {
+  flex:1;
+  background-color: #0056b3; /* Blue background */
+  color: white; /* White text color */
+  padding: 10px 20px;
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style */
+  border-radius: 0px; /* Rounded corners */
+  outline: none; /* Remove outline on focus */
+  position: relative;
+  height: 50px;
+  border: 1px solid #02448b;
+
+}
+
+ /* style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}} */
+
+/* Hover effect for the dropdown button */
+.dropbtn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+
+.widget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: x-small;
+
+}
+
+.widget-table-tr{
+  background-color: turquoise;
+  color:white;
+  font-size: x-small;
+}
+
+
+
+/* MODAL CSS */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;  /* Adjust the value as needed */
+
+  
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+
+
+
+.modal-header {
+  background-color: #2980b9;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  color: white;
+}
+
+.modal-body {
+  background-color: #6E7076;
+  height: 60%;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0e0e0; /* Lighter color on hover */
+}
+
+/* //Tags */
+
+/* styles.css */
+
+.status-tag {
+  width: 75px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+.tag-critical {
+
+  background-color: #cc3300;
+}
+
+.tag-danger {
+  background-color: #ff9966;
+}
+
+.tag-warning {
+  background-color: #ffcc00;
+}
+
+.tag-good {
+  background-color: #99cc33;
+}
+
+
+/* input css */
+.multi-line-input {
+  resize: vertical;  /* Allows vertical resizing */
+  min-height: 60px;  /* Minimum height */
+  padding: 10px;     /* Padding for spacing */
+  border-radius: 5px; /* Rounded corners */
+  width: 98%;       /* Full width */
+  max-width: 98%;   /* Maximum width */
+  overflow-y:hidden;  /* Adds vertical scroll if content exceeds the height */
+}
+
+
+/* PieChart.css */
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+  transform-origin: 50% 50%;
+}
+
+.table-container-review {
+  display: flex;
+}
+
+.table-container-review div {
+  flex: 2; /* This will make both columns take up equal width */
+  padding: 8px; /* Add padding for spacing */
+}
+
+.student-incident-table{
+  height: 300px;
+
+}
