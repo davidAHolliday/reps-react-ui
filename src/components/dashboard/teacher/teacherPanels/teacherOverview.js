@@ -42,7 +42,6 @@ import Button from '@mui/material/Button';
 
     return (
         <>
-            {console.log(data + "These are the data!")}
     {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
