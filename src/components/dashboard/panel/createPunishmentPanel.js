@@ -106,8 +106,8 @@ const CreatePunishmentPanel = () => {
   
   
     const descriptions = {
-      "Failure to Complete Work": "Please write a description of the missing assignment, when it was due, and a link to the assignment if one is available. Please also explain how the missing assignment is effecting the student's grade and how many points they can earn upon completion.",
-      "Positive Behavior Shout Out!": "Thank you for choosing to shout out a successful student! Please write a description of the action that earned a shout out along with the student's name and anyone else who was involved.",
+      "Failure to Complete Work": "Please provide a description of the overdue assignment, its original due date, and include a hyperlink to the assignment if accessible. Additionally, explain the impact the missing assignment is currently having on their overall grade and the points the student can earn by completing the work.",
+      "Positive Behavior Shout Out!": "Thank you for celebrating the positive behavior of a student. Please include a description of the students behavior below. Refrain from using any other student’s name in this description",
     };
   
     const titles = {
@@ -344,7 +344,7 @@ console.log(payload)
 <div style={{height:"5px"}}></div>
 <div style={{display:'flex',flexDirection:'row',width:"100%"}}>
 <div style={{width:"50%"}}>
-       <InputLabel id="infractionPeriod">Infraction Period</InputLabel>
+       <InputLabel id="infractionPeriod">Class Period</InputLabel>
    
        <Select
       sx={{ width: '100%'}}
@@ -379,7 +379,7 @@ console.log(payload)
 </Select>
 </div>
 <div style={{width:"50%",marginLeft:"10px"}}>
-<InputLabel id="infractionType">Infraction Type</InputLabel>
+<InputLabel id="infractionType">Infraction Type/Positive Shoutout</InputLabel>
    
    <Select
   sx={{ width: '100%'}}
@@ -419,19 +419,20 @@ MenuProps={MenuProps}
 
 {console.log(infractionTypeSelected)}
 <div className='question-container-text-area'>
+  {/* Do we need this for any particular reason?
   <label htmlFor="offenseDescription">
     {(infractionTypeSelected === "Failure to Complete Work" ||
     infractionTypeSelected === "Positive Behavior Shout Out!" ||
     infractionTypeSelected === "Behavioral Concern")
       ? getTitle(infractionTypeSelected)
       : "For all offenses other than positive behavior shout out and failure to complete work"} *
-  </label>
+  </label> */}
   <p>
     {(infractionTypeSelected === "Failure to Complete Work" ||
     infractionTypeSelected === "Positive Behavior Shout Out!" ||
     infractionTypeSelected === "Behavioral Concern")
       ? getDescription(infractionTypeSelected)
-      : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts."}
+      : "Description of Behavior/Event. This will be sent directly to the student and guardian so be sure to provide accurate and objective facts as well as do NOT include the names of any other students."}
   </p>
 </div>
    <div>               
