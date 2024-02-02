@@ -141,12 +141,25 @@ useEffect(() => {
   <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      // openDropdown("newReferral")
-      setPanelName("createPunishment")
+      openDropdown("newReferral")
+      // setPanelName("createPunishment")
   }}
   >
-    New Referral/Shout out
+  Referral/Shout Out
   </button>
+  <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
+    <div onClick={()=>{
+      setPanelName("createPunishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
+
+     }}className='teacher-dropdown-item'>New Referral/Shout Out</div>
+       <div onClick={()=>{
+      setPanelName("punishment")  
+      setIsDropdownOpen(!isDropdownOpen.newReferral)
+
+     }}className='teacher-dropdown-item'>Existing Referrals/Shout Outs</div>
+
+</div>
   
   {/* Punishment Drop Down */}
   {/* Student Drop Down */}
@@ -168,12 +181,6 @@ useEffect(() => {
  
      }}className='teacher-dropdown-item'>View Students</div>
 
-    <div onClick={()=>{
-      setPanelName("punishment") 
-      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
- 
-     }}className='teacher-dropdown-item'>View Contacts</div>
-      
       <div onClick={()=>{
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
       // setPunishmentFilter("OPEN")

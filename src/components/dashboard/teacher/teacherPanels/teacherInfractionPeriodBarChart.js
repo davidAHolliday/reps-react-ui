@@ -59,12 +59,12 @@ const dataset = [
   return (
     <div>
       <Typography  marginLeft={"25%"} marginTop={"10px"}>
-        Punishments Overview
+        Referral Overview
       </Typography>
       <BarChart
         dataset={dataset}
         xAxis={[{ scaleType: 'band', dataKey: 'behavior' }]}
-        series={[{ dataKey: 'incidents', label: 'Punishments' }]}
+        series={[{ dataKey: 'incidents', label: 'Referrals' }]}
         {...chartSetting}
       />
     </div>
