@@ -11,6 +11,8 @@ const TeacherShoutOutWidget = ({data = []}) => {
       
     const hasScroll = shoutOutData.length > 2;
 
+    shoutOutData.sort((a,b) => b.timeCreated - a.timeCreated ? 1 : -1)
+
     return (
 !barOpen ?  <div style={{display:"flex",flexDirection:"row"}}>
 <div><h2>Positive Behavioral</h2></div>

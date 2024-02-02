@@ -50,7 +50,8 @@ export const getUniqueStudentIdFromList = (data) => {
 
 //The Method filter the list of punihsment by logged in user
 export const filterPunishementsByLoggedInUser= (data) =>{
-    return data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
+    const teachReferrals = data.filter(x=> x.teacherEmail === sessionStorage.getItem("email")).length;
+    return teachReferrals;
   }
 
 //This Method Returns a subset of punishments from a list by the week of year the punishment was created

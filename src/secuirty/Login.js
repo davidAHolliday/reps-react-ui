@@ -21,6 +21,8 @@ import axios from 'axios';
 import { baseUrl } from '../utils/jsonData';
 import { redirect, useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+import { ContactUsModal } from './contactUsModal';
+import ChatIcon from '@mui/icons-material/Chat';
 
 
 
@@ -76,6 +78,7 @@ export default function SignIn() {
   
   }
 
+  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -157,6 +160,7 @@ axios.post(`${baseUrl}/auth`, payload)
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
       <Container component="main" maxWidth="xs" >
 
         <CssBaseline />
@@ -238,8 +242,11 @@ axios.post(`${baseUrl}/auth`, payload)
               </Grid>
             </Grid>
           </Box>}
+          <div><ChatIcon onClick={()=>setContactUsDisplayModal(true)} sx={{color:"black",marginTop:"50px",fontSize:"50px"}}/></div>
+        <div style={{color:"white"}}>Contact Us</div>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 8, mb: 4 }} /> 
+       
       </Container>
     </ThemeProvider>
   );

@@ -13,12 +13,22 @@ import TeacherDashboard from './components/dashboard/teacher/teacherDashboard';
 import GlobalArchivedPunishmentPanel from './components/dashboard/global/globalArchivedPunishmentPanel';
 import ResetPassword from './secuirty/Reset';
 import ForgotPassword from './secuirty/forgotPassword';
+import { useState } from 'react';
+import IdleTimerContainer from './secuirty/IdleTimerContainer';
 
 function App() {
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
+
+  const handleIdle = () => {
+    // Perform logout logic or any other action on idle
+    setIsLoggedOut(true);
+  };
+
 
   return (
     <div className='App'>
     <Router>
+      <div>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
@@ -46,6 +56,8 @@ function App() {
 
         {/* <Route path="/forms/create-assignment" element={<CreateAssignmentForm/>} /> */}
       </Routes>
+      {!isLoggedOut && <IdleTimerContainer></IdleTimerContainer>}
+      </div>
     </Router>
     </div>
   );

@@ -207,7 +207,7 @@ function MyForm() {
               />
             </div>
                    <div className='question-container'>
-              <label htmlFor="infractionPeriod">Infraction Period *</label>
+              <label htmlFor="infractionPeriod">Class Period *</label>
               <select
                 id="infractionPeriod"
                 name="infractionPeriod"

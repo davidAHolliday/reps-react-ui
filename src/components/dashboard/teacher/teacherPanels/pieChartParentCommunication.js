@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material"
 import React from "react"
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-import { getIncidentByBehavior } from "../../global/helperFunctions";
+import { filterPunishementsByLoggedInUser, getIncidentByBehavior } from "../../global/helperFunctions";
 
 export const PieChartParentCommunication = ({data = []}) =>{
 
@@ -10,7 +10,13 @@ export const PieChartParentCommunication = ({data = []}) =>{
     const numBxConcern = getIncidentByBehavior("Behavioral Concern",data)
     const infractionNamesToMatch = ["Tardy","Unauthorized Device/Cell Phone", "Disruptive Behavior", "Horseplay", "Dress Code","Failure to Complete Work"];
 
-const numReferrals = data.filter(record => infractionNamesToMatch.includes(record.infraction.infractionName)).length;
+// This is total school referrals    
+// const numReferrals = data.filter(record => infractionNamesToMatch.includes(record.infraction.infractionName)).length;
+
+// This is referrals by who is logged in
+const teachReferrals = filterPunishementsByLoggedInUser(data);
+
+
 
     return(
         <>
@@ -18,11 +24,10 @@ const numReferrals = data.filter(record => infractionNamesToMatch.includes(recor
     <PieChart
       series={[
       
-        
         { data: [
           { id: 0, value: numBxConcern, label: 'Behavioral' },
           { id: 1, value: numShoutout, label: 'Shout Out' },
-          { id: 2, value: numReferrals, label: 'Referrals' },
+          { id: 2, value: teachReferrals, label: 'Referrals' },
         ],
           arcLabel: (item) =>  `(${item.value})`,
           arcLabelMinAngle: 45,
