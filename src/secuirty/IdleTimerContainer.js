@@ -26,8 +26,8 @@ export default function IdleComponent() {
     // Show notification every minute
     setInterval(() => {
       setShowNotification(true);
-    }, (50) * 1000); // Show notification 1 minute before expiration
-  };
+    }, (5 * 60 - 1) * 1000); // Show notification 1 minute before expiration
+};
 
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function IdleComponent() {
   const idleTimer = useIdleTimer({
     crossTab: true,
     ref: idleTimeRef,
-    timeout: 60 * 1000, // Five minutes
+    timeout: 5* 60 * 1000, // Five minutes
     onIdle: onIdle,
   });
 
