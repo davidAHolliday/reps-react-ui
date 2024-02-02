@@ -78,7 +78,7 @@ export default function SignIn() {
   
   }
 
-  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(true)
+  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
   const [formData, setFormData] = useState({
     username: '',
     password: '',

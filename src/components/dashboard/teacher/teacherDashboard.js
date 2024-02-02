@@ -22,6 +22,8 @@ import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LevelThreePanel from '../global/levelThreePanel.js';
+import ChatIcon from '@mui/icons-material/Chat';
+import { ContactUsModal } from '../../../secuirty/contactUsModal';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -40,6 +42,8 @@ const TeacherDashboard = () => {
   });
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
+
+  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -108,12 +112,14 @@ const TeacherDashboard = () => {
     loggedIn && (
       <>
         <div className ="app-bar">
+        <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
           <Toolbar style={{background:"blue", color: "white"}}>
           <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
             <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> toggleNotificationDrawer(true) }/>
+            <div onClick={()=>setContactUsDisplayModal(true)}><ChatIcon style={{marginRight:"15px"}}/></div>
     
 
             <AccountBoxIcon/>           
