@@ -47,7 +47,7 @@ if(teacherIncidents.length>0){
       const posIncidents = teacherIncidents.filter(item => item.infraction.infractionName === "Positive Behavior Shout Out!").length;
       const negIncidents = teacherIncidents.filter(item => item.infraction.infractionName !== "Positive Behavior Shout Out!").length;
 
-      teachersWithIncidentsList.push({teacherName:teacher.email.split("@")[0], posRatio:(posIncidents/totalIncidents * 100).toFixed(2),negRatio:(negIncidents/totalIncidents * 100).toFixed(2)})
+      teachersWithIncidentsList.push({teacherName:teacher.firstName + " " + teacher.lastName, posRatio:(posIncidents/totalIncidents * 100).toFixed(2),negRatio:(negIncidents/totalIncidents * 100).toFixed(2)})
 }
 
 
@@ -73,13 +73,13 @@ if(teacherIncidents.length>0){
             <TableBody>
               {/* Sub-Header Row */}
               <TableRow style={{ backgroundColor: '#64B5F6', color: 'white' }}>
-                <TableCell>Most Positive Teacher Ratios</TableCell>
+                <TableCell>Teacher</TableCell>
                 <TableCell>Pos Ratios</TableCell>
               </TableRow>
     
               {teachersWithIncidentsList
                 .sort((a, b) => b.posRatio - a.posRatio)
-                .slice(0, 5)
+                .slice(0, 3)
                 .map((teacher) => (
                   <TableRow key={teacher.teacherName}>
                     <TableCell>{teacher.teacherName}</TableCell>
@@ -88,13 +88,13 @@ if(teacherIncidents.length>0){
                 ))}
     
               <TableRow style={{ backgroundColor: '#64B5F6', color: 'white' }}>
-                <TableCell>Most Negative Teacher Ratios</TableCell>
-                <TableCell>Neg Ratios</TableCell>
+                <TableCell>Teacher</TableCell>
+                <TableCell>Neg %</TableCell>
               </TableRow>
     
               {teachersWithIncidentsList
                 .sort((a, b) => b.negRatio - a.negRatio)
-                .slice(0, 5)
+                .slice(0, 3)
                 .map((teacher) => (
                   <TableRow key={teacher.teacherName}>
                     <TableCell>{teacher.teacherName}</TableCell>

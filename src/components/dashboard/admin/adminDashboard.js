@@ -171,7 +171,7 @@ useEffect(() => {
   }}
     // style={{ flex: 1, outline:"1px solid  white", padding: "5px", textAlign: "center"}}
   >
-    Information
+    Reports
   </button>
       {/* Margin Left is used to move dropdown under the buttons */}
   <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
@@ -179,13 +179,13 @@ useEffect(() => {
       setPanelName("student") 
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
  
-     }}className='teacher-dropdown-item'>View Students</div>
+     }}className='teacher-dropdown-item'>By Student</div>
 
       <div onClick={()=>{
       setIsDropdownOpen(!isDropdownOpen.studentDropdown)
       // setPunishmentFilter("OPEN")
        setPanelName("viewTeacher")
-       }}className='dropdown-item'> View Teachers</div>
+       }}className='dropdown-item'> By Teacher</div>
   </div>
      
     {/* Teacher Drop Down */}
