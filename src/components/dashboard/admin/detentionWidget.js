@@ -99,7 +99,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
     return (
       <>
         <div style={{ backgroundColor: "rgb(25, 118, 210)", marginTop: "10px", marginBlock: "5px" }}>
-          <Typography color="white" variant="h6" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
+          <Typography color="white" variant="h5" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
             Detention list
           </Typography>
         </div>
@@ -123,11 +123,11 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
                   style={{ backgroundColor: rowBackgroundColor }}>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span>{x.student.firstName} {x.student.lastName}</span>
+                        <span style={{ fontSize: '15pt', textAlign: 'center'}}>{x.student.firstName} {x.student.lastName}</span>
                       </div>
                     </td>
                     {/* <td>{x.infraction.infractionName}</td> */}
-                    <td>{x.classPeriod}</td>
+                    <td style={{ fontSize: '15pt', textAlign: 'center'}}>{x.classPeriod}</td>
                   </tr>
                 );
               })
