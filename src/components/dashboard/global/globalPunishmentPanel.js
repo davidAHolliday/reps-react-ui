@@ -319,17 +319,20 @@ const defaultTheme = createTheme();
                       <TableCell>{days}</TableCell>
                       <TableCell>
 
-  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
+  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"60px", width:"150px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
   setDeletePayload(x)  }}>
+    <span>Close Referral</span>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
       <CheckBoxIcon/>
     )}
   </button>
+  
 
-  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click delete.",buttonType:"delete"})
+  <button style={{height:"60px", width:"150px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click delete.",buttonType:"delete"})
   setDeletePayload(x) }}>
+    <span>Delete Referral</span>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
