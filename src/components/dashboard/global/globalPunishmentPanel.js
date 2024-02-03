@@ -120,6 +120,8 @@ const defaultTheme = createTheme();
         {value:"CLOSED", label:"Closed"},
         {value:"PENDING", label:"Pending"},
         {value:"ARCHIVED", label:"Archived"},
+        {value:"FTC", label: "Failure to Complete Work"},
+        {value:"REFERRAL", label: "Referral"}
 
       ]
 

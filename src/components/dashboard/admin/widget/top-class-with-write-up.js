@@ -49,6 +49,8 @@ export const WorseClassTable = ({ data = [] }) => {
 
     return {
       teacherName: teacher.email,
+      teacherFirstName: teacher.firstName,
+      teacherLastName: teacher.lastName,
       blocks: { block1, block2, block3, block4 },
     };
   });
@@ -85,7 +87,7 @@ export const WorseClassTable = ({ data = [] }) => {
         <TableHead>
           <TableRow>
             <TableCell>Period</TableCell>
-            <TableCell>Teacher/Room Number</TableCell>
+            <TableCell>Teacher</TableCell>
             <TableCell>Number of Write Ups</TableCell>
           </TableRow>
         </TableHead>
@@ -93,25 +95,25 @@ export const WorseClassTable = ({ data = [] }) => {
     
             <TableRow>
               <TableCell>Block 1</TableCell>
-              <TableCell>{worseBlk1.teacherName}</TableCell>
+              <TableCell>{worseBlk1.teacherFirstName + " " + worseBlk1.teacherLastName}</TableCell>
               <TableCell>{worseBlk1.blocks.block1}</TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>Block 2</TableCell>
-              <TableCell>{worseBlk2.teacherName}</TableCell>
+              <TableCell>{worseBlk2.teacherFirstName + " " + worseBlk2.teacherLastName}</TableCell>
               <TableCell>{worseBlk2.blocks.block2}</TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>Block 3</TableCell>
-              <TableCell>{worseBlk3.teacherName}</TableCell>
+              <TableCell>{worseBlk3.teacherFirstName + " " + worseBlk3.teacherLastName}</TableCell>
               <TableCell>{worseBlk3.blocks.block3}</TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell>Block 4</TableCell>
-              <TableCell>{worseBlk4.teacherName}</TableCell>
+              <TableCell>{worseBlk4.teacherFirstName + " " + worseBlk4.teacherLastName}</TableCell>
               <TableCell>{worseBlk4.blocks.block4}</TableCell>
             </TableRow>
           
