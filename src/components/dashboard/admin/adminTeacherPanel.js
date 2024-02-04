@@ -7,6 +7,7 @@ import { baseUrl } from '../../../utils/jsonData'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 
    const AdminTeacherPanel = () => {
 
@@ -127,7 +128,7 @@ const generatePDF = (activeTeacher,studentData) => {
   height: '100%',
 }} className="modal-overlay">
   <div style={{
-    height: '70%',
+    height: '100%',
     width: '80%',
     position: 'relative',
     backgroundColor: 'white',  // Adjust background color as needed
@@ -138,20 +139,23 @@ const generatePDF = (activeTeacher,studentData) => {
       <div className='modal-header'>
         <div style={{display:"flex", flexDirection:"row"}}>
             <div className='box-left'>
+              <div style={{display:'flex'}} className='student-info-box'>
+                <div style={{marginRight:"150px"}}className='details-box'>
+                <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
 
-              <div className='student-info-box'>
-              <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
-                <div className='details-box'>
                   <div style={{ textAlign: "left" }}>Email: {activeTeacher.email}</div>
                   {/* <div style={{ textAlign: "left" }}>Address: {}</div> */}
                 </div>
+                <div>
+                <IncidentByStudentPieChart data={teacherProfileData}/>
+                </div>
+       
             </div>
             </div>
-
+{/* 
             <div style={{  width: "100px", height: "100px", marginLeft: "auto" }} className='box-right'>
         <AccountBoxIcon sx={{ fontSize: 100 }}/>
-            
-            </div>
+            </div> */}
       
       </div>
       </div>
