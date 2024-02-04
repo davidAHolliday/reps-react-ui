@@ -10,6 +10,7 @@ import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-char
 import {  Top5TeacherRatioTable } from './widget/top-5-ratio-table';
 import { WorseClassTable } from './widget/top-class-with-write-up';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
+import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
@@ -22,6 +23,11 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
     return (
         <>
+                        <div className='teacher-overview-first'>
+        <Card variant="outlined">
+        <TeacherShoutOutWidget data={data}/>
+        </Card>
+        </div>
          <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>

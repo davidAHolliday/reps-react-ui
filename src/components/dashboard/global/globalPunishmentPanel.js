@@ -203,11 +203,11 @@ const defaultTheme = createTheme();
     </div>
     <div className='modal-buttons'>
 
-      <button onClick={() => {
+      <button style={{backgroundColor:"red"}} onClick={() => {
         setOpenModal({display:false,message:""})
         setTextareaValue("")}}>Cancel</button>
       {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
-     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
+     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"green"}} onClick={() => handleClosePunishment(deletePayload)}>Close Referral</button>}
 
     </div>
   </div>
@@ -319,7 +319,7 @@ const defaultTheme = createTheme();
                       <TableCell>{days}</TableCell>
                       <TableCell>
 
-  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"60px", width:"150px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
+  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"60px", width:"150px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close Referral",buttonType:"close"})
   setDeletePayload(x)  }}>
     <span>Close Referral</span>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
