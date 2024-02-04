@@ -70,7 +70,7 @@ const handleProfileClick = (x) =>{
 
 const pdfRef = useRef();
 
-const generatePDF = (studentData) => {
+const generatePDF = (activeTeacher,studentData) => {
   const pdf = new jsPDF();
     // Add logo
     const logoWidth = 50; // Adjust the width of the logo as needed
@@ -87,11 +87,11 @@ const generatePDF = (studentData) => {
   // Add student details section
   pdf.setFontSize(12)
   pdf.rect(15,15,180,50)
-  pdf.text(`${studentData[0].student.firstName} ${studentData[0].student.lastName}`, 20, 20);
-  pdf.text(`Email: ${studentData[0].student.studentEmail}`, 20, 30);
-  pdf.text(`Phone: ${studentData[0].student.studentPhoneNumber}`, 20, 40);
-  pdf.text(`Grade: ${studentData[0].student.grade}`, 20, 50);
-  pdf.text(`Address: ${studentData[0].student.address}`, 20, 60);
+  pdf.text(`${activeTeacher.firstName} ${activeTeacher.lastName}`, 20, 20);
+  pdf.text(`Email: ${activeTeacher.email}`, 20, 30);
+  // pdf.text(`Phone: ${studentData[0].student.studentPhoneNumber}`, 20, 40);
+  // pdf.text(`Grade: ${studentData[0].student.grade}`, 20, 50);
+  // pdf.text(`Address: ${studentData[0].student.address}`, 20, 60);
 
   // Add punishment details table
   pdf.autoTable({
@@ -106,7 +106,7 @@ const generatePDF = (studentData) => {
   });
 
   // Save or open the PDF
-  pdf.save('student_report.pdf');
+  pdf.save('teacher_report.pdf');
 };
 
 
@@ -200,7 +200,7 @@ const generatePDF = (studentData) => {
 
       <div style={{padding:"10px"}} className='modal-buttons'>
         <button onClick={() => { setTeacherProfileModal(false) }}>Cancel</button>
-        <button onClick={()=>{generatePDF(teacherProfileData)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
+        <button onClick={()=>{generatePDF(activeTeacher,teacherProfileData)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
 
       </div>
     </div>
