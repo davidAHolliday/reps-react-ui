@@ -47,7 +47,6 @@ const modifiedList = [
   }
 ];
 
-console.log("student-pie",modifiedList)
 
 
   // Custom styles for the scrollable container
