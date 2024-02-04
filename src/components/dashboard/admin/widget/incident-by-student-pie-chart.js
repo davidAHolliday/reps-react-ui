@@ -2,29 +2,23 @@ import { Typography } from "@mui/material";
 import React from "react";
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import './CustomPieChart.css'
-import { dateCreateFormat } from "../../global/helperFunctions";
 export const IncidentByStudentPieChart = ({ data = [] }) => {
-  
- const dataLast7Days = data.filter((x) => {
-    const currentDate = new Date();
-    const itemDate = new Date(x.timeCreated);
-    const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
 
-    return itemDate > sevenDaysAgo;
-});
+
 
   // const filterData = data.filter()
   const uniqueStudents = {};
-  const totalIncidents = dataLast7Days.length;
+  const totalIncidents = data.length;
+
 
   // Get Unique Students Info
-  dataLast7Days.forEach(item => {
+  data.forEach(item => {
     const studentId = item.student.studentIdNumber;
     uniqueStudents[studentId] = (uniqueStudents[studentId] || 0) + 1;
   });
 
   const studentsWithIncidentsList = Object.entries(uniqueStudents).map(([studentId, incidents]) => {
-    const { firstName, lastName } = dataLast7Days.find(item => item.student.studentIdNumber === studentId).student;
+    const { firstName, lastName } = data.find(item => item.student.studentIdNumber === studentId).student;
     return {
       studentId,
       firstName,
@@ -70,7 +64,7 @@ console.log("student-pie",modifiedList)
 
   return (
     <>
-      <Typography>Incident By Student</Typography>
+      <Typography>Incident By Student (Week)</Typography>
       <div style={{ display: 'flex' }}>
         <PieChart
           series={[

@@ -19,6 +19,21 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
   
   
 
+  const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!" && x.infraction.infractionName !=="Behavioral Concerns")})
+  const weeklyData = dataExcludeNonReferrals.filter((x) => {
+     const currentDate = new Date();
+     const itemDate = new Date(x.timeCreated);
+     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+     return itemDate > sevenDaysAgo;
+ });
+
+ const weeklyDataIncSOBxConcern = data.filter((x) => {
+    const currentDate = new Date();
+    const itemDate = new Date(x.timeCreated);
+    const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+    return itemDate > sevenDaysAgo;
+});
+
 
     return (
         <>
@@ -34,7 +49,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
     <div className='teacher-widget-third'>
       <Card>
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<IncidentByStudentPieChart data={data}/>
+<IncidentByStudentPieChart data={weeklyData}/>
 
 
     </div>
@@ -43,7 +58,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
     <div className='teacher-widget-third'>
       <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
         <Card>
-<IncidentsByStudentTable data={data}/>
+<IncidentsByStudentTable data={weeklyData}/>
 </Card>
       </div>
   
@@ -54,7 +69,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 <div className='teacher-widget-third'>
 <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
         <Card>
-<TeacherInfractionOverPeriodBarChart data={data}/>
+<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
 </Card>
       </div>
   
