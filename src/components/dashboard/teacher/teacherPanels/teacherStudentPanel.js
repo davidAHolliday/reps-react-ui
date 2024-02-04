@@ -271,6 +271,7 @@ const generatePDF = (studentData) => {
           </TableRow>
         </TableHead>
         <TableBody>
+
           {data.length > 0 ? (
             
             data.map((x, key) => (
