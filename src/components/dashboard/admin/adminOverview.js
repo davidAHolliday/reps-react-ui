@@ -10,7 +10,7 @@ import { IncidentByTeacherPieChart } from './widget/incident-by-teacher-pie-char
 import {  Top5TeacherRatioTable } from './widget/top-5-ratio-table';
 import { WorseClassTable } from './widget/top-class-with-write-up';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
-import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
+import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidget';
 
    const AdminOverviewPanel = ({data = []}) => {
 	const [listOfStudents, setListOfStudents]= useState([])
