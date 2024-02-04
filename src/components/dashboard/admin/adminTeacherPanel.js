@@ -143,7 +143,7 @@ const generatePDF = (studentData) => {
               <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
                 <div className='details-box'>
                   <div style={{ textAlign: "left" }}>Email: {activeTeacher.email}</div>
-                  <div style={{ textAlign: "left" }}>Address: {}</div>
+                  {/* <div style={{ textAlign: "left" }}>Address: {}</div> */}
                 </div>
             </div>
             </div>
