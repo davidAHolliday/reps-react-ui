@@ -51,7 +51,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
     </Card>
     </div>
     <div className='teacher-widget-third'>
-      <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
+      <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
         <Card>
 <IncidentsByStudentTable data={weeklyData}/>
 </Card>

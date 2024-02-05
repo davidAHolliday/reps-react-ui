@@ -7,7 +7,11 @@ import { baseUrl } from '../../../utils/jsonData'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+
+
+
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
+import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
 
    const AdminTeacherPanel = () => {
 	const [data, setData]= useState([])
@@ -136,7 +140,7 @@ const generatePDF = (activeTeacher,studentData) => {
   }} className="modal-content">
       <div className='modal-header'>
         <div style={{display:"flex", flexDirection:"row"}}>
-            <div style={{width:"40%"}} className='box-left'>
+            <div className='box-left'>
                 <div>
                 <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
                   </div>
@@ -145,10 +149,11 @@ const generatePDF = (activeTeacher,studentData) => {
        
             </div>
             </div>
-            <div style={{width:"0%"}} className='box-center'>
+            <div  className='box-center'>
+            <IncidentsByStudentTable data={teacherProfileData}/>
 
             </div>
-            <div style={{width:"60%"}} className='box-right'>
+            <div className='box-right'>
                               <IncidentByStudentPieChart data={teacherProfileData}/>
 
 
