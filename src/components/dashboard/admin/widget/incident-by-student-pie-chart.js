@@ -69,9 +69,9 @@ const modifiedList = [
           series={[
             {
               data: modifiedList.map((student, index) => ({
-                id: index, value: student.percent, label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
+                id: index, value: parseFloat(student.percent), label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
               })),
-              arcLabel: (item) => `(${item.value}%)`,
+              arcLabel: (item) => `(${parseFloat(item.value)}%)`,
               arcLabelMinAngle: 45,
             },
           ]}

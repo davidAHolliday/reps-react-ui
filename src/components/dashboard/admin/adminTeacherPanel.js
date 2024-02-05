@@ -10,8 +10,6 @@ import 'jspdf-autotable';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 
    const AdminTeacherPanel = () => {
-
-
 	const [data, setData]= useState([])
   const [teacherProfileModal,setTeacherProfileModal] = useState(false)
   const [teacherProfileData, setTeacherProfileData] = useState([])
@@ -160,6 +158,7 @@ const generatePDF = (activeTeacher,studentData) => {
       </div>
       </div>
 
+{data ? 
     <div style={{height:"320px"}}className='modal-body-student'>
   <TableContainer style={{height:"300px",backgroundColor:"white" }}>
     <Table stickyHeader>
@@ -200,6 +199,7 @@ const generatePDF = (activeTeacher,studentData) => {
     </Table>
   </TableContainer>
 </div>
+: <div>No Data available</div>}
 
 
       <div style={{padding:"10px"}} className='modal-buttons'>

@@ -1,7 +1,6 @@
 import {React, useState} from "react";
 
   function OpenEndedFormat({question, saveAnswerAndProgress, sectionName}) {
-    console.log(question)
       
       const [value, setValue] = useState("")
     

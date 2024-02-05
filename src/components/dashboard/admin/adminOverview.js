@@ -12,12 +12,7 @@ import { WorseClassTable } from './widget/top-class-with-write-up';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 
    const AdminOverviewPanel = ({data = []}) => {
-	const [listOfStudents, setListOfStudents]= useState([])
-  const [studentDisplay, setStudentDisplay] = useState(false);
-  const [studentEmail, setStudentEmail] = useState("");
-  const [studentName, setStudentName] = useState("");
-  
-  
+
 
   const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!" && x.infraction.infractionName !=="Behavioral Concerns")})
   const weeklyData = dataExcludeNonReferrals.filter((x) => {

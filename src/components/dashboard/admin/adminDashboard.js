@@ -112,17 +112,6 @@ useEffect(() => {
         </div>
        <div className='page'>
          
-      {/* <div className='side-bar'>
-        <div className="side-bar-widget">
-          <DetentionWidget/>
-        </div>
-        <div className="side-bar-widget">
-          <ISSWidget/>
-        </div>
-     <button onClick={handleGeneratePDF}>Generate PDF Report</button>
-
-      </div> */}
-
       <div className='teacher-main-content'> 
       <div className="">
       <div className = "teacher-main-content-menu">

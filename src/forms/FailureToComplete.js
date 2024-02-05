@@ -100,27 +100,13 @@ if(foundStudent){
 
             )
             .then(function (res){
-              console.log(res)
               window.alert(`You Work Has been Recorded for  ${payload.studentEmail}`)
 
-            //  setSuccessDisplay(true)
-            //  setSuccessMessage(res.status === 202 ? "Punishement Created":"error")
-            //  setTimeout(()=>{
-            //      setSuccessDisplay(false)
-            //  },3000)
-            //  resetForm();
-            //  console.log(res)
+   
          })
             .catch(function (error){
               console.log(error)
 
-            //  console.log(error)
-            //  const errorMessage = error.response.status === 500 ? "Bad Request": "Other Error";
-            //  setErrorDisplay(true)
-            //  setErrorMessage(errorMessage)
-            //  setTimeout(()=>{
-            //      setErrorDisplay(false)
-            //  },2000)
          });
         } else{
           setErrorDisplay(true)
@@ -138,7 +124,6 @@ if(foundStudent){
 
       )
       .then(function (res){
-        console.log(res)
         window.alert(`You Assigment Has been marked Completed for  ${email}`)
 
   

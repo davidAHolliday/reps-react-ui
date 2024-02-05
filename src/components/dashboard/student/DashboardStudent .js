@@ -72,7 +72,6 @@ const StudentDashboard = () => {
       .get(`${baseUrl}/student/v1/email/${sessionStorage.getItem("email")}`, { headers })
       .then(function (response) {
         setStudentDetails(response.data);
-        console.log("student data",response.data)
       })
       .catch(function (error) {
         setStudentDetails([]);
