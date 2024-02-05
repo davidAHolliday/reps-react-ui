@@ -42,19 +42,19 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-      <Card>
+      {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
 <IncidentByStudentPieChart data={weeklyData}/>
 
 
     </div>
-    </Card>
+    {/* </Card> */}
     </div>
     <div className='teacher-widget-third'>
       <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
-        <Card>
+        {/* <Card> */}
 <IncidentsByStudentTable data={weeklyData}/>
-</Card>
+{/* </Card> */}
       </div>
   
 
@@ -62,11 +62,11 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 </div>
 
 <div className='teacher-widget-third'>
-<div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
-        <Card>
+{/* <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'> */}
+        {/* <Card> */}
 <TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
-</Card>
-      </div>
+{/* </Card> */}
+      {/* </div> */}
   
 
 
@@ -84,7 +84,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
+    <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <IncidentByTeacherPieChart data={data}/>
 </Card>
@@ -94,7 +94,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 
     </div>
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
+    <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <Top5TeacherRatioTable data={data}/>
 </Card>
@@ -102,7 +102,7 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
     </div>
 
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
+    <div className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
 <WorseClassTable data={data}/>
 </Card>

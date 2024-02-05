@@ -497,11 +497,10 @@ button:hover {
 
 .overview-row{
   width: 100%;
-  height: 60%;
   background-color: white;
   display: flex;
   flex-direction: row;
-  overflow-x: auto; /* This will add a horizontal scrollbar when content exceeds the container width */
+justify-content: space-between;
   white-space: nowrap; /* This will prevent content from wrapping to the next line */
 
 
@@ -517,9 +516,12 @@ button:hover {
 
 }
 .teacher-widget-third{
-  height: auto;
-  margin-right: 5px;
-
+margin-right: 20px;
+ overflow-y: auto;
+ height:350px;
+ border: solid 3px black;
+ width: 33%;
+ 
 
 }
 

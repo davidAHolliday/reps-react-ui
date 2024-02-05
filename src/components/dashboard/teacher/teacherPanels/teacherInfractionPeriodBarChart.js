@@ -14,7 +14,7 @@ const chartSetting = {
     },
   ],
 
-  width: 900,
+  width: 500,
   height: 290,
   sx: {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
