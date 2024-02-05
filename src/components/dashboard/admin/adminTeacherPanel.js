@@ -136,20 +136,24 @@ const generatePDF = (activeTeacher,studentData) => {
   }} className="modal-content">
       <div className='modal-header'>
         <div style={{display:"flex", flexDirection:"row"}}>
-            <div className='box-left'>
-              <div style={{display:'flex'}} className='student-info-box'>
-                <div style={{marginRight:"150px"}}className='details-box'>
-                <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
-
-                  <div style={{ textAlign: "left" }}>Email: {activeTeacher.email}</div>
-                  {/* <div style={{ textAlign: "left" }}>Address: {}</div> */}
-                </div>
+            <div style={{width:"40%"}} className='box-left'>
                 <div>
-                <IncidentByStudentPieChart data={teacherProfileData}/>
-                </div>
+                <h4 style={{ textAlign: "left" }}>{activeTeacher.firstName} {activeTeacher.lastName}</h4>
+                  </div>
+                  <div style={{ textAlign: "left" }}>Email: {activeTeacher.email}</div>
+                <div>
        
             </div>
             </div>
+            <div style={{width:"0%"}} className='box-center'>
+
+            </div>
+            <div style={{width:"60%"}} className='box-right'>
+                              <IncidentByStudentPieChart data={teacherProfileData}/>
+
+
+
+</div>
 {/* 
             <div style={{  width: "100px", height: "100px", marginLeft: "auto" }} className='box-right'>
         <AccountBoxIcon sx={{ fontSize: 100 }}/>
