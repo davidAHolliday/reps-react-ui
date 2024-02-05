@@ -126,19 +126,19 @@ const generatePDF = (activeTeacher,studentData) => {
   position: 'fixed',
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
+  width: '100vw',
+  height: '100vh',
 }} className="modal-overlay">
   <div style={{
-    height: '100%',
-    width: '80%',
+    height: '95vh',
+    width: '95vw',
     position: 'relative',
     backgroundColor: 'white',  // Adjust background color as needed
-    padding: '20px',          // Adjust padding as needed
+    padding: '5px',          // Adjust padding as needed
     borderRadius: '8px',      // Add border radius as needed
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Add box shadow as needed
   }} className="modal-content">
-      <div className='modal-header'>
+      <div style={{height:"290px"}}className='modal-header'>
         <div style={{display:"flex", flexDirection:"row"}}>
             <div className='box-left'>
                 <div>
@@ -168,8 +168,8 @@ const generatePDF = (activeTeacher,studentData) => {
       </div>
 
 {data ? 
-    <div style={{height:"320px"}}className='modal-body-student'>
-  <TableContainer style={{height:"300px",backgroundColor:"white" }}>
+    <div style={{height:"300px"}}className='modal-body-student'>
+  <TableContainer style={{height:"250px",backgroundColor:"white" }}>
     <Table stickyHeader>
     <TableHead>
       <TableRow>
@@ -211,8 +211,8 @@ const generatePDF = (activeTeacher,studentData) => {
 : <div>No Data available</div>}
 
 
-      <div style={{padding:"10px"}} className='modal-buttons'>
-        <button onClick={() => { setTeacherProfileModal(false) }}>Cancel</button>
+      <div  className='modal-buttons-teacher-profile'>
+        <button onClick={() => { setTeacherProfileModal(false) }}>Close</button>
         <button onClick={()=>{generatePDF(activeTeacher,teacherProfileData)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
 
       </div>
@@ -268,7 +268,7 @@ const generatePDF = (activeTeacher,studentData) => {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan="5">No open assignments found.</TableCell>
+              <TableCell colSpan="5">No open Data found.</TableCell>
             </TableRow>
           )}
         </TableBody>
