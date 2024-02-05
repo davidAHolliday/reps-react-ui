@@ -111,7 +111,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
         {/* <Card> */}
-<TeacherInfractionOverPeriodBarChart data={weeklyData}/>
+<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
 {/* </Card> */}
       </div>
   
