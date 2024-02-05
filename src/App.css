@@ -484,6 +484,10 @@ button:hover {
 
 .teacher-overview{
   width: 100%;
+  display: flex;
+  flex-direction: row;
+justify-content: space-between;
+  white-space: nowrap; /* This will prevent content from wrapping to the next line */
   background-color: yellow;
 }
 
@@ -512,6 +516,9 @@ justify-content: space-between;
   width: 50%;
   background-color: white;
   margin-right: 5px;
+  overflow-y: auto;
+
+
   
 
 }

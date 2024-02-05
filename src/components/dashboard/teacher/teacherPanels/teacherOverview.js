@@ -84,19 +84,19 @@ import Button from '@mui/material/Button';
 
   <div className='overview-row'>
     <div className='teacher-widget-half'>
-      <Card>
+      {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
 <PieChartParentCommunication data={data}/>
 
 
     </div>
-    </Card>
+    {/* </Card> */}
     </div>
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
-        <Card>
+        {/* <Card> */}
 <TeacherInfractionOverPeriodBarChart data={data}/>
-</Card>
+{/* </Card> */}
       </div>
   
 
@@ -116,18 +116,18 @@ import Button from '@mui/material/Button';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
     <IncidentsByStudentTable data={data}/>
-</Card>
+{/* </Card> */}
 
 
 </div>
 
     </div>
     <div className='teacher-widget-half'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
 <RecentIncidents data={data}/>
-</Card>
+{/* </Card> */}
 
 </div>
 
@@ -143,25 +143,25 @@ import Button from '@mui/material/Button';
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <Card style={{padding:"5px"}}>
+    {/* <Card style={{padding:"5px"}}> */}
 
       <TotalReferralByWeek data={data}/>
 
-      </Card>
+      {/* </Card> */}
 
 
 
     </div>
     <div className='teacher-widget-third'>
-    <Card style={{padding:"5px"}}>
+    {/* <Card style={{padding:"5px"}}> */}
 <TotalStudentReferredByWeek data={data}/>
-</Card>
+{/* </Card> */}
 </div>
 
 <div className='teacher-widget-third'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
 <ReferralByBehavior data={data}/>
-</Card>
+{/* </Card> */}
 
 </div>
 
