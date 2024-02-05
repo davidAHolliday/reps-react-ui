@@ -115,7 +115,6 @@ const defaultTheme = createTheme();
         axios
         .post(url,[textareaValue], { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          console.log(response)
           setToast({visible:true,message:"Your Referral was closed"})
 
         })

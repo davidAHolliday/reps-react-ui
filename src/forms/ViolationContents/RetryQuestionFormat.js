@@ -16,14 +16,12 @@ import {React, useEffect, useState} from "react";
       const checkWork = () => {
         const minMatchPercent = 80
         const compareText = essay["textToCompare"];
-        console.log(compareText);
       
         const originalText = prepText(compareText);
         const typedText = prepText(copyText);
       
         const matchingWords = originalText.filter(word => typedText.includes(word));
         const percentage = (matchingWords.length / originalText.length) * 100;
-        console.log(percentage);
       
         // Check if the percentage of matching words is above a certain threshold (e.g., 90%)
         const threshold = minMatchPercent;

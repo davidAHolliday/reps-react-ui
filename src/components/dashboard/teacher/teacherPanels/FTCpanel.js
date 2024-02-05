@@ -51,7 +51,6 @@ import CircularProgress from '@mui/material/CircularProgress';
         .then(function (response) {
           //Figure out how we are going to return only students associated with teacher.
           // Maybe only pulling up students with active and closed punishments
-          console.log(response.data)
           const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email")
           && x.infraction.infractionName === "Failure to Complete Work"
           && x.status === "CFR");
@@ -75,7 +74,6 @@ const data = listOfStudents;
       axios
       .post(url,[], { headers }) // Pass the headers option with the JWT token
       .then(function (response) {
-        console.log(response)
         setTimeout(()=>{
         setToast(true)}
         ,2000)

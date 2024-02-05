@@ -181,7 +181,6 @@ const CreatePunishmentPanel = () => {
         setOpenModal({display:false,message:""})
         const payloadContent = []
         studentNames.map((student)=>{
-          console.log(student)
           const studentPayload = {
             firstName:"placeholder",
             lastName:"placeholder",
@@ -197,7 +196,6 @@ const CreatePunishmentPanel = () => {
 
         const payload =payloadContent
 
-console.log(payload)
 
              axios.post(`${baseUrl}/punish/v1/startPunish/formList`,payload,
                {headers: headers})
@@ -210,7 +208,6 @@ console.log(payload)
                resetForm();
                setInfractionDescriptionSelected("");
 
-               console.log(res)
            })
 .catch(function (error){
                console.log(error)
@@ -233,8 +230,6 @@ console.log(payload)
       }
 
     const handleInfractionTypeChange = (event) => {
-      console.log(event + " This is the event")
-      console.log(event.target.value + " This is the value")
         setInfractionTypeSelected(event.target.value);
 
       }

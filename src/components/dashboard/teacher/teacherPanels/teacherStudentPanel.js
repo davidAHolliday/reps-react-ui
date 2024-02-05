@@ -45,8 +45,6 @@ import 'jspdf-autotable';
             setListOfStudents(data);
 
           }
-          console.log(admin)
-          console.log("find me",data.length)
         })
         .catch(function (error) {
           console.log(error);
@@ -271,6 +269,7 @@ const generatePDF = (studentData) => {
           </TableRow>
         </TableHead>
         <TableBody>
+
           {data.length > 0 ? (
             
             data.map((x, key) => (

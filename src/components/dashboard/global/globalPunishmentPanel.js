@@ -120,6 +120,8 @@ const defaultTheme = createTheme();
         {value:"CLOSED", label:"Closed"},
         {value:"PENDING", label:"Pending"},
         {value:"ARCHIVED", label:"Archived"},
+        {value:"FTC", label: "Failure to Complete Work"},
+        {value:"REFERRAL", label: "Referral"}
 
       ]
 
@@ -137,7 +139,6 @@ const defaultTheme = createTheme();
         axios
         .post(url,[textareaValue], { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          console.log(response)
           setToast({visible:true,message:"Your Referral was closed"})
 
         })
@@ -165,7 +166,6 @@ const defaultTheme = createTheme();
       axios
       .put(url,[textareaValue] , { headers: headers }) // Pass the headers option with the JWT token
       .then(function (response) {
-        console.log(response);
         setToast({ visible: true, message: "Your Referral was Deleted" });
       })
       .catch(function (error) {
@@ -201,11 +201,11 @@ const defaultTheme = createTheme();
     </div>
     <div className='modal-buttons'>
 
-      <button onClick={() => {
+      <button style={{backgroundColor:"red"}} onClick={() => {
         setOpenModal({display:false,message:""})
         setTextareaValue("")}}>Cancel</button>
-      {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'red'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete</button>}
-     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>}
+      {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'green'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete Referral</button>}
+     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"green"}} onClick={() => handleClosePunishment(deletePayload)}>Close Referral</button>}
 
     </div>
   </div>
@@ -317,23 +317,27 @@ const defaultTheme = createTheme();
                       <TableCell>{days}</TableCell>
                       <TableCell>
 
+
   {x.archived === false &&(x.status === "OPEN" ?  <><button style={{height:"45px", width:"90px",marginBottom:"5px", color: "green"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
   setDeletePayload(x)  }}>
+    <span>Close Referral</span>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
       <CheckBoxIcon/>
     )}
   </button>
+  
 
-  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click delete.",buttonType:"delete"})
+  <button style={{height:"60px", width:"150px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click Delete Referral.",buttonType:"delete"})
   setDeletePayload(x) }}>
+    <span>Delete Referral</span>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
       <DeleteForeverIcon/>
     )}
-  </button></> : <> <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click delete.",buttonType:"delete"})
+  </button></> : <> <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click Delete Referral.",buttonType:"delete"})
   setDeletePayload(x) }}>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />

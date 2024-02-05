@@ -36,7 +36,6 @@ useState(()=>{
 const url =`${baseUrl}/assignments/v1/`
 axios.get(url,{headers})
 .then(response => {
-console.log(response.data);
 setDataWithArray(response.data)
 const essay = response.data.filter(
   essay =>
@@ -67,7 +66,6 @@ const loggedInUser = sessionStorage.getItem("email")
 
 const saveAnswerAndProgress = () =>{
   if(loggedInUser){
-    console.log("selectedAnswer in saveAnswerAndProgress:", selectedAnswer);
 
 
     if (selectedAnswer === "true") {
@@ -100,7 +98,6 @@ const textCorrectlyCopied = (selectedAnswer) =>{
 
 
 const openEndedQuestionAnswered = (selectedAnswer) =>{
-  console.log(selectedAnswer)
   if(selectedAnswer.answer === "agree"){
     setMapIndex((prev) => prev + 1);
     setStudentAnswers((prev) => [...prev, selectedAnswer]);
@@ -108,12 +105,10 @@ const openEndedQuestionAnswered = (selectedAnswer) =>{
 
 
   }else if(selectedAnswer.answer === "disagree" || selectedAnswer.answer === "neutral"){
-    console.log(selectedAnswer)
     setMapIndex((prev) => prev + 2);
     setStudentAnswers((prev) => [...prev, selectedAnswer]);
 
   }else{
-    console.log(selectedAnswer)
     setMapIndex((prev) => prev + 1);
     setStudentAnswers((prev) => [...prev, selectedAnswer]);
 

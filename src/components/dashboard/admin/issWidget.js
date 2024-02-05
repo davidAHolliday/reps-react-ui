@@ -101,7 +101,7 @@ import jsPDF from 'jspdf';
     return (
       <>
         <div style={{ backgroundColor: "rgb(25, 118, 210)", marginTop: "10px", marginBlock: "5px" }}>
-          <Typography color="white" variant="h6" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
+          <Typography color="white" variant="h5" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
            ISS
           </Typography>
         </div>
@@ -126,10 +126,10 @@ import jsPDF from 'jspdf';
                   
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span>{x.student.firstName} {x.student.lastName}</span>
+                        <span style={{ fontSize: '15pt', textAlign: 'center'}}>{x.student.firstName} {x.student.lastName}</span>
                       </div>
                     </td>
-                    <td>{x.classPeriod}</td>
+                    <td style={{ fontSize: '15pt', textAlign: 'center'}}>{x.classPeriod}</td>
                   </tr>
                 );
               })

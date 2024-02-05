@@ -165,7 +165,7 @@ function MyForm() {
  
   };
 
-  const handleAnswer = (value: string) => {
+  const handleAnswer = (value) => {
     setOffenseDescription((offenseDescription) => [...offenseDescription, value]);
   }
 

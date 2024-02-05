@@ -86,7 +86,6 @@ useEffect(()=>{
  const teachersStudents =  filterPunishementsByLoggedInUser(punishmentData)
  const listOfStudents = getStudentIdAssociatedToLoggedInUser(teachersStudents);
  const listOfAllAssociatedPunishments = getAllAssociatedPunishments(listOfStudents)
- console.log(listOfStudents)
  setPunishmentDataAssocTeacher(listOfAllAssociatedPunishments)
 },[punishmentData])
 
@@ -151,7 +150,6 @@ const displayDate = [
 
 //This reverses the x axis
 displayDate.reverse()
-console.log("final", displayDate)
 
 
 
@@ -159,8 +157,6 @@ console.log("final", displayDate)
     // Convert the weekMap to the format suitable for LineChart
     const xAxisData = displayDate.map(obj => Object.keys(obj)[0]); // Extract the keys (labels)
     const seriesData = displayDate.map(obj => Object.values(obj)[0] || 0); // Extract the values associated with the keys
-    console.log('xAxisData:', xAxisData); // Debugging log
-    console.log('seriesData:', seriesData); // Debugging log
   
 
 

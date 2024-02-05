@@ -3,8 +3,13 @@ import React from "react";
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import './CustomPieChart.css'
 export const IncidentByStudentPieChart = ({ data = [] }) => {
+
+
+
+  // const filterData = data.filter()
   const uniqueStudents = {};
   const totalIncidents = data.length;
+
 
   // Get Unique Students Info
   data.forEach(item => {
@@ -42,7 +47,6 @@ const modifiedList = [
   }
 ];
 
-console.log("student-pie",modifiedList)
 
 
   // Custom styles for the scrollable container
@@ -59,15 +63,15 @@ console.log("student-pie",modifiedList)
 
   return (
     <>
-      <Typography>Incident By Student</Typography>
+      <Typography>Incident By Student (Week)</Typography>
       <div style={{ display: 'flex' }}>
         <PieChart
           series={[
             {
               data: modifiedList.map((student, index) => ({
-                id: index, value: student.percent, label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
+                id: index, value: parseFloat(student.percent), label: `${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`
               })),
-              arcLabel: (item) => `(${item.value}%)`,
+              arcLabel: (item) => `(${parseFloat(item.value)}%)`,
               arcLabelMinAngle: 45,
             },
           ]}

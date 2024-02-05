@@ -105,7 +105,6 @@ import RestoreIcon from '@mui/icons-material/Restore';
         axios
         .put(url, obj, { headers: headers }) // Pass the headers option with the JWT token
         .then(function (response) {
-          console.log(response);
           setToast({ visible: true, message: "Your Referral was Restored" });
         })
         .catch(function (error) {
@@ -129,7 +128,6 @@ import RestoreIcon from '@mui/icons-material/Restore';
       axios
       .delete(url, { headers:headers,data:obj }) // Pass the headers option with the JWT token
       .then(function (response) {
-        console.log(response)
     setToast({visible:true,message:"Your Referral was Deleted"})
     
       })
@@ -150,7 +148,6 @@ import RestoreIcon from '@mui/icons-material/Restore';
 
       return (
           <>
-          {console.log(listOfPunishments)}
             {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>

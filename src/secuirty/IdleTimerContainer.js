@@ -14,30 +14,30 @@ export default function IdleComponent() {
     navigate('/login');
   };
 
-  const handleKeepSession = () => {
-    if (idleTimeRef.current) {
-      idleTimeRef.current.reset(); // Reset the idle timer
-    }
-    setShowNotification(false);
-    startNotificationInterval(); // Restart the notification interval
-  };
+  // const handleKeepSession = () => {
+  //   if (idleTimeRef.current) {
+  //     idleTimeRef.current.reset(); // Reset the idle timer
+  //   }
+  //   setShowNotification(false);
+  //   startNotificationInterval(); // Restart the notification interval
+  // };
 
-  const startNotificationInterval = () => {
-    // Show notification every minute
-    setInterval(() => {
-      setShowNotification(true);
-    }, (5 * 60 - 1) * 1000); // Show notification 1 minute before expiration
-};
+//   const startNotificationInterval = () => {
+//     // Show notification every minute
+//     setInterval(() => {
+//       setShowNotification(true);
+//     }, (5 * 60 - 1) * 1000); // Show notification 1 minute before expiration
+// };
 
 
-  useEffect(() => {
-    startNotificationInterval(); // Initial start
+  // useEffect(() => {
+  //   startNotificationInterval(); // Initial start
 
-    // Clear the interval when the component is unmounted
-    return () => {
-      clearInterval();
-    };
-  }, []);
+  //   // Clear the interval when the component is unmounted
+  //   return () => {
+  //     clearInterval();
+  //   };
+  // }, []);
 
   const idleTimer = useIdleTimer({
     crossTab: true,
@@ -52,12 +52,12 @@ export default function IdleComponent() {
 
   return (
     <div>
-      {showNotification && (
+      {/* {showNotification && (
         <div>
           Your session will expire in 1 minute. Do you want to keep it?
           <button onClick={handleKeepSession}>Keep Session</button>
         </div>
-      )}
+      )} */}
       {/* You can add more content or styling as needed */}
     </div>
   );

@@ -114,7 +114,6 @@ const [studentForm, setStudentForm] = useState(	{
 
       const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(studentForm)
 
              axios.post(`${baseUrl}/student/v1/newStudent`,studentForm,
                {headers: headers})
@@ -125,7 +124,6 @@ const [studentForm, setStudentForm] = useState(	{
                    setSuccessDisplay(false)
                },3000)
                resetForm();
-               console.log(res)
            })
 .catch(function (error){
                console.log(error)
@@ -341,7 +339,6 @@ const [studentForm, setStudentForm] = useState(	{
             />
 
 
-        {console.log(studentForm.grade)}
 <Select
                 name="studentGrade"
                 options={studentGradeLevelOptions}
