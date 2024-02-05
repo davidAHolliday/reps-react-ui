@@ -40,10 +40,8 @@ const GenerateChartData = (currentWeek, rangeWeeks, data) => {
 };
 
 
-console.log(data)
 const displayDate = GenerateChartData(currentWeek,rangeWeeks,data)
 
-console.log(displayDate)
 //This reverses the x axis
 displayDate.reverse()
 

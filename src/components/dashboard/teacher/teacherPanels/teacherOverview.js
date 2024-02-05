@@ -31,6 +31,22 @@ import Button from '@mui/material/Button';
   //   return data.filter(x => x.status === "PENDING");
   // }
 
+
+  const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!" && x.infraction.infractionName !=="Behavioral Concerns")})
+  const weeklyData = dataExcludeNonReferrals.filter((x) => {
+     const currentDate = new Date();
+     const itemDate = new Date(x.timeCreated);
+     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+     return itemDate > sevenDaysAgo;
+ });
+
+ const weeklyDataIncSOBxConcern = data.filter((x) => {
+    const currentDate = new Date();
+    const itemDate = new Date(x.timeCreated);
+    const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+    return itemDate > sevenDaysAgo;
+});
+
   useEffect(() => {
     const statusQuo = data.filter(x => x.status === "PENDING" && x.infraction.infractionLevel === "3");
     if(statusQuo.length > 0){
@@ -84,19 +100,19 @@ import Button from '@mui/material/Button';
 
   <div className='overview-row'>
     <div className='teacher-widget-half'>
-      <Card>
+      {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<PieChartParentCommunication data={data}/>
+<PieChartParentCommunication data={weeklyData}/>
 
 
     </div>
-    </Card>
+    {/* </Card> */}
     </div>
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
-        <Card>
-<TeacherInfractionOverPeriodBarChart data={data}/>
-</Card>
+        {/* <Card> */}
+<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
+{/* </Card> */}
       </div>
   
 
@@ -116,18 +132,18 @@ import Button from '@mui/material/Button';
   <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
     <IncidentsByStudentTable data={data}/>
-</Card>
+{/* </Card> */}
 
 
 </div>
 
     </div>
     <div className='teacher-widget-half'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
 <RecentIncidents data={data}/>
-</Card>
+{/* </Card> */}
 
 </div>
 
@@ -143,25 +159,25 @@ import Button from '@mui/material/Button';
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <Card style={{padding:"5px"}}>
+    {/* <Card style={{padding:"5px"}}> */}
 
       <TotalReferralByWeek data={data}/>
 
-      </Card>
+      {/* </Card> */}
 
 
 
     </div>
     <div className='teacher-widget-third'>
-    <Card style={{padding:"5px"}}>
+    {/* <Card style={{padding:"5px"}}> */}
 <TotalStudentReferredByWeek data={data}/>
-</Card>
+{/* </Card> */}
 </div>
 
 <div className='teacher-widget-third'>
-<Card style={{padding:"5px"}}>
+{/* <Card style={{padding:"5px"}}> */}
 <ReferralByBehavior data={data}/>
-</Card>
+{/* </Card> */}
 
 </div>
 

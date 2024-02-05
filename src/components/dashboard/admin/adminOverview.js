@@ -13,12 +13,22 @@ import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-char
 import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidget';
 
    const AdminOverviewPanel = ({data = []}) => {
-	const [listOfStudents, setListOfStudents]= useState([])
-  const [studentDisplay, setStudentDisplay] = useState(false);
-  const [studentEmail, setStudentEmail] = useState("");
-  const [studentName, setStudentName] = useState("");
-  
-  
+
+
+  const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!" && x.infraction.infractionName !=="Behavioral Concerns")})
+  const weeklyData = dataExcludeNonReferrals.filter((x) => {
+     const currentDate = new Date();
+     const itemDate = new Date(x.timeCreated);
+     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+     return itemDate > sevenDaysAgo;
+ });
+
+ const weeklyDataIncSOBxConcern = data.filter((x) => {
+    const currentDate = new Date();
+    const itemDate = new Date(x.timeCreated);
+    const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
+    return itemDate > sevenDaysAgo;
+});
 
 
     return (
@@ -38,19 +48,19 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidge
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-      <Card>
+      {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<IncidentByStudentPieChart data={data}/>
+<IncidentByStudentPieChart data={weeklyData}/>
 
 
     </div>
-    </Card>
+    {/* </Card> */}
     </div>
     <div className='teacher-widget-third'>
-      <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
-        <Card>
-<IncidentsByStudentTable data={data}/>
-</Card>
+      <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
+        {/* <Card> */}
+<IncidentsByStudentTable data={weeklyData}/>
+{/* </Card> */}
       </div>
   
 
@@ -58,11 +68,11 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidge
 </div>
 
 <div className='teacher-widget-third'>
-<div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
-        <Card>
-<TeacherInfractionOverPeriodBarChart data={data}/>
-</Card>
-      </div>
+{/* <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'> */}
+        {/* <Card> */}
+<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
+{/* </Card> */}
+      {/* </div> */}
   
 
 
@@ -80,7 +90,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidge
 
   <div className='overview-row'>
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
+    <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <IncidentByTeacherPieChart data={data}/>
 </Card>
@@ -90,7 +100,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidge
 
     </div>
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
+    <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
     <Top5TeacherRatioTable data={data}/>
 </Card>
@@ -98,7 +108,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/teacherShoutOutWidge
     </div>
 
     <div className='teacher-widget-third'>
-    <div style={{overflowY:"scroll",height:"100%"}} className='infraction-bar-chart'>
+    <div className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
 <WorseClassTable data={data}/>
 </Card>

@@ -55,7 +55,6 @@ export const WorseClassTable = ({ data = [] }) => {
     };
   });
 
-  console.log(worseClassByIncident,"FIND ME")
   const worseBlk1 = worseClassByIncident.reduce((maxTeacher, currentTeacher) => {
     return currentTeacher.blocks.block1 > maxTeacher.blocks.block1 ? currentTeacher : maxTeacher;
   }, { teacherName: "", blocks: { block1: -1, block2: -1, block3: -1, block4: -1 } });
@@ -74,7 +73,6 @@ export const WorseClassTable = ({ data = [] }) => {
   }, { teacherName: "", blocks: { block: -1, block2: -1, block3: -1, block4: -1 } });
   
 
-  console.log(worseBlk1,"is the worse ME")
 
 
   return (
