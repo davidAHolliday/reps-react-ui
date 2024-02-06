@@ -60,12 +60,12 @@ import Button from '@mui/material/Button';
         <>
     {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
-    <div className='modal-header'>
-      <h3>{openModal.message}</h3>
+    <div className="modal-header">
+      <h3 style={{whiteSpace:'normal', wordBreak: 'break-word'}}>{openModal.message}</h3>
     </div>
-    <div className='modal-body'>
+    <div className="modal-body">
     </div>
-    <div className='modal-buttons'>
+    <div className="modal-buttons">
 
     <button onClick={() => {
         setOpenModal({display:false,message:""})}}>Later</button>

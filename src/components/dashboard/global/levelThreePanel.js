@@ -133,6 +133,30 @@ const defaultTheme = createTheme();
         );
     };
 
+    const handleRejectPunishment = (obj) =>{
+      setLoadingPunishmentId({id:obj.punishmentId,buttonType:"close"})
+      const url = `${baseUrl}/punish/v1/rejected/${obj.punishmentId}`;
+      axios
+      .put(url,[textareaValue], { headers }) // Pass the headers option with the JWT token
+      .then(function (response) {
+        setToast({visible:true,message:"You have rejected the student's answers and an email has been sent letting them know."})
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(()=>{
+        setOpenModal({display:false,message:""})
+        setTimeout(()=>{
+          setToast({visible:false,message:""})
+          setLoadingPunishmentId({id:null,buttonType:""})
+
+        },1000)
+      }
+
+      );
+  };
+
 
 
    
@@ -172,20 +196,21 @@ const defaultTheme = createTheme();
     </div>
             </div>
       <div className='modal-body'>
-      {/* <textarea 
+      <textarea 
           value={textareaValue}       // Set the value of the textarea to the state variable
           onChange={handleTextareaChange} // Handle changes to the textarea
       className="multi-line-input" 
       placeholder="Enter additional comments"
       rows={4} // This sets the initial height to show 4 rows
-    ></textarea> */}
+    ></textarea>
       </div>
       <div className='modal-buttons'>
   
         <button onClick={() => {
           setOpenModal({display:false,message:""})
           setTextareaValue("")}}>Cancel</button>
-       <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleClosePunishment(deletePayload)}>Close</button>
+          <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"orange"}} onClick={() => handleRejectPunishment(deletePayload)}>Reject Answers</button>
+       <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"green"}} onClick={() => handleClosePunishment(deletePayload)}>Accept Answers</button>
   
       </div>
     </div>

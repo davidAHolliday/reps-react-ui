@@ -11,6 +11,7 @@ import MuiAlert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { dateCreateFormat } from '../global/helperFunctions';
 
 
 
@@ -119,7 +120,6 @@ const defaultTheme = createTheme();
         {value:"OPEN", label:"Open"},
         {value:"CLOSED", label:"Closed"},
         {value:"PENDING", label:"Pending"},
-        {value:"ARCHIVED", label:"Archived"},
         {value:"FTC", label: "Failure to Complete Work"},
         {value:"REFERRAL", label: "Referral"}
 
@@ -188,7 +188,7 @@ const defaultTheme = createTheme();
             {openModal.display && <div className="modal-overlay">
   <div className="modal-content">
     <div className='modal-header'>
-      <h3>{openModal.message}</h3>
+      <h3 style={{whiteSpace:'normal', wordBreak: 'break-word'}}>{openModal.message}</h3>
     </div>
     <div className='modal-body'>
     <textarea 
@@ -205,7 +205,7 @@ const defaultTheme = createTheme();
         setOpenModal({display:false,message:""})
         setTextareaValue("")}}>Cancel</button>
       {openModal.buttonType==="delete" && <button disabled={textareaValue===""} style={{backgroundColor: textareaValue===""?"grey":'green'}} onClick={() => handleDeletePunishment(deletePayload)}>Delete Referral</button>}
-     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"green"}} onClick={() => handleClosePunishment(deletePayload)}>Close Referral</button>}
+     {openModal.buttonType==="close" && <button disabled={textareaValue.length===""} style={{backgroundColor:textareaValue===""?"grey":"white"}} onClick={() => handleClosePunishment(deletePayload)}>Close Referral</button>}
 
     </div>
   </div>
@@ -264,7 +264,7 @@ const defaultTheme = createTheme();
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Referral Type
             </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
+            <TableCell variant="head" style={{ fontWeight: 'bold', maxWidth:"75px", whiteSpace:'normal', wordBreak: 'break-word'}}>
               Description
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
@@ -274,7 +274,7 @@ const defaultTheme = createTheme();
              Status
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Days Since
+             Date Created
             </TableCell>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
              Action
@@ -304,7 +304,7 @@ const defaultTheme = createTheme();
                         </div>
                       </TableCell>
                       <TableCell>{x.infraction.infractionName}</TableCell>
-                      <TableCell style={{width:"75px"}}>{x.infraction.infractionDescription[1]}</TableCell>
+                      <TableCell style={{maxWidth:"150px", whiteSpace:'normal', wordBreak: 'break-word'}}>{x.infraction.infractionDescription[1]}</TableCell>
                       <TableCell>{x.infraction.infractionLevel}</TableCell>
                       <TableCell>
   <div 
@@ -314,12 +314,13 @@ const defaultTheme = createTheme();
   </div>
 </TableCell>
 
-                      <TableCell>{days}</TableCell>
+                      <TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
                       <TableCell>
 
-  {x.archived === false &&(x.status == "OPEN" ?  <><button style={{height:"60px", width:"150px",marginBottom:"5px"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close Referral",buttonType:"close"})
+
+  {x.archived === false &&(x.status === "OPEN" ?  <><button style={{height:"60px", width:"180px", backgroundColor: "green"}} onClick={() => {  setOpenModal({display:true,message:"You are attempting to remove the restorative assignment and close out a referral. If this was not your intent click cancel. If this is your intent, provide a brief explanation for why the restorative assignment is being removed and click Close",buttonType:"close"})
   setDeletePayload(x)  }}>
-    <span>Close Referral</span>
+    <p style={{marginBottom:"5px", marginTop:"-2%"}}>Close Referral</p>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
@@ -328,9 +329,9 @@ const defaultTheme = createTheme();
   </button>
   
 
-  <button style={{height:"60px", width:"150px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click Delete Referral.",buttonType:"delete"})
+  <button style={{height:"60px", width:"180px", backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"You are attempting to delete the record of this referral. If you were attempting to remove the restorative assignment and close out the referral please click cancel and hit the “Close Referral” button. If you still want to delete the record of this referral, provide a brief explanation for this action and click Delete Referral.",buttonType:"delete"})
   setDeletePayload(x) }}>
-    <span>Delete Referral</span>
+    <p style={{marginBottom:"5px", marginTop:"-2%"}}>Delete Referral</p>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
