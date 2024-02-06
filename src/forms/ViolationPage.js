@@ -3,7 +3,6 @@ import axios from 'axios';
 import EssayFactory from './ViolationContents/EssayFormat';
 import RetryQuestionFormat from './ViolationContents/RetryQuestionFormat';
 import { baseUrl } from '../utils/jsonData';
-import { useParams } from 'react-router-dom';
 import OpenEndedFormat from './ViolationContents/OpenEndedFormat';
 import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
 
@@ -14,8 +13,6 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   const [selectedAnswer, setSelectedAnswer] = useState();
   const [studentAnswers, setStudentAnswers] = useState([])
   const [mapIndex, setMapIndex] = useState(0)
-  const [infractionData,setInfractionData] = useState([])
-  const [dataWithArray, setDataWithArray] = useState([])
   const [essay,setEssay] = useState()
   
 
@@ -33,7 +30,6 @@ useEffect(()=>{
 const url =`${baseUrl}/assignments/v1/`
 axios.get(url,{headers})
 .then(response => {
-setDataWithArray(response.data)
 const essay = response.data.filter(
   essay =>
     essay.infractionName === props.data.infraction.infractionName &&
@@ -49,27 +45,26 @@ console.error(error);
   
 
 
-
-
-  useEffect(()=>{
-    setInfractionData(essay)
-  },[])
-
-
   useEffect(() => {
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
+    if(mapIndex == 0){
+
+    }else{
+      const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
+    
+      const url = `${baseUrl}/punish/v1/${props.data.punishmentId}/index/${mapIndex}`;
+    
+      axios.put(url, {}, { headers })  // Include headers directly in the request config
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
   
-    const url = `${baseUrl}/punish/v1/${props.data.punishmentId}/index/${mapIndex}`;
-  
-    axios.put(url, {}, { headers })  // Include headers directly in the request config
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+
+    }
   }, [mapIndex]);
   
 
