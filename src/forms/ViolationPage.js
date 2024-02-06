@@ -18,16 +18,13 @@ import MultipleChoiceFormat from './ViolationContents/MultipleChoiceFormat';
   const [dataWithArray, setDataWithArray] = useState([])
   const [essay,setEssay] = useState()
   
-  //Grabs Params to Decide what Json Object to use
-  // const { param1, param2 } = useParams();
 
-  // // Decode URL-encoded parameters
-  // const decodedParam1 = decodeURIComponent(param1);
-  // const decodedParam2 = decodeURIComponent(param2);
-
-
-
-useState(()=>{
+  useEffect(()=>{
+    setMapIndex(props.data.mapIndex)
+    console.log(mapIndex)
+  },[])
+  
+useEffect(()=>{
   const headers = {
     Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
   };
@@ -56,9 +53,25 @@ console.error(error);
 
   useEffect(()=>{
     setInfractionData(essay)
-
-
   },[])
+
+
+  useEffect(() => {
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+  
+    const url = `${baseUrl}/punish/v1/${props.data.punishmentId}/index/${mapIndex}`;
+  
+    axios.put(url, {}, { headers })  // Include headers directly in the request config
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [mapIndex]);
+  
 
 
 
