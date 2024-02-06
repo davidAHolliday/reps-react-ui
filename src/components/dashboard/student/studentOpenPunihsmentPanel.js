@@ -42,6 +42,8 @@ import { baseUrl } from '../../../utils/jsonData'
         });
     }, []);
 
+    console.log(listOfPunishments)
+
     //Temp Filter, we should filter in backend base on principal user
 
 
@@ -100,7 +102,7 @@ const handleAssignmentClick=(x)=>{
   };
   
   
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "OPEN" || punish.status=== "PENDING"));
+	  const data = listOfPunishments.filter(user=> (user.student.studentEmail).toLowerCase() === loggedInUser.toLowerCase()).filter(punish => (punish.status === "OPEN" || punish.status=== "PENDING"));
       
     const hasScroll = data.length > 10;
 
