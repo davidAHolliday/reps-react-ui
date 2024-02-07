@@ -11,7 +11,7 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
 
   // const filterData = data.filter()
   const uniqueStudents = {};
-  const totalIncidents = data.length;
+  const totalIncidents = writeUps.length;
 
   const headers = {
     Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
