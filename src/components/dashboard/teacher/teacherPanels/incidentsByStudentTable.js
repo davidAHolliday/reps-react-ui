@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { baseUrl } from '../../../../utils/jsonData';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, Typography } from '@mui/material';
 
 
 const IncidentsByStudentTable = ({data = []}) => {
+  const [writeUps,setWriteUps] = useState([])
+  
+  const url = `${baseUrl}/punish/v1/writeUps`;
+  
+
+  useEffect(() => {
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+
+    axios
+      .get(url, { headers }) // Pass the headers option with the JWT token
+      .then(function (response) {
+        setWriteUps(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   
   const uniqueStudents = {};
-  const totalIncidents = data.length;
+  const totalIncidents = writeUps.length;
 
 //Get Unique Students Info
-  data.forEach(item => {
+  writeUps.forEach(item => {
     const studentId = item.student.studentIdNumber;
     uniqueStudents[studentId] = (uniqueStudents[studentId] || 0) + 1;
   });
 
   
   const studentsWithIncidentsList = Object.entries(uniqueStudents).map(([studentId, incidents]) => {
-    const { firstName, lastName } = data.find(item => item.student.studentIdNumber === studentId).student;
+    const { firstName, lastName } = writeUps.find(item => item.student.studentIdNumber === studentId).student;
     return {
       studentId,
       firstName,
@@ -43,7 +64,7 @@ const IncidentsByStudentTable = ({data = []}) => {
         <TableBody>
           {studentsWithIncidentsList.map(({ studentId, firstName, lastName, incidents, percent }, index) => (
             <TableRow key={index}>
-              <TableCell>{firstName} {lastName} {String(studentId).substring(0,5)}</TableCell>
+              <TableCell>{firstName} {lastName}</TableCell>
               <TableCell>{incidents}</TableCell>
               <TableCell>{percent}%</TableCell> 
             </TableRow>
