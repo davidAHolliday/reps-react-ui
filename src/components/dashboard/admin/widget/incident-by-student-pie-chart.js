@@ -12,15 +12,15 @@ export const IncidentByStudentPieChart = ({ data = [] }) => {
   // const filterData = data.filter()
   const uniqueStudents = {};
   const totalIncidents = writeUps.length;
-
-  const headers = {
-    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-  };
   
   const url = `${baseUrl}/punish/v1/writeUps`;
   
 
   useEffect(() => {
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+
     axios
       .get(url, { headers }) // Pass the headers option with the JWT token
       .then(function (response) {
@@ -117,7 +117,7 @@ const modifiedList = [
       {modifiedList.map((student, index) => (
         <div key={index} className="legend-item">
           <div className={`legend-color legend-color-${index + 1}`} style={{ backgroundColor: generateLegendColor(index) }}></div>
-          <span>{`${student.firstName} ${student.lastName} (${student.studentId.substring(0, 5)})`}</span>
+          <span>{`${student.firstName} ${student.lastName}`}</span>
         </div>
       ))}
     </div>
