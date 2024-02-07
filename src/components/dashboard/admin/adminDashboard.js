@@ -79,10 +79,15 @@ const headers = {
 
 
 useEffect(() => {
+  const headers = {
+    Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
+  };
+  
   axios
     .get(`${baseUrl}/punish/v1/punishments`, { headers })
     .then(function (response) {
       setData(response.data);
+      console.log("Headers",headers)
     })
     .catch(function (error) {
       console.log(error);
