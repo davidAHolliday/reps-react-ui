@@ -1,24 +1,45 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import './CustomPieChart.css'
+import { baseUrl } from '../../../../utils/jsonData';
+import axios from 'axios';
+
 export const IncidentByStudentPieChart = ({ data = [] }) => {
 
-
+  const [writeUps,setWriteUps] = useState([])
 
   // const filterData = data.filter()
   const uniqueStudents = {};
   const totalIncidents = data.length;
 
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
+  const url = `${baseUrl}/punish/v1/writeUps`;
+  
+
+  useEffect(() => {
+    axios
+      .get(url, { headers }) // Pass the headers option with the JWT token
+      .then(function (response) {
+        setWriteUps(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
 
   // Get Unique Students Info
-  data.forEach(item => {
+  writeUps.forEach(item => {
     const studentId = item.student.studentIdNumber;
     uniqueStudents[studentId] = (uniqueStudents[studentId] || 0) + 1;
   });
 
   const studentsWithIncidentsList = Object.entries(uniqueStudents).map(([studentId, incidents]) => {
-    const { firstName, lastName } = data.find(item => item.student.studentIdNumber === studentId).student;
+    const { firstName, lastName } = writeUps.find(item => item.student.studentIdNumber === studentId).student;
     return {
       studentId,
       firstName,
