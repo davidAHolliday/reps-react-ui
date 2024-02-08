@@ -6,6 +6,7 @@ import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Select from "react-select";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -19,6 +20,7 @@ import 'jspdf-autotable';
   const [studentData, setStudentData] = useState("");
   const [studentProfileModal,setStudentProfileModal] = useState(false)
   const [studentName, setStudentName] = useState("")
+  const [selectedOptions, setSelectedOptions] = useState();
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -73,7 +75,9 @@ const fetchStudentData = (studentEmail) =>{
   });
 }
   
-
+function handleSelect(data) {
+  setSelectedOptions(data);
+    }
    
 
 
@@ -81,7 +85,19 @@ const fetchStudentData = (studentEmail) =>{
 
   const data = listOfStudents.filter(item => {
     const studentId = item.student.studentIdNumber;
-    
+    let unique = [];
+
+    listOfStudents.forEach(punishment => {
+      // Check if the student is in unique
+      const existingStudent = unique.find(item =>
+        item.student.studentIdNumber === punishment.student.studentIdNumber);
+
+      // If not found, push to unique
+      if(!existingStudent) {
+        unique.push(punishment);
+      }
+    });
+    setSelectedOptions(unique);
     // If the studentIdNumber is not in the map, add it and return true to keep the item
     if (!uniqueMap.has(studentId)) {
         uniqueMap.set(studentId, true);
@@ -91,6 +107,13 @@ const fetchStudentData = (studentEmail) =>{
     // If the studentIdNumber is already in the map, return false to filter out the duplicate item
     return false;
 });
+
+const selectOptions = listOfStudents.map(student => ({
+  value: student.studentEmail, // Use a unique value for each option
+  label: `${student.firstName} ${student.lastName} - ${student.studentEmail}`, // Display student's full name as the label
+  firstName: student.firstName,
+  lastName: student.lastName
+}))
 
 const handleProfileClick = (x) =>{
   setStudentName(x.student.firstName);
@@ -186,7 +209,6 @@ const generatePDF = (studentData) => {
       
       </div>
       </div>
-
     <div style={{height:"320px"}}className='modal-body-student'>
   <TableContainer style={{height:"300px",backgroundColor:"white" }}>
     <Table stickyHeader>
@@ -244,7 +266,13 @@ const generatePDF = (studentData) => {
    Students Overview
         </Typography>
         </div>
-      
+      <Select
+                name="selectStudent"
+                options={unique}
+                placeholder="Select Student"
+                value={selectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}/>
 
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
