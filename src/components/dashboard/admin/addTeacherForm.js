@@ -38,6 +38,7 @@ export default function AddTeacherForm() {
 
 
   const [registrationSuccessMessage, setRegistrationSuccessMessage] = useState(false)
+  const [type,setType] = useState("employee")
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -118,19 +119,37 @@ export default function AddTeacherForm() {
 
     //reset errors
 
-    const payload = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      grade:data.get('grade'), 
-      studentEmail:data.get('studentEmail'), 
-      parentEmail:data.get('parentEmail'),
-      parentPhoneNumber:data.get('parentPhoneNumber'),
-      studentPhoneNumber:data.get('studentPhoneNumber'),
-      address:data.get('address'),
-      guidenceEmail:data.get('guidenceEmail'),
-      schoolName:data.get('schoolName'),
-    
-    }
+  
+let payload;
+if(type === "student"){
+  payload = {
+    firstName: data.get('firstName'),
+    lastName: data.get('lastName'),
+    grade:data.get('grade'), 
+    studentEmail:data.get('studentEmail'), 
+    parentEmail:data.get('parentEmail'),
+    parentPhoneNumber:data.get('parentPhoneNumber'),
+    studentPhoneNumber:data.get('studentPhoneNumber'),
+    address:data.get('address'),
+    guidenceEmail:data.get('guidenceEmail'),
+    schoolName:data.get('schoolName'),
+  
+  }
+}
+if(type === "employee"){
+
+  payload = {
+    firstName: data.get('firstName'),
+    lastName: data.get('lastName'),
+    email:data.get('studentEmail'), 
+    schoolName:data.get('schoolName'),
+  
+  }
+
+}
+
+
+   
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -139,7 +158,11 @@ export default function AddTeacherForm() {
 console.log(payload)
     // Submit the form data if there are no errors
 
-    axios.post(`${baseUrl}/student/v1/newStudent`,payload,{headers})
+    
+
+    const url = `${baseUrl}${type==="student"? "/student/v1/newStudent":"/employees/v1/employees"}`
+
+    axios.post(url,payload,{headers})
     .then(function (res){
       console.log(res)
       setRegistrationSuccessMessage(true)
@@ -159,7 +182,7 @@ console.log(payload)
 
   return (
     <ThemeProvider theme={defaultTheme}>
-        <h1 style={{textAlign:"center"}}>Add Student</h1>
+        <h1 style={{textAlign:"center"}}>Add {type==="student"? "Student" : "Employee"}</h1>
       <Container component="main" width="lg">
         <CssBaseline />
         <Box
@@ -175,7 +198,7 @@ console.log(payload)
                 className="" // Add a custom class
               open={registrationSuccessMessage} autoHideDuration={2000} onClose={handleClose}>
   <Alert onClose={handleClose} severity="success" sx={{ width:'100%' }}>
-Student Added!
+{type === "student" ? "Student":"Employee"} Added!
   </Alert>
 </Snackbar>
           <Box  height="55vh" overflowY="scroll"  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -183,7 +206,7 @@ Student Added!
               <Grid item xs={12} sm={6}>
                 <TextField
                   // autoComplete="given-name"
-                  name="firstName"
+               name="firstName"
                   required
                   fullWidth
                   id="firstName"
@@ -194,7 +217,7 @@ Student Added!
                 
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -227,7 +250,7 @@ Student Added!
                   required
                   fullWidth
                   id="studentEmail"
-                  label="Student Email Address"
+                  label={type=="employee"?`Email Address`:'Student Email Address'}
                   name="studentEmail"
                   // autoComplete="email"
                   error={formErrors.studentEmail} // Add error prop
@@ -236,7 +259,7 @@ Student Added!
                 />
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+            {type === "student" &&  <><Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -315,7 +338,7 @@ Student Added!
                     formErrors.studentPhoneNumber && 'Phone is required'
                   }
                 />
-              </Grid>
+              </Grid></> }
             </Grid>
             <Button
               type="submit"
