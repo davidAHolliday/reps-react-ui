@@ -21,7 +21,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const defaultTheme = createTheme();
 
-export default function AddTeacherForm() {
+export default function AddTeacherForm(props) {
   const [formErrors, setFormErrors] = useState({
     firstName: false,
     lastName: false,
@@ -166,6 +166,12 @@ console.log(payload)
     .then(function (res){
       console.log(res)
       setRegistrationSuccessMessage(true)
+      setTimeout(()=>{
+        setRegistrationSuccessMessage(true)
+        props.setAddTeacherModalOpen(false)
+  
+      },1500)
+  
     })
     .catch(function (error){
       console.log(error)
@@ -175,6 +181,7 @@ console.log(payload)
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
+      props.setAddTeacherModalOpen(false)
       return;
     }
 

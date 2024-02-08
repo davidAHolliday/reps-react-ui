@@ -105,7 +105,7 @@ const [approveUpdate, setApproveUpdate] = useState("false");
           {isAddTeacherModalOpen && (
   <div className="modal-overlay">
     <div className="modal-content">
-      <AddTeacherForm />
+      <AddTeacherForm setAddTeacherModalOpen={setAddTeacherModalOpen} />
       <button onClick={() => setAddTeacherModalOpen(false)}>Close</button>
     </div>
   </div>
