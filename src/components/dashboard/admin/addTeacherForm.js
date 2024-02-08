@@ -242,7 +242,7 @@ console.log(payload)
                   label="School Name"
                   type="text"
                   id="schoolName"
-                  defaultValue={"Burke ISD"}
+                  defaultValue={"Burke"}
                   error={formErrors.school} // Add error prop
                   helperText={
                     formErrors.schoolName && 'School Name  is required'
