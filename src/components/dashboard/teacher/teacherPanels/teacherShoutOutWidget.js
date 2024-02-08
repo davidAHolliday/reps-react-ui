@@ -35,16 +35,16 @@ const TeacherShoutOutWidget = ({data = []}) => {
   <Table>
     <TableHead>
       <TableRow>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '25%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
           Created On
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '25%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
           Student
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '25%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
           Shout Outs
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '25%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
           Created By
         </TableCell>
       </TableRow>
@@ -53,12 +53,12 @@ const TeacherShoutOutWidget = ({data = []}) => {
       {shoutOutData.length > 0 ? (
         shoutOutData.map((x, key) => (
           <TableRow key={key}>
-            <TableCell style={{ width: '25%' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
-            <TableCell style={{ width: '25%' }}>{x.student.firstName} {x.student.lastName}</TableCell>
-            <TableCell style={{ width: '25%', }}>
+            <TableCell style={{ width: '20%' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
+            <TableCell style={{ width: '20%' }}>{x.student.firstName} {x.student.lastName}</TableCell>
+            <TableCell style={{ width: '30%', }}>
   {x.infraction.infractionDescription}
 </TableCell>            
-<TableCell style={{ width: '25%' }}>{x.teacherEmail}</TableCell>
+<TableCell style={{ width: '30%' }}>{x.teacherEmail}</TableCell>
           </TableRow>
         ))
       ) : (
