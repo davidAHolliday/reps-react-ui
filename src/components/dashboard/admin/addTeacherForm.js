@@ -174,11 +174,11 @@ console.log(payload)
               <Snackbar 
                 className="" // Add a custom class
               open={registrationSuccessMessage} autoHideDuration={2000} onClose={handleClose}>
-  <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+  <Alert onClose={handleClose} severity="success" sx={{ width:'100%' }}>
 Student Added!
   </Alert>
 </Snackbar>
-          <Box width={"80%"}component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box  height="55vh" overflowY="scroll"  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
