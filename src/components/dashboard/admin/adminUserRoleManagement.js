@@ -105,7 +105,7 @@ const [approveUpdate, setApproveUpdate] = useState("false");
           {isAddTeacherModalOpen && (
   <div className="modal-overlay">
     <div className="modal-content">
-      <AddTeacherForm />
+      <AddTeacherForm setAddTeacherModalOpen={setAddTeacherModalOpen} />
       <button onClick={() => setAddTeacherModalOpen(false)}>Close</button>
     </div>
   </div>
@@ -117,7 +117,7 @@ const [approveUpdate, setApproveUpdate] = useState("false");
         </Typography>
         </div>
    
-<button onClick={()=> setAddTeacherModalOpen(true)}>Add User</button>
+<button onClick={()=> setAddTeacherModalOpen(true)}>Add Employee/Student</button>
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '720px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
