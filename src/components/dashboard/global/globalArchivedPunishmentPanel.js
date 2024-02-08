@@ -251,7 +251,8 @@ import RestoreIcon from '@mui/icons-material/Restore';
 
                       <TableCell>{days}</TableCell>
                       <TableCell>
-<button style={{height:"45px", width:"90px",marginBottom:"5px"}} onClick={() =>handleRestoreArchive(x)}>
+<button style={{height:"80px", width:"180px",marginBottom:"5px"}} onClick={() =>handleRestoreArchive(x)}>
+<p style={{marginBottom:"5px", marginTop:"-2%"}}>Restore Assignment</p>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="close") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (
@@ -259,8 +260,9 @@ import RestoreIcon from '@mui/icons-material/Restore';
     )}
   </button>
 
-  <button style={{height:"45px", width:"90px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
+  <button style={{height:"80px", width:"180px",backgroundColor:"red"}} onClick={() => {   setOpenModal({display:true,message:"Please provide brief explaination of why you will delete the record",buttonType:"delete"})
   setDeletePayload(x) }}>
+    <p style={{marginBottom:"5px", marginTop:"-2%"}}>Permanently Delete</p>
     {(loadingPunihsmentId.id === x.punishmentId && loadingPunihsmentId.buttonType==="delete") ? (
       <CircularProgress style={{height:"20px", width:"20px"}} color="secondary" />
     ) : (

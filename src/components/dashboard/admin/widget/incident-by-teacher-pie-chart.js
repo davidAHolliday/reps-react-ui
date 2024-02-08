@@ -13,14 +13,15 @@ export const IncidentByTeacherPieChart = ({ data = [] }) => {
 
   // Get Unique Teachers Info
 
-  const headers = {
-    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-  };
-  
-  const url = `${baseUrl}/employees/v1/employees/TEACHER`;
-  
+
 
   useEffect(() => {
+    const headers = {
+      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+    };
+    
+    const url = `${baseUrl}/employees/v1/employees/TEACHER`;
+    
     axios
       .get(url, { headers }) // Pass the headers option with the JWT token
       .then(function (response) {

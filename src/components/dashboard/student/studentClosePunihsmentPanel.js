@@ -30,7 +30,7 @@ import { baseUrl } from '../../../utils/jsonData'
 
 
 
-	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => (punish.status === "CLOSED" || punish.status === "CFR"));
+	  const data = listOfPunishments.filter(user=> (user.student.studentEmail).toLowerCase() === loggedInUser.toLowerCase()).filter(punish => (punish.status === "CLOSED" || punish.status === "CFR"));
       
     const hasScroll = data.length > 10;
 

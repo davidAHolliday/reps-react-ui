@@ -487,7 +487,6 @@ button:hover {
   display: flex;
   flex-direction: row;
 justify-content: space-between;
-  white-space: nowrap; /* This will prevent content from wrapping to the next line */
   background-color: yellow;
 }
 
