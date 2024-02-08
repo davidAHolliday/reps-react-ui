@@ -85,7 +85,9 @@ import Button from '@mui/material/Button';
    </div>
   </div>
 </div>}
-                <div className='teacher-overview-first'>
+                <div 
+                className='teacher-overview-first'
+                >
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data}/>
         </Card>
