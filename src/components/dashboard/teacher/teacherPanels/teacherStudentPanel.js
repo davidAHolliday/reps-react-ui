@@ -1,11 +1,12 @@
 import react, {useState,useEffect,useRef} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
 import StudentProfile from '../../../StudentProfile';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Select from "react-select";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -19,6 +20,8 @@ import 'jspdf-autotable';
   const [studentData, setStudentData] = useState("");
   const [studentProfileModal,setStudentProfileModal] = useState(false)
   const [studentName, setStudentName] = useState("")
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
     const headers = {
       Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
@@ -28,23 +31,25 @@ import 'jspdf-autotable';
 
     
 //get
-    const url = `${baseUrl}/punish/v1/punishments`;
+    const url = `${baseUrl}/student/v1/allStudents`;
     useEffect(() => {
       axios
         .get(url, { headers }) // Pass the headers option with the JWT token
         .then(function (response) {
           //Figure out how we are going to return only students associated with teacher.
           // Maybe only pulling up students with active and closed punishments
-          if(admin){
-            const data = response.data;
-            setListOfStudents(data);
+          // if(admin){
+          //   const data = response.data;
+          //   setListOfStudents(data);
 
 
-          }else{
-            const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
-            setListOfStudents(data);
+          // }else{
+          //   const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
+          //   setListOfStudents(data);
 
-          }
+          // }
+          const data = response.data
+          setListOfStudents(data);
         })
         .catch(function (error) {
           console.log(error);
@@ -72,29 +77,53 @@ const fetchStudentData = (studentEmail) =>{
     console.log(error);
   });
 }
-  
 
+const handleSearchChange = (e) => {
+  setSearchQuery(e.target.value);
+};
+
+useEffect(() => {
+  // Filter the data based on the search query
+  const filteredRecords = listOfStudents.filter(student => {
+    const fullName = `${student.firstName} ${student.lastName}`.toLowerCase();
+
+    return fullName.includes(searchQuery.toLowerCase());
+  });
+  setFilteredData(filteredRecords);
+}, [listOfStudents, searchQuery]);
    
 
 
-  const uniqueMap = new Map();
+  // const uniqueMap = new Map();
 
-  const data = listOfStudents.filter(item => {
-    const studentId = item.student.studentIdNumber;
+  // const data = listOfStudents.filter(item => {
+  //   const studentId = item.student.studentIdNumber;
+  //   let unique = [];
+
+  //   listOfStudents.forEach(punishment => {
+  //     // Check if the student is in unique
+  //     const existingStudent = unique.find(item =>
+  //       item.student.studentIdNumber === punishment.student.studentIdNumber);
+
+  //     // If not found, push to unique
+  //     if(!existingStudent) {
+  //       unique.push(punishment);
+  //     }
+  //   });
+
+//     // If the studentIdNumber is not in the map, add it and return true to keep the item
+//     if (!uniqueMap.has(studentId)) {
+//         uniqueMap.set(studentId, true);
+//         return true;
+//     }
     
-    // If the studentIdNumber is not in the map, add it and return true to keep the item
-    if (!uniqueMap.has(studentId)) {
-        uniqueMap.set(studentId, true);
-        return true;
-    }
-    
-    // If the studentIdNumber is already in the map, return false to filter out the duplicate item
-    return false;
-});
+//     // If the studentIdNumber is already in the map, return false to filter out the duplicate item
+//     return false;
+// });
 
 const handleProfileClick = (x) =>{
-  setStudentName(x.student.firstName);
-  fetchStudentData(x.student.studentEmail)
+  setStudentName(x.firstName);
+  fetchStudentData(x.studentEmail)
 }
 
 const pdfRef = useRef();
@@ -138,7 +167,7 @@ const generatePDF = (studentData) => {
   pdf.save('student_report.pdf');
 };
 
-    const hasScroll = data.length > 10;
+    const hasScroll = listOfStudents.length > 10;
 
     return (
         <>
@@ -175,7 +204,7 @@ const generatePDF = (studentData) => {
                   <div style={{ textAlign: "left" }}>Phone: {studentData[0].student.studentPhoneNumber}</div>
                   <div style={{ textAlign: "left" }}>Grade: {studentData[0].student.grade}</div>
                   <div style={{ textAlign: "left" }}>Address: {studentData[0].student.address}</div>
-                </div>
+                 </div>
             </div>
             </div>
 
@@ -186,7 +215,6 @@ const generatePDF = (studentData) => {
       
       </div>
       </div>
-
     <div style={{height:"320px"}}className='modal-body-student'>
   <TableContainer style={{height:"300px",backgroundColor:"white" }}>
     <Table stickyHeader>
@@ -244,11 +272,19 @@ const generatePDF = (studentData) => {
    Students Overview
         </Typography>
         </div>
-      
 
     <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '400px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
+        <TableRow>
+        <TextField
+        label="Search"
+        variant="outlined"
+        fullWidth
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+        </TableRow>
           <TableRow>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Name
@@ -270,9 +306,9 @@ const generatePDF = (studentData) => {
         </TableHead>
         <TableBody>
 
-          {data.length > 0 ? (
+          {filteredData.length > 0 ? (
             
-            data.map((x, key) => (
+            filteredData.map((x, key) => (
 <TableRow key={key} onClick={() => {handleProfileClick(x)}}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -282,12 +318,12 @@ const generatePDF = (studentData) => {
           color: 'rgb(25, 118, 210)', // Change the color to blue
         }}
       />
-      <span>{x.student.firstName} {x.student.lastName}</span>
+      <span>{x.firstName} {x.lastName}</span>
     </div>
   </TableCell>
-  <TableCell>{x.student.studentEmail}</TableCell>
-  <TableCell>{x.student.AccountCircleIcongrade}</TableCell>
-  <TableCell>{x.student.studentPhoneNumber}</TableCell>
+  <TableCell>{x.studentEmail}</TableCell>
+  <TableCell>{x.AccountCircleIcongrade}</TableCell>
+  <TableCell>{x.studentPhoneNumber}</TableCell>
  
 </TableRow>
 

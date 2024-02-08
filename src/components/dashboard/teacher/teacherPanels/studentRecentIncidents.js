@@ -56,7 +56,7 @@ const RecentIncidents = ({data = []}) => {
       </Typography>
       <Table>
         <TableHead>
-        {/* <TableRow>
+        <TableRow>
         <TextField
         label="Search"
         variant="outlined"
@@ -64,7 +64,7 @@ const RecentIncidents = ({data = []}) => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-        </TableRow> */}
+        </TableRow>
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>Last Contacted</TableCell>

@@ -1,5 +1,5 @@
 import react, {useState,useEffect,useRef} from 'react'
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card } from '@mui/material';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
@@ -18,6 +18,8 @@ import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudent
   const [teacherProfileModal,setTeacherProfileModal] = useState(false)
   const [teacherProfileData, setTeacherProfileData] = useState([])
   const [activeTeacher, setActiveTeacher] = useState();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
 
     const headers = {
@@ -62,7 +64,21 @@ console.log(newData)
   .catch(function (error) {
     console.log(error);
   });
-}
+};
+
+const handleSearchChange = (e) => {
+  setSearchQuery(e.target.value);
+};
+
+useEffect(() => {
+  // Filter the data based on the search query
+  const filteredRecords = data.filter(employee => {
+    const fullName = `${employee.firstName} ${employee.lastName}`.toLowerCase();
+
+    return fullName.includes(searchQuery.toLowerCase());
+  });
+  setFilteredData(filteredRecords);
+}, [data, searchQuery]);
   
 
 const handleProfileClick = (x) =>{
@@ -229,6 +245,15 @@ const generatePDF = (activeTeacher,studentData) => {
         <TableContainer component={Paper} style={{ maxHeight: hasScroll ? '720px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
       <Table>
         <TableHead>
+        <TableRow>
+        <TextField
+        label="Search"
+        variant="outlined"
+        fullWidth
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+        </TableRow>
           <TableRow>
             <TableCell variant="head" style={{ fontWeight: 'bold' }}>
               Name
@@ -246,8 +271,8 @@ const generatePDF = (activeTeacher,studentData) => {
 
 {console.log(data)}
 
-          {data.length > 0 ? (
-            data.map((x, key) => (
+          {filteredData.length > 0 ? (
+            filteredData.map((x, key) => (
 <TableRow key={key} onClick={() => {handleProfileClick(x)}}>
   <TableCell>
     <div style={{ display: 'flex', alignItems: 'center' }}>
