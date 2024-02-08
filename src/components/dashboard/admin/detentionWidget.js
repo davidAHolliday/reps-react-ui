@@ -28,14 +28,30 @@ import jsPDF from 'jspdf';
 
     useEffect(() => {
       axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
+        .get(url, { headers })
         .then(function (response) {
           const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
-          setListOfPunishments(sortedData);        })
+          let unique = [];  // Change to an array
+    
+          sortedData.forEach(element => {
+            // Check if studentIdNumber already exists in unique
+            const existingStudent = unique.find(item => item.student.studentIdNumber === element.student.studentIdNumber);
+    
+            // If not found, push the element to unique
+            if (!existingStudent) {
+              unique.push(element);
+            }
+          });
+    
+          console.log("unique", unique);
+          setListOfPunishments(unique);
+        })
         .catch(function (error) {
           console.log(error);
         });
     }, []);
+
+
 
     const calculateDaysSince = (dateCreated) => {
       const currentDate = new Date();
