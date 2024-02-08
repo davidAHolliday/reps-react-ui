@@ -38,7 +38,16 @@ export default function AddTeacherForm(props) {
 
 
   const [registrationSuccessMessage, setRegistrationSuccessMessage] = useState(false)
-  const [type,setType] = useState("employee")
+  const [type,setType] = useState("student")
+
+  const handleTypeToggle = () => {
+    if(type ==="student"){
+      setType("employee")
+    }
+    if(type ==="employee"){
+      setType("student")
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -190,6 +199,7 @@ console.log(payload)
   return (
     <ThemeProvider theme={defaultTheme}>
         <h1 style={{textAlign:"center"}}>Add {type==="student"? "Student" : "Employee"}</h1>
+        <p style={{textAlign:"center",color:"white"}} onClick={()=>handleTypeToggle()}>Click Here to Add {type==="student"?"Employee":"Student"}</p>
       <Container component="main" width="lg">
         <CssBaseline />
         <Box
@@ -208,7 +218,7 @@ console.log(payload)
 {type === "student" ? "Student":"Employee"} Added!
   </Alert>
 </Snackbar>
-          <Box  height="55vh" overflowY="scroll"  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box  height="65vh" overflowY="scroll"  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
