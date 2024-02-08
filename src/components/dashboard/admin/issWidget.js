@@ -26,12 +26,38 @@ import jsPDF from 'jspdf';
     const url = `${baseUrl}/punish/v1/punishments`;
     
 
+  
     useEffect(() => {
       axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
+        .get(url, { headers })
         .then(function (response) {
-          const sortedData = response.data.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated));
-          setListOfPunishments(sortedData);        })
+          const sortedData = response.data.sort((a, b) => {
+            const numA = parseInt(a.classPeriod.match(/\d+/));
+            const numB = parseInt(b.classPeriod.match(/\d+/));
+          
+            // Check if parsing was successful
+            if (!isNaN(numA) && !isNaN(numB)) {
+              return numA - numB;
+            }
+          
+            // Handle cases where parsing fails (e.g., non-numeric values)
+            return 0;
+          });          console.log("sortedByPeriod", sortedData)
+          let unique = [];  // Change to an array
+    
+          sortedData.forEach(element => {
+            // Check if studentIdNumber already exists in unique
+            const existingStudent = unique.find(item => item.student.studentIdNumber === element.student.studentIdNumber);
+    
+            // If not found, push the element to unique
+            if (!existingStudent) {
+              unique.push(element);
+            }
+          });
+    
+          console.log("unique", unique);
+          setListOfPunishments(unique);
+        })
         .catch(function (error) {
           console.log(error);
         });

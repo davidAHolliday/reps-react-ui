@@ -31,51 +31,44 @@ const TeacherShoutOutWidget = ({data = []}) => {
     />  </div>
 
 </div>
-    <TableContainer component={Paper} style={{ height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
-      <Table>
-        <TableHead>
-          <TableRow>
-          
-          
-          <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Created On
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-            Student
-            </TableCell>
-        
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-              Shout Outs 
-            </TableCell>
-            <TableCell variant="head" style={{ fontWeight: 'bold' }}>
-             Created By
-            </TableCell>
-
+<TableContainer component={Paper} style={{ height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
+          Created On
+        </TableCell>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
+          Student
+        </TableCell>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
+          Shout Outs
+        </TableCell>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
+          Created By
+        </TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {shoutOutData.length > 0 ? (
+        shoutOutData.map((x, key) => (
+          <TableRow key={key}>
+            <TableCell style={{ width: '20%' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
+            <TableCell style={{ width: '20%' }}>{x.student.firstName} {x.student.lastName}</TableCell>
+            <TableCell style={{ width: '30%', }}>
+  {x.infraction.infractionDescription}
+</TableCell>            
+<TableCell style={{ width: '30%' }}>{x.teacherEmail}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
-
-
-
-
-          {shoutOutData.length > 0 ? (
-            shoutOutData.map((x, key) => (
-<TableRow key={key}>
-<TableCell>{dateCreateFormat(x.timeCreated)}</TableCell>
-<TableCell>{x.student.firstName} {x.student.lastName} </TableCell>
-  <TableCell>{x.infraction.infractionDescription}</TableCell>
-  <TableCell>{x.teacherEmail}</TableCell>
-</TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan="5">No Shout Out Yet, but im sure its coming!.</TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
-    </>
+        ))
+      ) : (
+        <TableRow>
+          <TableCell colSpan="4">No Shout Out Yet, but I'm sure it's coming!</TableCell>
+        </TableRow>
+      )}
+    </TableBody>
+  </Table>
+</TableContainer>    </>
     )
     }
 
