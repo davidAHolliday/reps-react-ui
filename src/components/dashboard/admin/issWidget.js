@@ -116,7 +116,7 @@ import jsPDF from 'jspdf';
   
   const data = listOfPunishments.filter((punishment) => {
     const days = calculateDaysSince(punishment.timeCreated);
-    return days >3 && punishment.status === "OPEN"; // This will filter out records that are NOT older than 3 days
+    return (days >= 3 && punishment.status === "OPEN"); // This will filter out records that are NOT older than 3 days
   });
 
   // Use the olderThanThreeDays list for rendering instead of data
@@ -136,7 +136,7 @@ import jsPDF from 'jspdf';
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
               <th>Name</th>
-              <th>inf Period</th>
+              <th>Inf Period</th>
             </tr>
           </thead>
     
@@ -161,7 +161,7 @@ import jsPDF from 'jspdf';
               })
             ) : (
               <tr>
-                <td colSpan="4" style={{ textAlign: "center" }}>No student is assigned Detention.</td>
+                <td colSpan="4" style={{ textAlign: "center" }}>No student is assigned ISS.</td>
               </tr>
             )}
           </tbody>
