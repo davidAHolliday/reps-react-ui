@@ -21,6 +21,7 @@ import axios from 'axios';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentManager from '../../../utils/EssayForm';
 import TeacherStudentPanel from '../teacher/teacherPanels/teacherStudentPanel';
+import AddTeacherForm from './addTeacherForm';
 
 
 
@@ -219,7 +220,7 @@ useEffect(() => {
       setPanelName("userManagement")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
 
-     }}className='dropdown-item'>User Role Management</div>
+     }}className='dropdown-item'>Create a Student/Teacher</div>
            <div onClick={()=>{
       setPanelName("archived")  
       setIsDropdownOpen(!isDropdownOpen.toolsDropdown)
@@ -236,7 +237,7 @@ useEffect(() => {
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}
 {panelName === "createPunishment" && <CreatePunishmentPanel/>}
 {panelName === "createNewStudent" && <CreateNewStudentPanel/>}
-{panelName === "userManagement" && <AdminUserRoleManagement/>}
+{panelName === "userManagement" && <AddTeacherForm/>}
 {panelName === "archived" && <GlobalArchivedPunishmentPanel/>}
 {panelName === "createEditAssignments" && <AssignmentManager/>}
 

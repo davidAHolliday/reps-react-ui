@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { Select } from '@mui/material';
 
 
 
@@ -141,7 +142,7 @@ if(type === "student"){
     studentPhoneNumber:data.get('studentPhoneNumber'),
     address:data.get('address'),
     guidenceEmail:data.get('guidenceEmail'),
-    schoolName:data.get('schoolName'),
+    school:data.get('schoolName'),
   
   }
 }
@@ -151,7 +152,7 @@ if(type === "employee"){
     firstName: data.get('firstName'),
     lastName: data.get('lastName'),
     email:data.get('studentEmail'), 
-    schoolName:data.get('schoolName'),
+    school:data.get('schoolName'),
   
   }
 
@@ -177,7 +178,7 @@ console.log(payload)
       setRegistrationSuccessMessage(true)
       setTimeout(()=>{
         setRegistrationSuccessMessage(true)
-        props.setAddTeacherModalOpen(false)
+        // props.setAddTeacherModalOpen(false)
   
       },1500)
   
@@ -190,7 +191,7 @@ console.log(payload)
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-      props.setAddTeacherModalOpen(false)
+      // props.setAddTeacherModalOpen(false)
       return;
     }
 
@@ -198,8 +199,8 @@ console.log(payload)
 
   return (
     <ThemeProvider theme={defaultTheme}>
-        <h1 style={{textAlign:"center"}}>Add {type==="student"? "Student" : "Employee"}</h1>
-        <p style={{textAlign:"center",color:"white"}} onClick={()=>handleTypeToggle()}>Click Here to Add {type==="student"?"Employee":"Student"}</p>
+        <h1 style={{textAlign:"center"}}>Add {type==="student"? "Student" : "Teacher"}</h1>
+        <p style={{textAlign:"center",color:"white"}}><button onClick={()=>handleTypeToggle()}>Click Here to Add {type==="student"?"Teacher":"Student"}</button></p>
       <Container component="main" width="lg">
         <CssBaseline />
         <Box
@@ -215,7 +216,7 @@ console.log(payload)
                 className="" // Add a custom class
               open={registrationSuccessMessage} autoHideDuration={2000} onClose={handleClose}>
   <Alert onClose={handleClose} severity="success" sx={{ width:'100%' }}>
-{type === "student" ? "Student":"Employee"} Added!
+{type === "student" ? "Student":"Teacher"} Added!
   </Alert>
 </Snackbar>
           <Box  height="65vh" overflowY="scroll"  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -235,19 +236,22 @@ console.log(payload)
                 />
               </Grid>
           <Grid item xs={12} sm={6}>
-                <TextField
+                <Select
                   required
                   fullWidth
+                  variant="outlined"
                   name="schoolName"
                   label="School Name"
                   type="text"
                   id="schoolName"
                   defaultValue={"Burke"}
-                  error={formErrors.school} // Add error prop
+                  error={formErrors.schoolName} // Add error prop
                   helperText={
                     formErrors.schoolName && 'School Name  is required'
-                  }
-                />
+                  }>
+                    <option value={"Burke"}>Burke</option>
+                  </Select>
+                
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -363,7 +367,7 @@ console.log(payload)
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-             Add
+             Submit
             </Button>
             <Grid container justifyContent="flex-end">
             </Grid>
