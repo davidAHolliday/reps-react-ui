@@ -103,14 +103,8 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
 
   
   const data = listOfPunishments.filter((punishment) => {
-    let detention = [];
     const days = calculateDaysSince(punishment.timeCreated);
-    if(days >=1 && days < 3){
-      if (punishment.status === "OPEN"){
-        detention.push(punishment)
-      }
-    }
-    return detention; // This will filter out records that are NOT older than 3 days
+    return ((days >= 1 && days < 3) && punishment.status === "OPEN"); // This will filter out records that are NOT older than 3 days
   });
 
   // Use the olderThanThreeDays list for rendering instead of data
