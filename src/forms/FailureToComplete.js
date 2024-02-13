@@ -3,6 +3,7 @@ import axios from "axios";
 import { baseUrl, essayData } from '../utils/jsonData';
 import { useParams } from 'react-router-dom';
 import Select from "react-select";
+import { dateCreateFormat } from '../components/dashboard/global/helperFunctions';
 
 
 
@@ -191,7 +192,7 @@ if(foundStudent){
     {listOfInfractions.map((x, key) => (
       <tr key={key}>
         <td>{x.student.firstName} {x.student.lastName}</td>
-        <td>{x.timeCreated}</td>
+        <td>{dateCreateFormat(x.timeCreated)}</td>
         <td>{x.teacherEmail}</td>
         <td>{x.infraction.infractionDescription}</td>
         <td>{x.status}</td>
