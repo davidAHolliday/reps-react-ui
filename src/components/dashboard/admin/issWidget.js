@@ -15,68 +15,27 @@ import jsPDF from 'jspdf';
 
    const ISSWidget = () => {
 
-    const [listOfPunishments, setListOfPunishments]= useState([])
-    const [filterData, setFilterData] = useState();
-    const [sort,setSort] = useState("OPEN");
+    const [data, setData]= useState([])
 
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-    
-    const url = `${baseUrl}/punish/v1/punishments`;
-    
-
-  
     useEffect(() => {
+      const headers = {
+        Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+      };
+      
+      const url = `${baseUrl}/student/v1/issList`;
       axios
         .get(url, { headers })
         .then(function (response) {
-          const sortedData = response.data.sort((a, b) => {
-            const numA = parseInt(a.classPeriod.match(/\d+/));
-            const numB = parseInt(b.classPeriod.match(/\d+/));
-          
-            // Check if parsing was successful
-            if (!isNaN(numA) && !isNaN(numB)) {
-              return numA - numB;
-            }
-          
-            // Handle cases where parsing fails (e.g., non-numeric values)
-            return 0;
-          });          console.log("sortedByPeriod", sortedData)
-          let unique = [];  // Change to an array
-    
-          sortedData.forEach(element => {
-            // Check if studentIdNumber already exists in unique
-            const existingStudent = unique.find(item => item.student.studentIdNumber === element.student.studentIdNumber);
-    
-            // If not found, push the element to unique
-            if (!existingStudent) {
-              unique.push(element);
-            }
-          });
-    
-          console.log("unique", unique);
-          setListOfPunishments(unique);
+          const data = response.data
+          setData(data);
         })
         .catch(function (error) {
           console.log(error);
         });
     }, []);
 
-    const calculateDaysSince = (dateCreated) => {
-      const currentDate = new Date();
-      const createdDate = new Date(dateCreated);
-    
-      // Set both dates to UTC
-      currentDate.setUTCHours(0, 0, 0, 0);
-      createdDate.setUTCHours(0, 0, 0, 0);
-    
-      const timeDifference = currentDate - createdDate;
-      const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
-      return daysDifference;
-    };
-    
-
+   
+  
     const pdfRef = useRef();
 
     const generatePDF = (studentData) => {
@@ -97,11 +56,11 @@ import jsPDF from 'jspdf';
       // Add punishment details table
       pdf.autoTable({
         startY: 70, // Adjust the Y-coordinate as needed
-        head: [['Last Name', 'First Name', 'Infraction Period']],
+        head: [['Student Id','Last Name', 'First Name']],
         body: studentData.map((student) => [
-          student.student.lastName,
-          student.student.firstName,
-          student.classPeriod,
+          student.studentIdNumber,
+          student.lastName,
+          student.firstName,
         ]),
       });
     
@@ -109,25 +68,11 @@ import jsPDF from 'jspdf';
       pdf.save(`iss_report.pdf`);
     };
     
-    
-
-    // if(sort == "ALL"){
-    //   setFilterData(listOfPunishments);
-  
-  const data = listOfPunishments.filter((punishment) => {
-    const days = calculateDaysSince(punishment.timeCreated);
-    return (days >= 3 && punishment.status === "OPEN"); // This will filter out records that are NOT older than 3 days
-  });
-
-  // Use the olderThanThreeDays list for rendering instead of data
-
-    const hasScroll = data.length > 10;
-
- 
+     
     return (
       <>
         <div style={{ backgroundColor: "rgb(25, 118, 210)", marginTop: "10px", marginBlock: "5px" }}>
-          <Typography color="white" variant="h5" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px" }}>
+          <Typography color="white" variant="h5" style={{ flexGrow: 1, outline: "1px solid white", padding: "5px",textAlign:"center" }}>
            ISS
           </Typography>
         </div>
@@ -135,27 +80,35 @@ import jsPDF from 'jspdf';
         <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
-              <th>Name</th>
-              <th>Inf Period</th>
+              <th>Student Id</th>
+              <th>First Name</th>
+              <th>Last Name</th>
             </tr>
           </thead>
     
           <tbody>
             {data.length > 0 ? (
               data.map((x, key) => {
-                const days = calculateDaysSince(x.timeCreated);
                 const rowBackgroundColor = key % 2 === 0 ? "#f2f2f2" : "white"; // Alternate colors
                 return (
                   <tr key={key}
                   style={{ backgroundColor: rowBackgroundColor }}>
 
-                  
-                    <td>
+<td>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{ fontSize: '15pt', textAlign: 'center'}}>{x.student.firstName} {x.student.lastName}</span>
+                        <span style={{  textAlign: 'center'}}>{x.studentIdNumber.slice(0,5)}</span>
                       </div>
                     </td>
-                    <td style={{ fontSize: '15pt', textAlign: 'center'}}>{x.classPeriod}</td>
+<td>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span style={{  textAlign: 'center'}}>{x.firstName}</span>
+                      </div>
+                    </td>   
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span style={{  textAlign: 'center'}}>{x.lastName}</span>
+                      </div>
+                    </td>
                   </tr>
                 );
               })
@@ -166,7 +119,7 @@ import jsPDF from 'jspdf';
             )}
           </tbody>
         </table>
-        <button onClick={()=>{generatePDF(data)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
+        <button className='widget-print-button' onClick={()=>{generatePDF(data)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
 
       </>
     );
