@@ -58,7 +58,7 @@ import jsPDF from 'jspdf';
         startY: 70, // Adjust the Y-coordinate as needed
         head: [['Student Id','Last Name', 'First Name']],
         body: studentData.map((student) => [
-          student.studentIdNumber,
+          student.studentEmail,
           student.lastName,
           student.firstName,
         ]),
@@ -80,9 +80,10 @@ import jsPDF from 'jspdf';
         <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
-              <th>Student Email</th>
+              <th>Student Username</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Infraction Period</th>
             </tr>
           </thead>
     
@@ -96,17 +97,22 @@ import jsPDF from 'jspdf';
 
 <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.studentEmail.split("@")[0]}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.student.studentEmail.split("@")[0]}</span>
                         </div>
                     </td>
 <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.firstName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.student.firstName}</span>
                       </div>
                     </td>   
                     <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.lastName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.student.lastName}</span>
+                      </div>
+                    </td>
+                    <td style={{ paddingRight: '15px'}}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.classPeriod}</span>
                       </div>
                     </td>
                   </tr>

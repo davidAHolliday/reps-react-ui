@@ -58,7 +58,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
     startY: 70, // Adjust the Y-coordinate as needed
     head: [['Student Id','Last Name', 'First Name']],
     body: studentData.map((student) => [
-      student.studentIdNumber,
+      student.studentEmail.split("@")[0],
       student.lastName,
       student.firstName,
     ]),
@@ -81,7 +81,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
         <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
-              <th>Student Email</th>
+              <th>Student Username</th>
               <th>First Name</th>
               <th>Last Name</th>
 
@@ -98,7 +98,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
                   style={{ backgroundColor: rowBackgroundColor }}>
                            <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.studentEmail}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.studentEmail.split("@")[0]}</span>
                       </div>
                     </td>
                     <td style={{ paddingRight: '15px'}}>
