@@ -81,7 +81,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
         <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
-              <th>Id</th>
+              <th>Student Email</th>
               <th>First Name</th>
               <th>Last Name</th>
 
@@ -96,19 +96,19 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
                 return (
                   <tr key={key}
                   style={{ backgroundColor: rowBackgroundColor }}>
-                           <td>
+                           <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}>{x.studentIdNumber.slice(0,5)}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.studentEmail}</span>
                       </div>
                     </td>
-                    <td>
+                    <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}>{x.firstName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.firstName}</span>
                       </div>
                     </td>
-                    <td>
+                    <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}> {x.lastName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}> {x.lastName}</span>
                       </div>
                     </td>
                   </tr>

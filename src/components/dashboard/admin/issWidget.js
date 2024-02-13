@@ -80,7 +80,7 @@ import jsPDF from 'jspdf';
         <table className='widget-table'> {/* Added borderCollapse for proper styling */}
           <thead>
             <tr className="widget-table-tr"> {/* Moved the header row to thead */}
-              <th>Student Id</th>
+              <th>Student Email</th>
               <th>First Name</th>
               <th>Last Name</th>
             </tr>
@@ -94,19 +94,19 @@ import jsPDF from 'jspdf';
                   <tr key={key}
                   style={{ backgroundColor: rowBackgroundColor }}>
 
-<td>
+<td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}>{x.studentIdNumber.slice(0,5)}</span>
-                      </div>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.studentEmail.split("@")[0]}</span>
+                        </div>
                     </td>
-<td>
+<td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}>{x.firstName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.firstName}</span>
                       </div>
                     </td>   
-                    <td>
+                    <td style={{ paddingRight: '15px'}}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span style={{  textAlign: 'center'}}>{x.lastName}</span>
+                        <span style={{  textAlign: 'center', fontSize:'150%'}}>{x.lastName}</span>
                       </div>
                     </td>
                   </tr>
