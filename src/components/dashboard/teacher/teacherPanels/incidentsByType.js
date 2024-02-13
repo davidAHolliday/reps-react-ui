@@ -42,27 +42,35 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
   const horseplayList = writeUps.filter(punishment => punishment.infraction.infractionName === "Horseplay");
   const dressCodeList = writeUps.filter(punishment => punishment.infraction.infractionName === "Dress Code");
   const ftcList = writeUps.filter(punishment => punishment.infraction.infractionName === "Failure To Complete Work");
+
+  const refList = [];
+  refList.push(tardyList);
+  refList.push(disruptiveList);
+  refList.push(cellList);
+  refList.push(horseplayList);
+  refList.push(dressCodeList);
+  refList.push(ftcList);
   
   const listReturn = [{
-     id: 0, value: tardyList.length, label: 'Tardy'
+     id: 0, value: ((tardyList.length/refList.length)*100).toFixed(2), label: 'Tardy'
     },
     {
-      id: 1, value: disruptiveList.length, label: 'Disruptive Behavior'
+      id: 1, value: ((disruptiveList.length/refList.length)*100).toFixed(2), label: 'Disruptive Behavior'
      },
      {
-      id: 2, value: cellList.length, label: 'Cell Phone'
+      id: 2, value: ((cellList.length/refList.length)*100).toFixed(2), label: 'Cell Phone'
      },
      {
-      id: 3, value: horseplayList.length, label: 'Horseplay'
+      id: 3, value: ((horseplayList.length/refList.length)*100).toFixed(2), label: 'Horseplay'
      },
      {
-      id: 4, value: dressCodeList.length, label: 'Dress Code'
+      id: 4, value: ((dressCodeList.length/refList.length)*100).toFixed(2), label: 'Dress Code'
      },
      {
-      id: 5, value: ftcList.length, label: 'Failure to Complete Work'
+      id: 5, value: ((ftcList.length/refList.length)*100).toFixed(2), label: 'Failure to Complete Work'
      },
   ];
-
+  
 
 // const meetsTres = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent)>5.00).sort((a, b) => b.incidents - a.incidents);
 // const otherNotMeetingTreshold = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent) <= 5.00).sort((a, b) => b.incidents - a.incidents);
@@ -104,13 +112,13 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
           series={[
             {
               data: listReturn,
-              arcLabel: (item) => `(${parseFloat(item.value)})`,
+              arcLabel: (item) => `${item.label} (${item.value}%)`,
               arcLabelMinAngle: 45,
             },
           ]}
          
-          width={300}
-          height={300}
+          width={350}
+          height={250}
           sx={{
             [`& .${pieArcLabelClasses.root}`]: {
               fill: 'white',
@@ -129,7 +137,7 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
       {listReturn.map((punishment, index) => (
         <div key={index} className="legend-item">
           <div className={`legend-color legend-color-${index + 1}`} style={{ backgroundColor: generateLegendColor(index) }}></div>
-          <span>{`${punishment}`}</span>
+          <span>{`${punishment.label}`}</span>
         </div>
       ))}
     </div>
