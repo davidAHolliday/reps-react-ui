@@ -9,6 +9,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Select from "react-select";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { IncidentByTypePieChart } from './incidentsByType';
 
 
    const TeacherStudentPanel = () => {
@@ -211,6 +212,10 @@ const generatePDF = (studentData) => {
             <div style={{  width: "100px", height: "100px", marginLeft: "auto" }} className='box-right'>
         <AccountBoxIcon sx={{ fontSize: 100 }}/>
             
+            </div>
+            <div  className='box-center'>
+            <IncidentByTypePieChart data={studentData[0].student}/>
+
             </div>
       
       </div>
