@@ -9,6 +9,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Select from "react-select";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { IncidentByTypePieChart } from './incidentsByType';
 
 
    const TeacherStudentPanel = () => {
@@ -58,6 +59,7 @@ import 'jspdf-autotable';
 
 
 
+console.log(listOfStudents)
 
 
 
@@ -167,11 +169,47 @@ const generatePDF = (studentData) => {
   pdf.save('student_report.pdf');
 };
 
+console.log(studentData)
+
     const hasScroll = listOfStudents.length > 10;
 
     return (
         <>
-       {(studentDisplay && studentData) && (
+        {studentDisplay && studentData.length == 0 && <div style={{
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'fixed',
+  top: 300,
+  left: 0,
+  width: '100%',
+  height: '25%',
+}} className="modal-overlay">
+  <div style={{
+    height: '80%',
+    width: '80%',
+    position: 'relative',
+    backgroundColor: 'white',  // Adjust background color as needed
+    padding: '20px',          // Adjust padding as needed
+    borderRadius: '8px',      // Add border radius as needed
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',  // Add box shadow as needed
+  }} className="modal-content">
+      <div className='modal-header'>
+        <h1>Student has No punishments</h1>
+        </div>
+        <div style={{padding:"10px"}} className='modal-buttons'>
+        <button onClick={() => { setStudentDisplay(false) }}>Cancel</button>
+        <button onClick={()=>{generatePDF(studentData)}}style={{backgroundColor:"#CF9FFF"}} >Print</button>
+
+      </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        }
+       {(studentDisplay && studentData.length > 0) && (
 
 
 <div style={{
@@ -198,6 +236,9 @@ const generatePDF = (studentData) => {
             <div className='box-left'>
 
               <div className='student-info-box'>
+                <div style={{display:"flex",backgroundColor:""}}className='icon'>
+                <AccountBoxIcon style={{fontSize:"100px"}}/>
+                </div>
               <h4 style={{ textAlign: "left" }}>{studentData[0].student.firstName} {studentData[0].student.lastName}</h4>
                 <div className='details-box'>
                   <div style={{ textAlign: "left" }}>Email: {studentData[0].student.studentEmail}</div>
@@ -208,10 +249,11 @@ const generatePDF = (studentData) => {
             </div>
             </div>
 
-            <div style={{  width: "100px", height: "100px", marginLeft: "auto" }} className='box-right'>
-        <AccountBoxIcon sx={{ fontSize: 100 }}/>
-            
+            <div style={{color:"white",   marginLeft: "auto" }} className='box-right'>
+        <IncidentByTypePieChart data={studentData[0].student}/>
+
             </div>
+ 
       
       </div>
       </div>
