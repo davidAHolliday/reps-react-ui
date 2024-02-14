@@ -32,7 +32,7 @@ import Button from '@mui/material/Button';
   // }
 
 
-  const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!" && x.infraction.infractionName !=="Behavioral Concerns")})
+  const dataExcludeNonReferrals = data.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!")})
   const weeklyData = dataExcludeNonReferrals.filter((x) => {
      const currentDate = new Date();
      const itemDate = new Date(x.timeCreated);
@@ -104,7 +104,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-half'>
       {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<PieChartParentCommunication data={weeklyData}/>
+<PieChartParentCommunication data={weeklyDataIncSOBxConcern}/>
 
 
     </div>
@@ -113,7 +113,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-half'>
       <div className='infraction-bar-chart'>
         {/* <Card> */}
-<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
+<TeacherInfractionOverPeriodBarChart data={weeklyData}/>
 {/* </Card> */}
       </div>
   
