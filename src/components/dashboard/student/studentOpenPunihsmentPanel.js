@@ -6,6 +6,7 @@ import axios from "axios"
 import Tooltip from '@mui/material/Tooltip';
 import WarningIcon from '@mui/icons-material/Warning';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { dateCreateFormat } from '../global/helperFunctions';
 
 import { baseUrl } from '../../../utils/jsonData'
 
@@ -51,15 +52,6 @@ import { baseUrl } from '../../../utils/jsonData'
 const handleAssignmentClick=(x)=>{
   handleStartAssignment(x)
   };
-
-
-
-
-  const dateCreateFormat = (inputDate)=>{
-    const date = new Date(inputDate);
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return date.toLocaleDateString('en-US',options);
-  }
 
 
   const calculateImportance = (x) => {

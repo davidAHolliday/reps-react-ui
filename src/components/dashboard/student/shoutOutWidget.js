@@ -6,6 +6,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from "axios"
 import { baseUrl } from '../../../utils/jsonData'
+import { dateCreateFormat } from '../global/helperFunctions';
 
    const ShoutOutWidget = () => {
 
@@ -33,12 +34,6 @@ import { baseUrl } from '../../../utils/jsonData'
 
     //Temp Filter, we should filter in backend base on principal user
 
-    const dateCreateFormat = (inputDate)=>{
-      const date = new Date(inputDate);
-      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-      return date.toLocaleDateString('en-US',options);
-  
-    }
 	  const data = listOfPunishments.filter(user=> user.student.studentEmail === loggedInUser).filter(punish => punish.status === "SO" || punish.status ==="CFR");
       
     const hasScroll = data.length > 2;
