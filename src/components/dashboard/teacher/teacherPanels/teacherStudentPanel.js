@@ -199,6 +199,9 @@ const generatePDF = (studentData) => {
             <div className='box-left'>
 
               <div className='student-info-box'>
+                <div style={{display:"flex",backgroundColor:""}}className='icon'>
+                <AccountBoxIcon style={{fontSize:"100px"}}/>
+                </div>
               <h4 style={{ textAlign: "left" }}>{studentData[0].student.firstName} {studentData[0].student.lastName}</h4>
                 <div className='details-box'>
                   <div style={{ textAlign: "left" }}>Email: {studentData[0].student.studentEmail}</div>
@@ -209,14 +212,11 @@ const generatePDF = (studentData) => {
             </div>
             </div>
 
-            <div style={{  width: "100px", height: "100px", marginLeft: "auto" }} className='box-right'>
-        <AccountBoxIcon sx={{ fontSize: 100 }}/>
-            
-            </div>
-            <div  className='box-center'>
-            <IncidentByTypePieChart data={studentData[0].student}/>
+            <div style={{color:"black",   marginLeft: "auto" }} className='box-right'>
+        <IncidentByTypePieChart data={studentData[0].student}/>
 
             </div>
+ 
       
       </div>
       </div>

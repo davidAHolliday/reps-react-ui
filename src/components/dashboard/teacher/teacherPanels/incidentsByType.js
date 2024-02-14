@@ -50,27 +50,39 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
   refList.push(horseplayList);
   refList.push(dressCodeList);
   refList.push(ftcList);
+
+const total = tardyList.length + disruptiveList.length + cellList.length + horseplayList.length+dressCodeList.length +ftcList.length;
   
   const listReturn = [{
-     id: 0, value: ((tardyList.length/refList.length)*100).toFixed(2), label: 'Tardy'
+     id: 0, value: ((tardyList.length/total)*100).toFixed(2), label: 'Tardy'
     },
     {
-      id: 1, value: ((disruptiveList.length/refList.length)*100).toFixed(2), label: 'Disruptive Behavior'
+      id: 1, value: ((disruptiveList.length/total)*100).toFixed(2), label: 'Disruptive Behavior'
      },
      {
-      id: 2, value: ((cellList.length/refList.length)*100).toFixed(2), label: 'Cell Phone'
+      id: 2, value: ((cellList.length/total)*100).toFixed(2), label: 'Cell Phone'
      },
      {
-      id: 3, value: ((horseplayList.length/refList.length)*100).toFixed(2), label: 'Horseplay'
+      id: 3, value: ((horseplayList.length/total)*100).toFixed(2), label: 'Horseplay'
      },
      {
-      id: 4, value: ((dressCodeList.length/refList.length)*100).toFixed(2), label: 'Dress Code'
+      id: 4, value: ((dressCodeList.length/total)*100).toFixed(2), label: 'Dress Code'
      },
      {
-      id: 5, value: ((ftcList.length/refList.length)*100).toFixed(2), label: 'Failure to Complete Work'
+      id: 5, value: ((ftcList.length/total)*100).toFixed(2), label: 'Failure to Complete Work'
      },
   ];
-  
+  console.log(refList)
+  console.log("TOTAL", total)
+  console.log("Trady", tardyList.length)
+  console.log("FTC", ftcList.length)
+  console.log("distrupt", disruptiveList.length)
+  console.log("cellphone", cellList.length)
+  console.log("horseplay", horseplayList.length)
+  console.log("dresscode", dressCodeList.length)
+
+
+
 
 // const meetsTres = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent)>5.00).sort((a, b) => b.incidents - a.incidents);
 // const otherNotMeetingTreshold = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent) <= 5.00).sort((a, b) => b.incidents - a.incidents);
@@ -121,7 +133,7 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
           height={250}
           sx={{
             [`& .${pieArcLabelClasses.root}`]: {
-              fill: 'white',
+              fill: 'black',
               fontWeight: 'bold',
             },
           }}
