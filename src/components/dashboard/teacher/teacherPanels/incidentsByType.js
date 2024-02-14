@@ -13,6 +13,7 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
   const totalIncidents = writeUps.length;
   
   const url = `${baseUrl}/punish/v1/punishments/${data.studentEmail}`;
+
   
 
   useEffect(() => {
@@ -111,7 +112,7 @@ const total = tardyList.length + disruptiveList.length + cellList.length + horse
           height={250}
           sx={{
             [`& .${pieArcLabelClasses.root}`]: {
-              fill: 'black',
+              fill: 'white',
               fontWeight: 'bold',
             },
           }}

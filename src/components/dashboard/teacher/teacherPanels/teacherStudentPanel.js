@@ -59,6 +59,7 @@ import { IncidentByTypePieChart } from './incidentsByType';
 
 
 
+console.log(listOfStudents)
 
 
 
@@ -168,7 +169,7 @@ const generatePDF = (studentData) => {
   pdf.save('student_report.pdf');
 };
 
-{console.log(studentData)}
+console.log(studentData)
 
     const hasScroll = listOfStudents.length > 10;
 
@@ -214,7 +215,7 @@ const generatePDF = (studentData) => {
             </div>
             </div>
 
-            <div style={{color:"black",   marginLeft: "auto" }} className='box-right'>
+            <div style={{color:"white",   marginLeft: "auto" }} className='box-right'>
         <IncidentByTypePieChart data={studentData[0].student}/>
 
             </div>
