@@ -54,22 +54,22 @@ export const IncidentByTypePieChart = ({ data = [] }) => {
 const total = tardyList.length + disruptiveList.length + cellList.length + horseplayList.length+dressCodeList.length +ftcList.length;
   
   const listReturn = [{
-     id: 0, value: ((tardyList.length/total)*100).toFixed(2), label: 'Tardy'
+     id: 0, value: total> 0 ? ((tardyList.length/total)*100).toFixed(0): 0, label: 'Tardy'
     },
     {
-      id: 1, value: ((disruptiveList.length/total)*100).toFixed(2), label: 'Disruptive Behavior'
+      id: 1, value: total> 0 ?((disruptiveList.length/total)*100).toFixed(0) : 0, label: 'Disruptive Behavior'
      },
      {
-      id: 2, value: ((cellList.length/total)*100).toFixed(2), label: 'Cell Phone'
+      id: 2, value:total> 0 ? ((cellList.length/total)*100).toFixed(0) : 0, label: 'Cell Phone'
      },
      {
-      id: 3, value: ((horseplayList.length/total)*100).toFixed(2), label: 'Horseplay'
+      id: 3, value: total> 0 ?((horseplayList.length/total)*100).toFixed(0) : 0, label: 'Horseplay'
      },
      {
-      id: 4, value: ((dressCodeList.length/total)*100).toFixed(2), label: 'Dress Code'
+      id: 4, value: total> 0 ?((dressCodeList.length/total)*100).toFixed(0) : 0, label: 'Dress Code'
      },
      {
-      id: 5, value: ((ftcList.length/total)*100).toFixed(2), label: 'Failure to Complete Work'
+      id: 5, value: total> 0 ?((ftcList.length/total)*100).toFixed(0) : 0, label: 'Failure to Complete Work'
      },
   ];
   console.log(refList)
@@ -80,28 +80,6 @@ const total = tardyList.length + disruptiveList.length + cellList.length + horse
   console.log("cellphone", cellList.length)
   console.log("horseplay", horseplayList.length)
   console.log("dresscode", dressCodeList.length)
-
-
-
-
-// const meetsTres = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent)>5.00).sort((a, b) => b.incidents - a.incidents);
-// const otherNotMeetingTreshold = studentsWithIncidentsList.filter(ind=> parseFloat(ind.percent) <= 5.00).sort((a, b) => b.incidents - a.incidents);
-
-// const modifiedList = [
-//   ...meetsTres,
-//   {
-//     studentId: "001",
-//     firstName: "Other",
-//     lastName: "",
-//     incidents: otherNotMeetingTreshold.reduce((acc, student) => {
-//       return acc + student.incidents;
-//     }, 0).toFixed(2),
-//     percent: otherNotMeetingTreshold.reduce((acc, student) => {
-//       return acc + parseFloat(student.percent);
-//     }, 0).toFixed(2) // Closing parenthesis was added here
-//   }
-// ];
-
 
 
   // Custom styles for the scrollable container
@@ -124,7 +102,7 @@ const total = tardyList.length + disruptiveList.length + cellList.length + horse
           series={[
             {
               data: listReturn,
-              arcLabel: (item) => `${item.label} (${item.value}%)`,
+              arcLabel: (item) => `(${item.value}%)`,
               arcLabelMinAngle: 45,
             },
           ]}

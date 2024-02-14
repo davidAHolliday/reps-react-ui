@@ -168,6 +168,8 @@ const generatePDF = (studentData) => {
   pdf.save('student_report.pdf');
 };
 
+{console.log(studentData)}
+
     const hasScroll = listOfStudents.length > 10;
 
     return (
