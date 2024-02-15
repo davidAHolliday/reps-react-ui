@@ -12,24 +12,49 @@ export const IncidentByTeacherPieChart = ({ data = [] }) => {
 
 
   // Get Unique Teachers Info
-
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+  
+  const url = `${baseUrl}/employees/v1/employees/TEACHER`;
+  
 
 
   useEffect(() => {
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-    
-    const url = `${baseUrl}/employees/v1/employees/TEACHER`;
-    
-    axios
-      .get(url, { headers }) // Pass the headers option with the JWT token
-      .then(function (response) {
+    const fetchData = async () => {
+      try {
+        const token = sessionStorage.getItem('Authorization');
+        const headers = { Authorization: `Bearer ${token}` };
+        const url = `${baseUrl}/employees/v1/employees/TEACHER`;
+        const response = await axios.get(url, { headers }) // Pass the headers option with the JWT token
+
         setTeacherData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      } catch (error) {
+        if (error.response && error.response.status === 403) {
+          // Token might have expired, try refreshing the token
+          try {
+            // Implement token refresh logic here
+            // This might involve making a separate request to refresh the token
+            // Update the sessionStorage with the new token
+
+            // After refreshing the token, retry the original request
+            const newToken = sessionStorage.getItem('Authorization');
+            const newHeaders = { Authorization: `Bearer ${newToken}` };
+
+            const url = `${baseUrl}/employees/v1/employees/TEACHER`;
+            const response = await axios.get(url, { headers }) // Pass the headers option with the JWT token
+
+            setTeacherData(response.data);
+          } catch (refreshError) {
+            console.error('Error refreshing token:', refreshError);
+          }
+        } else {
+          console.error('Error fetching data:', error);
+        }
+      }
+    };
+
+    fetchData();
   }, []);
 
 
