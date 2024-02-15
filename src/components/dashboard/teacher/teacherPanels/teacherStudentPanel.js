@@ -34,27 +34,39 @@ import { IncidentByTypePieChart } from './incidentsByType';
 //get
     const url = `${baseUrl}/student/v1/allStudents`;
     useEffect(() => {
-      axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
-        .then(function (response) {
-          //Figure out how we are going to return only students associated with teacher.
-          // Maybe only pulling up students with active and closed punishments
-          // if(admin){
-          //   const data = response.data;
-          //   setListOfStudents(data);
+      const fetchData = async () => {
+        try {
+        const token = sessionStorage.getItem('Authorization');
+        const headers = { Authorization: `Bearer ${token}` };
+        const url = `${baseUrl}/student/v1/allStudents`;
+        const response = await axios.get(url, { headers }) // Pass the headers option with the JWT token
+        
+        setListOfStudents(response.data);
+        } catch (error) {
+          if (error.response && error.response.status === 403) {
+            // Token might have expired, try refreshing the token
+            try {
+              // Implement token refresh logic here
+              // This might involve making a separate request to refresh the token
+              // Update the sessionStorage with the new token
+  
+              // After refreshing the token, retry the original request
+              const newToken = sessionStorage.getItem('Authorization');
+              const newHeaders = { Authorization: `Bearer ${newToken}` };
+              const url = `${baseUrl}/student/v1/allStudents`;
 
-
-          // }else{
-          //   const data = response.data.filter(x=> x.teacherEmail === sessionStorage.getItem("email"));
-          //   setListOfStudents(data);
-
-          // }
-          const data = response.data
-          setListOfStudents(data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+              const response = await axios.get(url, { headers: newHeaders });
+              setListOfStudents(response.data);
+            } catch (refreshError) {
+              console.error('Error refreshing token:', refreshError);
+            }
+          } else {
+            console.error('Error fetching data:', error);
+          }
+        }
+      };
+  
+      fetchData();
     }, []);
 
 
