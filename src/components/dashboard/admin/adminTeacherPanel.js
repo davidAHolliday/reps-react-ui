@@ -89,10 +89,10 @@ console.log(newData)
       console.error('Error fetching data:', error);
     }
   }
+  fetchTeacherData();
 };
 
-fetchData();
-};
+
 
 const handleSearchChange = (e) => {
   setSearchQuery(e.target.value);
