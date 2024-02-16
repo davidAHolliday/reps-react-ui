@@ -3,7 +3,7 @@
 import axios from "axios";
 import { baseUrl } from "../jsonData";
 
-const maxRetries = 3;
+const maxRetries = 5;
 
 
 //Helper Function to handle common fetch options (headers,auth, etc)
