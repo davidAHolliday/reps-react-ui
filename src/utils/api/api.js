@@ -51,6 +51,9 @@ export const get = async (endpoint) => {
     // If max retries reached without success, throw an error
     throw new Error('Max retries reached without successful response.');
   };// Function to make a POST request
+
+
+  
 export const post = async (endpoint, body) => {
     try {
       const response = await axios.post(`${baseUrl}/${endpoint}`, body,getHeaders);

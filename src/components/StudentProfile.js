@@ -19,6 +19,7 @@ import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { post } from '../utils/api/api';
 
 
 const StudentProfile = (props) => {
@@ -46,23 +47,26 @@ const StudentProfile = (props) => {
       }
     }, []);
   
-  
-    const headers = {
-      Authorization: 'Bearer ' + sessionStorage.getItem('Authorization'),
-    };
-  
+
+
+
     useEffect(() => {
-        console.log(props);
-      axios
-        .post(`${baseUrl}/punish/v1/studentsReport/${props.studentEmail}`, "payload", { headers })
-        .then(function (response) {
-          setData(response.data);
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }, [props.studentEmail]);
+      const getStudentReport = async ()=>{
+        try{
+          const result = await post('punish/v1/punishments',[])
+          setData(result)
+        }catch(err){
+          console.error('Error Fetching Data: ',err)
+        } 
+     
+      }
+     
+      getStudentReport();
+    
+    },[props.studentEmail])
+    
+
+   
   
     const toggleDrawer = (open) => {
       setOpenDrawer(open);

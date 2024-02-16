@@ -1,10 +1,7 @@
-import react, {useState,useEffect,useRef} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper,Card, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import axios from "axios"
-import { baseUrl } from '../../../utils/jsonData'
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -24,9 +21,6 @@ import { get } from '../../../utils/api/api';
 
 
 
-    
-    
-
     useEffect(() => {
       const fetchEmployeeData = async ()=>{
         try{
@@ -41,11 +35,6 @@ import { get } from '../../../utils/api/api';
       fetchEmployeeData();
     
     },[])
-
-
-
-
-
 
 
 //Fetch Teacher Data 
