@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios"
 import { baseUrl } from '../../../../utils/jsonData'
-import StudentProfile from '../../../StudentProfile';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Select from "react-select";
 import jsPDF from 'jspdf';
