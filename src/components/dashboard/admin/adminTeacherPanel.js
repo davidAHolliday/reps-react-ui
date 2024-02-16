@@ -64,7 +64,6 @@ import { get } from '../../../utils/api/api';
  
   }
 
-
 const handleSearchChange = (e) => {
   setSearchQuery(e.target.value);
 };

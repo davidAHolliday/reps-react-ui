@@ -67,8 +67,7 @@ pdf.text('Detention List', 105, 40, { align: 'center' }); // Adjust coordinates 
   // Save or open the PDF
   pdf.save('detention_report.pdf');
 };
-
-
+     
     return (
       <>
 
