@@ -12,6 +12,7 @@ import 'jspdf-autotable';
 
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
+import { get } from '../../../utils/api/api';
 
    const AdminTeacherPanel = () => {
 	const [data, setData]= useState([])
@@ -22,49 +23,47 @@ import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudent
   const [filteredData, setFilteredData] = useState([]);
 
 
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
+
     
-    const url = `${baseUrl}/employees/v1/employees/TEACHER`;
     
 
     useEffect(() => {
-      axios
-        .get(url, { headers }) // Pass the headers option with the JWT token
-        .then(function (response) {
-          setData(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }, []);
+      const fetchEmployeeData = async ()=>{
+        try{
+          const result = await get('employees/v1/employees/TEACHER')
+          setData(result)
+        }catch(err){
+          console.error('Error Fetching Data: ',err)
+        } 
+     
+      }
+
+      fetchEmployeeData();
+    
+    },[])
+
+
+
 
 
 
 
 //Fetch Teacher Data 
+  const fetchTeacherData = async (teacherEmail)=>{
+    try{
+      const result = await get('punish/v1/punishments/')
+      const newData = result.filter(((x)=> x.teacherEmail === teacherEmail));
+      console.log("find me ", newData)
+      setTeacherProfileData(newData);
+      setTeacherProfileModal(true);  
+  
+  
+    }catch(err){
+      console.error('Error Fetching Data: ',err)
+    } 
+ 
+  }
 
-const fetchTeacherData = (teacherEmail) =>{
-  //Replace with teacherendpoint
-  const punishUrl= `${baseUrl}/punish/v1/punishments/`;
-  axios
-  .get(punishUrl, { headers }) // Pass the headers option with the JWT token
-  .then(function (response) {
-
-    const data = response.data;
-    console.log(teacherEmail)
-    const newData = data.filter(((x)=> x.teacherEmail === teacherEmail));
-    console.log("find me ", newData)
-    setTeacherProfileData(newData);
-    setTeacherProfileModal(true);  
-    
-console.log(newData)
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-};
 
 const handleSearchChange = (e) => {
   setSearchQuery(e.target.value);
@@ -166,11 +165,11 @@ const generatePDF = (activeTeacher,studentData) => {
             </div>
             </div>
             <div  className='box-center'>
-            <IncidentsByStudentTable data={teacherProfileData}/>
+            <IncidentsByStudentTable writeUps={teacherProfileData}/>
 
             </div>
             <div className='box-right'>
-                              <IncidentByStudentPieChart data={teacherProfileData}/>
+                              <IncidentByStudentPieChart writeUps={teacherProfileData}/>
 
 
 
