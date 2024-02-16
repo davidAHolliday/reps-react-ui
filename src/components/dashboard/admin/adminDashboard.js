@@ -7,21 +7,17 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import CreateNewStudentPanel from '../panel/createNewStudentPanel';
-import StudentPanel from '../panel/studentPanel';
-import NotificationBar from '../../notification-bar/NotificationBar';
 import ISSWidget from './issWidget';
 import DetentionWidget from './detentionWidget';
 import AdminTeacherPanel from './adminTeacherPanel';
-import AdminUserRoleManagement from './adminUserRoleManagement';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel';
 import GlobalArchivedPunishmentPanel from '../global/globalArchivedPunishmentPanel';
 import AdminOverviewPanel from './adminOverview';
-import { baseUrl } from '../../../utils/jsonData';
-import axios from 'axios';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentManager from '../../../utils/EssayForm';
 import TeacherStudentPanel from '../teacher/teacherPanels/teacherStudentPanel';
 import AddTeacherForm from './addTeacherForm';
+import { get } from '../../../utils/api/api';
 
 
 
@@ -29,7 +25,8 @@ const AdminDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("overview")
-  const [data,setData] = useState([])
+  const [punishmentData,setPunishmentData] = useState([])
+  const [teacherData,setTeacherData] = useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
     teacherDropdown:false,
@@ -74,26 +71,33 @@ const openDropdown =(field)=>{
   }))
 }
 
-const headers = {
-  Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
-};
 
+
+//Fetch Data to Prop Drill to Componetns
 
 useEffect(() => {
-  const headers = {
-    Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
-  };
-  
-  axios
-    .get(`${baseUrl}/punish/v1/punishments`, { headers })
-    .then(function (response) {
-      setData(response.data);
-      console.log("Headers",headers)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}, []);
+  const fetchPunishmentData = async ()=>{
+    try{
+      const result = await get('punish/v1/punishments')
+      setPunishmentData(result)
+    }catch(err){
+      console.error('Error Fetching Data: ',err)
+    } 
+ 
+  }
+  const fetchTeacherData = async ()=>{
+    try{
+      const result = await get('employees/v1/employees/TEACHER')
+      setTeacherData(result)
+    }catch(err){
+      console.error('Error Fetching Data: ',err)
+    } 
+ 
+  }
+  fetchPunishmentData();
+  fetchTeacherData();
+
+},[])
 
 
 
@@ -231,7 +235,7 @@ useEffect(() => {
         </div>
       </div>
       <div className = "main-content-panel">
-{panelName === "overview" &&<AdminOverviewPanel data={data}/>}
+{panelName === "overview" &&<AdminOverviewPanel punishmentData={punishmentData} teacherData={teacherData}/>}
 {panelName === "viewTeacher" &&<AdminTeacherPanel/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}
