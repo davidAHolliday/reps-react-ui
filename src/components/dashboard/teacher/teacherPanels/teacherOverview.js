@@ -119,7 +119,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
 {/* <Card style={{padding:"5px"}}> */}
-    <IncidentsByStudentTable data={data}/>
+    <IncidentsByStudentTable writeUps={data}/>
 {/* </Card> */}
 
 

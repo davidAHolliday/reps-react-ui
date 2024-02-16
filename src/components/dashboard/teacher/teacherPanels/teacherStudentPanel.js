@@ -11,15 +11,12 @@ import 'jspdf-autotable';
 import { IncidentByTypePieChart } from './incidentsByType';
 
 
-   const TeacherStudentPanel = () => {
+   const TeacherStudentPanel = (data=[]) => {
 
 
 	const [listOfStudents, setListOfStudents]= useState([])
   const [studentDisplay, setStudentDisplay] = useState(false);
-  const [studentEmail, setStudentEmail] = useState("");
   const [studentData, setStudentData] = useState("");
-  const [studentProfileModal,setStudentProfileModal] = useState(false)
-  const [studentName, setStudentName] = useState("")
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
@@ -135,7 +132,6 @@ useEffect(() => {
 // });
 
 const handleProfileClick = (x) =>{
-  setStudentName(x.firstName);
   fetchStudentData(x.studentEmail)
 }
 

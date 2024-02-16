@@ -53,14 +53,3 @@ export const get = async (endpoint) => {
   };// Function to make a POST request
 
 
-  
-export const post = async (endpoint, body) => {
-    try {
-      const response = await axios.post(`${baseUrl}/${endpoint}`, body,getHeaders);
-      return response.data;
-    } catch (error) {
-      console.error('Error making POST request:', error);
-      throw error;
-    }
-  };
-  
