@@ -80,19 +80,39 @@ const headers = {
 
 
 useEffect(() => {
-  const headers = {
-    Authorization: 'Bearer ' + sessionStorage.getItem("Authorization"),
-  };
-  
-  axios
-    .get(`${baseUrl}/punish/v1/punishments`, { headers })
-    .then(function (response) {
-      setData(response.data);
-      console.log("Headers",headers)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  const fetchData = async () => {
+    try {
+    const token = sessionStorage.getItem('Authorization');
+    const headers = { Authorization: `Bearer ${token}` };
+    const url = `${baseUrl}/punish/v1/punishments`;
+    const response = await axios.get(url, { headers })
+
+    setData(response.data);
+  } catch (error) {
+    if (error.response && error.response.status === 403) {
+      // Token might have expired, try refreshing the token
+      try {
+        // Implement token refresh logic here
+        // This might involve making a separate request to refresh the token
+        // Update the sessionStorage with the new token
+
+        // After refreshing the token, retry the original request
+        const newToken = sessionStorage.getItem('Authorization');
+        const newHeaders = { Authorization: `Bearer ${newToken}` };
+        const url = `${baseUrl}/punish/v1/punishments`;
+        const response = await axios.get(url, { headers })
+
+        setData(response.data);
+      } catch (refreshError) {
+        console.error('Error refreshing token:', refreshError);
+      }
+    } else {
+      console.error('Error fetching data:', error);
+    }
+  }
+};
+
+fetchData();
 }, []);
 
 

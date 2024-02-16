@@ -45,12 +45,13 @@ import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudent
 
 //Fetch Teacher Data 
 
-const fetchTeacherData = (teacherEmail) =>{
+const fetchTeacherData = async (teacherEmail) =>{
+  try{
+    const token = sessionStorage.getItem('Authorization');
+    const headers = { Authorization: `Bearer ${token}` };
   //Replace with teacherendpoint
   const punishUrl= `${baseUrl}/punish/v1/punishments/`;
-  axios
-  .get(punishUrl, { headers }) // Pass the headers option with the JWT token
-  .then(function (response) {
+  const response = axios.get(punishUrl, { headers }) // Pass the headers option with the JWT token
 
     const data = response.data;
     console.log(teacherEmail)
@@ -60,10 +61,37 @@ const fetchTeacherData = (teacherEmail) =>{
     setTeacherProfileModal(true);  
     
 console.log(newData)
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  } catch (error) {
+    if (error.response && error.response.status === 403) {
+      // Token might have expired, try refreshing the token
+      try {
+        // Implement token refresh logic here
+        // This might involve making a separate request to refresh the token
+        // Update the sessionStorage with the new token
+
+        // After refreshing the token, retry the original request
+        const newToken = sessionStorage.getItem('Authorization');
+        const newHeaders = { Authorization: `Bearer ${newToken}` };
+        const punishUrl= `${baseUrl}/punish/v1/punishments/`;
+        const response = axios.get(punishUrl, { headers }) // Pass the headers option with the JWT token
+
+        const data = response.data;
+        console.log(teacherEmail)
+        const newData = data.filter(((x)=> x.teacherEmail === teacherEmail));
+        console.log("find me ", newData)
+        setTeacherProfileData(newData);
+        setTeacherProfileModal(true);  
+    
+      } catch (refreshError) {
+        console.error('Error refreshing token:', refreshError);
+      }
+    } else {
+      console.error('Error fetching data:', error);
+    }
+  }
+};
+
+fetchData();
 };
 
 const handleSearchChange = (e) => {
