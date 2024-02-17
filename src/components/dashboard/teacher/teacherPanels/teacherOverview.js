@@ -1,14 +1,14 @@
 import  {useState,useEffect} from 'react'
 import Typography from '@mui/material/Typography';
-import IncidentsByStudentTable from './incidentsByStudentTable';
-import TotalReferralByWeek from './referralsByWeek';
-import TotalStudentReferredByWeek from './numberOfStudentReferralsByWeek';
+import IncidentsByStudentTable from './charts/tables/incidentsByStudentTable.js';
+import TotalReferralByWeek from './charts/lineCharts/referralsByWeek.js';
+import TotalStudentReferredByWeek from './charts/lineCharts/numberOfStudentReferralsByWeek.js';
 import Card from '@mui/material/Card';
-import ReferralByBehavior from './referralsByBehavior';
-import TeacherInfractionOverPeriodBarChart from './teacherInfractionPeriodBarChart';
-import { PieChartParentCommunication } from './pieChartParentCommunication';
-import RecentIncidents from './studentRecentIncidents';
-import TeacherShoutOutWidget from './teacherShoutOutWidget.js';
+import ReferralByBehavior from './charts/lineCharts/referralsByBehavior.js';
+import TeacherInfractionOverPeriodBarChart from './charts/barChart/teacherInfractionPeriodBarChart.js';
+import { PieChartParentCommunication } from './charts/pieCharts/pieChartParentCommunication.js';
+import RecentIncidents from './charts/tables/studentRecentIncidents.js';
+import TeacherShoutOutWidget from './charts/tables/teacherShoutOutWidget.js';
 import Button from '@mui/material/Button';
 
 
@@ -147,7 +147,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
 
-      <TotalReferralByWeek data={data}/>
+    { data ? <TotalReferralByWeek data={data}/> : <h1>loading</h1>}
 
       {/* </Card> */}
 

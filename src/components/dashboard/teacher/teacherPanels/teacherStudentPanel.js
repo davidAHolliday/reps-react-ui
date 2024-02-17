@@ -1,14 +1,11 @@
-import react, {useState,useEffect,useRef} from 'react'
+import  {useState,useEffect,useRef} from 'react'
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import axios from "axios"
-import { baseUrl } from '../../../../utils/jsonData'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import Select from "react-select";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import { IncidentByTypePieChart } from './incidentsByType';
+import { IncidentByTypePieChart } from './charts/pieCharts/incidentsByType';
 import { get } from '../../../../utils/api/api';
 
 
@@ -21,14 +18,7 @@ import { get } from '../../../../utils/api/api';
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
-    const headers = {
-      Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
-    };
-
-    const admin = sessionStorage.getItem("role")=== "ADMIN";
-
     
-//get
     useEffect(() => {
       const fetchData = async () => {
         try {

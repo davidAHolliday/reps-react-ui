@@ -17,7 +17,7 @@ import Card from '@mui/material/Card';
 import ShoutOutWidget from '../student/shoutOutWidget.js';
 import TeaherOverviewPanel from './teacherPanels/teacherOverview.js';
 import TeacherOverviewPanel from './teacherPanels/teacherOverview.js';
-import TeacherShoutOutWidget from './teacherPanels/teacherShoutOutWidget.js';
+import TeacherShoutOutWidget from './teacherPanels/charts/tables/teacherShoutOutWidget.js';
 import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -80,21 +80,20 @@ const TeacherDashboard = () => {
 
   }, []);
 
-  useEffect(()=>{
-    const fetchStudentData = async ()=>{
-      try{
-        const response = await get('student/v1/allStudents');
-        setStudentData(response)
+  // useEffect(()=>{
+  //   const fetchStudentData = async ()=>{
+  //     try{
+  //       const response = await get('student/v1/allStudents');
+  //       setStudentData(response)
 
-      }catch(err){
-        console.error(err)
-      }
-    }
-    fetchStudentData();
+  //     }catch(err){
+  //       console.error(err)
+  //     }
+  //   }
+  //   fetchStudentData();
 
-  },[])
+  // },[])
 
-  console.log(studentData)
 
 
   const toggleNotificationDrawer = (open) => {

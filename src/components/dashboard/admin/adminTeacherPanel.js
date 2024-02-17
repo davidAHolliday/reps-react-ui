@@ -8,7 +8,7 @@ import 'jspdf-autotable';
 
 
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
-import IncidentsByStudentTable from '../teacher/teacherPanels/incidentsByStudentTable';
+import IncidentsByStudentTable from '../teacher/teacherPanels/charts/tables/incidentsByStudentTable';
 import { get } from '../../../utils/api/api';
 
    const AdminTeacherPanel = () => {
