@@ -88,21 +88,13 @@ useEffect(() => {
     } 
  
   }
-//   const fetchTeacherData = async ()=>{
-//     try{
-//       const result = await get('employees/v1/employees/TEACHER')
-//       setTeacherData(result)
-//     }catch(err){
-//       console.error('Error Fetching Data: ',err)
-//     } 
- 
-//   }
-//   fetchPunishmentData();
-//   fetchTeacherData();
 
-fetchPunishmentData();
+if(panelName === "overview"){
+  fetchPunishmentData();
 
-},[])
+}
+
+},[panelName])
 
 
 

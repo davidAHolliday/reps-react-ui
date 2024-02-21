@@ -66,6 +66,7 @@ const TeacherDashboard = () => {
 
 
   useEffect(() => {
+ 
     const fetchPunishmentData = async () =>{
       try{
         const response = await get('punish/v1/punishments')
@@ -75,10 +76,12 @@ const TeacherDashboard = () => {
       }
 
     }
+    if(panelName === "overview"){
+      fetchPunishmentData()
 
-    fetchPunishmentData()
+    }
 
-  }, []);
+  }, [panelName]);
 
   // useEffect(()=>{
   //   const fetchStudentData = async ()=>{
