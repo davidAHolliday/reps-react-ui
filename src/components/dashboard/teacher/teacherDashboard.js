@@ -69,8 +69,8 @@ const TeacherDashboard = () => {
  
     const fetchPunishmentData = async () =>{
       try{
-        const response = await get('punish/v1/punishments')
-        setData(response)
+        const response = await get('DTO/v1/TeacherOverviewData')
+        setData(response.punishments)
       }catch(err){
         console.error(err)
       }
