@@ -171,7 +171,7 @@ const StudentDashboard = () => {
 
       <div style={{height:"80vh"}}className = "student-panel">
         {panelName === "closedAssignments" &&<StudentClosedPunishmentPanel listOfPunishments={data}/>}
-        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel handleStartAssignment={handleStartAssignment}/>}
+        {panelName === "openAssignments" &&<StudentOpenPunishmentPanel listOfPunishments={data} handleStartAssignment={handleStartAssignment}/>}
         {panelName === "startAssignment" &&<ViolationPage data={selectAssignmentToStart} />}
       </div>
       </>
