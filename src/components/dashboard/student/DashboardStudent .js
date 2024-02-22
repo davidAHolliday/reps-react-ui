@@ -18,6 +18,7 @@ import Card from '@mui/material/Card';
 import BlankPanelForTest from './blankPanelForTest';
 import ViolationPage from '../../../forms/ViolationPage';
 import { get } from '../../../utils/api/api';
+import LoadingWheelPanel from './blankPanelForTest';
 
 
 
@@ -80,7 +81,9 @@ const StudentDashboard = () => {
     setPanelName("startAssignment")
   }
 
-  return (
+
+ return (
+  
     loggedIn && (
       <>
         <div className ="app-bar">
@@ -147,9 +150,10 @@ const StudentDashboard = () => {
       </div>
       </div>
 
-      { false ? 
+      { data.length ===0 ? 
+
       <div style={{backgroundColor:"white",height:"80vh",marginTop:"10px"}} className='student-panel'>
-      <BlankPanelForTest/>
+      <LoadingWheelPanel/>
       </div>:<>
 
       
