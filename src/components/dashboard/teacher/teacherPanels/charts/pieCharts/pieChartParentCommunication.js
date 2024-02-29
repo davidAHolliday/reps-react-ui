@@ -10,7 +10,7 @@ export const PieChartParentCommunication = ({data = []}) =>{
     const numBxConcern = getIncidentByBehavior("Behavioral Concern",data)
 
 
-const teachReferrals = filterPunishementsByLoggedInUser(data);
+const teachReferrals = filterPunishementsByLoggedInUser(data)-(numBxConcern+numShoutout);
 
 
 
