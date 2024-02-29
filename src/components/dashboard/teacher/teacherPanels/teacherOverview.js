@@ -146,7 +146,7 @@ import Button from '@mui/material/Button';
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
 
-    { data ? <TotalReferralByWeek data={data.punishments}/> : <h1>loading</h1>}
+    { data ? <TotalReferralByWeek data={data.writeUps}/> : <h1>loading</h1>}
 
       {/* </Card> */}
 
@@ -155,13 +155,13 @@ import Button from '@mui/material/Button';
     </div>
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
-<TotalStudentReferredByWeek data={data.punishments}/>
+<TotalStudentReferredByWeek data={data.writeUps}/>
 {/* </Card> */}
 </div>
 
 <div className='teacher-widget-third'>
 {/* <Card style={{padding:"5px"}}> */}
-<ReferralByBehavior data={data.punishments}/>
+<ReferralByBehavior data={data.writeUps}/>
 {/* </Card> */}
 
 </div>
