@@ -70,7 +70,7 @@ const TeacherDashboard = () => {
  
     const fetchPunishmentData = async () =>{
       try{
-        const response = await get(`DTO/v1/TeacherOverviewData/`)
+        const response = await get(`DTO/v1/TeacherOverviewData`)
         setData(response)
       }catch(err){
         console.error(err)
