@@ -56,7 +56,7 @@ const StudentDashboard = () => {
  
     const fetchData = async () =>{
       try{
-        const response = await get(`DTO/v1/StudentOverviewData/${sessionStorage.getItem('email')}`)
+        const response = await get(`DTO/v1/StudentOverviewData`)
         setData(response.punishments)
         setStudentDetails(response.student)
       }catch(err){
