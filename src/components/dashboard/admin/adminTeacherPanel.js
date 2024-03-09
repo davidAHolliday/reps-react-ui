@@ -41,9 +41,7 @@ import { get } from '../../../utils/api/api';
   const fetchTeacherData = async (teacherEmail)=>{
     try{
       const result = await get('punish/v1/punishments/')
-      const newData = result.filter(((x)=> x.teacherEmail === teacherEmail));
-      console.log("find me ", newData)
-      setTeacherProfileData(newData);
+      setTeacherProfileData(result);
       setTeacherProfileModal(true);  
   
   
