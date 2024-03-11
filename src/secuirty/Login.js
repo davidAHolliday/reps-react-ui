@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -23,6 +23,17 @@ import { redirect, useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ContactUsModal } from './contactUsModal';
 import ChatIcon from '@mui/icons-material/Chat';
+import JsonData from '../utils/data.json';
+import { Navigation } from '../components/landing/navigation';
+import { Header } from '../components/landing/header';
+import { Features } from '../components/landing/features';
+import { About } from '../components/landing/about';
+import { Services } from '../components/landing/services';
+import { Gallery } from '../components/landing/gallery';
+import { Testimonials } from '../components/landing/testimonials';
+import { Team } from '../components/landing/Team';
+import { Contact } from '../components/landing/contact';
+
 
 
 
@@ -93,6 +104,11 @@ export default function SignIn() {
     setWarningToast(false);
   };
 
+  const [landingPageData, setLandingPageData] = useState({});
+  useEffect(() => {
+    setLandingPageData(JsonData);
+  }, []);
+
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -156,6 +172,17 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <div>
+      <Navigation />
+      <Header data={landingPageData.Header} />
+      <Features data={landingPageData.Features} />
+      <About data={landingPageData.About} />
+      <Services data={landingPageData.Services} />
+      <Gallery data={landingPageData.Gallery} />
+      <Testimonials data={landingPageData.Testimonials} />
+      <Team data={landingPageData.Team} />
+      <Contact data={landingPageData.Contact} />
+    </div>
       <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
       <Container component="main" maxWidth="xs" >
 
