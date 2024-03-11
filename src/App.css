@@ -1,7 +1,7 @@
 .App {
   width: 98%;      
   margin: 0 auto;
-  background-color: #5333ed;  
+  background-color: #f4f4f4;  
   height: 100vh;
 
 }
@@ -309,7 +309,7 @@ input[type="password"], input[type="password"], select {
   text-decoration: none;
   border-radius: 5px;
   font-size: 18px;
-  transition: background-color 0.3s;
+  /*transition: background-color 0.3s;*/
 }
 
 .dashboard-button:hover {
@@ -330,12 +330,12 @@ input[type="password"], input[type="password"], select {
 }
 
 body {
-  background: linear-gradient(45deg, #141BC6, #1483C6, #E12BE3);
+  background: white;
   background-size: 600% 600%;
-  animation: GradientBackground 8s ease infinite;
+  /* animation: GradientBackground 8s ease infinite; */
 }
 
-@keyframes GradientBackground {
+/* @keyframes GradientBackground {
   0% {
     background-position: 0% 50%;
   }
@@ -347,7 +347,7 @@ body {
   100% {
     background-position: 0% 50%;
   }
-};
+}; */
 
 /* Essay Styles */
 .essay-container {
@@ -856,7 +856,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  /*transition: background-color 0.3s ease;*/
 }
 
 button:hover {
