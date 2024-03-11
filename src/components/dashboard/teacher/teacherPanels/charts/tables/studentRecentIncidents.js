@@ -75,7 +75,7 @@ const RecentIncidents = ({data = []}) => {
         <TableBody>
         {filteredData.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated)).slice(0, 10).map((record, index) => (
             <TableRow key={index}>
-              <TableCell>{record.student.firstName} {record.student.lastName} {String(record.student.studentIdNumber).substring(0,5)}</TableCell>
+              <TableCell>{record.student.firstName} {record.student.lastName}</TableCell>
               <TableCell>{dateCreateFormat(record.timeCreated)}</TableCell>
               <TableCell>{record.infraction.infractionName}</TableCell> 
               <TableCell>{record.infraction.infractionDescription[1]}</TableCell> 
