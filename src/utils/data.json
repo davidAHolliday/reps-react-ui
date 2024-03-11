@@ -1,21 +1,21 @@
 {
     "Header": {
-      "title": "We are a Landing Page",
-      "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+      "title": "Welcome to Reps Discipline!",
+      "paragraph": "Thank you for your interest in Reps Discipline! This system is meant to give teachers time back in the classroom as well as give everyone in the school much needed data. Reps also facilitates parent to teacher communication and automates the process of giving students a restorative assignment when necessary. Please look at all the info provided to get an idea of what we do and how we can be of service to you and your school!"
     },
     "About": {
-      "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "paragraph": "Reps Discipline was created to make the discipline process easy for teachers and empowering for families. When a teacher needs to write up something positive or negative about a student they use an easy to use form which takes 2-3 minutes at most to complete. After this a group email is immediately created and sent to the parent, student, and teacher with information on what happened and any further action that needs to take place. If an assignment is necessary then the student can login and complete the assignment which should take no more than 3-5 minutes. Once the assignment is complete, that same group email from before is used to notify everyone of the successful completion. If there are any questions from any of the parties during the process then that email can be used to facilitate useful conversation between everyone involved.",
       "Why": [
-        "Lorem ipsum dolor",
-        "Tempor incididunt",
-        "Lorem ipsum dolor",
-        "Incididunt ut labore"
+        "Get time back in the classroom",
+        "Facilitate parent communication",
+        "Automate restorative assignments",
+        "IEasily Track and Manage Student Data"
       ],
       "Why2": [
-        "Aliquip ex ea commodo",
-        "Lorem ipsum dolor",
-        "Exercitation ullamco",
-        "Lorem ipsum dolor"
+        "Take action steps faster",
+        "Give students a voice in the process",
+        "Create office managed referrals when needed",
+        "Reward students who go above and beyond"
       ]
     },
     "Gallery": [
@@ -68,93 +68,93 @@
     "Services": [
       {
         "icon": "fa fa-wordpress",
-        "name": "Lorem ipsum dolor",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-      },
-      {
-        "icon": "fa fa-cart-arrow-down",
-        "name": "Consectetur adipiscing",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-      },
-      {
-        "icon": "fa fa-cloud-download",
-        "name": "Lorem ipsum dolor",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-      },
-      {
-        "icon": "fa fa-language",
-        "name": "Consectetur adipiscing",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-      },
-      {
-        "icon": "fa fa-plane",
-        "name": "Lorem ipsum dolor",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        "name": "Automated Assignments",
+        "text": "Restorative assignments are automated so students and teachers can focus on schoolwork and not having to communicate back and forth about when something is done."
       },
       {
         "icon": "fa fa-pie-chart",
-        "name": "Consectetur adipiscing",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        "name": "Centralized Data",
+        "text": "Data is centralized on dashboards and easy to consume in order to take action steps. Charts are able to be customized to look at time periods and specific students."
+      },
+      {
+        "icon": "fa fa-cloud-download",
+        "name": "Record Keeping",
+        "text": "Student and Teacher data is collected as well as maintained throughout the life of the program. This allows both to transfer records when changing between Reps schools."
+      },
+      {
+        "icon": "fa fa-language",
+        "name": "Reading Comprehension",
+        "text": "Restorative assignments allow students to practice reading comprehension and subject matter pertains to whatever type of infraction caused the restorative assignment."
+      },
+      {
+        "icon": "fa fa-plane",
+        "name": "Geographic flexiblity",
+        "text": "Since Reps is a cloud service you can use this as an entire school or as individual classes/departments."
+      },
+      {
+        "icon": "fa fa-cart-arrow-down",
+        "name": "School-Friendly Pricing Model",
+        "text": "Reps can be purchased at a "
       }
     ],
     "Testimonials": [
       {
         "img": "img/testimonials/01.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "John Doe"
+        "text": "I know I am old but even I can use this crazy thing!",
+        "name": "John Oldman"
       },
       {
         "img": "img/testimonials/02.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "Johnathan Doe"
+        "text": "I was headed for a career in the back alley. Now I manage the bowling alley. Thank you Reps!",
+        "name": "Johnathan Mutton"
       },
       {
         "img": "img/testimonials/03.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "John Doe"
+        "text": "I stopped vaping because of Reps! Now I know how to read the warnings on the boxes!",
+        "name": "John Smoke"
       },
       {
         "img": "img/testimonials/04.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "Johnathan Doe"
+        "text": "Reps helped me realize I am addicted to my cell phone. Now my GPA is closer to my phone number than my shoe size!",
+        "name": "Cheryl Doe"
       },
       {
         "img": "img/testimonials/05.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "John Doe"
+        "text": "I used to manage a bowling alley. Now I manage an Indie coffee shop!",
+        "name": "John Mutton"
       },
       {
         "img": "img/testimonials/06.jpg",
-        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-        "name": "Johnathan Doe"
+        "text": "I always knew one of my teachers just didn't like student and thankfully Reps gave me all the data I needed to make him change his ways!",
+        "name": "Karen Doe"
       }
     ],
     "Team": [
       {
         "img": "img/team/01.jpg",
-        "name": "John Doe",
-        "job": "Director"
+        "name": "Chris Hart",
+        "job": "Some guy who did stuff"
       },
       {
         "img": "img/team/02.jpg",
-        "name": "Mike Doe",
-        "job": "Senior Designer"
+        "name": "Justin Iverson",
+        "job": "The man with the plan"
       },
       {
         "img": "img/team/03.jpg",
-        "name": "Jane Doe",
-        "job": "Senior Designer"
+        "name": "Someone Else",
+        "job": "Someone else who did stuff"
       },
       {
         "img": "img/team/04.jpg",
-        "name": "Karen Doe",
-        "job": "Project Manager"
+        "name": "David Perez",
+        "job": "Sorry there were only two guy pics"
       }
     ],
     "Contact": {
-      "address": "4321 California St, San Francisco, CA 12345 ",
-      "phone": "+1 123 456 1234",
-      "email": "info@company.com",
+      "address": "1776 Hickory Knoll Way ",
+      "phone": "1 (843) 530-9876",
+      "email": "repsdiscipline@gmail.com",
       "facebook": "fb.com",
       "twitter": "twitter.com",
       "youtube": "youtube.com"
@@ -162,23 +162,23 @@
     "Features": [
       {
         "icon": "fa fa-comments-o",
-        "title": "Lorem ipsum",
-        "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        "title": "Instant Communication",
+        "text": "Reps will instantly create a group email between the student, parent, and teacher when a Positive Shout Out or Behavioral Concern occurs to open those lines of communication for all parties instantly."
       },
       {
         "icon": "fa fa-bullhorn",
-        "title": "Lorem ipsum",
-        "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        "title": "Automatic Rewards and Reprecussions",
+        "text": "Reps will automatically award Reps points or assign restorative assignments immediately when necessary"
       },
       {
         "icon": "fa fa-group",
-        "title": "Lorem ipsum",
-        "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        "title": "Linked Community",
+        "text": "Students actions are linked across all classes and allow parents and teachers to communicate and collaborate with easy to access information"
       },
       {
         "icon": "fa fa-magic",
-        "title": "Lorem ipsum",
-        "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        "title": "Automatic Infraction Handling",
+        "text": "All assignments will send emails to parents, teachers, and the student upon completion"
       }
     ]
   }
