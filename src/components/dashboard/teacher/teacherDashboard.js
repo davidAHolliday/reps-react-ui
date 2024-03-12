@@ -115,9 +115,9 @@ const TeacherDashboard = () => {
   return (
     loggedIn && (
       <>
-        <div className ="app-bar">
+        <div className ="navbar navbar-default navbar-fixed-top">
         <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
-          <Toolbar style={{background:"blue", color: "white"}}>
+          <Toolbar style={{background:"", color: "black"}}>
           <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
@@ -136,7 +136,7 @@ const TeacherDashboard = () => {
        <div className='page'>
       <div className='teacher-main-content'> 
       <div className = "">
-      <div className='teacher-main-content-menu'
+      <div style={{backgroundColor:"#5ca9fb"}}className='teacher-main-content-menu'
       >
   
     {/* Overview button */}

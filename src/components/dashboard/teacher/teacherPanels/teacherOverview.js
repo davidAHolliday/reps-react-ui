@@ -75,12 +75,14 @@ import Button from '@mui/material/Button';
         <TeacherShoutOutWidget data={data.punishments}/>
         </Card>
         </div>
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
+          
+        <div className="section-title">
+   <h2 >
    Week At a Glance
-        </Typography>
+        </h2>
         </div>
+        
+
 
 
   <div className='overview-row'>
@@ -105,12 +107,12 @@ import Button from '@mui/material/Button';
 </div>
 
   </div>
-
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
+<div className='container'>
+  <div className='section-title'>
+   <h2  >
   Students of Concern
-        </Typography>
+        </h2>
+        </div>
         </div>
 
 
@@ -134,12 +136,9 @@ import Button from '@mui/material/Button';
 
   </div>
 
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
-  Longitudinal Reports
-        </Typography>
-        </div>
+  <div className='section-title'>
+    <h2 >Longitudinal Reports</h2>
+  </div>
 
 
   <div className='overview-row'>
