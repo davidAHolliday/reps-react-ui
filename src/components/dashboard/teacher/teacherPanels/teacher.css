@@ -3,12 +3,12 @@
     margin-top: 10px;
     background-color: silver;
     height: max-content ;
-    width: 100%;
+    width: 100;
     border: 5px solid silver;
 }
 
 .dashboard-frame{
-width: 95%;
+width: 100%;
 }
 
 
@@ -65,3 +65,30 @@ width: 95%;
         padding: 2px;
 
     }
+
+
+    .section-dashboard{
+
+        position: relative;
+        content: "";
+        background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+        height: 4px;
+        left: 0%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width: 100%;
+      
+      }
+      
+      .section-dashboard > h2 {
+        color:black;
+        background-color:#5ca9fb;
+        font-family: "Lato", sans-serif;
+        text-transform: uppercase;
+        color: #555;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 8px 2px;
+        border-radius: 0;
+      
+      }

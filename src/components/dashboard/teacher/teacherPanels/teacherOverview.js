@@ -84,7 +84,7 @@ import CardContent from '@mui/material/CardContent';
         </Card>
         </div>
           
-        <div className="section-title">
+        <div className="section-dashboard">
    <h2 >
    Week At a Glance
         </h2>
@@ -115,7 +115,7 @@ import CardContent from '@mui/material/CardContent';
 </div>
 
   </div>
-  <div className='section-title'>
+  <div className='section-dashboard'>
    <h2  >Students of Concern</h2></div>
 
 
@@ -139,7 +139,7 @@ import CardContent from '@mui/material/CardContent';
 
 
 
-  <div className='section-title'>
+  <div className='section-dashboard'>
     <h2 >Longitudinal Reports</h2>
   </div>
 
