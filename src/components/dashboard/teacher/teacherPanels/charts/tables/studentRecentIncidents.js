@@ -58,8 +58,8 @@ const RecentIncidents = ({data = []}) => {
         <TableHead>
         <TableRow>
         <TextField
+        style={{marginLeft:"10px", borderColor:"grey",width:"100%"}}
         label="Search"
-        variant="outlined"
         fullWidth
         value={searchQuery}
         onChange={handleSearchChange}

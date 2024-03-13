@@ -47,8 +47,8 @@ export default function ReferralByBehavior({ data = [] }) {
   const xLabels = GenerateLabels(rangeWeeks, currentWeek);
 
   return (
-    data && (<>
-      <Typography variant="h6" gutterBottom>
+    data && (<div className='line-chart'>
+    <Typography variant="h6" gutterBottom>
         Behavior Trends
       </Typography>
       <button onClick={() => setRangeWeek((prev) => prev - 1)} style={{ height: "20px", width: "20px", padding: 0, borderRadius: 0 }}>-</button>
@@ -64,6 +64,6 @@ export default function ReferralByBehavior({ data = [] }) {
         ]}
         xAxis={[{ scaleType: 'point', data: xLabels }]}
       />
-    </>)
+    </div>)
   );
 }

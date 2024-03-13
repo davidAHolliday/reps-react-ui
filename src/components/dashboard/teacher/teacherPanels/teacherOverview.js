@@ -11,6 +11,7 @@ import RecentIncidents from './charts/tables/studentRecentIncidents.js';
 import TeacherShoutOutWidget from './charts/tables/teacherShoutOutWidget.js';
 import Button from '@mui/material/Button';
 import "./teacher.css"
+import CardContent from '@mui/material/CardContent';
 
 
    const TeacherOverviewPanel = ({setPanelName,data = []}) => {
@@ -39,6 +40,14 @@ import "./teacher.css"
     }
   }, [data]);
 
+
+  const noDataPlaceHolder = (message) =>{
+    return (
+      <Card style={{backgroundColor:"darkgray",height:"400px"}} ><h1>Not Data Available</h1>
+      <CardContent><p>{message}</p></CardContent>
+      </Card>
+    )
+  }
 
     return (
         <>
@@ -85,55 +94,50 @@ import "./teacher.css"
 
 
   <div className='dashboard-row'>
-    <div className='teacher-widget-half'>
-      {/* <Card> */}
-    <div style={{ textAlign:"center",marginTop:"10px"}}>
-<PieChartParentCommunication data={weeklyDataIncSOBxConcern}/>
+
+    <div className='widget-half-page'>
+      {weeklyDataIncSOBxConcern.length === 0 ?
+   noDataPlaceHolder("Add an Infraction to see the Magic Happen") :
+ <PieChartParentCommunication data={weeklyDataIncSOBxConcern}/> }
+    </div>
 
 
-    </div>
-    {/* </Card> */}
-    </div>
-    <div className='teacher-widget-half'>
-      <div className='infraction-bar-chart'>
-        {/* <Card> */}
+
+    <div className='widget-half-page'>
+      {weeklyData.length === 0 ?
+   noDataPlaceHolder("Add an Infraction to see the Magic Happen") :
 <TeacherInfractionOverPeriodBarChart data={weeklyData}/>
-{/* </Card> */}
-      </div>
+ }
+
   
 
 
 </div>
 
   </div>
-<div className='container'>
   <div className='section-title'>
-   <h2  >
-  Students of Concern
-        </h2>
-        </div>
-        </div>
+   <h2  >Students of Concern</h2></div>
 
 
-        <div className='dashboard-row'>
-    <div className='teacher-widget-half'>
-<div className='studentIncidentTable'>
-{/* <Card style={{padding:"5px"}}> */}
-    <IncidentsByStudentTable writeUps={data.writeUps}/>
-{/* </Card> */}
+  <div className='dashboard-row'>
+    <div className='widget-half-page'>
+      {data.writeUps.length === 0?
+      noDataPlaceHolder("No WriteUp Data Avaialbe"):
+      <IncidentsByStudentTable writeUps={data.writeUps}/>
+    } </div>
 
 
-</div>
+<div className='widget-half-page'>
+      {data.punishments.length === 0?
+      noDataPlaceHolder("No Punishment Data Avaialbe"):
+      <RecentIncidents data={data.punishments}/>
+    } </div>
 
-    </div>
-    <div className='teacher-widget-half'>
-{/* <Card style={{padding:"5px"}}> */}
-<RecentIncidents data={data.punishments}/>
-{/* </Card> */}
-
-</div>
 
   </div>
+
+
+
 
   <div className='section-title'>
     <h2 >Longitudinal Reports</h2>
@@ -141,26 +145,18 @@ import "./teacher.css"
 
 
   <div className='dashboard-row'>
-    <div className='teacher-widget-third'>
-    {/* <Card style={{padding:"5px"}}> */}
+    <div className='widget-third-page'>
 
     { data ? <TotalReferralByWeek data={data.writeUps}/> : <h1>loading</h1>}
-
-      {/* </Card> */}
-
-
-
     </div>
-    <div className='teacher-widget-third'>
+    <div className='widget-third-page'>
     {/* <Card style={{padding:"5px"}}> */}
 <TotalStudentReferredByWeek data={data.writeUps}/>
 {/* </Card> */}
 </div>
 
-<div className='teacher-widget-third'>
-{/* <Card style={{padding:"5px"}}> */}
+<div className='widget-third-page'>
 <ReferralByBehavior data={data.writeUps}/>
-{/* </Card> */}
 
 </div>
 

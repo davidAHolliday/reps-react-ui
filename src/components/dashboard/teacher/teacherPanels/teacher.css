@@ -32,5 +32,36 @@ width: 95%;
   }
   
   .open {
-    height: 60px; /* Adjust height accordingly */
+    max-height: 300px; /* Adjust height accordingly */
+    width: 300vh;
+
   }
+
+  .widget-half-page{
+
+    height: 400px;
+    width: 50%;
+    background-color: white;
+    margin-right: 5px;
+    overflow-y: auto;
+  
+  }
+
+  .widget-third-page{
+     overflow-y: auto;
+     height:350px;
+     width: 33%;
+
+     
+     
+    
+    }
+
+    .line-chart{
+
+        background-color: white;
+        height: 100%;
+        width: 600px;
+        padding: 2px;
+
+    }

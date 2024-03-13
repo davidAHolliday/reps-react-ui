@@ -53,7 +53,7 @@ const xAxisData = displayDate.map(obj => Object.keys(obj)[0]); // Extract the ke
 const seriesData = displayDate.map(obj => Object.values(obj)[0] || 0); // Extract the values associated with the keys
 
   return (
-     data && (<>
+     data && (<div className='line-chart'>
       <Typography variant="h6" gutterBottom>
        Number of Referrals By Week
       </Typography> <button onClick={()=>setRangeWeek((prev)=> prev-1)} style={{height:"20px", width:"20px",padding:0,borderRadius:0}}>-</button> <button onClick={()=>setRangeWeek((prev)=> prev+1)} style={{height:"20px", width:"20px",padding:0, borderRadius:0}}>+</button> 
@@ -73,6 +73,6 @@ const seriesData = displayDate.map(obj => Object.values(obj)[0] || 0); // Extrac
         width={400}
         height={250}
       />
-    </>) 
+    </div>) 
   );
 }
