@@ -33,6 +33,9 @@ import { Gallery } from '../components/landing/gallery';
 import { Testimonials } from '../components/landing/testimonials';
 import { Team } from '../components/landing/Team';
 import { Contact } from '../components/landing/contact';
+import "./modal.css"
+import ForgotPassword from './forgotPassword';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -90,11 +93,13 @@ export default function SignIn() {
   
   }
 
-  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
+  const [resetModalDisplay,setResetModalDisplay] = useState(false);
+  const [modalType,setModalType] = useState("login");
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+const [login,setLogin] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -136,6 +141,8 @@ export default function SignIn() {
 
     
     routeChange(role);
+    setLogin(false);
+    setModalType("login")
   
       } else {
         // Handle the case where the expected data is missing
@@ -170,10 +177,17 @@ export default function SignIn() {
 
 
 
+  const setContactUsDisplayModal= () =>{
+    setModalType("contact")
+
+  }
+
+
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <div>
-      <Navigation />
+      <Navigation setLogin={setLogin} />
       <Header data={landingPageData.Header} />
       <Features data={landingPageData.Features} />
       <About data={landingPageData.About} />
@@ -183,19 +197,22 @@ export default function SignIn() {
       <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>
-      <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
       <Container component="main" maxWidth="xs" >
 
         <CssBaseline />
         <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+        className={login ? `pop-modal` : `none`}
+     
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+           <CloseIcon
+            size="large" // Set size to large
+            sx={{ position: 'absolute', top: 10, right: 10,width:"15px" }}
+             onClick={()=>{
+              setLogin(false);
+            setModalType("login")}}
+          ></CloseIcon>
+          { modalType ==="login" && <div className='box-content'>
+          <Avatar sx={{ m: 1, bgcolor: 'grey' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -238,7 +255,7 @@ export default function SignIn() {
               label="Remember me"
             /> */}
             <br/>
-                          <Snackbar open={warningToast} autoHideDuration={6000} onClose={handleClose}>
+  <Snackbar open={warningToast} autoHideDuration={6000} onClose={handleClose}>
   <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
    Email or Password is incorrect
   </Alert>
@@ -253,20 +270,29 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/forgot-password" variant="body2" style={{color:"white"}}>
+                <p
+                onClick={()=>setModalType("reset")}
+                 style={{color:"grey"}}>
                   Forgot password?
-                </Link>
+                </p>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2" style={{color:"white"}}>
+                <Link href="/register" variant="body2" style={{color:"grey"}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
 
               </Grid>
             </Grid>
           </Box>}
-          <div><ChatIcon onClick={()=>setContactUsDisplayModal(true)} sx={{color:"black",marginTop:"50px",fontSize:"50px"}}/></div>
+          <div><ChatIcon onClick={()=>setModalType("contact")} sx={{color:"black",marginTop:"50px",fontSize:"50px"}}/></div>
         <div style={{color:"white"}}>Contact Us</div>
+        </div>}
+        {modalType === "contact" &&
+              <ContactUsModal setContactUsDisplayModal={setModalType} />
+        
+        }
+        {modalType === "reset" &&   <ForgotPassword setResetModalDisplay={setModalType} />
+}
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} /> 
        

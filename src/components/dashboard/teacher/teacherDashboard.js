@@ -26,6 +26,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import { ContactUsModal } from '../../../secuirty/contactUsModal';
 import { get } from '../../../utils/api/api.js';
 import LoadingWheelPanel from '../student/blankPanelForTest.js';
+import { Contact } from '../../landing/contact.jsx';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -33,6 +34,7 @@ const TeacherDashboard = () => {
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("overview")
   const [studentData,setStudentData]= useState([])
+  const [modalType,setModalType] = useState("")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
     teacherDropdown:false,
@@ -43,8 +45,6 @@ const TeacherDashboard = () => {
   });
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
-
-  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -116,14 +116,18 @@ const TeacherDashboard = () => {
     loggedIn && (
       <>
         <div className ="navbar navbar-default navbar-fixed-top">
-        <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
+      
           <Toolbar style={{background:"", color: "black"}}>
+          {modalType === "contact" &&
+              <ContactUsModal setContactUsDisplayModal={setModalType} />
+        
+        }
           <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
             <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> toggleNotificationDrawer(true) }/>
-            <div onClick={()=>setContactUsDisplayModal(true)}><ChatIcon style={{marginRight:"15px"}}/></div>
+            <div onClick={()=>setModalType("contact")}><ChatIcon style={{marginRight:"15px"}}/></div>
     
 
             <AccountBoxIcon/>           

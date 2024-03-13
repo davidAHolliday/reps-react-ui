@@ -1,4 +1,5 @@
 import React from "react";
+import "./landing.css"
 
 export const Navigation = (props) => {
   return (
@@ -20,6 +21,7 @@ export const Navigation = (props) => {
           <a className="navbar-brand page-scroll" href="#page-top">
             Reps Discipline
           </a>{" "}
+    
         </div>
 
         <div
@@ -62,6 +64,13 @@ export const Navigation = (props) => {
                 Contact
               </a>
             </li>
+            <li>
+              <button className="login-btn"
+              onClick={()=>props.setLogin(prev=>!prev)}>
+                Login
+              </button>
+            </li>
+          
           </ul>
         </div>
       </div>
