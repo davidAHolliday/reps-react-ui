@@ -17,9 +17,10 @@ const TeacherShoutOutWidget = ({data = []}) => {
 !barOpen ?  
 
 
-<div style={{backgroundColor:"white",width:"340vh",height:"30px"}}>
-<div style={{ marginLeft:"20px",display:"flex",flexDirection:"row"}}>
+<div className='shout-out-bar-container'>
+<div className="bar-content">
 <ArrowDropDownCircleIcon 
+className='arrowIcon'
 style={{ transform: 'rotate(0deg)', cursor: 'pointer' }}
 onClick={() => setBarOpen(true)}
 /> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
@@ -28,9 +29,10 @@ onClick={() => setBarOpen(true)}
 
  :
         <>
-       <div style={{backgroundColor:"white",width:"340vh",height:"30px"}}>
-<div style={{ marginLeft:"20px",display:"flex",flexDirection:"row"}}>
+<div className='bar-container open'>
+<div className="bar-content">
 <ArrowDropDownCircleIcon 
+className="arrowIcon"
 style={{ transform: 'rotate(180deg)', cursor: 'pointer' }}
 onClick={() => setBarOpen(false)}
 /> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
