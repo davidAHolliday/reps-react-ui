@@ -1,23 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import { baseUrl } from '../../../utils/jsonData';
+import React, { useEffect, useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from '../../notification-bar/NotificationBar';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
-import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
-import TeacherPunishmentPanel from '../global/globalPunishmentPanel.js';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel.js';
-import Card from '@mui/material/Card';
-import ShoutOutWidget from '../student/shoutOutWidget.js';
-import TeaherOverviewPanel from './teacherPanels/teacherOverview.js';
 import TeacherOverviewPanel from './teacherPanels/teacherOverview.js';
-import TeacherShoutOutWidget from './teacherPanels/charts/tables/teacherShoutOutWidget.js';
 import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -26,7 +18,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import { ContactUsModal } from '../../../secuirty/contactUsModal';
 import { get } from '../../../utils/api/api.js';
 import LoadingWheelPanel from '../student/blankPanelForTest.js';
-import { Contact } from '../../landing/contact.jsx';
+import "../teacher/teacherPanels/teacher.css"
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -84,21 +76,6 @@ const TeacherDashboard = () => {
 
   }, [panelName]);
 
-  // useEffect(()=>{
-  //   const fetchStudentData = async ()=>{
-  //     try{
-  //       const response = await get('student/v1/allStudents');
-  //       setStudentData(response)
-
-  //     }catch(err){
-  //       console.error(err)
-  //     }
-  //   }
-  //   fetchStudentData();
-
-  // },[])
-
-
 
   const toggleNotificationDrawer = (open) => {
     setOpenNotificationDrawer(open);
@@ -115,7 +92,9 @@ const TeacherDashboard = () => {
   return (
     loggedIn && (
       <>
-        <div className ="navbar navbar-default navbar-fixed-top">
+        <div 
+        className='dashboard-frame'
+        >
       
           <Toolbar style={{background:"", color: "black"}}>
           {modalType === "contact" &&

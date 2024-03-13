@@ -1,0 +1,16 @@
+.dashboard-row{
+    display: flex;
+    margin-top: 10px;
+    background-color: silver;
+    height: max-content ;
+    width: 100%;
+    border: 5px solid silver;
+}
+
+.dashboard-frame{
+width: 95%;
+}
+
+.teacher-dashboard-banner{
+    color:green
+}

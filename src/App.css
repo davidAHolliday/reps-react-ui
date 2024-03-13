@@ -651,21 +651,6 @@ height: 60px;
 }
 
 
-
-
-.vertical-text {
-  position: relative;
-  top: 500px;
-  margin-left: 210px;
-  transform: translateX(-50%) rotate(-90deg); /* Rotate text 90 degrees counter-clockwise */
-  transform-origin: 0 0; /* Set the origin point to the top-left corner */
-  white-space: nowrap; /* Prevent text from wrapping */
-  background-color: #fff; /* Background color to cover rotated content if needed */
-  padding: 5px 200px; /* Adjust padding as needed */
-}
-
-
-
 .main-content-menu{
   width: 100%;
   height: 5%;
@@ -682,7 +667,7 @@ height: 100%;
 
 
 table th tr {
-  font-size: small;
+  font-size: large;
   height: fit-content;
   
 
