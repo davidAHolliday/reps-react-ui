@@ -50,13 +50,13 @@ const StudentDashboard = () => {
   }, []);
 
 
-
+  const loggedInUser = sessionStorage.getItem("email")
 
   useEffect(() => {
  
     const fetchData = async () =>{
       try{
-        const response = await get(`DTO/v1/StudentOverviewData`)
+        const response = await get(`DTO/v1/StudentOverviewData/${loggedInUser}`)
         setData(response.punishments)
         setStudentDetails(response.student)
       }catch(err){
