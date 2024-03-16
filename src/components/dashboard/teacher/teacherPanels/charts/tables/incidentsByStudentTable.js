@@ -10,17 +10,18 @@ const IncidentsByStudentTable = ({writeUps = []}) => {
 
 //Get Unique Students Info
   writeUps.forEach(item => {
-    const studentId = item.student.studentIdNumber;
-    uniqueStudents[studentId] = (uniqueStudents[studentId] || 0) + 1;
+    const studentEmail = item.studentEmail;
+    uniqueStudents[studentEmail] = (uniqueStudents[studentEmail] || 0) + 1;
   });
 
   
-  const studentsWithIncidentsList = Object.entries(uniqueStudents).map(([studentId, incidents]) => {
-    const { firstName, lastName } = writeUps.find(item => item.student.studentIdNumber === studentId).student;
+  const studentsWithIncidentsList = Object.entries(uniqueStudents).map(([studentEmail, incidents]) => {
+    const {studentFirstName, studentLastName} = writeUps.find(item => item.studentEmail === studentEmail);
+
     return {
-      studentId,
-      firstName,
-      lastName,
+      studentEmail,
+      studentFirstName,
+      studentLastName,
       incidents,
       percent: ((incidents / totalIncidents) * 100).toFixed(2),
     };
@@ -42,9 +43,9 @@ const IncidentsByStudentTable = ({writeUps = []}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {studentsWithIncidentsList.map(({ studentId, firstName, lastName, incidents, percent }, index) => (
+          {studentsWithIncidentsList.map(({ studentEmail, studentFirstName, studentLastName, incidents, percent }, index) => (
             <TableRow key={index}>
-              <TableCell>{firstName} {lastName}</TableCell>
+              <TableCell>{studentFirstName} {studentLastName}</TableCell>
               <TableCell>{incidents}</TableCell>
               <TableCell>{percent}%</TableCell> 
             </TableRow>
