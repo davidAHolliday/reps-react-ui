@@ -1,0 +1,36 @@
+.dashboard-row{
+    display: flex;
+    margin-top: 10px;
+    background-color: silver;
+    height: max-content ;
+    width: 100%;
+    border: 5px solid silver;
+}
+
+.dashboard-frame{
+width: 95%;
+}
+
+
+.shout-out-bar-container {
+    background-color: white;
+    width: 340vh;
+    height: 30px;
+    transition: height 0.3s ease; /* Smooth transition for height */
+  }
+  
+  .bar-content {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+  }
+  
+  .arrow-icon {
+    margin-top: 5px;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+  
+  .open {
+    height: 60px; /* Adjust height accordingly */
+  }

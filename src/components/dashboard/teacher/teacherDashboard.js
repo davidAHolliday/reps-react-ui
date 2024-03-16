@@ -1,23 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-import { baseUrl } from '../../../utils/jsonData';
+import React, { useEffect, useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';import NotificationBar from '../../notification-bar/NotificationBar';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
-import CreateNewStudentPanel from '../panel/createNewStudentPanel';
 import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
-import TeacherPunishmentPanel from '../global/globalPunishmentPanel.js';
 import GlobalPunishmentPanel from '../global/globalPunishmentPanel.js';
-import Card from '@mui/material/Card';
-import ShoutOutWidget from '../student/shoutOutWidget.js';
-import TeaherOverviewPanel from './teacherPanels/teacherOverview.js';
 import TeacherOverviewPanel from './teacherPanels/teacherOverview.js';
-import TeacherShoutOutWidget from './teacherPanels/charts/tables/teacherShoutOutWidget.js';
 import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -26,6 +18,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import { ContactUsModal } from '../../../secuirty/contactUsModal';
 import { get } from '../../../utils/api/api.js';
 import LoadingWheelPanel from '../student/blankPanelForTest.js';
+import "../teacher/teacherPanels/teacher.css"
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -33,6 +26,7 @@ const TeacherDashboard = () => {
   const [openNotificationDrawer, setOpenNotificationDrawer] = useState(false)
   const [panelName,setPanelName] = useState("overview")
   const [studentData,setStudentData]= useState([])
+  const [modalType,setModalType] = useState("")
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     referralDropdown:false,
     teacherDropdown:false,
@@ -43,8 +37,6 @@ const TeacherDashboard = () => {
   });
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
-
-  const [contactUsDisplayModal,setContactUsDisplayModal] = useState(false)
 
   const handleLogout = () => {
     sessionStorage.removeItem('Authorization');
@@ -63,6 +55,8 @@ const TeacherDashboard = () => {
     }
   }, []);
 
+  const loggedInUser = sessionStorage.getItem("email")
+
 
 
 
@@ -70,7 +64,7 @@ const TeacherDashboard = () => {
  
     const fetchPunishmentData = async () =>{
       try{
-        const response = await get(`DTO/v1/TeacherOverviewData`)
+        const response = await get(`DTO/v1/TeacherOverviewData/${loggedInUser}`)
         setData(response)
       }catch(err){
         console.error(err)
@@ -83,21 +77,6 @@ const TeacherDashboard = () => {
     }
 
   }, [panelName]);
-
-  // useEffect(()=>{
-  //   const fetchStudentData = async ()=>{
-  //     try{
-  //       const response = await get('student/v1/allStudents');
-  //       setStudentData(response)
-
-  //     }catch(err){
-  //       console.error(err)
-  //     }
-  //   }
-  //   fetchStudentData();
-
-  // },[])
-
 
 
   const toggleNotificationDrawer = (open) => {
@@ -115,15 +94,21 @@ const TeacherDashboard = () => {
   return (
     loggedIn && (
       <>
-        <div className ="app-bar">
-        <ContactUsModal setContactUsDisplayModal={setContactUsDisplayModal} contactUsDisplayModal={contactUsDisplayModal}/>
-          <Toolbar style={{background:"blue", color: "white"}}>
+        <div 
+        className='dashboard-frame'
+        >
+      
+          <Toolbar style={{background:"", color: "black"}}>
+          {modalType === "contact" &&
+              <ContactUsModal setContactUsDisplayModal={setModalType} />
+        
+        }
           <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
             <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> toggleNotificationDrawer(true) }/>
-            <div onClick={()=>setContactUsDisplayModal(true)}><ChatIcon style={{marginRight:"15px"}}/></div>
+            <div onClick={()=>setModalType("contact")}><ChatIcon style={{marginRight:"15px"}}/></div>
     
 
             <AccountBoxIcon/>           
@@ -136,7 +121,7 @@ const TeacherDashboard = () => {
        <div className='page'>
       <div className='teacher-main-content'> 
       <div className = "">
-      <div className='teacher-main-content-menu'
+      <div style={{backgroundColor:"#5ca9fb"}}className='teacher-main-content-menu'
       >
   
     {/* Overview button */}

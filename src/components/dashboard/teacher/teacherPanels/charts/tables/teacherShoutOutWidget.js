@@ -14,24 +14,35 @@ const TeacherShoutOutWidget = ({data = []}) => {
     shoutOutData.sort((a,b) => b.timeCreated - a.timeCreated ? 1 : -1)
 
     return (
-!barOpen ?  <div style={{display:"flex",flexDirection:"row"}}>
-<div><h2>Positive Behavioral</h2></div>
-<div style={{marginTop:"25px", marginLeft:"20px"}}>
-<ArrowDropDownCircleIcon onClick={()=>setBarOpen(true)}/>
-  </div>
+!barOpen ?  
 
-</div> :
-        <>
-        <div style={{display:"flex",flexDirection:"row"}}>
-<div><h2>Positive Behavioral</h2></div>
-<div style={{marginTop:"25px", marginLeft:"20px"}}>
+
+<div className='shout-out-bar-container'>
+<div className="bar-content">
 <ArrowDropDownCircleIcon 
-      style={{ transform: 'rotate(180deg)', cursor: 'pointer' }}
-      onClick={() => setBarOpen(false)}
-    />  </div>
+className='arrowIcon'
+style={{ transform: 'rotate(0deg)', cursor: 'pointer' }}
+onClick={() => setBarOpen(true)}
+/> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
 
 </div>
-<TableContainer component={Paper} style={{ height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
+
+ :
+        <>
+<div className='bar-container open'>
+<div className="bar-content">
+<ArrowDropDownCircleIcon 
+className="arrowIcon"
+style={{ transform: 'rotate(180deg)', cursor: 'pointer' }}
+onClick={() => setBarOpen(false)}
+/> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
+
+</div>
+
+
+
+
+<TableContainer  style={{ width:"100%",height: hasScroll ? '200px' : 'auto', overflowY: hasScroll ? 'scroll' : 'visible' }}>
   <Table>
     <TableHead>
       <TableRow>

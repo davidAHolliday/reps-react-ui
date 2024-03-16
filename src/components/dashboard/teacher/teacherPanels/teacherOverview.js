@@ -10,6 +10,7 @@ import { PieChartParentCommunication } from './charts/pieCharts/pieChartParentCo
 import RecentIncidents from './charts/tables/studentRecentIncidents.js';
 import TeacherShoutOutWidget from './charts/tables/teacherShoutOutWidget.js';
 import Button from '@mui/material/Button';
+import "./teacher.css"
 
 
    const TeacherOverviewPanel = ({setPanelName,data = []}) => {
@@ -68,22 +69,22 @@ import Button from '@mui/material/Button';
    </div>
   </div>
 </div>}
-                <div 
-                className='teacher-overview-first'
-                >
+                <div className='dashboard-row'>
         <Card variant="outlined">
         <TeacherShoutOutWidget data={data.punishments}/>
         </Card>
         </div>
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
+          
+        <div className="section-title">
+   <h2 >
    Week At a Glance
-        </Typography>
+        </h2>
         </div>
+        
 
 
-  <div className='overview-row'>
+
+  <div className='dashboard-row'>
     <div className='teacher-widget-half'>
       {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
@@ -105,16 +106,16 @@ import Button from '@mui/material/Button';
 </div>
 
   </div>
-
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
+<div className='container'>
+  <div className='section-title'>
+   <h2  >
   Students of Concern
-        </Typography>
+        </h2>
+        </div>
         </div>
 
 
-  <div className='overview-row'>
+        <div className='dashboard-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
 {/* <Card style={{padding:"5px"}}> */}
@@ -134,15 +135,12 @@ import Button from '@mui/material/Button';
 
   </div>
 
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
-   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
-"5px"}}>
-  Longitudinal Reports
-        </Typography>
-        </div>
+  <div className='section-title'>
+    <h2 >Longitudinal Reports</h2>
+  </div>
 
 
-  <div className='overview-row'>
+  <div className='dashboard-row'>
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
 

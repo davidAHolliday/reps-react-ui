@@ -1,0 +1,19 @@
+.login-btn{
+    display: inline-block;
+    line-height: 15px;
+    padding: 9px;
+    text-align: center;
+    margin: 14px 0 13px 19px;
+    background: #555;
+    color: #fff;
+    width: 75px;
+    border-radius: 20px;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    max-width: 264px;
+}
+
+.none{
+    display:none;
+}
