@@ -54,7 +54,7 @@ const CreatePunishmentPanel = () => {
     const [infractionTypeSelected, setInfractionTypeSelected] = useState("");
     const [infractionPeriodSelected, setInfractionPeriodSelected] = useState("");
     const [teacherEmailSelected, setTeacherEmailSelected] = useState();
-    const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState([]);
+    const [infractionDescriptionSelected,setInfractionDescriptionSelected] = useState("");
     const [toast, setToast] = useState({display:false,message:""})
     const [studentNames, setStudentNames] = React.useState([]);
     const [loading, setLoading] = useState(false)
@@ -181,10 +181,10 @@ const CreatePunishmentPanel = () => {
         setOpenModal({display:false,message:""})
         const payloadContent = []
         studentNames.map((student)=>{
+          console.log(student + "This is the student!")
           const studentPayload = {
             firstName:"Placeholder 1",
             lastName:"Placeholder 2",
-            infractionId: "Placeholder 3",
             studentEmail: student.value,
             teacherEmail: teacherEmailSelected,
             infractionPeriod: infractionPeriodSelected,
