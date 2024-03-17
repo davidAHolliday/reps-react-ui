@@ -106,12 +106,10 @@ import "./teacher.css"
 </div>
 
   </div>
-<div className='container'>
   <div className='section-title'>
    <h2  >
   Students of Concern
         </h2>
-        </div>
         </div>
 
 

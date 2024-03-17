@@ -31,23 +31,23 @@ const IncidentsByStudentTable = ({writeUps = []}) => {
 
   return (
     <TableContainer component={Paper}>
-       <Typography variant="h6" align="center" style={{ margin: '10px' }}>
+       <Typography variant="h4" align="center" style={{ margin: '10px' }}>
         Write-up % By Student
       </Typography>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Write-ups</TableCell>
-            <TableCell>Percent of Write-ups</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Name</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Write-ups</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Percent of Write-ups</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {studentsWithIncidentsList.map(({ studentEmail, studentFirstName, studentLastName, incidents, percent }, index) => (
             <TableRow key={index}>
-              <TableCell>{studentFirstName} {studentLastName}</TableCell>
-              <TableCell>{incidents}</TableCell>
-              <TableCell>{percent}%</TableCell> 
+              <TableCell style={{ fontSize: '1.25rem'}}>{studentFirstName} {studentLastName}</TableCell>
+              <TableCell style={{ fontSize: '1.25rem'}}>{incidents}</TableCell>
+              <TableCell style={{ fontSize: '1.25rem'}}>{percent}%</TableCell> 
             </TableRow>
           ))}
         </TableBody>

@@ -50,7 +50,7 @@ const RecentIncidents = ({data = []}) => {
 
   return (
     <TableContainer component={Paper}>
-       <Typography variant="h6" align="center" style={{ margin: '10px' }}>
+       <Typography variant="h4" align="center" style={{ margin: '10px' }}>
         Student Contact Reminder
       </Typography>
       <Table>
@@ -65,19 +65,19 @@ const RecentIncidents = ({data = []}) => {
       />
         </TableRow>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Last Contacted</TableCell>
-            <TableCell>Contact Reason</TableCell>
-            <TableCell>Description</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Name</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Last Contacted</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Contact Reason</TableCell>
+            <TableCell style={{ fontSize: '2rem'}}>Description</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
         {filteredData.sort((a, b) => new Date(a.timeCreated) - new Date(b.timeCreated)).slice(0, 10).map((record, index) => (
             <TableRow key={index}>
-              <TableCell>{record.studentFirstName} {record.studentLastName}</TableCell>
-              <TableCell>{dateCreateFormat(record.timeCreated)}</TableCell>
-              <TableCell>{record.infractionName}</TableCell> 
-              <TableCell>{record.infractionDescription[1]}</TableCell> 
+              <TableCell style={{ fontSize: '1.25rem'}}>{record.studentFirstName} {record.studentLastName}</TableCell>
+              <TableCell style={{ fontSize: '1.25rem'}}>{dateCreateFormat(record.timeCreated)}</TableCell>
+              <TableCell style={{ fontSize: '1.25rem'}}>{record.infractionName}</TableCell> 
+              <TableCell style={{ fontSize: '1.25rem'}}>{record.infractionDescription[0]}</TableCell> 
 
             </TableRow>
           ))}
