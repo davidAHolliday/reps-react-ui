@@ -131,7 +131,7 @@ function MyForm() {
             "teacherEmail": teacherEmail
             }
 
-            axios.post(`${baseUrl}/punish/v1/startPunish/form`,payload,
+            axios.post(`${baseUrl}/punish/v1/startPunish/formList`,payload,
              {headers: headers}
 
             )
