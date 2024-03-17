@@ -103,7 +103,7 @@ export const extractDataByWeek = (week,data) => {
 
 export const findDataByWeekAndByPunishment = (week, behavioral,data) => {
     // Filter data based on the behavioral infraction name
-    const thisWeek = data.filter(punish => punish.infraction.infractionName === behavioral)
+    const thisWeek = data.filter(punish => punish.infractionName === behavioral)
                         .filter(punish => {
                           const date = new Date(punish.timeCreated);
                           const weekNumber = getWeekNumber(date); // Assuming getWeekNumber is defined elsewhere in your code
@@ -116,7 +116,7 @@ export const findDataByWeekAndByPunishment = (week, behavioral,data) => {
 
 
   export const getIncidentByBehavior = (bx,fetchedData) =>{
-    const data = fetchedData.filter(item => item.infraction.infractionName === bx);
+    const data = fetchedData.filter(item => item.infractionName === bx);
     return data.length
    }
    

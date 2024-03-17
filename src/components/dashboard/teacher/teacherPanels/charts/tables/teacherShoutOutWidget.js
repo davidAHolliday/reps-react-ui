@@ -7,7 +7,7 @@ const TeacherShoutOutWidget = ({data = []}) => {
     const [barOpen,setBarOpen] = useState(true)
   
     //We need to fix the cfr issues
-	  const shoutOutData = data.filter(punish => punish.infraction.infractionName === "Positive Behavior Shout Out!");
+	  const shoutOutData = data.filter(punish => punish.infractionName === "Positive Behavior Shout Out!");
       
     const hasScroll = shoutOutData.length > 2;
 
@@ -65,9 +65,9 @@ onClick={() => setBarOpen(false)}
         shoutOutData.map((x, key) => (
           <TableRow key={key}>
             <TableCell style={{ width: '20%' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
-            <TableCell style={{ width: '20%' }}>{x.student.firstName} {x.student.lastName}</TableCell>
+            <TableCell style={{ width: '20%' }}>{x.studentFirstName} {x.studentLastName}</TableCell>
             <TableCell style={{ width: '30%', }}>
-  {x.infraction.infractionDescription}
+  {x.infractionDescription}
 </TableCell>            
 <TableCell style={{ width: '30%' }}>{x.teacherEmail}</TableCell>
           </TableRow>

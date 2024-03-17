@@ -17,7 +17,7 @@ import "./teacher.css"
   const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
 
 
-  const dataExcludeNonReferrals = data.punishments.filter((x)=>{return (x.infraction.infractionName !=="Positive Behavior Shout Out!")})
+  const dataExcludeNonReferrals = data.punishmentResponse.filter((x)=>{return (x.infractionName !=="Positive Behavior Shout Out!")})
   const weeklyData = dataExcludeNonReferrals.filter((x) => {
      const currentDate = new Date();
      const itemDate = new Date(x.timeCreated);
@@ -25,7 +25,7 @@ import "./teacher.css"
      return itemDate > sevenDaysAgo;
  });
 
- const weeklyDataIncSOBxConcern = data.punishments.filter((x) => {
+ const weeklyDataIncSOBxConcern = data.punishmentResponse.filter((x) => {
     const currentDate = new Date();
     const itemDate = new Date(x.timeCreated);
     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
@@ -33,7 +33,7 @@ import "./teacher.css"
 });
 
   useEffect(() => {
-    const statusQuo = data.punishments.filter(x => x.status === "PENDING" && x.infraction.infractionLevel === "3");
+    const statusQuo = data.punishmentResponse.filter(x => x.status === "PENDING" && x.infractionLevel === "3");
     if(statusQuo.length > 0){
       setOpenModal({display:true, message:"Attention! You have level 3 punishments with student answers that must be reviewed before closing.You can go to the page to review these by clicking the \"Level Three\" Button or you may hit the \"Later\" button to take care of this at another time. You will receive notifications until the answers are reviewed as they are not Closed until you review. Thank you!", buttonType:"redirect"});
     }
@@ -71,7 +71,7 @@ import "./teacher.css"
 </div>}
                 <div className='dashboard-row'>
         <Card variant="outlined">
-        <TeacherShoutOutWidget data={data.punishments}/>
+        <TeacherShoutOutWidget data={data.punishmentResponse}/>
         </Card>
         </div>
           
@@ -119,7 +119,7 @@ import "./teacher.css"
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
 {/* <Card style={{padding:"5px"}}> */}
-    <IncidentsByStudentTable writeUps={data.writeUps}/>
+    <IncidentsByStudentTable writeUps={data.writeUpResponse}/>
 {/* </Card> */}
 
 
@@ -128,7 +128,7 @@ import "./teacher.css"
     </div>
     <div className='teacher-widget-half'>
 {/* <Card style={{padding:"5px"}}> */}
-<RecentIncidents data={data.punishments}/>
+<RecentIncidents data={data.punishmentResponse}/>
 {/* </Card> */}
 
 </div>
@@ -144,7 +144,7 @@ import "./teacher.css"
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
 
-    { data ? <TotalReferralByWeek data={data.writeUps}/> : <h1>loading</h1>}
+    { data ? <TotalReferralByWeek data={data.writeUpResponse}/> : <h1>loading</h1>}
 
       {/* </Card> */}
 
@@ -153,13 +153,13 @@ import "./teacher.css"
     </div>
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
-<TotalStudentReferredByWeek data={data.writeUps}/>
+<TotalStudentReferredByWeek data={data.writeUpResponse}/>
 {/* </Card> */}
 </div>
 
 <div className='teacher-widget-third'>
 {/* <Card style={{padding:"5px"}}> */}
-<ReferralByBehavior data={data.writeUps}/>
+<ReferralByBehavior data={data.writeUpResponse}/>
 {/* </Card> */}
 
 </div>

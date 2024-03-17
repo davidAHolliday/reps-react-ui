@@ -44,7 +44,7 @@ export const Navigation = (props) => {
                 Services
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#portfolio" className="page-scroll">
                 Gallery
               </a>
@@ -63,7 +63,7 @@ export const Navigation = (props) => {
               <a href="#contact" className="page-scroll">
                 Contact
               </a>
-            </li>
+            </li> */}
             <li>
               <button className="login-btn"
               onClick={()=>props.setLogin(prev=>!prev)}>
