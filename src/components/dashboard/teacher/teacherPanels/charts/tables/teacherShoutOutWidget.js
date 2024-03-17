@@ -46,16 +46,16 @@ onClick={() => setBarOpen(false)}
   <Table>
     <TableHead>
       <TableRow>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%', fontSize: '2rem' }}>
           Created On
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '20%', fontSize: '2rem' }}>
           Student
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%', fontSize: '2rem' }}>
           Shout Outs
         </TableCell>
-        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%' }}>
+        <TableCell variant="head" style={{ fontWeight: 'bold', width: '30%', fontSize: '2rem' }}>
           Created By
         </TableCell>
       </TableRow>
@@ -64,12 +64,12 @@ onClick={() => setBarOpen(false)}
       {shoutOutData.length > 0 ? (
         shoutOutData.map((x, key) => (
           <TableRow key={key}>
-            <TableCell style={{ width: '20%' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
-            <TableCell style={{ width: '20%' }}>{x.studentFirstName} {x.studentLastName}</TableCell>
-            <TableCell style={{ width: '30%', }}>
+            <TableCell style={{ width: '20%', fontSize: '1.25rem' }}>{dateCreateFormat(x.timeCreated)}</TableCell>
+            <TableCell style={{ width: '20%', fontSize: '1.25rem' }}>{x.studentFirstName} {x.studentLastName}</TableCell>
+            <TableCell style={{ width: '30%', fontSize: '1.25rem' }}>
   {x.infractionDescription}
 </TableCell>            
-<TableCell style={{ width: '30%' }}>{x.teacherEmail}</TableCell>
+<TableCell style={{ width: '30%', fontSize: '1.25rem' }}>{x.teacherEmail}</TableCell>
           </TableRow>
         ))
       ) : (
