@@ -10,6 +10,7 @@ import MuiAlert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import LoadingWheelPanel from '../student/blankPanelForTest';
 
 
 
@@ -26,6 +27,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
       const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:"",data:null})
       const [deletePayload, setDeletePayload] = useState(null)
       const [textareaValue, setTextareaValue] = useState("");
+      const [loading, setLoading] = useState(false)
 const [filter, setFilter] = useState("Open");
 
 const defaultTheme = createTheme();
@@ -43,22 +45,29 @@ const defaultTheme = createTheme();
   },[filter])
   
       useEffect(() => {
+        setLoading(true)
         axios
           .get(url, { headers }) // Pass the headers option with the JWT token
           .then(function (response) {
             const sortedData = response.data.sort((a, b) => new Date(a.punishment.timeCreated) - new Date(b.punishment.timeCreated));
             if(roleType==="teacher"){
+              setLoading(false)
+
               const sortedByRole = sortedData.filter(x=>x.punishment.teacherEmail === sessionStorage.getItem("email"))
               setListOfPunishments(sortedByRole);   
             
             }
             else{
               const sortedByRole = sortedData;
+              setLoading(false)
+
               setListOfPunishments(sortedByRole);        
 
             }
       })
           .catch(function (error) {
+            setLoading(false)
+
             console.log(error);
           });
       }, [ toast.visible]);
@@ -280,6 +289,11 @@ const defaultTheme = createTheme();
    
           </TableRow>
         </TableHead>
+        { loading && <TableBody>
+          
+            <LoadingWheelPanel/>
+
+        </TableBody> }
             <TableBody>
               {data.length > 0 ? (
                 data.map((x, key) => {
