@@ -1,5 +1,9 @@
 import React, {useState} from "react";
 import "./landing.css"
+import ChatIcon from '@mui/icons-material/Chat';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+
+
 
 export const NavigationLoggedIn = (props) => {
 
@@ -12,23 +16,16 @@ export const NavigationLoggedIn = (props) => {
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-          </button>
+        <div style={{display:"flex"}}className="navbar-header">
+      
           <a className="navbar-brand page-scroll" href="#page-top">
             Welcome! {sessionStorage.getItem("userName")}
           </a>{" "}
+          <div onClick={()=>props.setModalType("contact")}><ChatIcon style={{marginRight:"15px"}}/></div>
+          <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> props.toggleNotificationDrawer(true) }/>
     
+
+   
         </div>
 
         <div

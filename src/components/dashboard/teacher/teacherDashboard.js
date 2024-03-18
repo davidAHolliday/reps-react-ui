@@ -4,7 +4,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreatePunishmentPanel from '../panel/createPunishmentPanel';
 import TeacherStudentPanel from './teacherPanels/teacherStudentPanel';
 import TeacherFTCPanel from './teacherPanels/FTCpanel';
@@ -14,7 +13,6 @@ import DetentionWidget from '../admin/detentionWidget.js';
 import ISSWidget from '../admin/issWidget.js';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LevelThreePanel from '../global/levelThreePanel.js';
-import ChatIcon from '@mui/icons-material/Chat';
 import { ContactUsModal } from '../../../secuirty/contactUsModal';
 import { get } from '../../../utils/api/api.js';
 import LoadingWheelPanel from '../student/blankPanelForTest.js';
@@ -98,28 +96,17 @@ const TeacherDashboard = () => {
         <div 
         >
       
-          {/* <Toolbar style={{background:"", color: "black"}}> */}
           {modalType === "contact" &&
               <ContactUsModal setContactUsDisplayModal={setModalType} />
         
         }
 
-<NavigationLoggedIn setPanelName={setPanelName}  setDropdown={setIsDropdownOpen} isDropdownOpen={isDropdownOpen} setLogin={handleLogout} />
+<NavigationLoggedIn toggleNotificationDrawer ={toggleNotificationDrawer } setModalType={setModalType} setPanelName={setPanelName}  setDropdown={setIsDropdownOpen} isDropdownOpen={isDropdownOpen} setLogin={handleLogout} />
 
-          {/* <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-              Welcome, {sessionStorage.getItem('userName')}
-            </Typography>
-            <NotificationsIcon style={{marginRight:"15px"}} onClick={()=> toggleNotificationDrawer(true) }/>
-            <div onClick={()=>setModalType("contact")}><ChatIcon style={{marginRight:"15px"}}/></div>
+         
     
 
-            <AccountBoxIcon/>           
-              <IconButton type="button" color="inherit" onClick={handleLogout}>
-              Logout
-            </IconButton>
-
-          </Toolbar> */}
+      
         </div>
        <div className=''>
       <div className=''> 
