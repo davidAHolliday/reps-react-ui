@@ -31,14 +31,9 @@ const TeacherDashboard = () => {
   const [panelName,setPanelName] = useState("overview")
   const [studentData,setStudentData]= useState([])
   const [modalType,setModalType] = useState("")
-  const [isDropdownOpen, setIsDropdownOpen] = useState({
-    referralDropdown:false,
-    teacherDropdown:false,
-    studentDropdown:false,
-    toolsDropdown:false,
-    ftcDropdown:false,
-    newReferral:false,
-  });
+  const [isDropdownOpen, setIsDropdownOpen] = useState("")
+
+
   const [punishmentFilter, setPunishmentFilter] =useState("OPEN")
   const [sideBarOpen,setSideBarOpen]= useState(false)
 
@@ -109,7 +104,7 @@ const TeacherDashboard = () => {
         
         }
 
-<NavigationLoggedIn setLogin={()=>console.log('click')} />
+<NavigationLoggedIn setPanelName={setPanelName}  setDropdown={setIsDropdownOpen} isDropdownOpen={isDropdownOpen} setLogin={handleLogout} />
 
           {/* <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
@@ -132,59 +127,6 @@ const TeacherDashboard = () => {
       <div style={{backgroundColor:"#5ca9fb", display:"none"}}className='teacher-main-content-menu'
       >
   
-    {/* Overview button */}
-    {/* <button 
-    className='teacher-dash-dropbtn' 
-    onClick={() => {
-      setPanelName("overview")
-  }}
-  >
-    Overview
-  </button> */}
-
-  {/* New Shout Reffere **/}
-  {/* <button 
-    className='teacher-dash-dropbtn' 
-    onClick={() => {
-      openDropdown("newReferral")
-  }}
-  >
-  Referral/Shout Out
-  </button> */}
-  {/* <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("createPunishment")  
-      setIsDropdownOpen(!isDropdownOpen.newReferral)
-
-     }}className='teacher-dropdown-item'>New Referral/Shout Out</div>
-       <div onClick={()=>{
-      setPanelName("punishment")  
-      setIsDropdownOpen(!isDropdownOpen.newReferral)
-
-     }}className='teacher-dropdown-item'>Existing Referrals/Shout Outs</div>
-
-</div> */}
- 
-    {/* Student Drop Down */}
-    {/* <button 
-    className='teacher-dash-dropbtn' 
-    onClick={() => {
-      // openDropdown("studentDropdown")
-      setPanelName("student")
-  }}
-  >
-    My Students
-  </button> */}
-
-    {/* FTC Drop Down */}
-    {/* <button 
-    className='teacher-dash-dropbtn' 
-    onClick={() => {
-      setPanelName("levelThree")
-  }}
-  >
-    My Tasks
-  </button> */}
 
   </div>
  { data.length===0 ? <LoadingWheelPanel/>:<div className='teacher-overview'>

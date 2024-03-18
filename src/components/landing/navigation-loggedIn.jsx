@@ -2,7 +2,12 @@ import React, {useState} from "react";
 import "./landing.css"
 
 export const NavigationLoggedIn = (props) => {
-  const [dropdown,setDropdown] = useState({referral:false})
+
+
+  const dropdownHandler = (panel) =>{
+    props.setPanelName(panel)
+    props.setDropdown("")
+  }
   
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -21,7 +26,7 @@ export const NavigationLoggedIn = (props) => {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
-            Welcome! Justin
+            Welcome! {sessionStorage.getItem("userName")}
           </a>{" "}
     
         </div>
@@ -32,38 +37,46 @@ export const NavigationLoggedIn = (props) => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <div href="#features" className="page-scroll">
+              <div 
+              onClick={()=>dropdownHandler("overview")}
+              className="page-scroll">
                 Overview
               </div>
             </li>
             <li>
-              <div onClick={()=>setDropdown((prev)=>({
-                ...prev, referral:!prev.referral
-
-              }))} href="#features" className="page-scroll">
-              Referral/Shout Out
-              </div>
-              <div style={{display: dropdown.referral?"block":"none"}} class="feature-menu-dropdown">
-  <div class="item">Item 1</div>
-  <div class="item">Item 2</div>
-  <div class="item">Item 3</div>
+            <div onClick={() => props.setDropdown(prev => prev === "referral" ? "" : "referral")} >
+  Referral/Shout Out
+</div>
+              <div style={{display: props.isDropdownOpen === "referral"?"block":"none"}} class="feature-menu-dropdown">
+  <div 
+  onClick={()=>dropdownHandler("createPunishment")}
+  className="item">New Referral/Shout Outs</div>
+  <div 
+  onClick={()=>dropdownHandler("punishment")}
+  className="item">Existing Referral/Shout Outs</div>
 </div>
               
             </li>
             <li>
-              <div href="#features" className="page-scroll">
+              <div 
+               onClick={()=>dropdownHandler("student")}
+              >
               My Students
               </div>
             </li>
             <li>
-              <div href="#features" className="page-scroll">
+              <div 
+              onClick={()=>{
+                props.setPanelName("levelThree")
+              }}
+              >
               My Tasks
               </div>
             </li>
            
             <li>
               <button className="login-btn"
-              onClick={()=>props.setLogin(prev=>!prev)}>
+              onClick={()=>props.setLogin()}>
                 Logout
               </button>
             </li>
