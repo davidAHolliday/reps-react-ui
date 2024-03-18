@@ -19,6 +19,10 @@ import { ContactUsModal } from '../../../secuirty/contactUsModal';
 import { get } from '../../../utils/api/api.js';
 import LoadingWheelPanel from '../student/blankPanelForTest.js';
 import "../teacher/teacherPanels/teacher.css"
+import { NavigationLoggedIn } from '../../landing/navigation-loggedIn.jsx';
+import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@material-ui/core';
+import { Navigation } from '../../landing/navigation.jsx';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -90,20 +94,24 @@ const TeacherDashboard = () => {
     }))
   }
 
+  const defaultTheme = createTheme();
+
 
   return (
     loggedIn && (
-      <>
+      <ThemeProvider theme={defaultTheme}>
         <div 
-        className='dashboard-frame'
         >
       
-          <Toolbar style={{background:"", color: "black"}}>
+          {/* <Toolbar style={{background:"", color: "black"}}> */}
           {modalType === "contact" &&
               <ContactUsModal setContactUsDisplayModal={setModalType} />
         
         }
-          <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
+
+<NavigationLoggedIn setLogin={()=>console.log('click')} />
+
+          {/* <DashboardIcon onClick={()=>setPanelName("overview")} style={{color:"white",backgroundColor:"black", marginRight:"10px"}}/>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Welcome, {sessionStorage.getItem('userName')}
             </Typography>
@@ -116,35 +124,34 @@ const TeacherDashboard = () => {
               Logout
             </IconButton>
 
-          </Toolbar>
+          </Toolbar> */}
         </div>
-       <div className='page'>
-      <div className='teacher-main-content'> 
+       <div className=''>
+      <div className=''> 
       <div className = "">
-      <div style={{backgroundColor:"#5ca9fb"}}className='teacher-main-content-menu'
+      <div style={{backgroundColor:"#5ca9fb", display:"none"}}className='teacher-main-content-menu'
       >
   
     {/* Overview button */}
-    <button 
+    {/* <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
       setPanelName("overview")
   }}
   >
     Overview
-  </button>
+  </button> */}
 
   {/* New Shout Reffere **/}
-  <button 
+  {/* <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
       openDropdown("newReferral")
-      // setPanelName("createPunishment")
   }}
   >
   Referral/Shout Out
-  </button>
-  <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
+  </button> */}
+  {/* <div style={{marginLeft:"25%"}} className={isDropdownOpen.newReferral ? 'dropdown-content show' : 'dropdown-content'}>
     <div onClick={()=>{
       setPanelName("createPunishment")  
       setIsDropdownOpen(!isDropdownOpen.newReferral)
@@ -156,10 +163,10 @@ const TeacherDashboard = () => {
 
      }}className='teacher-dropdown-item'>Existing Referrals/Shout Outs</div>
 
-</div>
+</div> */}
  
     {/* Student Drop Down */}
-    <button 
+    {/* <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
       // openDropdown("studentDropdown")
@@ -167,50 +174,18 @@ const TeacherDashboard = () => {
   }}
   >
     My Students
-  </button>
-      {/* Margin Left is used to move dropdown under the buttons */}
-  {/* <div style={{marginLeft:"50%"}} className={isDropdownOpen.studentDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("student") 
-      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
- 
-     }}className='teacher-dropdown-item'>My Students</div>
-
-    <div onClick={()=>{
-      setPanelName("punishment") 
-      setIsDropdownOpen(!isDropdownOpen.studentDropdown)
- 
-     }}className='teacher-dropdown-item'>My Write-Ups</div>
-     
-  </div> */}
-
-  
+  </button> */}
 
     {/* FTC Drop Down */}
-    <button 
+    {/* <button 
     className='teacher-dash-dropbtn' 
     onClick={() => {
-      // openDropdown("ftcDropdown")
       setPanelName("levelThree")
   }}
   >
     My Tasks
-  </button>
-  {/* <div style={{marginLeft:"75%"}} className={isDropdownOpen.ftcDropdown ? 'dropdown-content show' : 'dropdown-content'}>
-    <div onClick={()=>{
-      setPanelName("ftc")  
-      setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
+  </button> */}
 
-     }}className='teacher-dropdown-item'>Failure to Complete Work</div>
-       <div onClick={()=>{
-      setPanelName("levelThree")  
-      setIsDropdownOpen(!isDropdownOpen.ftcDropdown)
-
-     }}className='teacher-dropdown-item'>Level Three Approval</div>
-   
-     
-  </div> */}
-  
   </div>
  { data.length===0 ? <LoadingWheelPanel/>:<div className='teacher-overview'>
   <div 
@@ -233,14 +208,13 @@ const TeacherDashboard = () => {
      </div>
   
         <Drawer anchor='right' open={openNotificationDrawer} onClose={()=> toggleNotificationDrawer(false)}>
-        {/* <NotificationBar notificationData={data}/> */}
         <DetentionWidget />
       
         <ISSWidget />
         </Drawer>
       </div>
       </div>
-      </>
+      </ThemeProvider>
     )
   );
 };
