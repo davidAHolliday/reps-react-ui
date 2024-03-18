@@ -34,3 +34,13 @@ width: 95%;
   .open {
     height: 60px; /* Adjust height accordingly */
   }
+
+  .teacher-widget-third{
+    margin-right: 20px;
+    overflow-y: auto;
+    height: 350px;
+    border: solid 3px black;
+    width: 33%;
+    background-color: white;
+
+  }
