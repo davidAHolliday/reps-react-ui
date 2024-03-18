@@ -10,14 +10,13 @@ import { PieChartParentCommunication } from './charts/pieCharts/pieChartParentCo
 import RecentIncidents from './charts/tables/studentRecentIncidents.js';
 import TeacherShoutOutWidget from './charts/tables/teacherShoutOutWidget.js';
 import Button from '@mui/material/Button';
-import "./teacher.css"
 
 
    const TeacherOverviewPanel = ({setPanelName,data = []}) => {
   const [openModal, setOpenModal] = useState({display:false,message:"",buttonType:""})
 
 
-  const dataExcludeNonReferrals = data.punishmentResponse.filter((x)=>{return (x.infractionName !=="Positive Behavior Shout Out!")})
+  const dataExcludeNonReferrals = data.punishments.filter((x)=>{return (x.infractionName !=="Positive Behavior Shout Out!")})
   const weeklyData = dataExcludeNonReferrals.filter((x) => {
      const currentDate = new Date();
      const itemDate = new Date(x.timeCreated);
@@ -25,7 +24,9 @@ import "./teacher.css"
      return itemDate > sevenDaysAgo;
  });
 
- const weeklyDataIncSOBxConcern = data.punishmentResponse.filter((x) => {
+ console.log("FIND ME 3", dataExcludeNonReferrals)
+
+ const weeklyDataIncSOBxConcern = data.punishments.filter((x) => {
     const currentDate = new Date();
     const itemDate = new Date(x.timeCreated);
     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
@@ -33,7 +34,7 @@ import "./teacher.css"
 });
 
   useEffect(() => {
-    const statusQuo = data.punishmentResponse.filter(x => x.status === "PENDING" && x.infractionLevel === "3");
+    const statusQuo = data.punishments.filter(x => x.status === "PENDING" && x.infractionLevel === "3");
     if(statusQuo.length > 0){
       setOpenModal({display:true, message:"Attention! You have level 3 punishments with student answers that must be reviewed before closing.You can go to the page to review these by clicking the \"Level Three\" Button or you may hit the \"Later\" button to take care of this at another time. You will receive notifications until the answers are reviewed as they are not Closed until you review. Thank you!", buttonType:"redirect"});
     }
@@ -69,22 +70,22 @@ import "./teacher.css"
    </div>
   </div>
 </div>}
-                <div className='dashboard-row'>
+                <div 
+                className='teacher-overview-first'
+                >
         <Card variant="outlined">
-        <TeacherShoutOutWidget data={data.punishmentResponse}/>
+        <TeacherShoutOutWidget data={data.punishments}/>
         </Card>
         </div>
-          
-        <div className="section-title">
-   <h2 >
+         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
+"5px"}}>
    Week At a Glance
-        </h2>
+        </Typography>
         </div>
-        
 
 
-
-  <div className='dashboard-row'>
+  <div className='overview-row'>
     <div className='teacher-widget-half'>
       {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
@@ -106,18 +107,20 @@ import "./teacher.css"
 </div>
 
   </div>
-  <div className='section-title'>
-   <h2  >
+
+  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
+"5px"}}>
   Students of Concern
-        </h2>
+        </Typography>
         </div>
 
 
-        <div className='dashboard-row'>
+  <div className='overview-row'>
     <div className='teacher-widget-half'>
 <div className='studentIncidentTable'>
 {/* <Card style={{padding:"5px"}}> */}
-    <IncidentsByStudentTable writeUps={data.writeUpResponse}/>
+    <IncidentsByStudentTable writeUps={data.writeUps}/>
 {/* </Card> */}
 
 
@@ -126,23 +129,26 @@ import "./teacher.css"
     </div>
     <div className='teacher-widget-half'>
 {/* <Card style={{padding:"5px"}}> */}
-<RecentIncidents data={data.punishmentResponse}/>
+<RecentIncidents data={data.punishments}/>
 {/* </Card> */}
 
 </div>
 
   </div>
 
-  <div className='section-title'>
-    <h2 >Longitudinal Reports</h2>
-  </div>
+  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+   <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
+"5px"}}>
+  Longitudinal Reports
+        </Typography>
+        </div>
 
 
-  <div className='dashboard-row'>
+  <div className='overview-row'>
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
 
-    { data ? <TotalReferralByWeek data={data.writeUpResponse}/> : <h1>loading</h1>}
+    { data ? <TotalReferralByWeek data={data.writeUps}/> : <h1>loading</h1>}
 
       {/* </Card> */}
 
@@ -151,13 +157,13 @@ import "./teacher.css"
     </div>
     <div className='teacher-widget-third'>
     {/* <Card style={{padding:"5px"}}> */}
-<TotalStudentReferredByWeek data={data.writeUpResponse}/>
+<TotalStudentReferredByWeek data={data.writeUps}/>
 {/* </Card> */}
 </div>
 
 <div className='teacher-widget-third'>
 {/* <Card style={{padding:"5px"}}> */}
-<ReferralByBehavior data={data.writeUpResponse}/>
+<ReferralByBehavior data={data.writeUps}/>
 {/* </Card> */}
 
 </div>
