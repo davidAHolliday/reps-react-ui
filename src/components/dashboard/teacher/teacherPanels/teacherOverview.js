@@ -78,26 +78,22 @@ import Button from '@mui/material/Button';
         </Card>
         </div>
 
-        {/* Title Cards */}
-
-        <Card>
-        <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+        {/* Title Cards */}   
+     <div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
    Week At a Glance
         </Typography>
-        </div>
-        </Card>
-         
+        </div>      
 
 
-  <div className="weekAtGlance" >
-    <div className='card-overview'>
+  <div className="overview-row" >
+    <div className='card-overview-half'>
         <PieChartParentCommunication data={weeklyDataIncSOBxConcern}/>
     </div>
 
 
-    <div className='card-overview'>
+    <div className='card-overview-half'>
     <TeacherInfractionOverPeriodBarChart data={weeklyData}/>
     </div>
 
@@ -105,7 +101,7 @@ import Button from '@mui/material/Button';
 
   </div>
 
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+  <div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
   Students of Concern
@@ -113,8 +109,8 @@ import Button from '@mui/material/Button';
         </div>
 
 
-  <div className='overview-row'>
-  <div className='card-overview'>
+        <div className="overview-row" >
+  <div className='card-overview-half'>
 <div className='studentIncidentTable'>
 {/* <Card style={{padding:"5px"}}> */}
     <IncidentsByStudentTable writeUps={data.writeUps}/>
@@ -124,7 +120,7 @@ import Button from '@mui/material/Button';
 </div>
 
     </div>
-    <div className='card-overview'>
+    <div className='card-overview-half'>
 {/* <Card style={{padding:"5px"}}> */}
 <RecentIncidents data={data.punishments}/>
 {/* </Card> */}
@@ -133,7 +129,9 @@ import Button from '@mui/material/Button';
 
   </div>
 
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+
+
+        <div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
   Longitudinal Reports
@@ -141,8 +139,11 @@ import Button from '@mui/material/Button';
         </div>
 
 
-  <div className='overview-row'>
-  <div className='card-overview'>
+
+
+
+        <div className="overview-row" >
+  <div className='card-overview-third'>
     {/* <Card style={{padding:"5px"}}> */}
 
     { data ? <TotalReferralByWeek data={data.writeUps}/> : <h1>loading</h1>}
@@ -152,13 +153,13 @@ import Button from '@mui/material/Button';
 
 
     </div>
-    <div className='card-overview'>
+    <div className='card-overview-third'>
     {/* <Card style={{padding:"5px"}}> */}
 <TotalStudentReferredByWeek data={data.writeUps}/>
 {/* </Card> */}
 </div>
 
-<div className='card-overview'>
+<div className='card-overview-third'>
 {/* <Card style={{padding:"5px"}}> */}
 <ReferralByBehavior data={data.writeUps}/>
 {/* </Card> */}
