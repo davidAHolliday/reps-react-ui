@@ -21,7 +21,7 @@ const TeacherShoutOutWidget = ({data = []}) => {
 <div className="bar-content">
 <ArrowDropDownCircleIcon 
 className='arrowIcon'
-style={{ transform: 'rotate(0deg)', cursor: 'pointer' }}
+style={{ transform: 'rotate(0deg)', cursor: 'pointer', marginTop:"3px" }}
 onClick={() => setBarOpen(true)}
 /> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
 
@@ -33,7 +33,7 @@ onClick={() => setBarOpen(true)}
 <div className="bar-content">
 <ArrowDropDownCircleIcon 
 className="arrowIcon"
-style={{ transform: 'rotate(180deg)', cursor: 'pointer' }}
+style={{ transform: 'rotate(180deg)', cursor: 'pointer', marginTop:"3px" }}
 onClick={() => setBarOpen(false)}
 /> <h5 style={{marginLeft:"20px"}}>Positive Behavior</h5>  </div>
 

@@ -93,29 +93,17 @@ const TeacherDashboard = () => {
   return (
     loggedIn && (
       <ThemeProvider theme={defaultTheme}>
-        <div 
-        >
+        <div>
       
-          {modalType === "contact" &&
-              <ContactUsModal setContactUsDisplayModal={setModalType} />
-        
-        }
+          {modalType === "contact" && <ContactUsModal setContactUsDisplayModal={setModalType} />}
 
-<NavigationLoggedIn toggleNotificationDrawer ={toggleNotificationDrawer } setModalType={setModalType} setPanelName={setPanelName}  setDropdown={setIsDropdownOpen} isDropdownOpen={isDropdownOpen} setLogin={handleLogout} />
+          <NavigationLoggedIn toggleNotificationDrawer ={toggleNotificationDrawer } setModalType={setModalType} setPanelName={setPanelName}  setDropdown={setIsDropdownOpen} isDropdownOpen={isDropdownOpen} setLogin={handleLogout} />
+      </div>
 
-         
-    
 
-      
-        </div>
-       <div className=''>
-      <div className=''> 
-      <div className = "">
-      <div style={{backgroundColor:"#5ca9fb", display:"none"}}className='teacher-main-content-menu'
-      >
-  
 
-  </div>
+      <div className = "header">
+
  { data.length===0 ? <LoadingWheelPanel/>:<div className='teacher-overview'>
   <div 
   style={{width: false ?"70%":"100%"}}
@@ -141,8 +129,8 @@ const TeacherDashboard = () => {
       
         <ISSWidget />
         </Drawer>
-      </div>
-      </div>
+
+   
       </ThemeProvider>
     )
   );
