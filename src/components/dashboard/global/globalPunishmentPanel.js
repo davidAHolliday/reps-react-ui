@@ -40,8 +40,6 @@ const defaultTheme = createTheme();
       
 
       const url = `${baseUrl}/DTO/v1/punishmentsDTO`;
-
-
       const urlArchive = `${baseUrl}/punish/v1/archived`;
 
       
