@@ -39,7 +39,7 @@ console.log(data, "FIND ME")
         <>
                         <div className='teacher-overview-first'>
         <Card variant="outlined">
-        <TeacherShoutOutWidget data={punishmentData}/>
+        <TeacherShoutOutWidget data={data}/>
         </Card>
         </div>
 
