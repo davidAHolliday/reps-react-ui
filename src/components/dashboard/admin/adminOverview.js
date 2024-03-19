@@ -46,7 +46,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     <div className='teacher-widget-third'>
       {/* <Card> */}
     <div style={{ textAlign:"center",marginTop:"10px"}}>
-<IncidentByStudentPieChart writeUps={writeUpData}/>
+{/* <IncidentByStudentPieChart writeUps={writeUpData}/> */}
 
 
     </div>
@@ -55,7 +55,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     <div className='teacher-widget-third'>
       <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
         {/* <Card> */}
-<IncidentsByStudentTable writeUps={writeUpData}/>
+{/* <IncidentsByStudentTable writeUps={writeUpData}/> */}
 {/* </Card> */}
       </div>
   
@@ -66,7 +66,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
 <div className='teacher-widget-third'>
 {/* <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'> */}
         {/* <Card> */}
-<TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
+{/* <TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/> */}
 {/* </Card> */}
       {/* </div> */}
   
@@ -88,7 +88,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     <div className='teacher-widget-third'>
     <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
-    <IncidentByTeacherPieChart data={punishmentData} teacherData={teacherData}/>
+    {/* <IncidentByTeacherPieChart data={punishmentData} teacherData={teacherData}/> */}
 </Card>
 
 
@@ -98,7 +98,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     <div className='teacher-widget-third'>
     <div  className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
-   {teacherData && <Top5TeacherRatioTable data={punishmentData} teacherData={teacherData}/>}
+   {/* {teacherData && <Top5TeacherRatioTable data={punishmentData} teacherData={teacherData}/>} */}
 </Card>
 </div>
     </div>
@@ -106,7 +106,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     <div className='teacher-widget-third'>
     <div className='infraction-bar-chart'>
 <Card style={{padding:"5px"}}>
-<WorseClassTable data={punishmentData} teacherData={teacherData}/>
+{/* <WorseClassTable data={punishmentData} teacherData={teacherData}/> */}
 </Card>
 
 </div>
@@ -127,7 +127,7 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
 
     <Card style={{padding:"5px"}}>
 
-      <TotalReferralByWeek data={punishmentData}/>
+      {/* <TotalReferralByWeek data={punishmentData}/> */}
 
       </Card>
 
@@ -136,13 +136,13 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
     </div>
     <div className='teacher-widget-third'>
     <Card style={{padding:"5px"}}>
-<TotalStudentReferredByWeek data={punishmentData}/>
+{/* <TotalStudentReferredByWeek data={punishmentData}/> */}
 </Card>
 </div>
 
 <div className='teacher-widget-third'>
 <Card style={{padding:"5px"}}>
-<ReferralByBehavior data={punishmentData}/>
+{/* <ReferralByBehavior data={punishmentData}/> */}
 </Card>
 
 </div>
