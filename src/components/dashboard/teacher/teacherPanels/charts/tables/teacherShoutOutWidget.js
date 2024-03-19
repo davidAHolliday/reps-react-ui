@@ -7,7 +7,9 @@ const TeacherShoutOutWidget = ({data = []}) => {
     const [barOpen,setBarOpen] = useState(true)
   
     //We need to fix the cfr issues
-	  const shoutOutData = data.filter(punish => punish.infractionName === "Positive Behavior Shout Out!");
+    console.log("shoutout", data)
+	  const shoutOutData = data
+    .filter(punish => punish?.infractionName === "Positive Behavior Shout Out!");
       
     const hasScroll = shoutOutData.length > 2;
 

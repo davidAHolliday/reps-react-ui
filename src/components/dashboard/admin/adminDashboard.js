@@ -120,7 +120,7 @@ if(panelName === "overview"){
       <div  style={{width: false ?"70%":"100%"}}
    className='left-main'>
 <div className = "main-content-panel">
-{punishmentData.length=== 0? <LoadingWheelPanel/> :panelName === "overview" &&<AdminOverviewPanel punishmentData={punishmentData} teacherData={teacherData} writeUpData={writeUpData}/>}
+{punishmentData.length=== 0? <LoadingWheelPanel/> :panelName === "overview" &&<AdminOverviewPanel data={punishmentData} teacherData={teacherData} writeUpData={writeUpData}/>}
 {panelName === "viewTeacher" &&<AdminTeacherPanel/>}
 {panelName === "student" &&<TeacherStudentPanel/>}
 {panelName === "punishment" &&<GlobalPunishmentPanel filter={punishmentFilter} />}

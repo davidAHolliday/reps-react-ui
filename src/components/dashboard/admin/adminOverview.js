@@ -12,19 +12,26 @@ import { WorseClassTable } from './widget/top-class-with-write-up';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teacherShoutOutWidget';
 
-   const AdminOverviewPanel = ({punishmentData = [],teacherData = [] , writeUpData=[]}) => {
+   const AdminOverviewPanel = ({data = [],teacherData = [] , writeUpData=[]}) => {
 
 
 //Fetch Data to Prop Drill to Componetns
 
 
 
- const weeklyDataIncSOBxConcern = punishmentData.filter((x) => {
+ const weeklyDataIncSOBxConcern = data.filter((x) => {
     const currentDate = new Date();
     const itemDate = new Date(x.timeCreated);
     const sevenDaysAgo = new Date(currentDate.setDate(currentDate.getDate() - 7));
     return itemDate > sevenDaysAgo;
 });
+
+let punishmentData = []
+
+data.forEach((x)=> punishmentData.push(x.punishment))
+console.log(data, "FIND ME")
+
+
 
 
     return (
@@ -34,121 +41,82 @@ import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teache
         <TeacherShoutOutWidget data={punishmentData}/>
         </Card>
         </div>
-         <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+
+
+        <div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
    Week At a Glance
         </Typography>
-        </div>
+        </div>   
 
 
-  <div className='overview-row'>
-    <div className='teacher-widget-third'>
-      {/* <Card> */}
-    <div style={{ textAlign:"center",marginTop:"10px"}}>
-{/* <IncidentByStudentPieChart writeUps={writeUpData}/> */}
+
+  <div className="overview-row" >
+
+    <div className='card-overview-third'>
+    <IncidentByStudentPieChart writeUps={writeUpData}/>
+    </div>
+
+    <div className='card-overview-third'>
+    <IncidentsByStudentTable writeUps={writeUpData}/>
+    </div>
+
+    <div className='card-overview-third'>
+    <TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/>
+    </div>
 
 
     </div>
-    {/* </Card> */}
-    </div>
-    <div className='teacher-widget-third'>
-      <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'>
-        {/* <Card> */}
-{/* <IncidentsByStudentTable writeUps={writeUpData}/> */}
-{/* </Card> */}
-      </div>
-  
 
-
-</div>
-
-<div className='teacher-widget-third'>
-{/* <div style={{overflowY:"auto",height:"100%"}} className='infraction-bar-chart'> */}
-        {/* <Card> */}
-{/* <TeacherInfractionOverPeriodBarChart data={weeklyDataIncSOBxConcern}/> */}
-{/* </Card> */}
-      {/* </div> */}
-  
-
-
-</div>
-
-  </div>
-
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+    <div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
   Coaching Information
         </Typography>
-        </div>
+        </div>   
 
+    <div className="overview-row" >
 
-  <div className='overview-row'>
-    <div className='teacher-widget-third'>
-    <div  className='infraction-bar-chart'>
-<Card style={{padding:"5px"}}>
-    {/* <IncidentByTeacherPieChart data={punishmentData} teacherData={teacherData}/> */}
-</Card>
+<div className='card-overview-third'>
+<IncidentByTeacherPieChart data={punishmentData} teacherData={teacherData}/>
+</div>
+
+<div className='card-overview-third'>
+{teacherData && <Top5TeacherRatioTable data={punishmentData} teacherData={teacherData}/>}
+</div>
+
+<div className='card-overview-third'>
+<WorseClassTable data={punishmentData} teacherData={teacherData}/>
+</div>
 
 
 </div>
 
-    </div>
-    <div className='teacher-widget-third'>
-    <div  className='infraction-bar-chart'>
-<Card style={{padding:"5px"}}>
-   {/* {teacherData && <Top5TeacherRatioTable data={punishmentData} teacherData={teacherData}/>} */}
-</Card>
-</div>
-    </div>
 
-    <div className='teacher-widget-third'>
-    <div className='infraction-bar-chart'>
-<Card style={{padding:"5px"}}>
-{/* <WorseClassTable data={punishmentData} teacherData={teacherData}/> */}
-</Card>
-
-</div>
-
-  </div>
-  </div>
-
-  <div style={{backgroundColor:"rgb(25, 118, 210)",marginTop:"10px", marginBlock:"5px"}}>
+<div className='card-title'>
    <Typography color="white" variant="h6" style={{ flexGrow: 1, outline:"1px solid  white",padding:
 "5px"}}>
   Longitudinal Reports
         </Typography>
-        </div>
+        </div>   
 
+        <div className="overview-row" >
 
-  <div className='overview-row'>
-    <div className='teacher-widget-third'>
-
-    <Card style={{padding:"5px"}}>
-
-      {/* <TotalReferralByWeek data={punishmentData}/> */}
-
-      </Card>
-
-
-
-    </div>
-    <div className='teacher-widget-third'>
-    <Card style={{padding:"5px"}}>
-{/* <TotalStudentReferredByWeek data={punishmentData}/> */}
-</Card>
+<div className='card-overview-third'>
+<TotalReferralByWeek data={punishmentData}/>
 </div>
 
-<div className='teacher-widget-third'>
-<Card style={{padding:"5px"}}>
-{/* <ReferralByBehavior data={punishmentData}/> */}
-</Card>
-
+<div className='card-overview-third'>
+<TotalStudentReferredByWeek data={punishmentData}/>
 </div>
 
-  </div>
+<div className='card-overview-third'>
+<ReferralByBehavior data={punishmentData}/>
+</div>
 
+
+</div>
   
     </>
     )
