@@ -12,6 +12,7 @@ import { WorseClassTable } from './widget/top-class-with-write-up';
 import { IncidentByStudentPieChart } from './widget/incident-by-student-pie-chart';
 import TeacherShoutOutWidget from '../teacher/teacherPanels/charts/tables/teacherShoutOutWidget';
 import "./admin.css"
+import AdminShoutOut from '../teacher/teacherPanels/charts/tables/adminShoutOutWidget copy';
 
    const AdminOverviewPanel = ({data = [],teacherData = [] , writeUpData=[]}) => {
 
@@ -39,7 +40,7 @@ console.log(data, "FIND ME")
         <>
                         <div className='teacher-overview-first'>
         <Card variant="outlined">
-        <TeacherShoutOutWidget data={data}/>
+        <AdminShoutOut data={data}/>
         </Card>
         </div>
 
