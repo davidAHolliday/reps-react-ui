@@ -19,8 +19,6 @@ import LoadingWheelPanel from '../student/blankPanelForTest.js';
 import "../teacher/teacherPanels/teacher.css"
 import { NavigationLoggedIn } from '../../landing/navigation-loggedIn.jsx';
 import { ThemeProvider } from '@emotion/react';
-import { createTheme } from '@material-ui/core';
-import { Navigation } from '../../landing/navigation.jsx';
 
 const TeacherDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -87,12 +85,11 @@ const TeacherDashboard = () => {
     }))
   }
 
-  const defaultTheme = createTheme();
 
 
   return (
     loggedIn && (
-      <ThemeProvider theme={defaultTheme}>
+      <div>
         <div>
       
           {modalType === "contact" && <ContactUsModal setContactUsDisplayModal={setModalType} />}
@@ -130,7 +127,7 @@ const TeacherDashboard = () => {
         </Drawer>
 
    
-      </ThemeProvider>
+      </div>
     )
   );
 };
