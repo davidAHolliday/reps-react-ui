@@ -73,21 +73,21 @@ const ShoutOutWidget: React.FC<ShoutOutWidgetProps> = ({
             {data.length > 0 ? (
               [...data].reverse().map((x, key) => (
                 <TableRow key={key.valueOf()}>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {dateCreateFormat(x.timeCreated)}
                   </TableCell>
 
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.infractionDescription}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.teacherEmail}
                   </TableCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={5} style={{ fontSize: "1.5rem" }}>
+                <TableCell colSpan={5} style={{ fontSize: "1.5rem", color: "#000" }}>
                   No Shout Out Yet, but im sure its coming!.
                 </TableCell>
               </TableRow>
