@@ -136,6 +136,8 @@ const StudentOpenPunishmentPanel: React.FC<StudentOpenProps> = ({
     );
   };
 
+  console.log('punishmentData', punishmentData);
+
   return (
     <>
       <div
@@ -246,26 +248,26 @@ const StudentOpenPunishmentPanel: React.FC<StudentOpenProps> = ({
                       {renderAssignmentAction(x)}
                     </Tooltip>
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     Office Referral
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.referralDescription[0]}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.infractionLevel}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.teacherEmail}
                   </TableCell>
 
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     <div style={{ display: "flex" }}>
                       {" "}
                       {dateCreateFormat(x.timeCreated)}
                     </div>
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     <div style={{ display: "flex" }}>
                       {" "}
                       {x.status === "PENDING" ? "" : calculateImportance(x)}
@@ -290,27 +292,27 @@ const StudentOpenPunishmentPanel: React.FC<StudentOpenProps> = ({
                       {renderInfractionAction(x)}
                     </Tooltip>
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.infractionName}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
-                    {x.infractionDescription[0]}
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
+                    {x.infractionDescription?.[0]}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.infractionLevel}
                   </TableCell>
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     {x.teacherEmail}
                   </TableCell>
 
-                  <TableCell style={{ fontSize: "1.5rem" }}>
+                  <TableCell style={{ fontSize: "1.5rem", color: "#000" }}>
                     <div style={{ display: "flex" }}>
                       {" "}
                       {dateCreateFormat(x.timeCreated)}
                     </div>
                   </TableCell>
                   <TableCell
-                    style={{ fontSize: "1.5rem", justifyContent: "center" }}
+                    style={{ fontSize: "1.5rem", justifyContent: "center", color: "#000" }}
                   >
                     <div style={{ display: "flex" }}>
                       {" "}
