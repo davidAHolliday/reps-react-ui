@@ -22,8 +22,9 @@ import { baseUrl } from "src/utils/jsonData";
 import axios from "axios";
 import { ClassRoster, Employee, Student } from "src/types/school.js";
 import { TeacherOverviewDto } from "src/types/responses.js";
+import GuidancePanelOverview from "../teacher/guidancePanelOverview";
 
-const TeacherDashboard = () => {
+const GuidanceDashboardV2 = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [data, setData] = useState<TeacherOverviewDto>({});
   const [teacher, setTeacher] = useState<Employee>();
@@ -36,7 +37,7 @@ const TeacherDashboard = () => {
   const [filteredStudentList, setFilteredStudentList] = useState([]); // Filtered list of students
 
   useEffect(() => {
-    if (localStorage.getItem("Authorization") === null) {
+    if (sessionStorage.getItem("Authorization") === null) {
       window.location.href = "/login";
     } else {
       setLoggedIn(true);
@@ -171,14 +172,14 @@ const TeacherDashboard = () => {
     return (
       <>
         {panelName === "overview" && data && (
-          <TeacherOverviewPanel
+          <GuidancePanelOverview
             setPanelName={setPanelName}
             data={data}
             students={filteredStudentList}
           />
         )}
         {panelName === "student" && (
-          <TeacherStudentPanel setPanelName={setPanelName} data={data} />
+          < GuidancePanelOverview setPanelName={setPanelName} data={data} />
         )}
         {panelName === "punishment" && (
           <GlobalPunishmentPanel roleType={"teacher"} />
@@ -200,4 +201,4 @@ const TeacherDashboard = () => {
   }
 };
 
-export default TeacherDashboard;
+export default GuidanceDashboardV2;
