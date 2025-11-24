@@ -62,13 +62,8 @@ export const NavigationLoggedIn: React.FC<NavigationLoggedInProps> = (
           <span className="icon-bar"></span>
         </button>
 
-        <a
-          className="navbar-brand page-scroll"
-          href="#page-top"
-          style={{ fontSize: 16 }}
-        >
-          Welcome {sessionStorage.getItem("userName")}!
-        </a>
+      
+       
 
         <div
           className="collapse navbar-collapse"

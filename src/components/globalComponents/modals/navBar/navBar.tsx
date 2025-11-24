@@ -98,6 +98,13 @@ const NavbarCustom: React.FC<NavBarProps> = ({
             <li>
               <div className="page-scroll" style={{ fontWeight: "bold" }}>
                 Welcome {sessionStorage.getItem("userName")}!
+                  <a
+          className="navbar-brand page-scroll"
+          href="#page-top"
+          style={{ fontSize: 16 }}
+        >
+          Welcome {sessionStorage.getItem("userName")}! 
+        </a>
               </div>
             </li>
 

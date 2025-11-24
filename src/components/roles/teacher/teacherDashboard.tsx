@@ -36,7 +36,7 @@ const TeacherDashboard = () => {
   const [filteredStudentList, setFilteredStudentList] = useState([]); // Filtered list of students
 
   useEffect(() => {
-    if (localStorage.getItem("Authorization") === null) {
+    if (sessionStorage.getItem("Authorization") === null) {
       window.location.href = "/login";
     } else {
       setLoggedIn(true);

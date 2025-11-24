@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "./landing.css";
 import { AccessibleDiv } from "src/utils/accessibleDiv";
+import axios from "axios";
+import { baseUrl } from "src/utils/jsonData";
 
 interface NavigationAdminProps {
   toggleNotificationDrawer: (open: boolean) => void;
@@ -36,6 +38,31 @@ export const NavigationAdmin: React.FC<NavigationAdminProps> = (props) => {
     props.setDropdown("");
   };
 
+
+const handleSendMail = () => {
+  const headers = {
+    Authorization: "Bearer " + sessionStorage.getItem("Authorization"),
+  };
+
+  axios.post(
+    `${baseUrl}/gmail/send-test`,
+    {
+      to: "jesucitasCafe@gmail.com",
+      subject: "REPS Test From My Own Email",
+      body: "Hello from Gmail PoC"
+      //from: "optional override"
+    },
+    { headers } // ✔ correct placement
+  )
+  .then(res => {
+    console.log("Email sent:", res.data);
+  })
+  .catch(err => {
+    console.error("Error sending email:", err);
+  });
+};
+
+
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div
@@ -63,6 +90,7 @@ export const NavigationAdmin: React.FC<NavigationAdminProps> = (props) => {
         >
           Welcome {sessionStorage.getItem("userName")}!
         </a>
+          <img onClick={handleSendMail} alt="env" height={'25'} src="/env.png"></img>
 
         <div
           className="collapse navbar-collapse"
