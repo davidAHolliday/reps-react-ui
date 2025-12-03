@@ -18,7 +18,7 @@ import {
 import {
   categoryBadgeGenerator,
   dateCreateFormat,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 import { get, handleLogout } from "src/utils/api/api";
 import { StudentDetailsModal } from "src/components/globalComponents/components/modals/studentDetailsModal";
 import NavbarCustom from "src/components/globalComponents/modals/navBar/navBar";

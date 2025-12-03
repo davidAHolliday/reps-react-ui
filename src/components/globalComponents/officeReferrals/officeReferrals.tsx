@@ -8,7 +8,7 @@ import {
   TableCell,
 } from "@mui/material";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
-import { dateCreateFormat } from "../../../helperFunctions/helperFunctions";
+import { dateCreateFormat } from "../../../helperComponents/helperComponents";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { baseUrl } from "src/utils/jsonData";
@@ -247,42 +247,67 @@ const OfficeReferrals: React.FC<OfficeReferralProps> = ({ data }) => {
                 .map((x, key) => (
                   <TableRow key={key.valueOf()}>
                     <TableCell
-                      style={{ width: "20%", fontSize: 18, color: "black", whiteSpace: "normal",
+                      style={{
+                        width: "20%",
+                        fontSize: 18,
+                        color: "black",
+                        whiteSpace: "normal",
                         wordWrap: "break-word",
                         textAlign: "center",
-                        verticalAlign: "middle"}}
+                        verticalAlign: "middle",
+                      }}
                     >
                       {dateCreateFormat(x.timeCreated)}
                     </TableCell>
                     <TableCell
-                      style={{ width: "20%", fontSize: 18, color: "black", whiteSpace: "normal",
+                      style={{
+                        width: "20%",
+                        fontSize: 18,
+                        color: "black",
+                        whiteSpace: "normal",
                         wordWrap: "break-word",
                         textAlign: "center",
-                        verticalAlign: "middle" }}
+                        verticalAlign: "middle",
+                      }}
                     >
                       {x.studentEmail}{" "}
                     </TableCell>
                     <TableCell
-                      style={{ width: "30%", fontSize: 18, color: "black", whiteSpace: "normal",
+                      style={{
+                        width: "30%",
+                        fontSize: 18,
+                        color: "black",
+                        whiteSpace: "normal",
                         wordWrap: "break-word",
                         textAlign: "center",
-                        verticalAlign: "middle" }}
+                        verticalAlign: "middle",
+                      }}
                     >
                       {x.referralDescription}
                     </TableCell>
                     <TableCell
-                      style={{ width: "30%", fontSize: 18, color: "black", whiteSpace: "normal",
+                      style={{
+                        width: "30%",
+                        fontSize: 18,
+                        color: "black",
+                        whiteSpace: "normal",
                         wordWrap: "break-word",
                         textAlign: "center",
-                        verticalAlign: "middle" }}
+                        verticalAlign: "middle",
+                      }}
                     >
                       {x.teacherEmail}
                     </TableCell>
                     <TableCell
-                      style={{ width: "30%", fontSize: 18, color: "black", whiteSpace: "normal",
+                      style={{
+                        width: "30%",
+                        fontSize: 18,
+                        color: "black",
+                        whiteSpace: "normal",
                         wordWrap: "break-word",
                         textAlign: "center",
-                        verticalAlign: "middle" }}
+                        verticalAlign: "middle",
+                      }}
                     >
                       <>
                         <button

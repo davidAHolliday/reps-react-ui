@@ -2,7 +2,7 @@ import React from "react";
 import ReactEcharts from "echarts-for-react";
 import "./CustomPieChart.css";
 import { OfficeReferral, TeacherDto } from "src/types/responses";
-import { countLast7Days } from "src/helperFunctions/helperFunctions";
+import { countLast7Days } from "src/helperComponents/helperComponents";
 
 interface AdminReferralByTypeProps {
   punishmentResponse: TeacherDto[];

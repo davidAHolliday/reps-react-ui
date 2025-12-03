@@ -15,6 +15,7 @@ import StudentReferralsByWeek from "../../globalComponents/dataDisplay/studentRe
 import StudentReferralsPieChart from "src/components/globalComponents/dataDisplay/studentReferralsPieChart";
 import { OfficeReferral, TeacherReferral } from "src/types/responses";
 import { School, Student } from "src/types/school";
+import { ZoomableCard } from "src/helperComponents/displayHelpers";
 
 const StudentDashboard = () => {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -120,7 +121,12 @@ const StudentDashboard = () => {
                     height: "200px",
                   }}
                 >
-                  <TotalPositivePoints data={studentDetails} school={school} />
+                  <ZoomableCard title="Total Positive Points">
+                    <TotalPositivePoints
+                      data={studentDetails}
+                      school={school}
+                    />
+                  </ZoomableCard>
                 </Card>
               </div>
             </div>
@@ -131,7 +137,12 @@ const StudentDashboard = () => {
                     style={{ minHeight: "200px", minWidth: "800px" }}
                     variant="outlined"
                   >
-                    <StudentReferralsByWeek data={punishments} />
+                    <ZoomableCard
+                      title="Referrals Over Time"
+                      className="student-referrals-by-week-card"
+                    >
+                      <StudentReferralsByWeek data={punishments} />
+                    </ZoomableCard>
                   </Card>
                 </div>
                 <div className="student-overview-first">
@@ -139,7 +150,12 @@ const StudentDashboard = () => {
                     style={{ minHeight: "200px", minWidth: "800px" }}
                     variant="outlined"
                   >
-                    <StudentReferralsPieChart data={punishments} />
+                    <ZoomableCard
+                      title="Referrals by Behavior"
+                      className="student-referrals-pie-card"
+                    >
+                      <StudentReferralsPieChart data={punishments} />
+                    </ZoomableCard>
                   </Card>
                 </div>
               </div>

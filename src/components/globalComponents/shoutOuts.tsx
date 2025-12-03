@@ -7,7 +7,7 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-import { dateCreateFormat } from "../../helperFunctions/helperFunctions";
+import { dateCreateFormat } from "../../helperComponents/helperComponents";
 import { AdminOverviewDto, TeacherOverviewDto } from "src/types/responses";
 
 interface ShoutOutsProps {

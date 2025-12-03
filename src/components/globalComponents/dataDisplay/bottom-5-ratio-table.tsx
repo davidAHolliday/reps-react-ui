@@ -8,7 +8,7 @@ import { ColDef } from "ag-grid-community";
 import {
   currentWeek,
   extractDataByWeek,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 
 interface Bottom4Props {
   punishmentResponse: TeacherDto[];

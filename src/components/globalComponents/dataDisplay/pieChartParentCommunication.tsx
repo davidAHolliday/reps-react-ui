@@ -4,7 +4,7 @@ import {
   TeacherDto,
   TeacherOverviewDto,
 } from "src/types/responses";
-import { countLast7Days } from "../../../helperFunctions/helperFunctions";
+import { countLast7Days } from "../../../helperComponents/helperComponents";
 
 interface PieChartParentCommunicationProps {
   data: TeacherOverviewDto;

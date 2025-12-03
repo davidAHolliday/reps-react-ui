@@ -8,7 +8,7 @@ import { ColDef } from "ag-grid-community";
 import {
   currentWeek,
   extractDataByWeek,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 
 interface Top5Props {
   punishmentResponse: TeacherDto[];
@@ -75,7 +75,7 @@ export const Top5TeacherRatioTable: React.FC<Top5Props> = ({
   return (
     <div
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <h3 style={{ textAlign: "center" }}>Most Positive</h3>

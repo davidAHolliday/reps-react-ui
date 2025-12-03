@@ -5,7 +5,7 @@ import ReactEcharts from "echarts-for-react";
 import {
   extractDataByWeek,
   getCurrentWeekOfYear,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 
 interface IncidentByTeacherPieProps {
   writeUpResponse: TeacherDto[];

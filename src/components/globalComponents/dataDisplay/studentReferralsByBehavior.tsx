@@ -3,7 +3,7 @@ import {
   getCurrentWeekOfYear,
   GenerateBxByWeek,
   GenerateChartData,
-} from "../../../helperFunctions/helperFunctions";
+} from "../../../helperComponents/helperComponents";
 import { useEffect, useState } from "react";
 import { TeacherReferral } from "src/types/responses";
 

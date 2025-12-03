@@ -5,7 +5,7 @@ import "ag-grid-community/styles/ag-theme-alpine.css"; // Using "alpine" for a m
 import {
   currentWeek,
   extractDataByWeek,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 import { Employee } from "src/types/school";
 import { TeacherDto } from "src/types/responses";
 import { ColDef, SizeColumnsToContentStrategy } from "ag-grid-community";
@@ -49,13 +49,16 @@ export const WorseClassTable: React.FC<WorseClassProps> = ({
     const weekData = extractDataByWeek(currentWeek, punishmentResponse);
     const negWriteUpData = weekData.filter(
       (item) =>
-        "infractionName" in item && item.infractionName !== "Positive Behavior Shout Out!" &&
+        "infractionName" in item &&
+        item.infractionName !== "Positive Behavior Shout Out!" &&
         item.teacherEmail === teacher.email
     );
 
     periods.forEach((period) => {
-      const count = negWriteUpData.filter((item) => item.classPeriod === period).length;
-  
+      const count = negWriteUpData.filter(
+        (item) => item.classPeriod === period
+      ).length;
+
       // Update if this teacher has more write-ups
       if (count > writeUpsByPeriod[period].count) {
         writeUpsByPeriod[period] = {
@@ -84,10 +87,12 @@ export const WorseClassTable: React.FC<WorseClassProps> = ({
   ];
 
   return (
-    <div style={{
-      width: "100%",
-      marginTop: "10px",
-    }}>
+    <div
+      style={{
+        width: "100%",
+        marginTop: "10px",
+      }}
+    >
       <h3 style={{ textAlign: "center", marginBottom: "10px" }}>
         Classes With Highest Write-Ups By Period
       </h3>

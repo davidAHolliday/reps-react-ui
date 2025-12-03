@@ -16,7 +16,7 @@ import axios from "axios";
 import TeacherProfileIncidentsByStudentTable from "./teacher_profile_widget_incident_table";
 import { TeacherProfileIncidentByStudentPieChart } from "./teacher_profile_widget_incident-pie";
 import { TeacherProfileSpotter } from "./teacher_profile_widget_spotter";
-import { dateCreateFormat } from "src/helperFunctions/helperFunctions";
+import { dateCreateFormat } from "src/helperComponents/helperComponents";
 import { AdminOverviewDto, TeacherReferral } from "src/types/responses";
 import { TeacherData } from "src/types/menus";
 import { Employee, Student } from "src/types/school";

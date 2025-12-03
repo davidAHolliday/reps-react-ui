@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
-import { OfficeReferral, StudentIncidentList, TeacherDto, TeacherReferral } from "src/types/responses";
+import {
+  OfficeReferral,
+  StudentIncidentList,
+  TeacherDto,
+  TeacherReferral,
+} from "src/types/responses";
 import {
   currentWeek,
   extractDataByWeek,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Student } from "src/types/school";
@@ -27,12 +32,12 @@ const IncidentsByStudentTable: React.FC<IncidentsByStudentTableProps> = ({
 
   useEffect(() => {
     // Handle null or undefined writeUpResponse and officeReferrals
-  const weekTmData = writeUpResponse
-  ? extractDataByWeek(currentWeek, writeUpResponse)
-  : [];
-const weekOmData = officeReferrals
-  ? extractDataByWeek(currentWeek, officeReferrals)
-  : [];
+    const weekTmData = writeUpResponse
+      ? extractDataByWeek(currentWeek, writeUpResponse)
+      : [];
+    const weekOmData = officeReferrals
+      ? extractDataByWeek(currentWeek, officeReferrals)
+      : [];
 
     // Combine weekTmData and weekOmData into one array
     const combinedWeekData = [...weekTmData, ...weekOmData];
@@ -41,24 +46,27 @@ const weekOmData = officeReferrals
     const studentIncidentMap: Record<string, StudentIncidentList> = {};
 
     // Loop through combinedWeekData to accumulate incident counts per student
-    combinedWeekData.forEach((incident: TeacherDto | TeacherReferral | OfficeReferral) => {
-      const teacherDtoIncident = incident as TeacherDto; // Type assertion here
+    combinedWeekData.forEach(
+      (incident: TeacherDto | TeacherReferral | OfficeReferral) => {
+        const teacherDtoIncident = incident as TeacherDto; // Type assertion here
 
-      const studentEmail = teacherDtoIncident.studentEmail || "Unknown";
-      const studentFirstName = teacherDtoIncident.studentFirstName || "Unknown";
-      const studentLastName = teacherDtoIncident.studentLastName || "";
+        const studentEmail = teacherDtoIncident.studentEmail || "Unknown";
+        const studentFirstName =
+          teacherDtoIncident.studentFirstName || "Unknown";
+        const studentLastName = teacherDtoIncident.studentLastName || "";
 
-      // If the student doesn't exist in the map, add them
-      if (!studentIncidentMap[studentEmail]) {
-        studentIncidentMap[studentEmail] = {
-          studentName: `${studentFirstName} ${studentLastName}`.trim(),
-          totalIncidents: 0,
-        };
+        // If the student doesn't exist in the map, add them
+        if (!studentIncidentMap[studentEmail]) {
+          studentIncidentMap[studentEmail] = {
+            studentName: `${studentFirstName} ${studentLastName}`.trim(),
+            totalIncidents: 0,
+          };
+        }
+
+        // Increment the total incidents count
+        studentIncidentMap[studentEmail].totalIncidents += 1;
       }
-
-      // Increment the total incidents count
-      studentIncidentMap[studentEmail].totalIncidents += 1;
-    });
+    );
 
     // Ensure all students from the `students` prop are included
     students?.forEach((student) => {
