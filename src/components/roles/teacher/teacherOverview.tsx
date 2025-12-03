@@ -23,7 +23,6 @@ const TeacherOverviewPanel: React.FC<TeacherOverviewProps> = ({
   data,
   students,
 }) => {
-  console.log("TeacherOverviewPanel RENDERED");
 
   const [openModal, setOpenModal] = useState({
     display: false,
@@ -48,7 +47,6 @@ const TeacherOverviewPanel: React.FC<TeacherOverviewProps> = ({
   return (
     <div
       className="dashboard-container"
-      style={{ border: "5px solid limegreen" }} // DEBUG
     >
       {openModal.display && (
         <div className="modal-overlay">
