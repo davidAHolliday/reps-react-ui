@@ -3,7 +3,7 @@ import {
   GenerateChartData,
   GenerateBxByWeek,
   getCurrentWeekOfYear,
-} from "../../../helperFunctions/helperFunctions";
+} from "../../../helperComponents/helperComponents";
 import { useEffect, useState } from "react";
 import { TeacherDto } from "src/types/responses";
 
@@ -196,11 +196,13 @@ export const ReferralByBehavior: React.FC<ReferralByBehaviorProps> = ({
   };
 
   return (
-    <div style={{
+    <div
+      style={{
         width: "100%", // Makes the chart fit the container's width
         height: "calc(50vh - 20px)", // Set a fixed height or use a percentage value (e.g., "50%")
         overflow: "auto", // Prevents overflow of the chart
-      }}>
+      }}
+    >
       <ReactEcharts
         option={option}
         style={{ width: "100%", height: "100%" }}

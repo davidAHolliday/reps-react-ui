@@ -12,6 +12,7 @@ import { AdminTeacherReferralByTypePieChart } from "src/components/globalCompone
 import { Bottom4PositiveTeacherTable } from "src/components/globalComponents/dataDisplay/bottom-5-ratio-table";
 import TeacherManagedReferralByLevelByWeek from "src/components/globalComponents/dataDisplay/teacherManagedReferralByLevelByWeek";
 import { AdminOverviewDto } from "src/types/responses";
+import { ZoomableCard } from "src/helperComponents/displayHelpers";
 
 interface AdminOverviewProps {
   adminDto: AdminOverviewDto;
@@ -55,59 +56,71 @@ const AdminOverviewPanel: React.FC<AdminOverviewProps> = ({ adminDto }) => {
         <div className="section-header">Week At a Glance</div>
         <div className="section-content">
           <div className="section-third">
-            <AdminSchoolReferralByTypePieChart
-              writeUpResponse={adminDto?.writeUpResponse || []}
-              shoutOutsResponse={adminDto?.shoutOutsResponse || []}
-              punishmentResponse={adminDto?.punishmentResponse || []}
-              officeReferrals={adminDto?.officeReferrals || []}
-            />
+            <ZoomableCard title="School Referrals by Type">
+              <AdminSchoolReferralByTypePieChart
+                writeUpResponse={adminDto?.writeUpResponse || []}
+                shoutOutsResponse={adminDto?.shoutOutsResponse || []}
+                punishmentResponse={adminDto?.punishmentResponse || []}
+                officeReferrals={adminDto?.officeReferrals || []}
+              />
+            </ZoomableCard>
           </div>
 
           <div className="section-third">
-            <AdminTeacherReferralByTypePieChart
-              writeUpResponse={adminDto.punishmentResponse}
-            />
+            <ZoomableCard title="Teacher Referrals by Type">
+              <AdminTeacherReferralByTypePieChart
+                writeUpResponse={adminDto.punishmentResponse}
+              />
+            </ZoomableCard>
           </div>
 
           <div className="section-third">
-            <TeacherInfractionOverPeriodBarChart
-              data={weeklyDataIncSOBxConcern}
-            />
+            <ZoomableCard title="Infractions Over Time (Last 7 Days)">
+              <TeacherInfractionOverPeriodBarChart
+                data={weeklyDataIncSOBxConcern}
+              />
+            </ZoomableCard>
           </div>
         </div>
 
         <div className="section-header">Coaching Information</div>
         <div className="section-content">
           <div className="section-third">
-            <IncidentByTeacherPieChart
-              writeUpResponse={adminDto.writeUpResponse}
-              officeReferrals={adminDto.officeReferrals}
-              teachers={adminDto.teachers}
-              teacher={adminDto.teacher}
-            />
+            <ZoomableCard title="Incidents by Teacher">
+              <IncidentByTeacherPieChart
+                writeUpResponse={adminDto.writeUpResponse}
+                officeReferrals={adminDto.officeReferrals}
+                teachers={adminDto.teachers}
+                teacher={adminDto.teacher}
+              />
+            </ZoomableCard>
           </div>
 
           <div className="section-third">
             {adminDto.teachers && (
-              <>
-                <Top5TeacherRatioTable
-                  punishmentResponse={adminDto.punishmentResponse}
-                  teachers={adminDto.teachers}
-                />
-                <br />
-                <Bottom4PositiveTeacherTable
-                  punishmentResponse={adminDto.punishmentResponse}
-                  teachers={adminDto.teachers}
-                />
-              </>
+              <ZoomableCard title="Teacher Ratios (Top & Bottom)">
+                <>
+                  <Top5TeacherRatioTable
+                    punishmentResponse={adminDto.punishmentResponse}
+                    teachers={adminDto.teachers}
+                  />
+                  <br />
+                  <Bottom4PositiveTeacherTable
+                    punishmentResponse={adminDto.punishmentResponse}
+                    teachers={adminDto.teachers}
+                  />
+                </>
+              </ZoomableCard>
             )}
           </div>
 
           <div className="section-third">
-            <WorseClassTable
-              punishmentResponse={adminDto.punishmentResponse}
-              teachers={adminDto.teachers}
-            />
+            <ZoomableCard title="Worst Classes">
+              <WorseClassTable
+                punishmentResponse={adminDto.punishmentResponse}
+                teachers={adminDto.teachers}
+              />
+            </ZoomableCard>
           </div>
         </div>
 
@@ -115,20 +128,26 @@ const AdminOverviewPanel: React.FC<AdminOverviewProps> = ({ adminDto }) => {
         <div className="section-header">Longitudinal Reports</div>
         <div className="section-content">
           <div className="section-third">
-            <TotalReferralByWeek
-              punishmentResponse={adminDto.punishmentResponse}
-              officeReferrals={adminDto.officeReferrals}
-            />
+            <ZoomableCard title="Total Referrals by Week">
+              <TotalReferralByWeek
+                punishmentResponse={adminDto.punishmentResponse}
+                officeReferrals={adminDto.officeReferrals}
+              />
+            </ZoomableCard>
           </div>
 
           <div className="section-third">
-            <TeacherManagedReferralByLevelByWeek
-              punishmentResponse={adminDto.punishmentResponse}
-            />
+            <ZoomableCard title="Teacher Managed Referrals by Level">
+              <TeacherManagedReferralByLevelByWeek
+                punishmentResponse={adminDto.punishmentResponse}
+              />
+            </ZoomableCard>
           </div>
 
           <div className="section-third">
-            <ReferralByBehavior data={adminDto.punishmentResponse} />
+            <ZoomableCard title="Referrals by Behavior">
+              <ReferralByBehavior data={adminDto.punishmentResponse} />
+            </ZoomableCard>
           </div>
         </div>
       </div>

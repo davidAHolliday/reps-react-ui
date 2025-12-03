@@ -5,7 +5,7 @@ import { TeacherDto } from "src/types/responses";
 import {
   countLast7Days,
   GenerateBxByWeek,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 
 interface AdminTeacherByTypeProps {
   writeUpResponse: TeacherDto[];

@@ -21,7 +21,7 @@ import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import { dateCreateFormat } from "../../../helperFunctions/helperFunctions";
+import { dateCreateFormat } from "../../../helperComponents/helperComponents";
 import LoadingWheelPanel from "../../roles/student/LoadingWheelPanel";
 import { PunishmentDto, TeacherReferral } from "src/types/responses";
 

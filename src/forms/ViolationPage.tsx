@@ -10,7 +10,7 @@ import {
   isTeacherReferral,
   getInfractionName,
   isOfficeReferral,
-} from "src/helperFunctions/helperFunctions";
+} from "src/helperComponents/helperComponents";
 import { Assignment } from "src/types/school";
 
 interface ViolationProps {

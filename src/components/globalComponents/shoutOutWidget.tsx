@@ -8,7 +8,7 @@ import {
   Paper,
 } from "@mui/material";
 import { TeacherReferral } from "src/types/responses";
-import { dateCreateFormat } from "../../helperFunctions/helperFunctions";
+import { dateCreateFormat } from "../../helperComponents/helperComponents";
 
 interface ShoutOutWidgetProps {
   listOfPunishments: TeacherReferral[];
@@ -87,7 +87,10 @@ const ShoutOutWidget: React.FC<ShoutOutWidgetProps> = ({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={5} style={{ fontSize: "1.5rem", color: "#000" }}>
+                <TableCell
+                  colSpan={5}
+                  style={{ fontSize: "1.5rem", color: "#000" }}
+                >
                   No Shout Out Yet, but im sure its coming!.
                 </TableCell>
               </TableRow>

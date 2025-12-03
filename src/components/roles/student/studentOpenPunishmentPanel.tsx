@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import WarningIcon from "@mui/icons-material/Warning";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import { dateCreateFormat } from "src/helperFunctions/helperFunctions";
+import { dateCreateFormat } from "src/helperComponents/helperComponents";
 import { OfficeReferral, TeacherReferral } from "src/types/responses";
 
 interface StudentOpenProps {
@@ -136,7 +136,7 @@ const StudentOpenPunishmentPanel: React.FC<StudentOpenProps> = ({
     );
   };
 
-  console.log('punishmentData', punishmentData);
+  console.log("punishmentData", punishmentData);
 
   return (
     <>
@@ -312,7 +312,11 @@ const StudentOpenPunishmentPanel: React.FC<StudentOpenProps> = ({
                     </div>
                   </TableCell>
                   <TableCell
-                    style={{ fontSize: "1.5rem", justifyContent: "center", color: "#000" }}
+                    style={{
+                      fontSize: "1.5rem",
+                      justifyContent: "center",
+                      color: "#000",
+                    }}
                   >
                     <div style={{ display: "flex" }}>
                       {" "}

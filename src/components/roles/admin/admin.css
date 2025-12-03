@@ -207,3 +207,83 @@
   margin-top: 10px;
   margin-block: 5px;
 }
+
+/* Wrapper around each widget */
+.zoomable-card-wrapper {
+  position: relative;
+}
+
+/* Where your actual table/chart sits */
+.zoomable-card-inner {
+  /* Optional: if you were using .clickable-card just for hover effects, move that here */
+  width: 100%;
+  height: 100%;
+}
+
+/* Tiny zoom button in the top-right corner */
+.zoomable-card-zoom-btn {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 2;
+
+  border: none;
+  border-radius: 999px;
+  padding: 0.15rem 0.4rem;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional hover state for zoom button */
+.zoomable-card-zoom-btn:hover {
+  background: #ffffff;
+}
+
+/* Dialog styles (unchanged from before) */
+.focus-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.focus-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.focus-content {
+  background: #ffffff;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 1100px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.focus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.focus-close-button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.focus-body {
+  flex: 1;
+  overflow: auto;
+}

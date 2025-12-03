@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { isDateInLast7Days } from "src/helperFunctions/helperFunctions";
+import { isDateInLast7Days } from "src/helperComponents/helperComponents";
 import ReactEcharts from "echarts-for-react";
 import { TeacherDto } from "src/types/responses";
 
