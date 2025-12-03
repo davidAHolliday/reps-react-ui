@@ -26,6 +26,7 @@ function App() {
       <Router>
         <div>
           <Routes>
+            <Route path="/sign-up" element={<Register />} />
             <Route path="/student-login" element={<SinglePageSignIn />} />
             <Route path="/login" element={<LandingPage />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
