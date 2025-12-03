@@ -72,7 +72,7 @@ const LandingPage = () => {
 
  const handleGoogleLogin = () => {
     // Replace with your actual backend URL
-    const backendUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const backendUrl = baseUrl || 'http://localhost:8080';
     window.location.href = `${backendUrl}/oauth2/authorization/google`;
   };
 
