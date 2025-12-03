@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./landing-01.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { baseUrl, redirectUrl } from "src/utils/jsonData";
+import { baseUrl } from "src/utils/jsonData";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { AccordionItem } from "./AccordianItem";
