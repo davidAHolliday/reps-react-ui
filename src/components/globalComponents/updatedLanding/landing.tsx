@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./landing-01.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "src/utils/jsonData";
+import { baseUrl, redirectUrl } from "src/utils/jsonData";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { AccordionItem } from "./AccordianItem";
@@ -72,7 +72,7 @@ const LandingPage = () => {
 
  const handleGoogleLogin = () => {
     // Replace with your actual backend URL
-    const backendUrl = baseUrl || 'http://localhost:8080';
+    const backendUrl = redirectUrl || 'http://localhost:8080';
     window.location.href = `${backendUrl}/oauth2/authorization/google`;
   };
 
