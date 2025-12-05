@@ -739,6 +739,8 @@ REPS transforms schools by making behavior management seamless, data-driven, and
   <div className="item">Analyics</div>
   <div className="item">Get in Touch</div>
   <div className="item">repsdiscipline@gmail.com</div>
+  <div className="item" style={{cursor: "pointer"}} onClick={()=>navigate("/privacy-policy")}>Privacy Policy</div>
+
 </div>
 
 
